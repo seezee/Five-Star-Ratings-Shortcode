@@ -302,7 +302,7 @@ class Five_Star_Ratings_Shortcode
                 esc_url( $this->assets_url ) . 'css/style' . $this->script_suffix . '.css',
                 array(),
                 esc_html( _FSRS_VERSION_ ),
-                all
+                'all'
             );
             wp_enqueue_style( $this->token . '-fsrs-style' );
         }

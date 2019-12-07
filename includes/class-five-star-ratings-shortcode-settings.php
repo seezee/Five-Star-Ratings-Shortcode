@@ -62,13 +62,15 @@ class Five_Star_Ratings_Shortcode_Settings
      */
     public function add_menu_item()
     {
-        $page = add_options_page(
-            __( 'Five Star Ratings Shortcode Settings', 'fsrs' ),
-            __( 'Five Star Ratings Shortcode Settings', 'fsrs' ),
-            'manage_options',
-            $this->parent->token,
-            array( $this, 'settings_page' )
-        );
+        if ( !fsrs_fs()->is__premium_only() ) {
+            $page = add_options_page(
+                __( 'Five Star Ratings Shortcode Documentation', 'fsrs' ),
+                __( 'Five Star Ratings Shortcode Documentation', 'fsrs' ),
+                'manage_options',
+                $this->parent->token,
+                array( $this, 'settings_page' )
+            );
+        }
         add_action( 'admin_print_styles-' . $page, array( $this, 'settings_assets' ) );
     }
     
@@ -105,103 +107,6 @@ class Five_Star_Ratings_Shortcode_Settings
      */
     private function settings_fields()
     {
-        
-        if ( !fsrs_fs()->can_use_premium_code() ) {
-            $settings['options'] = array(
-                'title'       => __( 'Options', 'fsrs' ),
-                'description' => __( 'Syntax and formatting options. All options are global,', 'fsrs' ) . ' <abbr>i.e.</abbr>, ' . __( 'they affect all star ratings on the site.', 'fsrs' ) . '
-		<details>
-		  <summary class="wp-admin-lite-blue">' . __( 'Shortcode Examples', 'fsrs' ) . '
-		  </summary>
-		  <div class="col col-2">
-			<div class="col__nobreak">
-			  <p>' . __( 'Shortcode syntax:', 'fsrs' ) . ' [rating stars=<em>int</em> half=<em>string|int|bool</em>]</p>
-			  <dl>
-				<dt>rating</dt>
-				<dd><em>(' . __( 'string', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'Initiates the shortcode.', 'fsrs' ) . '</dd>
-				<dt>stars</dt>
-				<dd><em>(' . __( 'integer', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'The quantity of whole stars to display.', 'fsrs' ) . '</dd>
-				<dt>half</dt>
-				<dd><em>(' . __( 'string|integer|boolean', 'fsrs' ) . ')</em> <em>(' . __( 'Optional', 'fsrs' ) . ')</em> ' . __( 'Whether to append a half-star.', 'fsrs' ) . ' <code>true</code>,  <code>yes</code>, ' . __( 'and', 'fsrs' ) . ' <code>1</code> ' . __( 'all resolve to', 'fsrs' ) . ' TRUE.  <code>false</code>,  <code>no</code>, ' . __( 'and', 'fsrs' ) . ' <code>0</code> ' . __( 'all resolve to', 'fsrs' ) . ' FALSE. ' . __( 'Defaults to', 'fsrs' ) . ' FALSE.</dd>
-			  </dl>
-			</div>
-			<div class="col__nobreak">
-			  <p>' . __( 'Assuming the default setting with', 'fsrs' ) . ' &ldquo;' . __( 'Number of Stars', 'fsrs' ) . '&rdquo; ' . __( 'set to 5, the following shortcodes will ouput as shown:', 'fsrs' ) . '<ul>
-				<li><code>[rating stars=3]</code> (Displays 3 stars out of 5)</li>  
-				<li><code>[rating stars=4 half=false]</code> (Displays 4 stars out of 5)</li>
-				<li><code>[rating stars=4 half=no]</code> (Displays 4 stars out of 5)</li>
-				<li><code>[rating stars=4 half=0]</code> (Displays 4 stars out of 5)</li>
-				<li><code>[rating stars=2 half=true]</code> (Displays 2½ stars out of 5)</li>
-				<li><code>[rating stars=2 half=yes]</code> (Displays 2½ stars out of 5)</li>
-				<li><code>[rating stars=2 half=1]</code> (Displays 2½ stars out of 5)</li>
-				<li><code>[rating stars=5 half=true]</code> (Incorrect usage but will display 5 stars out of 5)</li>
-			  </ul>
-			</div>
-		  </div>
-		</details>',
-                'fields'      => array(
-                array(
-                'id'          => 'syntax',
-                'label'       => __( 'Syntax', 'fsrs' ),
-                'description' => __( 'Choose <code>&lt;i&gt;</code> output for brevity or <code>&lt;span&gt</code> output for semantics. Default is <code>&lt;i&gt;</code>', 'fsrs' ),
-                'type'        => 'radio',
-                'options'     => array(
-                'i'    => '&lt;i&gt;',
-                'span' => '&lt;span&gt;',
-            ),
-                'default'     => '&lt;i&gt;',
-            ),
-                array(
-                'id'          => 'starsnum',
-                'label'       => __( 'Number of Stars', 'fsrs' ),
-                'description' => __( 'Change the maximum number of stars. Default is 5.', 'fsrs' ),
-                'type'        => 'range',
-                'min'         => '3',
-                'max'         => '10',
-                'default'     => '5',
-            ),
-                array(
-                'id'          => 'starcolor',
-                'label'       => __( 'Star Color', 'fsrs' ),
-                'description' => __( 'Change the star icon color. By default, the icons inherit their color.', 'fsrs' ),
-                'type'        => 'color',
-                'default'     => '',
-            ),
-                array(
-                'id'          => 'textcolor',
-                'label'       => __( 'Text Color', 'fsrs' ),
-                'description' => __( 'Change the numeric text color.   By default, the text inherits its color.', 'fsrs' ),
-                'type'        => 'color',
-                'default'     => '',
-            ),
-                array(
-                'id'          => 'size',
-                'label'       => __( 'Star Size', 'fsrs' ),
-                'description' => __( 'Change the star icon and text rating size. By default, the icons and text inherit their color.', 'fsrs' ),
-                'type'        => 'select',
-                'options'     => array(
-                ''       => __( 'Default', 'fsrs' ),
-                'fa-xs'  => __( 'Extra Small', 'fsrs' ),
-                'fa-sm'  => __( 'Small', 'fsrs' ),
-                'fa-lg'  => __( 'Large', 'fsrs' ),
-                'fa-2x'  => '2&times;',
-                'fa-3x'  => '3&times;',
-                'fa-4x'  => '4&times;',
-                'fa-5x'  => '5&times;',
-                'fa-6x'  => '6&times;',
-                'fa-7x'  => '7&times;',
-                'fa-8x'  => '8&times;',
-                'fa-9x'  => '9&times;',
-                'fa-10x' => '10&times;',
-            ),
-                ''            => 'Default',
-            )
-            ),
-            );
-            $settings = apply_filters( $this->parent->token . '_settings_fields', $settings );
-            return $settings;
-        }
-        
         $settings['documentation'] = array(
             'title'       => __( 'Documentation', 'fsrs' ),
             'description' => __( 'The FREE version of this plugin has no settings. For usage examples, see below.', 'fsrs' ) . '
@@ -234,13 +139,6 @@ class Five_Star_Ratings_Shortcode_Settings
 		</div>
 	  </div>
 	</details>',
-            'fields'      => array( array(
-            'id'          => '',
-            'label'       => '',
-            'description' => '',
-            'type'        => '',
-            'default'     => '',
-        ) ),
         );
         $settings = apply_filters( $this->parent->token . '_settings_fields', $settings );
         return $settings;
@@ -252,23 +150,8 @@ class Five_Star_Ratings_Shortcode_Settings
      */
     public function register_settings()
     {
-        
         if ( is_array( $this->settings ) ) {
-            // Check posted/selected tab
-            $current_section = '';
-            
-            if ( isset( $_POST['tab'] ) && $_POST['tab'] ) {
-                $current_section = $_POST['tab'];
-            } else {
-                if ( isset( $_GET['tab'] ) && $_GET['tab'] ) {
-                    $current_section = $_GET['tab'];
-                }
-            }
-            
             foreach ( $this->settings as $section => $data ) {
-                if ( $current_section && $current_section != $section ) {
-                    continue;
-                }
                 // Add section to page
                 add_settings_section(
                     $section,
@@ -276,40 +159,8 @@ class Five_Star_Ratings_Shortcode_Settings
                     array( $this, 'settings_section' ),
                     $this->parent->token . '_settings'
                 );
-                //if ( fsrs_fs()->is__premium_only() ) {
-                //if ( fsrs_fs()->can_use_premium_code() ) {
-                foreach ( $data['fields'] as $field ) {
-                    // Validation callback for field
-                    $validation = '';
-                    if ( isset( $field['callback'] ) ) {
-                        $validation = $field['callback'];
-                    }
-                    // Register field
-                    $option_name = _FSRS_BASE_ . $field['id'];
-                    register_setting( $this->parent->token . '_settings', $option_name, $validation );
-                    if ( !fsrs_fs()->can_use_premium_code() ) {
-                        // Add field to page
-                        add_settings_field(
-                            $field['id'],
-                            $field['label'],
-                            array( $this->parent->admin, 'display_field' ),
-                            $this->parent->token . '_settings',
-                            $section,
-                            array(
-                            'field'  => $field,
-                            'prefix' => _FSRS_BASE_,
-                        )
-                        );
-                    }
-                }
-                //}
-                //}
-                if ( !$current_section ) {
-                    break;
-                }
             }
         }
-    
     }
     
     public function settings_section( $section )
@@ -326,44 +177,9 @@ class Five_Star_Ratings_Shortcode_Settings
     {
         // Build page HTML
         $html = '<div class="wrap" id="' . $this->parent->token . '_settings">' . "\n";
-        $html .= '<h2>' . __( 'Five-Star Ratings Shortcode Settings', 'fsrs' ) . '</h2>' . "\n";
-        $tab = '';
-        if ( isset( $_GET['tab'] ) && $_GET['tab'] ) {
-            $tab .= $_GET['tab'];
+        if ( !fsrs_fs()->is__premium_only() ) {
+            $html .= '<h2>' . __( 'Five-Star Ratings Shortcode Documentation', 'fsrs' ) . '</h2>' . "\n";
         }
-        // Show page tabs
-        
-        if ( is_array( $this->settings ) && 1 < count( $this->settings ) ) {
-            $html .= '<h2 class="nav-tab-wrapper">' . "\n";
-            $c = 0;
-            foreach ( $this->settings as $section => $data ) {
-                // Set tab class
-                $class = 'nav-tab';
-                
-                if ( !isset( $_GET['tab'] ) ) {
-                    if ( 0 == $c ) {
-                        $class .= ' nav-tab-active';
-                    }
-                } else {
-                    if ( isset( $_GET['tab'] ) && $section == $_GET['tab'] ) {
-                        $class .= ' nav-tab-active';
-                    }
-                }
-                
-                // Set tab link
-                $tab_link = add_query_arg( array(
-                    'tab' => $section,
-                ) );
-                if ( isset( $_GET['settings-updated'] ) ) {
-                    $tab_link = remove_query_arg( 'settings-updated', $tab_link );
-                }
-                // Output tab
-                $html .= '<a href="' . $tab_link . '" class="' . esc_attr( $class ) . '">' . esc_html( $data['title'] ) . '</a>' . "\n";
-                ++$c;
-            }
-            $html .= '</h2>' . "\n";
-        }
-        
         $html .= '<form method="post" action="options.php" name="fsrsSettings" id="fsrsSettings" enctype="multipart/form-data">' . "\n";
         // Get settings fields
         ob_start();
