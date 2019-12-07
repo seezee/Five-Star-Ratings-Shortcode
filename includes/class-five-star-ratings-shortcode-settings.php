@@ -111,33 +111,44 @@ class Five_Star_Ratings_Shortcode_Settings
             'title'       => __( 'Documentation', 'fsrs' ),
             'description' => __( 'The FREE version of this plugin has no settings. For usage examples, see below.', 'fsrs' ) . '
 	<details>
-	  <summary class="wp-admin-lite-blue">' . __( 'Shortcode Examples', 'fsrs' ) . '
-	  </summary>
-	  <div class="col col-2">
-		<div class="col__nobreak">
-		  <p>' . __( 'Shortcode syntax:', 'fsrs' ) . ' [rating stars=<em>int</em> half=<em>string|int|bool</em>]</p>
-		  <dl>
-			<dt>rating</dt>
-			<dd><em>(' . __( 'string', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'Initiates the shortcode.', 'fsrs' ) . '</dd>
-			<dt>stars</dt>
-			<dd><em>(' . __( 'integer', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'The quantity of whole stars to display.', 'fsrs' ) . '</dd>
-			<dt>half</dt>
-			<dd><em>(' . __( 'string|integer|boolean', 'fsrs' ) . ')</em> <em>(' . __( 'Optional', 'fsrs' ) . ')</em> ' . __( 'Whether to append a half-star.', 'fsrs' ) . ' <code>true</code>,  <code>yes</code>, ' . __( 'and', 'fsrs' ) . ' <code>1</code> ' . __( 'all resolve to', 'fsrs' ) . ' TRUE.  <code>false</code>,  <code>no</code>, ' . __( 'and', 'fsrs' ) . ' <code>0</code> ' . __( 'all resolve to', 'fsrs' ) . ' FALSE. ' . __( 'Defaults to', 'fsrs' ) . ' FALSE.</dd>
-		  </dl>
+	<summary class="wp-admin-lite-blue">' . __( 'Shortcode Examples', 'fsrs' ) . '
+	</summary>
+		<div class="col col-2">
+			<div class="col__nobreak">
+				<p>' . __( 'Shortcode syntax:', 'fsrs' ) . ' [rating stars=<em>int</em> half=<em>string|int|bool</em>]</p>
+				<dl>
+					<dt>rating</dt>
+					<dd><em>(' . __( 'string', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'Initiates the shortcode.', 'fsrs' ) . '</dd>
+					<dt>stars</dt>
+					<dd><em>(' . __( 'integer', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'The quantity of whole stars to display.', 'fsrs' ) . '</dd>
+					<dt>half</dt>
+					<dd><em>(' . __( 'string|integer|boolean', 'fsrs' ) . ')</em> <em>(' . __( 'Optional', 'fsrs' ) . ')</em> ' . __( 'Whether to append a half-star.', 'fsrs' ) . ' <code>true</code>,  <code>yes</code>, ' . __( 'and', 'fsrs' ) . ' <code>1</code> ' . __( 'all resolve to', 'fsrs' ) . ' TRUE.  <code>false</code>,  <code>no</code>, ' . __( 'and', 'fsrs' ) . ' <code>0</code> ' . __( 'all resolve to', 'fsrs' ) . ' FALSE. ' . __( 'Defaults to', 'fsrs' ) . ' FALSE.</dd>
+				</dl>
+			</div>
+			<div class="col__nobreak">
+				<p>' . __( 'The following shortcodes will ouput as shown:', 'fsrs' ) . '<ul>
+					<li><code>[rating stars=3]</code> (' . __( 'Displays 3 stars out of 5', 'fsrs' ) . ')</li>
+					<li><code>[rating stars=4 half=false]</code> (' . __( 'Displays 4 stars out of 5', 'fsrs' ) . ')</li>
+					<li><code>[rating stars=4 half=no]</code> (' . __( 'Displays 4 stars out of 5', 'fsrs' ) . ')</li>
+					<li><code>[rating stars=4 half=0]</code> (' . __( 'Displays 4 stars out of 5', 'fsrs' ) . ')</li>
+					<li><code>[rating stars=2 half=true]</code> (' . __( 'Displays 2', 'fsrs' ) . '&frac12 ' . __( 'stars out of 5', 'fsrs' ) . ')</li>
+					<li><code>[rating stars=2 half=yes]</code> (' . __( 'Displays 2', 'fsrs' ) . '&frac12 ' . __( 'stars out of 5', 'fsrs' ) . ')</li>
+					<li><code>[rating stars=2 half=1]</code> (' . __( 'Displays 2', 'fsrs' ) . '&frac12 ' . __( 'stars out of 5', 'fsrs' ) . ')</li>
+					<li><code>[rating stars=5 half=true]</code> (' . __( 'Incorrect usage but will display 5 stars out of 5', 'fsrs' ) . ')</li>
+				</ul>
+			</div>
 		</div>
-		<div class="col__nobreak">
-		  <p>' . __( 'The following shortcodes will ouput as shown:', 'fsrs' ) . '<ul>
-			<li><code>[rating stars=3]</code> (Displays 3 stars out of 5)</li>  
-			<li><code>[rating stars=4 half=false]</code> (Displays 4 stars out of 5)</li>
-			<li><code>[rating stars=4 half=no]</code> (Displays 4 stars out of 5)</li>
-			<li><code>[rating stars=4 half=0]</code> (Displays 4 stars out of 5)</li>
-			<li><code>[rating stars=2 half=true]</code> (Displays 2½ stars out of 5)</li>
-			<li><code>[rating stars=2 half=yes]</code> (Displays 2½ stars out of 5)</li>
-			<li><code>[rating stars=2 half=1]</code> (Displays 2½ stars out of 5)</li>
-			<li><code>[rating stars=5 half=true]</code> (Incorrect usage but will display 5 stars out of 5)</li>
-		  </ul>
-		</div>
-	  </div>
+	</details>
+	<details>
+	<summary class="wp-admin-lite-blue">' . __( 'PRO Only Features', 'fsrs' ) . '
+	</summary>
+		<ul>
+			<li>' . __( 'Custom icon colors', 'fsrs' ) . '</li>
+			<li>' . __( 'Custom text colors', 'fsrs' ) . '</li>
+			<li>' . __( 'Custom icon and text sizes', 'fsrs' ) . '</li>
+			<li>' . __( 'Change star display quantity from', 'fsrs' ) . ' 3 &ndash; 10</li>
+			<li>' . __( 'Custom syntax', 'fsrs' ) . ' (<code>&lt;i&gt;</code> ' . __( 'or', 'fsrs' ) . ' <code>&lt;span&gt;</code>)</li>
+		</ul>
 	</details>',
         );
         $settings = apply_filters( $this->parent->token . '_settings_fields', $settings );

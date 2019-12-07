@@ -71,8 +71,6 @@ const  _FSRS_VERSION_ = '1.0.0' ;
 require_once 'includes/class-five-star-ratings-shortcode.php';
 require_once 'includes/class-five-star-ratings-shortcode-meta.php';
 require_once 'includes/class-five-star-ratings-shortcode-settings.php';
-// Load plugin library.
-require_once 'includes/lib/class-five-star-ratings-shortcode-admin-api.php';
 /**
  * Returns the main instance of five_star_ratings_shortcode Settings to prevent the need to use
  * globals.
@@ -107,13 +105,17 @@ function fsrs_check_version()
             // Show only on settings pages.
             return;
         }
-        // Notice for FREE users.
-        $html = '<div id="updated" class="notice notice-success is-dismissible">';
-        $html .= '<p>';
-        $html .= '<span class="dashicons dashicons-yes-alt"></span> ' . __( 'Five-Star Ratings Shortcode updated successfully. For custom colors and sizes or to change the total quantity of stars displayed, please upgrade to', 'fsrs' ) . ' <a href="' . esc_url( '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/licenses/1/' ) . '" rel="noopener noreferrer">Five-Star Ratings Shortcode PRO</a>. ' . __( 'Not sure if you need those features? We have a', 'fsrs' ) . ' <a href="' . esc_url( '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/?trial=free" rel="noopener noreferrer' ) . '">' . __( 'FREE 14-day trial.', 'fsrs' ) . '</a>';
-        $html .= '</p>';
-        $html .= '</div>';
-        echo  $html ;
+        
+        if ( fsrs_fs()->is_not_paying() ) {
+            // Notice for FREE users.
+            $html = '<div id="updated" class="notice notice-success is-dismissible">';
+            $html .= '<p>';
+            $html .= '<span class="dashicons dashicons-yes-alt"></span> ' . __( 'Five-Star Ratings Shortcode updated successfully. For custom colors and sizes or to change the total quantity of stars displayed, please upgrade to', 'fsrs' ) . ' <a href="' . esc_url( '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/licenses/1/' ) . '" rel="noopener noreferrer">Five-Star Ratings Shortcode PRO</a>. ' . __( 'Not sure if you need those features? We have a', 'fsrs' ) . ' <a href="' . esc_url( '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/?trial=free" rel="noopener noreferrer' ) . '">' . __( 'FREE 14-day trial.', 'fsrs' ) . '</a>';
+            $html .= '</p>';
+            $html .= '</div>';
+            echo  $html ;
+        }
+        
         update_option( _FSRS_BASE_ . 'version', _VERSION_ );
     }
 
