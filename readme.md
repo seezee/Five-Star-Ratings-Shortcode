@@ -3,11 +3,11 @@ Contributors: seezee
 Donate link: https://messengerwebdesign.com/donate  
 Author URI: https://github.com/seezee  
 Plugin URI: https://wordpress.org/plugins/five-star-ratings-plugin/  
-Tags: wordpress, plugin, fonts, webfonts, performance, UX  
+Tags:  wordpress, plugin, ratings, stars, icon, shortcode, accessible 
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 1.0.1  
+Stable tag: 1.0.2  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -17,8 +17,8 @@ GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin
 Add accessible, attractive 5-star ratings anywhere on your site with a simple shortcode. The plugin uses Font Awesome icons via their SVG + JavaScript method.
 
 [![RIPS CodeRisk](https://coderisk.com/wp/plugin/five-star-ratings-plugin/badge "RIPS CodeRisk")](https://coderisk.com/wp/plugin/five-star-ratings-plugin)
-[![WP compatibility](https://plugintests.com/plugins/five-star-ratings-plugin/wp-badge.svg)](https://plugintests.com/plugins/five-star-ratings-plugin/latest)
-[![PHP compatibility](https://plugintests.com/plugins/five-star-ratings-plugin/php-badge.svg)](https://plugintests.com/plugins/five-star-ratings-plugin/latest)
+[![WP compatibility](https://plugintests.com/plugins/five-star-ratings-shortcode/wp-badge.svg)](https://plugintests.com/plugins/five-star-ratings-shortcode/latest)
+[![PHP compatibility](https://plugintests.com/plugins/five-star-ratings-shortcode/php-badge.svg)](https://plugintests.com/plugins/five-star-ratings-shortcode/latest)
 
 == Acknowledgement ==
 
@@ -106,6 +106,11 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.0.2 =
+* 2019-06-13
+* Correct plugin tags
+* Correct badge links in readme.md
+
 = 1.0.1 =
 * 2019-06-13
 * BUGFIX: Fix incorrect _VERSION_ constant; should be _FSRS_VERSION_
@@ -122,9 +127,10 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 1.0.1 =
+= 1.0.2 =
 * 2019-06-13
-* BUGFIX: Fix incorrect _VERSION_ constant; should be _FSRS_VERSION_
+* Correct plugin tags
+* Correct badge links in readme.md
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 
