@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Five-Star Ratings Shortcode
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
  * GitHub Plugin URI: seezee/five-star-ratings-shortcode  
@@ -76,7 +76,7 @@ if ( !defined( '_FSRS_BASE_' ) ) {
 
 
 if ( !defined( '_FSRS_VERSION_' ) ) {
-    define( '_FSRS_VERSION_', '1.0.0' );
+    define( '_FSRS_VERSION_', '1.0.1' );
 } else {
     echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . __( 'Five-Star Ratings Shortcode ERROR! The <abbr>PHP</abbr> constant', 'fsrs' ) . ' &ldquo;_FSRS_VERSION_&rdquo; ' . __( 'has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'fsrs' ) . '</div>' ;
 }
@@ -119,7 +119,7 @@ five_star_ratings_shortcode();
 function fsrs_check_version()
 {
     
-    if ( _VERSION_ !== get_option( _FSRS_BASE_ . 'version' ) || get_option( _FSRS_BASE_ . 'version' ) == FALSE ) {
+    if ( _FSRS_VERSION_ !== get_option( _FSRS_BASE_ . 'version' ) || get_option( _FSRS_BASE_ . 'version' ) == FALSE ) {
         // Runs if version mismatch or doesn't exist.
         // $pagenow is a global variable referring to the filename of the
         // current page, such as ‘admin.php’, ‘post-new.php’.
@@ -155,7 +155,7 @@ function fsrs_check_version()
             echo  $html ;
         }
         
-        update_option( _FSRS_BASE_ . 'version', _VERSION_ );
+        update_option( _FSRS_BASE_ . 'version', _FSRS_VERSION_ );
     }
 
 }

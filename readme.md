@@ -7,7 +7,7 @@ Tags: wordpress, plugin, fonts, webfonts, performance, UX
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 1.0.0  
+Stable tag: 1.0.1  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -70,7 +70,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 [rating stars=3] (Displays 3 stars out of 5)  
 [rating stars=2 half=true] (Displays 2½ stars out of 5)  
 [rating stars=4 half=false] (Displays 4 stars out of 5)  
-[rating stars=5 half=true] (Incorrect usage but will display 5 stars out of 5) 
+[rating stars=5 half=true] (Incorrect usage but will display 5 stars out of 5)  
 
 PRO users can change the number of stars (from 3 – 10) on the settings page.
 
@@ -106,6 +106,10 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.0.1 =
+* 2019-06-13
+* BUGFIX: Fix incorrect _VERSION_ constant; should be _FSRS_VERSION_
+
 = 1.0.0 =
 * 2019-06-13
 * Initial release
@@ -118,9 +122,9 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 1.0.0 =
+= 1.0.1 =
 * 2019-06-13
-* Initial release
+* BUGFIX: Fix incorrect _VERSION_ constant; should be _FSRS_VERSION_
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 

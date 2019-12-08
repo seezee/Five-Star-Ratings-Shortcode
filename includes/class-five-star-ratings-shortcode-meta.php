@@ -94,7 +94,7 @@ class Five_Star_Ratings_Shortcode_Meta {
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of Five_Star_Ratings_Shortcode_Meta is forbidden.', 'wp-foft-loader' ), esc_attr( _VERSION_ ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of Five_Star_Ratings_Shortcode_Meta is forbidden.', 'wp-foft-loader' ), esc_attr( _FSRS_VERSION_ ) );
 	} // End __clone()
 
 	/**
@@ -103,7 +103,7 @@ class Five_Star_Ratings_Shortcode_Meta {
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of Five_Star_Ratings_Shortcode_Meta is forbidden.' ), esc_attr( _VERSION_ ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of Five_Star_Ratings_Shortcode_Meta is forbidden.' ), esc_attr( _FSRS_VERSION_ ) );
 	} // End __wakeup()
 
 }
