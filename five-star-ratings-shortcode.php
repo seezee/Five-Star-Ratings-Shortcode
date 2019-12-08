@@ -34,25 +34,26 @@ if ( !function_exists( 'fsrs_fs' ) ) {
             // Include Freemius SDK.
             require_once dirname( __FILE__ ) . '/freemius/start.php';
             $fsrs_fs = fs_dynamic_init( array(
-                'id'             => '5125',
-                'slug'           => 'five-star-ratings-shortcode',
-                'type'           => 'plugin',
-                'public_key'     => 'pk_9847875a95be002fa7fedc9eb5bc9',
-                'is_premium'     => false,
-                'premium_suffix' => 'Five-Star Ratings Shorcode PRO',
-                'has_addons'     => false,
-                'has_paid_plans' => true,
-                'trial'          => array(
+                'id'              => '5125',
+                'slug'            => 'five-star-ratings-shortcode',
+                'type'            => 'plugin',
+                'public_key'      => 'pk_9847875a95be002fa7fedc9eb5bc9',
+                'is_premium'      => false,
+                'premium_suffix'  => 'PRO',
+                'has_addons'      => false,
+                'has_paid_plans'  => true,
+                'trial'           => array(
                 'days'               => 14,
                 'is_require_payment' => false,
             ),
-                'menu'           => array(
+                'has_affiliation' => 'all',
+                'menu'            => array(
                 'slug'   => 'five-star-ratings-shortcode',
                 'parent' => array(
                 'slug' => 'options-general.php',
             ),
             ),
-                'is_live'        => true,
+                'is_live'         => true,
             ) );
         }
         
@@ -66,11 +67,33 @@ if ( !function_exists( 'fsrs_fs' ) ) {
 }
 
 // Plugin constants.
-const  _FSRS_BASE_ = 'fsrs_' ;
-const  _FSRS_VERSION_ = '1.0.0' ;
+
+if ( !defined( '_FSRS_BASE_' ) ) {
+    define( '_FSRS_BASE_', 'fsrs_' );
+} else {
+    echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . __( 'Five-Star Ratings Shortcode ERROR! The <abbr>PHP</abbr> constant', 'fsrs' ) . ' &ldquo;_FSRS_BASE_&rdquo; ' . __( 'has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'fsrs' ) . '</div>' ;
+}
+
+
+if ( !defined( '_FSRS_VERSION_' ) ) {
+    define( '_FSRS_VERSION_', '1.0.0' );
+} else {
+    echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . __( 'Five-Star Ratings Shortcode ERROR! The <abbr>PHP</abbr> constant', 'fsrs' ) . ' &ldquo;_FSRS_VERSION_&rdquo; ' . __( 'has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'fsrs' ) . '</div>' ;
+}
+
+// Load plugin class files.
 require_once 'includes/class-five-star-ratings-shortcode.php';
 require_once 'includes/class-five-star-ratings-shortcode-meta.php';
 require_once 'includes/class-five-star-ratings-shortcode-settings.php';
+// This IF block will be auto removed from the Free version.
+
+if ( fsrs_fs()->is__premium_only() && fsrs_fs()->can_use_premium_code() ) {
+    // This IF block will be auto removed from the Free version & will be executed only if the user in a trial mode or have a valid license.
+    require_once 'includes/class-five-star-ratings-shortcode-head.php';
+    // Load plugin library.
+    require_once 'includes/lib/class-five-star-ratings-shortcode-admin-api.php';
+}
+
 /**
  * Returns the main instance of five_star_ratings_shortcode Settings to prevent the need to use
  * globals.
@@ -106,7 +129,23 @@ function fsrs_check_version()
             return;
         }
         
-        if ( fsrs_fs()->is_not_paying() ) {
+        if ( fsrs_fs()->is__premium_only() && fsrs_fs()->can_use_premium_code() ) {
+            // Notice for PRO users.
+            $html = '<div id="updated" class="notice notice-success is-dismissible">';
+            $html .= '<p>';
+            $html .= __( '<span class="dashicons dashicons-yes-alt"></span> Five-Star Ratings Shortcode PRO updated successfully!', 'fsrs' );
+            $html .= '</p>';
+            $html .= '</div>';
+            echo  $html ;
+        } elseif ( fsrs_fs()->is__premium_only() && !fsrs_fs()->can_use_premium_code() ) {
+            // Notice for PRO users who have not activated their licenses.
+            $html = '<div id="updated" class="notice notice-success is-dismissible">';
+            $html .= '<p>';
+            $html .= __( '<span class="dashicons dashicons-yes-alt"></span> Five-Star Ratings Shortcode PRO updated successfully! <a href="' . esc_url( 'options-general.php?page=' . $this->parent->token ) . '-account">' . __( 'Please activate your license', 'fsrs' ) . '</a> to enable PRO features.', 'fsrs' );
+            $html .= '</p>';
+            $html .= '</div>';
+            echo  $html ;
+        } else {
             // Notice for FREE users.
             $html = '<div id="updated" class="notice notice-success is-dismissible">';
             $html .= '<p>';
