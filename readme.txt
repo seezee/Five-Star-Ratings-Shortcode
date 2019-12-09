@@ -7,7 +7,7 @@ Tags: wordpress, plugin, ratings, stars, icon, shortcode, accessible
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 1.0.2  
+Stable tag: 1.0.3  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -109,6 +109,13 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.0.3 =
+* 2019-06-14
+* BUGFIX: Fix options not displaying for PRO plugin
+* BUGFIX: Fix incorrect class in ratings text output
+* Refactor shortcode: remove "half" attribute & use float instead
+* Remove unused admin CSS rules
+
 = 1.0.2 =
 * 2019-06-13
 * Correct plugin tags
@@ -128,9 +135,11 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 1.0.2 =
-* 2019-06-13
-* Correct plugin tags
-* Correct badge links in readme.md
+= 1.0.3 =
+* 2019-06-14
+* BUGFIX: Fix options not displaying for PRO plugin
+* BUGFIX: Fix incorrect class in ratings text output
+* Refactor shortcode: remove "half" attribute & use float instead
+* Remove unused admin CSS rules
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

@@ -337,16 +337,15 @@ class Five_Star_Ratings_Shortcode {
 	 * @since   1.0.0
 	 * @return  void
 	 */
-
 	public static function rating( $atts ) {
 		$arr = array();
 		if ( get_option(_FSRS_BASE_ . 'syntax' ) != NULL ) {
 			$syntax = get_option( _FSRS_BASE_ . 'syntax' );
-		} else $syntax   = 'i';
+		} else $syntax   = 'i'; // Default syntax.
 
 		if ( get_option(_FSRS_BASE_ . 'starsnum' ) != NULL ) {
 			$starsnum = get_option( _FSRS_BASE_ . 'starsnum' );
-		} else $starsnum   = '5';
+		} else $starsnum   = '5'; // Default value; also the only value for the FREE plugin.
 
 		if ( get_option(_FSRS_BASE_ . 'size' ) != NULL ) {
 			$size = get_option( _FSRS_BASE_ . 'size' );
@@ -354,27 +353,34 @@ class Five_Star_Ratings_Shortcode {
 
 		$rating = shortcode_atts( array(
 			'stars'  => '',
-			'half'   => 'false',
 		), $atts );
-		// Using the frfs prefix to avoid collisions.
-		$star      = esc_attr($rating['stars']);
-		$stars     = str_repeat('<' . $syntax . ' class="fsrs-fas fa-fw fa-star ' . $size . '"></' . $syntax .  '>', $star);
-		$half      = esc_attr($rating['half']);
-		$halfstar  = '<' . $syntax . ' class="fsrs-fas fa-fw fa-star-half-alt ' . $size . '"></' . $syntax . '>';
-		$dif       = wp_kses( $starsnum, $arr ) - esc_attr($rating['stars']);
-		$empty     = str_repeat('<' . $syntax . ' class="fsrs-far fa-fw fa-star ' . $size . '"></' . $syntax . '>', $dif);
-		$difhalf   = ( wp_kses( $starsnum, $arr ) - 1 ) - esc_attr($rating['stars']);
-		if ( $difhalf >= 0 ) {
-			$emptyhalf = str_repeat('<' . $syntax . ' class="fsrs-far fa-fw fa-star ' . $size . '"></' . $syntax . '>', $difhalf);
-		}
-		if ( ( $half === 'false' ) || ( $half === 'no' ) || ( $half === FALSE ) || ( $half === '0' ) || ( $half === 0 ) || ( $half === NULL ) ) {
-			return '<span class="fsrs"><span class="fsrs-stars">' . $stars . $empty . '</span><span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">' . $star .'.0 out of ' . wp_kses( $starsnum, $arr ) . '</span> <span class="lining fsrs-text fsrs-text__hidden" aria-hidden="true">' . $star .'.0</span></span>';
-		}
-		elseif ( ( ( $half === 'true' ) || ( $half === 'yes' ) || ( $half === TRUE ) || ( $half === '1' ) || ( $half === 1 ) ) && ( $star < wp_kses( $starsnum, $arr ) ) ) {
-			return '<span class="fsrs"><span class="fsrs-stars">' . $stars . $halfstar . $emptyhalf . '</span><span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">' . $star .'.5 out of ' . wp_kses( $starsnum, $arr ) . '</span> <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">' . $star .'.5</span></span>';
-		} else {
-			// $starsnum stars is maximum. $starsnum + ½ stars outputs $starsnum stars.
-			return '<span class="fsrs"><span class="fsrs-stars">' . $stars . $empty . '</span><span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">' . wp_kses( $starsnum, $arr ) . '.0 out of ' .wp_kses( $starsnum, $arr ) . '</span> <span class="lining fsrs-text fsrs-text__hidden" aria-hidden="true">5.0</span></span>';
+		// Get the value and trim the float
+		$star          = esc_attr( $rating['stars'] );
+		$parts         = explode( '.', $star );
+		array_pop( $parts) ;
+		$startrim      = implode( '.', $parts );
+		// Recast to integer.
+		$startrim      = (int)$startrim;
+		// How many whole stars?
+		$stars         = str_repeat('<' . $syntax . ' class="fsrs-fas fa-fw fa-star ' . $size . '"></' . $syntax .  '>', $startrim);
+		// How many leftover stars if there is no half star?
+		$dif           = wp_kses( $starsnum, $arr ) - $startrim;
+		// Output for the half star.
+		$halfstar      = '<' . $syntax . ' class="fsrs-fas fa-fw fa-star-half-alt ' . $size . '"></' . $syntax . '>';
+		// Empty stars if there is no half star.
+		$empty         = str_repeat('<' . $syntax . ' class="fsrs-far fa-fw fa-star ' . $size . '"></' . $syntax . '>', $dif);
+		//  How many leftover stars if there is a half star?
+		if ( $dif >= 1 ) {
+			$dif2 = $dif - 1;
+		} else $dif2 = 0;
+		// Empty stars if there is a half star.
+		$emptyhalf     = str_repeat('<' . $syntax . ' class="fsrs-far fa-fw fa-star ' . $size . '"></' . $syntax . '>', $dif2);
+		if ( fmod($startrim, $star) <= 0 ) { // There is no half star.
+			return '<span class="fsrs"><span class="fsrs-stars">' . $stars . $empty . '</span><span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">' . $star .' out of ' . wp_kses( $starsnum, $arr ) . '</span> <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">' . $star .'</span></span>';
+		} elseif ( $star < wp_kses( $starsnum, $arr ) ) { // There is a half star.
+			return '<span class="fsrs"><span class="fsrs-stars">' . $stars . $halfstar . $emptyhalf . '</span><span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">' . $star .' out of ' . wp_kses( $starsnum, $arr ) . '</span> <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">' . $star .'</span></span>';
+		} else { // There is a half star but the number of stars exceeds the maximum. Don't ouput a half star.
+			return '<span class="fsrs"><span class="fsrs-stars">' . $stars . $empty . '</span><span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">' . $star .' out of ' . wp_kses( $starsnum, $arr ) . '</span> <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">' . $star .'</span></span>';
 		}
 	}
 

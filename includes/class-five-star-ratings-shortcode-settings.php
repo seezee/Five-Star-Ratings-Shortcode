@@ -135,26 +135,20 @@ class Five_Star_Ratings_Shortcode_Settings
 	  </summary>
 	  <div class="col col-2">
 		<div class="col__nobreak">
-		  <p>' . __( 'Shortcode syntax:', 'fsrs' ) . ' [rating stars=<em>int</em> half=<em>string|int|bool</em>]</p>
+		  <p>' . __( 'Shortcode syntax:', 'fsrs' ) . ' [rating stars=<em>int</em>]</p>
 		  <dl>
 			<dt>rating</dt>
 			<dd><em>(' . __( 'string', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'Initiates the shortcode.', 'fsrs' ) . '</dd>
 			<dt>stars</dt>
-			<dd><em>(' . __( 'integer', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'The quantity of whole stars to display.', 'fsrs' ) . '</dd>
-			<dt>half</dt>
-			<dd><em>(' . __( 'string|integer|boolean', 'fsrs' ) . ')</em> <em>(' . __( 'Optional', 'fsrs' ) . ')</em> ' . __( 'Whether to append a half-star.', 'fsrs' ) . ' <code>true</code>,  <code>yes</code>, ' . __( 'and', 'fsrs' ) . ' <code>1</code> ' . __( 'all resolve to', 'fsrs' ) . ' TRUE.  <code>false</code>,  <code>no</code>, ' . __( 'and', 'fsrs' ) . ' <code>0</code> ' . __( 'all resolve to', 'fsrs' ) . ' FALSE. ' . __( 'Defaults to', 'fsrs' ) . ' FALSE.</dd>
+			<dd><em>(' . __( 'integer', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'The quantity of whole stars to display. Must end in a single decimal place (.0 or .5).', 'fsrs' ) . '</dd>
 		  </dl>
 		</div>
 		<div class="col__nobreak">
 			<p>' . __( 'Assuming the default setting with', 'fsrs' ) . ' &ldquo;' . __( 'Number of Stars', 'fsrs' ) . '&rdquo; ' . __( 'set to 5, the following shortcodes will ouput as shown:', 'fsrs' ) . '<ul>
-				<li><code>[rating stars=3]</code> (' . __( 'Displays 3 stars out of 5', 'fsrs' ) . ')</li>
-				<li><code>[rating stars=4 half=false]</code> (' . __( 'Displays 4 stars out of 5', 'fsrs' ) . ')</li>
-				<li><code>[rating stars=4 half=no]</code> (' . __( 'Displays 4 stars out of 5', 'fsrs' ) . ')</li>
-				<li><code>[rating stars=4 half=0]</code> (' . __( 'Displays 4 stars out of 5', 'fsrs' ) . ')</li>
-				<li><code>[rating stars=2 half=true]</code> (' . __( 'Displays 2', 'fsrs' ) . '&frac12 ' . __( 'stars out of 5', 'fsrs' ) . ')</li>
-				<li><code>[rating stars=2 half=yes]</code> (' . __( 'Displays 2', 'fsrs' ) . '&frac12 ' . __( 'stars out of 5', 'fsrs' ) . ')</li>
-				<li><code>[rating stars=2 half=1]</code> (' . __( 'Displays 2', 'fsrs' ) . '&frac12 ' . __( 'stars out of 5', 'fsrs' ) . ')</li>
-				<li><code>[rating stars=5 half=true]</code> (' . __( 'Incorrect usage but will display 5 stars out of 5', 'fsrs' ) . ')</li>
+				<li><code>[rating stars="3.0"]</code> (' . __( 'Displays 3 stars out of 5', 'fsrs' ) . ')</li>
+				<li><code>[rating stars="4.0"]</code> (' . __( 'Displays 4 stars out of 5', 'fsrs' ) . ')</li>
+				<li><code>[rating stars="2.5"]</code> (' . __( 'Displays 2', 'fsrs' ) . '&frac12 ' . __( 'stars out of 5', 'fsrs' ) . ')</li>
+				<li><code>[rating stars="5.5"]</code> (' . __( 'Incorrect usage but will display 5 stars out of 5', 'fsrs' ) . ')</li>
 			</ul>
 		</div>
 	  </div>
@@ -241,14 +235,10 @@ class Five_Star_Ratings_Shortcode_Settings
 			</div>
 			<div class="col__nobreak">
 				<p>' . __( 'The following shortcodes will ouput as shown:', 'fsrs' ) . '<ul>
-					<li><code>[rating stars=3]</code> (' . __( 'Displays 3 stars out of 5', 'fsrs' ) . ')</li>
-					<li><code>[rating stars=4 half=false]</code> (' . __( 'Displays 4 stars out of 5', 'fsrs' ) . ')</li>
-					<li><code>[rating stars=4 half=no]</code> (' . __( 'Displays 4 stars out of 5', 'fsrs' ) . ')</li>
-					<li><code>[rating stars=4 half=0]</code> (' . __( 'Displays 4 stars out of 5', 'fsrs' ) . ')</li>
-					<li><code>[rating stars=2 half=true]</code> (' . __( 'Displays 2', 'fsrs' ) . '&frac12 ' . __( 'stars out of 5', 'fsrs' ) . ')</li>
-					<li><code>[rating stars=2 half=yes]</code> (' . __( 'Displays 2', 'fsrs' ) . '&frac12 ' . __( 'stars out of 5', 'fsrs' ) . ')</li>
-					<li><code>[rating stars=2 half=1]</code> (' . __( 'Displays 2', 'fsrs' ) . '&frac12 ' . __( 'stars out of 5', 'fsrs' ) . ')</li>
-					<li><code>[rating stars=5 half=true]</code> (' . __( 'Incorrect usage but will display 5 stars out of 5', 'fsrs' ) . ')</li>
+					<li><code>[rating stars="3.0"]</code> (' . __( 'Displays 3 stars out of 5', 'fsrs' ) . ')</li>
+					<li><code>[rating stars="4.0"]</code> (' . __( 'Displays 4 stars out of 5', 'fsrs' ) . ')</li>
+					<li><code>[rating stars="2.5"]</code> (' . __( 'Displays 2', 'fsrs' ) . '&frac12 ' . __( 'stars out of 5', 'fsrs' ) . ')</li>
+					<li><code>[rating stars="5.5"]</code> (' . __( 'Incorrect usage but will display 5 stars out of 5', 'fsrs' ) . ')</li>
 				</ul>
 			</div>
 		</div>
@@ -317,20 +307,6 @@ class Five_Star_Ratings_Shortcode_Settings
                         // Register field
                         $option_name = _FSRS_BASE_ . $field['id'];
                         register_setting( $this->parent->token . '_settings', $option_name, $validation );
-                        if ( !fsrs_fs()->can_use_premium_code() ) {
-                            // Add field to page
-                            add_settings_field(
-                                $field['id'],
-                                $field['label'],
-                                array( $this->parent->admin, 'display_field' ),
-                                $this->parent->token . '_settings',
-                                $section,
-                                array(
-                                'field'  => $field,
-                                'prefix' => _FSRS_BASE_,
-                            )
-                            );
-                        }
                     }
                 }
                 if ( fsrs_fs()->is__premium_only() && fsrs_fs()->can_use_premium_code() ) {
@@ -359,9 +335,9 @@ class Five_Star_Ratings_Shortcode_Settings
         $html = '<div class="wrap" id="' . $this->parent->token . '_settings">' . "\n";
         
         if ( fsrs_fs()->is__premium_only() && fsrs_fs()->can_use_premium_code() ) {
-            $html .= '<h2>' . __( 'Five-Star Ratings Shortcode Settings', 'fsrs' ) . '</h2>' . "\n";
+            $html .= '<h2><i class="fsrs-fas fa-fw fa-star wp-admin-lite-blue"></i> ' . __( 'Five-Star Ratings Shortcode Settings', 'fsrs' ) . ' <i class="fsrs-fas fa-fw fa-star wp-admin-lite-blue"></i></h2>' . "\n";
         } else {
-            $html .= '<h2>' . __( 'Five-Star Ratings Shortcode Documentation', 'fsrs' ) . '</h2>' . "\n";
+            $html .= '<h2><i class="fsrs-fas fa-fw fa-star wp-admin-lite-blue"></i> ' . __( 'Five-Star Ratings Shortcode Documentation', 'fsrs' ) . ' <i class="fsrs-fas fa-fw fa-star wp-admin-lite-blue"></i></h2>' . "\n";
         }
         
         
