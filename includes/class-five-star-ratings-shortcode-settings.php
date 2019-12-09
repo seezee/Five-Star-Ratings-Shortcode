@@ -228,7 +228,7 @@ class Five_Star_Ratings_Shortcode_Settings
 					<dt>rating</dt>
 					<dd><em>(' . __( 'string', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'Initiates the shortcode.', 'fsrs' ) . '</dd>
 					<dt>stars</dt>
-					<dd><em>(' . __( 'integer', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'The quantity of whole stars to display.', 'fsrs' ) . '</dd>
+					<dd><em>(' . __( 'integer', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'The quantity of whole stars to display. Must end in a single decimal place (.0 or .5).', 'fsrs' ) . '</dd>
 				</dl>
 			</div>
 			<div class="col__nobreak">
