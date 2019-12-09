@@ -384,7 +384,7 @@ class Five_Star_Ratings_Shortcode {
 		} elseif ( $star < wp_kses( $starsnum, $arr ) ) { // There is a half star.
 			return '<span class="fsrs"><span class="fsrs-stars">' . $stars . $halfstar . $emptyhalf . '</span><span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">' . $star .' out of ' . wp_kses( $starsnum, $arr ) . '</span> <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">' . $star .'</span></span>';
 		} else { // There is a half star but the number of stars exceeds the maximum. Don't ouput a half star.
-			return '<span class="fsrs"><span class="fsrs-stars">' . $stars . $empty . '</span><span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">' . $star .' out of ' . wp_kses( $starsnum, $arr ) . '</span> <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">' . $star .'</span></span>';
+			return '<span class="fsrs"><span class="fsrs-stars">' . $stars . $empty . '</span><span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">' . $startrim .'.0 out of ' . wp_kses( $starsnum, $arr ) . '</span> <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">' . $startrim .'.0</span></span>';
 		}
 	}
 
