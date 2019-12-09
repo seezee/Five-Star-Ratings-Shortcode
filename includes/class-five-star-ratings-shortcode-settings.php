@@ -229,8 +229,6 @@ class Five_Star_Ratings_Shortcode_Settings
 					<dd><em>(' . __( 'string', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'Initiates the shortcode.', 'fsrs' ) . '</dd>
 					<dt>stars</dt>
 					<dd><em>(' . __( 'integer', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'The quantity of whole stars to display.', 'fsrs' ) . '</dd>
-					<dt>half</dt>
-					<dd><em>(' . __( 'string|integer|boolean', 'fsrs' ) . ')</em> <em>(' . __( 'Optional', 'fsrs' ) . ')</em> ' . __( 'Whether to append a half-star.', 'fsrs' ) . ' <code>true</code>,  <code>yes</code>, ' . __( 'and', 'fsrs' ) . ' <code>1</code> ' . __( 'all resolve to', 'fsrs' ) . ' TRUE.  <code>false</code>,  <code>no</code>, ' . __( 'and', 'fsrs' ) . ' <code>0</code> ' . __( 'all resolve to', 'fsrs' ) . ' FALSE. ' . __( 'Defaults to', 'fsrs' ) . ' FALSE.</dd>
 				</dl>
 			</div>
 			<div class="col__nobreak">
