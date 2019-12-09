@@ -100,7 +100,7 @@ class Five_Star_Ratings_Shortcode {
 		$this->assets_dir = trailingslashit( $this->dir ) . 'assets';
 		$this->assets_url = esc_url( trailingslashit( plugins_url( '/assets/', $this->file ) ) );
 
-		$this->script_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min'; // Use minified script.
+		$this->script_suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : ''; // Use minified script.
 
 		register_activation_hook( $this->file, array( $this, 'install' ) );
 
@@ -275,7 +275,11 @@ class Five_Star_Ratings_Shortcode {
 	public function hash_js( $tag, $handle ) {
 		// add script handles to the array below.
 		if ( $this->token . '-fa-main' === $handle ) {
-			return str_replace( ' src', ' integrity="sha256-MoYcVrOTRHZb/bvF8DwaNkTJkqu9aCR21zOsGkkBo78=" crossorigin="anonymous" src', $tag );
+			if ( SCRIPT_DEBUG ) {
+				return str_replace( ' src', ' integrity="sha256-MoYcVrOTRHZb/bvF8DwaNkTJkqu9aCR21zOsGkkBo78=" crossorigin="anonymous" src', $tag );
+			} else {
+				return str_replace( ' src', ' integrity="sha256-CfCEIeLBlKY5VZMluECsaKs5O74E/lSeRag1WJe1Pzs=" crossorigin="anonymous" src', $tag );
+			}
 		}
 		return $tag;
 	}

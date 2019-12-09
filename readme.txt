@@ -7,7 +7,7 @@ Tags: wordpress, plugin, ratings, stars, icon, shortcode, accessible
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 1.0.6  
+Stable tag: 1.0.7  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -109,6 +109,10 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.0.7 =
+* 2019-06-14
+* BUGFIX: Fix CORS policy error
+
 = 1.0.6 =
 * 2019-06-14
 * Update .POT file.
@@ -147,8 +151,8 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 1.0.6 =
+= 1.0.7 =
 * 2019-06-14
-* Update .POT file.
+* BUGFIX: Fix CORS policy error
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
