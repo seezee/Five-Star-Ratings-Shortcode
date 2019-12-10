@@ -7,7 +7,7 @@ Tags:  wordpress, plugin, ratings, stars, icon, shortcode, accessible
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 1.0.9  
+Stable tag: 1.0.10  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -67,10 +67,10 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 
 == Usage Examples ==
 
-[rating stars=3] (Displays 3 stars out of 5)  
-[rating stars=2 half=true] (Displays 2½ stars out of 5)  
-[rating stars=4 half=false] (Displays 4 stars out of 5)  
-[rating stars=5 half=true] (Incorrect usage but will display 5 stars out of 5)  
+[rating stars="3.0"] (Displays 3 stars out of 5)  
+[rating stars="2.5"] (Displays 2½ stars out of 5)  
+[rating stars="4.0"] (Displays 4 stars out of 5)  
+[rating stars="5.5"] (Incorrect usage but will display 5 stars out of 5)  
 
 PRO users can change the number of stars (from 3 – 10) on the settings page.
 
@@ -105,6 +105,10 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome): v5.11.2
 
 == Changelog ==
+
+= 1.0.10 =
+* 2019-06-15
+* Update usage examples in readme
 
 = 1.0.9 =
 * 2019-06-14
@@ -160,9 +164,9 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 1.0.9 =
-* 2019-06-14
-* BUGFIX: Fix incorrect text output if user enters x.5 where x is the maximum number of stars
+= 1.0.10 =
+* 2019-06-15
+* Update usage examples in readme
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 
