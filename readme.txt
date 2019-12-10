@@ -2,12 +2,12 @@
 Contributors: seezee  , freemius
 Donate link: https://messengerwebdesign.com/donate  
 Author URI: https://github.com/seezee  
-Plugin URI: https://wordpress.org/plugins/five-star-ratings-plugin/  
+Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/  
 Tags: wordpress, plugin, ratings, stars, icon, shortcode, accessible  
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 1.0.11  
+Stable tag: 1.0.12  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -63,7 +63,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 3. Your license key will automatically be entered
 
 ### DOWNLOAD FROM GITHUB
-1. Download the plugin via https://github.com/seezee/Five-Star-Ratings-Plugin
+1. Download the plugin via (https://github.com/seezee/Five-Star-Ratings-Shortcode)[https://github.com/seezee/Five-Star-Ratings-Shortcode]
 2. Follow the directions for using <abbr>FTP</abbr>
 
 == Usage Examples ==
@@ -122,6 +122,11 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome): v5.11.2
 
 == Changelog ==
+
+= 1.0.12 =
+* 2019-06-15
+* Correct Plugin URI in README
+* Correct link to Github repo in README
 
 = 1.0.11 =
 * 2019-06-15
@@ -184,9 +189,9 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 1.0.11 =
+= 1.0.12 =
 * 2019-06-15
-* BUGFIX: Fix stars showing zero if rating is 0.5
-* Improve usage examples
+* Correct Plugin URI in README
+* Correct link to Github repo in README
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
