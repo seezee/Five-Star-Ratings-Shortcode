@@ -358,13 +358,13 @@ class Five_Star_Ratings_Shortcode {
 		$rating = shortcode_atts( array(
 			'stars'  => '',
 		), $atts );
-		// Get the value and trim the float
+		// Get the value and if it's a float, trim it.
 		$star          = esc_attr( $rating['stars'] );
 		$parts         = explode( '.', $star );
 		array_pop( $parts) ;
 		$startrim      = implode( '.', $parts );
-		// Recast to integer.
-		$startrim      = (int)$startrim;
+		// Recast string to integer.
+		$startrim      = (float)$startrim;
 		// How many whole stars?
 		$stars         = str_repeat('<' . $syntax . ' class="fsrs-fas fa-fw fa-star ' . $size . '"></' . $syntax .  '>', $startrim);
 		// How many leftover stars if there is no half star?
@@ -379,7 +379,7 @@ class Five_Star_Ratings_Shortcode {
 		} else $dif2 = 0;
 		// Empty stars if there is a half star.
 		$emptyhalf     = str_repeat('<' . $syntax . ' class="fsrs-far fa-fw fa-star ' . $size . '"></' . $syntax . '>', $dif2);
-		if ( fmod($startrim, $star) <= 0 ) { // There is no half star.
+		if ( $startrim == $star ) { // There is no half star. Don't use strict type checking because we're dealing with floats and integers.
 			return '<span class="fsrs"><span class="fsrs-stars">' . $stars . $empty . '</span><span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">' . $star .' out of ' . wp_kses( $starsnum, $arr ) . '</span> <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">' . $star .'</span></span>';
 		} elseif ( $star < wp_kses( $starsnum, $arr ) ) { // There is a half star.
 			return '<span class="fsrs"><span class="fsrs-stars">' . $stars . $halfstar . $emptyhalf . '</span><span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">' . $star .' out of ' . wp_kses( $starsnum, $arr ) . '</span> <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">' . $star .'</span></span>';

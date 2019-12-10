@@ -7,7 +7,7 @@ Tags:  wordpress, plugin, ratings, stars, icon, shortcode, accessible
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 1.0.10  
+Stable tag: 1.0.11  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -67,11 +67,26 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 
 == Usage Examples ==
 
+[rating stars="0.5"] (Displays ½ star out of 5)  
 [rating stars="3.0"] (Displays 3 stars out of 5)  
 [rating stars="2.5"] (Displays 2½ stars out of 5)  
 [rating stars="4.0"] (Displays 4 stars out of 5)  
 [rating stars="5.5"] (Incorrect usage but will display 5 stars out of 5)  
 
+In the 3rd example, the raw output will be like this before processing:
+```
+<span class="fsrs">
+  <span class="fsrs-stars">
+    <i class="fsrs-fas fa-fw fa-star "></i>
+    <i class="fsrs-fas fa-fw fa-star "></i>
+    <i class="fsrs-fas fa-fw fa-star-half-alt "></i>
+    <i class="fsrs-far fa-fw fa-star "></i>
+    <i class="fsrs-far fa-fw fa-star "></i>
+  </span>
+  <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">2.5 out of 5</span> 
+  <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">2.5</span>
+</span>
+```  
 PRO users can change the number of stars (from 3 – 10) on the settings page.
 
 == Frequently Asked Questions ==
@@ -105,6 +120,11 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome): v5.11.2
 
 == Changelog ==
+
+= 1.0.11 =
+* 2019-06-15
+* BUGFIX: Fix stars showing zero if rating is 0.5
+* Improve usage examples
 
 = 1.0.10 =
 * 2019-06-15
@@ -164,9 +184,10 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
 
-= 1.0.10 =
+= 1.0.11 =
 * 2019-06-15
-* Update usage examples in readme
+* BUGFIX: Fix stars showing zero if rating is 0.5
+* Improve usage examples
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 

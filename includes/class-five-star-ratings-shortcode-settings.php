@@ -131,27 +131,53 @@ class Five_Star_Ratings_Shortcode_Settings
                 'title'       => __( 'Options', 'fsrs' ),
                 'description' => __( 'Syntax and formatting options. All options are global,', 'fsrs' ) . ' <abbr>i.e.</abbr>, ' . __( 'they affect all star ratings on the site.', 'fsrs' ) . '
 	<details>
-	  <summary class="wp-admin-lite-blue">' . __( 'Shortcode Examples', 'fsrs' ) . '
-	  </summary>
-	  <div class="col col-2">
+	<summary class="wp-admin-lite-blue">' . __( 'Shortcode Examples', 'fsrs' ) . '
+	</summary>
+	<div class="col col-3">
 		<div class="col__nobreak">
-		  <p>' . __( 'Shortcode syntax:', 'fsrs' ) . ' [rating stars=<em>int</em>]</p>
-		  <dl>
-			<dt>rating</dt>
-			<dd><em>(' . __( 'string', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'Initiates the shortcode.', 'fsrs' ) . '</dd>
-			<dt>stars</dt>
-			<dd><em>(' . __( 'integer', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'The quantity of whole stars to display. Must end in a single decimal place (.0 or .5).', 'fsrs' ) . '</dd>
-		  </dl>
+			<p>' . __( 'Shortcode syntax:', 'fsrs' ) . ' [rating stars=<em>int</em>]</p>
+			<dl>
+				<dt>rating</dt>
+				<dd><em>(' . __( 'string', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'Initiates the shortcode.', 'fsrs' ) . '</dd>
+				<dt>stars</dt>
+				<dd><em>(' . __( 'integer', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'The quantity of whole stars to display. Must end in a single decimal place (.0 or .5).', 'fsrs' ) . '</dd>
+			</dl>
 		</div>
 		<div class="col__nobreak">
 			<p>' . __( 'Assuming the default setting with', 'fsrs' ) . ' &ldquo;' . __( 'Number of Stars', 'fsrs' ) . '&rdquo; ' . __( 'set to 5, the following shortcodes will ouput as shown:', 'fsrs' ) . '<ul>
+				<li><code>[rating stars="0.5"]</code> (' . __( 'Displays', 'fsrs' ) . ' &frac12 ' . __( 'star out of 5', 'fsrs' ) . ')</li>
 				<li><code>[rating stars="3.0"]</code> (' . __( 'Displays 3 stars out of 5', 'fsrs' ) . ')</li>
 				<li><code>[rating stars="4.0"]</code> (' . __( 'Displays 4 stars out of 5', 'fsrs' ) . ')</li>
 				<li><code>[rating stars="2.5"]</code> (' . __( 'Displays 2', 'fsrs' ) . '&frac12 ' . __( 'stars out of 5', 'fsrs' ) . ')</li>
 				<li><code>[rating stars="5.5"]</code> (' . __( 'Incorrect usage but will display 5 stars out of 5', 'fsrs' ) . ')</li>
 			</ul>
 		</div>
-	  </div>
+		<div>
+			<p>' . __( 'In the 3<sup>rd</sup> example, the raw output will be like this before processing:', 'fsrs' ) . '</p>
+			<pre><code>&lt;span class="fsrs"&gt;
+  &lt;span class="fsrs-stars"&gt;
+    &lt;i class="fsrs-fas fa-fw fa-star "&gt;&lt;/i&gt;
+    &lt;i class="fsrs-fas fa-fw fa-star "&gt;&lt;/i&gt;
+    &lt;i class="fsrs-fas fa-fw fa-star-half-alt "&gt;&lt;/i&gt;
+    &lt;i class="fsrs-far fa-fw fa-star "&gt;&lt;/i&gt;
+    &lt;i class="fsrs-far fa-fw fa-star "&gt;&lt;/i&gt;
+  &lt;/span&gt;
+  &lt;span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false"&gt;2.5 out of 5&lt;/span&gt; 
+  &lt;span class="lining fsrs-text fsrs-text__visible" aria-hidden="true"&gt;2.5&lt;/span&gt;
+&lt;/span&gt;</code></pre>
+		</div>
+	</div>
+	</details>
+	<details>
+	<summary class="wp-admin-lite-blue">' . __( 'Account Info &amp; Support', 'fsrs' ) . '
+	</summary>
+		<p>' . __( 'You can access account details, contact us, get support, or learn about our affiliate program through these links.' ) . '</p>
+		<ul>
+			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-affiliation">' . __( 'Affiliation', 'fsrs' ) . '</a></li>
+			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-account">' . __( 'Account', 'fsrs' ) . '</a></li>
+			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-contact">' . __( 'Contact Us', 'fsrs' ) . '</a></li>
+			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-wp-support-forum">' . __( 'Support Forum', 'fsrs' ) . '</a></li>
+		</ul>
 	</details>',
                 'fields'      => array(
                 array(
@@ -233,13 +259,40 @@ class Five_Star_Ratings_Shortcode_Settings
 			</div>
 			<div class="col__nobreak">
 				<p>' . __( 'The following shortcodes will ouput as shown:', 'fsrs' ) . '<ul>
+					<li><code>[rating stars="0.5"]</code> (' . __( 'Displays', 'fsrs' ) . ' &frac12 ' . __( 'star out of 5', 'fsrs' ) . ')</li>
 					<li><code>[rating stars="3.0"]</code> (' . __( 'Displays 3 stars out of 5', 'fsrs' ) . ')</li>
 					<li><code>[rating stars="4.0"]</code> (' . __( 'Displays 4 stars out of 5', 'fsrs' ) . ')</li>
 					<li><code>[rating stars="2.5"]</code> (' . __( 'Displays 2', 'fsrs' ) . '&frac12 ' . __( 'stars out of 5', 'fsrs' ) . ')</li>
 					<li><code>[rating stars="5.5"]</code> (' . __( 'Incorrect usage but will display 5 stars out of 5', 'fsrs' ) . ')</li>
 				</ul>
 			</div>
+		<div>
+			<p>' . __( 'In the 3<sup>rd</sup> example, the raw output will be like this before processing:', 'fsrs' ) . '</p>
+			<pre><code>&lt;span class="fsrs"&gt;
+  &lt;span class="fsrs-stars"&gt;
+    &lt;i class="fsrs-fas fa-fw fa-star "&gt;&lt;/i&gt;
+    &lt;i class="fsrs-fas fa-fw fa-star "&gt;&lt;/i&gt;
+    &lt;i class="fsrs-fas fa-fw fa-star-half-alt "&gt;&lt;/i&gt;
+    &lt;i class="fsrs-far fa-fw fa-star "&gt;&lt;/i&gt;
+    &lt;i class="fsrs-far fa-fw fa-star "&gt;&lt;/i&gt;
+  &lt;/span&gt;
+  &lt;span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false"&gt;2.5 out of 5&lt;/span&gt; 
+  &lt;span class="lining fsrs-text fsrs-text__visible" aria-hidden="true"&gt;2.5&lt;/span&gt;
+&lt;/span&gt;</code></pre>
 		</div>
+	</div>
+	</details>
+	<details>
+	<summary class="wp-admin-lite-blue">' . __( 'Account Info &amp; Support', 'fsrs' ) . '
+	</summary>
+		<p>' . __( 'You can access account details, contact us, get support, or learn about our affiliate program through these links.' ) . '</p>
+		<ul>
+			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-affiliation">' . __( 'Affiliation', 'fsrs' ) . '</a></li>
+			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-account">' . __( 'Account', 'fsrs' ) . '</a></li>
+			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-contact">' . __( 'Contact Us', 'fsrs' ) . '</a></li>
+			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-wp-support-forum">' . __( 'Support Forum', 'fsrs' ) . '</a></li>
+			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-pricing">Upgrade</a></li>
+		</ul>
 	</details>
 	<details>
 	<summary class="wp-admin-lite-blue">' . __( 'PRO Only Features', 'fsrs' ) . '
