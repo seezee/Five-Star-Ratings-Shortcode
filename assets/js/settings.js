@@ -20,9 +20,16 @@ jQuery(document).ready(function ($) {
   });
 });
 
-// Range text output.
-function updateTextInput(val) {
+// Range text output 1.
+function updateTextInput1(val) {
   // document.getElementById('changeMe').value = val; // Add as many of these
   // as needed. Change the ID as needed.
-  document.getElementById('starsnumValue').value = val;
+  document.getElementById('starsminValue').value = val;
+}
+
+// Range text output 2.
+function updateTextInput2(val) {
+  // document.getElementById('changeMe').value = val; // Add as many of these
+  // as needed. Change the ID as needed.
+  document.getElementById('starsmaxValue').value = val;
 }

@@ -7,7 +7,7 @@ Tags: wordpress, plugin, ratings, stars, icon, shortcode, accessible
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 1.0.12  
+Stable tag: 1.0.13  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -24,6 +24,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 
 == PRO only features ==
 
+* Google Rich Snippets for Products, Restaurants, & Recipes
 * Custom icon sizes
 * Custom icon and text colors
 * Choice of HTML `<i>` or `<span>` elements in HTML output
@@ -63,7 +64,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 3. Your license key will automatically be entered
 
 ### DOWNLOAD FROM GITHUB
-1. Download the plugin via (https://github.com/seezee/Five-Star-Ratings-Shortcode)[https://github.com/seezee/Five-Star-Ratings-Shortcode]
+1. Download the plugin via [https://github.com/seezee/Five-Star-Ratings-Shortcode](https://github.com/seezee/Five-Star-Ratings-Shortcode)
 2. Follow the directions for using <abbr>FTP</abbr>
 
 == Usage Examples ==
@@ -74,19 +75,17 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 [rating stars="5.5"] (Incorrect usage but will display 5 stars out of 5)  
 
 In the 3rd example, the raw output will be like this before processing:
-```
-<span class="fsrs">
-  <span class="fsrs-stars">
-    <i class="fsrs-fas fa-fw fa-star "></i>
-    <i class="fsrs-fas fa-fw fa-star "></i>
-    <i class="fsrs-fas fa-fw fa-star-half-alt "></i>
-    <i class="fsrs-far fa-fw fa-star "></i>
-    <i class="fsrs-far fa-fw fa-star "></i>
-  </span>
-  <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">2.5 out of 5</span> 
-  <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">2.5</span>
-</span>
-```  
+	<span class="fsrs">
+		<span class="fsrs-stars">
+			<i class="fsrs-fas fa-fw fa-star "></i>
+			<i class="fsrs-fas fa-fw fa-star "></i>
+			<i class="fsrs-fas fa-fw fa-star-half-alt "></i>
+			<i class="fsrs-far fa-fw fa-star "></i>
+			<i class="fsrs-far fa-fw fa-star "></i>
+		</span>
+		<span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">2.5 out of 5</span> 
+		<span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">2.5</span>
+	</span>
 PRO users can change the number of stars (from 3 – 10) on the settings page.
 
 
@@ -113,7 +112,7 @@ Feel free to send a donation to my [Paypal account](https://paypal.me/messengerw
 
 * English: Default language, always included
 
-Would you like to help translate Five-Star Ratings Shortcode into your own language? [You can do that here!](https://translate.wordpress.org/projects/wp-plugins/wp-foft-loader)
+Would you like to help translate Five-Star Ratings Shortcode into your own language? [You can do that here!](https://translate.wordpress.org/projects/wp-plugins/five-star-ratings-shortcode)
 
 == Dependencies ==
 
@@ -123,64 +122,69 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.0.13 =
+* 2019-12-16
+* New PRO feature: Google Rich Snippets for products, restaurants, & recipes
+* Add debugging on PHP contants conflict
+
 = 1.0.12 =
-* 2019-06-15
+* 2019-12-10
 * Correct Plugin URI in README
 * Correct link to Github repo in README
 
 = 1.0.11 =
-* 2019-06-15
+* 2019-12-10
 * BUGFIX: Fix stars showing zero if rating is 0.5
 * Improve usage examples
 
 = 1.0.10 =
-* 2019-06-15
+* 2019-12-10
 * Update usage examples in readme
 
 = 1.0.9 =
-* 2019-06-14
+* 2019-12-09
 * BUGFIX: Fix incorrect text output if user enters x.5 where x is the maximum number of stars
 
 = 1.0.8 =
-* 2019-06-14
+* 2019-12-09
 * Change SCRIPT_DEBUG CORS policy check
 * Fix missing translation string
 * Change PRO version slug
 
 = 1.0.7 =
-* 2019-06-14
+* 2019-12-09
 * BUGFIX: Fix CORS policy error
 
 = 1.0.6 =
-* 2019-06-14
+* 2019-12-09
 * Update .POT file.
 
 = 1.0.5 =
-* 2019-06-14
+* 2019-12-09
 * Fix error in documentation.
 
 = 1.0.4 =
-* 2019-06-14
+* 2019-12-09
 * Fix error in documentation.
 
 = 1.0.3 =
-* 2019-06-14
+* 2019-12-09
 * BUGFIX: Fix options not displaying for PRO plugin
 * BUGFIX: Fix incorrect class in ratings text output
 * Refactor shortcode: remove "half" attribute & use float instead
 * Remove unused admin CSS rules
 
 = 1.0.2 =
-* 2019-06-13
+* 2019-12-08
 * Correct plugin tags
 * Correct badge links in readme.md
 
 = 1.0.1 =
-* 2019-06-13
+* 2019-12-08
 * BUGFIX: Fix incorrect _VERSION_ constant; should be _FSRS_VERSION_
 
 = 1.0.0 =
-* 2019-06-13
+* 2019-12-06
 * Initial release
 
 == Upgrade Notice ==
@@ -189,9 +193,9 @@ This plugin includes these third-party libraries in its package.
 
 [//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
 
-= 1.0.12 =
-* 2019-06-15
-* Correct Plugin URI in README
-* Correct link to Github repo in README
+= 1.0.13 =
+* 2019-12-16
+* New PRO feature: Google Rich Snippets for products, restaurants, & recipes
+* Add debugging on PHP contants conflict
 
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

@@ -9,36 +9,19 @@ pre {
   white-space: -o-pre-wrap;
   word-wrap: break-word; }
 
-ul.wpfl {
-  list-style-position: inside;
-  list-style-type: disc; }
-
-ol.wpfl {
-  list-style-position: inside;
-  list-style-type: decimal; }
-
-ul.wpfl ul,
-ol.wpfl ul {
-  margin-left: 15px;
-  list-style-position: inside;
-  list-style-type: circle; }
-
-ol.wpfl ol,
-ul.wpfl ol {
-  margin-left: 15px;
-  list-style-position: inside;
-  list-style-type: lower-latin; }
-
 dt {
   font-weight: bold; }
 
 dd,
 dt,
 span.nobreak {
-  break-after: avoid;
   break-inside: avoid;
-  -webkit-column-break-after: avoid;
   -webkit-column-break-inside: avoid; }
+
+dt,
+span.nobreak {
+  break-after: avoid;
+  -webkit-column-break-after: avoid; }
 
 .col-2 {
   -webkit-column-gap: 2rem;
