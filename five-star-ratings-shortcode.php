@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Plugin Name: Five-Star Ratings Shortcode DEV
- * Version: 1.0.13
+ * Plugin Name: Five-Star Ratings Shortcode
+ * Version: 1.0.14
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
  * GitHub Plugin URI: seezee/five-star-ratings-shortcode  
@@ -80,7 +80,7 @@ if ( !defined( '_FSRS_BASE_' ) ) {
 
 
 if ( !defined( '_FSRS_VERSION_' ) ) {
-    define( '_FSRS_VERSION_', '1.0.13' );
+    define( '_FSRS_VERSION_', '1.0.14' );
 } else {
     echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . __( 'Five-Star Ratings Shortcode ERROR! The <abbr>PHP</abbr> constant', 'fsrs' ) . ' &ldquo;_FSRS_VERSION_&rdquo; ' . __( 'has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'fsrs' ) . '</div>' ;
 }

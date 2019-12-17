@@ -7,7 +7,7 @@ Tags:  wordpress, plugin, ratings, stars, icon, shortcode, accessible
 Requires at least: 3.9  
 Tested up to: 5.3  
 Requires PHP: 7.0  
-Stable tag: 1.0.13  
+Stable tag: 1.0.14  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -74,7 +74,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 [rating stars="4.0"] (Displays 4 stars out of 5)  
 [rating stars="5.5"] (Incorrect usage but will display 5 stars out of 5)  
 
-In the 3rd example, the raw output will be like this before processing:
+In the 3rd example, the raw output will be like this before processing:  
 ```
 <span class="fsrs">
   <span class="fsrs-stars">
@@ -88,7 +88,7 @@ In the 3rd example, the raw output will be like this before processing:
   <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">2.5</span>
 </span>
 ```  
-PRO users can change the number of stars (from 3 – 10) on the settings page.
+PRO users can change the minimum and maximum ratings on the settings page.
 
 == Frequently Asked Questions ==
 
@@ -121,6 +121,10 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome): v5.11.2
 
 == Changelog ==
+
+= 1.0.14 =
+* 2019-12-17
+* Use get_bloginfo( 'wpurl' ) instead of get_bloginfo( 'url' )
 
 = 1.0.13 =
 * 2019-12-16
@@ -189,16 +193,12 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-[//]: # (*********************************************************************          **********Update version tag in main file at lines _4_ and _45_!*****          *********************************************************************)
+= 1.0.14 =
+* 2019-12-17
+* Use get_bloginfo( 'wpurl' ) instead of get_bloginfo( 'url' )
 
-[//]: # (*********************************************************************          **********Update version numbering in .po and .pot files!************          *********************************************************************)
-
-[//]: # (*********************************************************************          ***Do not copy/paste to readme.txt! You'll mess up the formatting!***          *********************************************************************)
-
-= 1.0.13 =
-* 2019-12-16
-* New PRO feature: Google Rich Snippets for products, restaurants, & recipes
-* Add debugging on PHP contants conflict
-
+[//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
+[//]: # (REMEMBER to update the Version Number in all files that contain it!)
+[](http://coderisk.com/wp/plugin/five-star-ratings-shortcode/RIPS-3Ojq4oqh-4)
 
