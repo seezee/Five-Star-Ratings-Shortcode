@@ -5,9 +5,9 @@ Author URI: https://github.com/seezee
 Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/  
 Tags:  wordpress, plugin, ratings, stars, icon, shortcode, accessible 
 Requires at least: 3.9  
-Tested up to: 5.3  
+Tested up to: 5.4  
 Requires PHP: 7.0  
-Stable tag: 1.0.14  
+Stable tag: 1.0.15  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -16,7 +16,7 @@ GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin
 
 Add accessible, attractive 5-star ratings anywhere on your site with a simple shortcode. The plugin uses Font Awesome icons via their SVG + JavaScript method.
 
-[![RIPS CodeRisk](https://coderisk.com/wp/plugin/five-star-ratings-plugin/badge "RIPS CodeRisk")](https://coderisk.com/wp/plugin/five-star-ratings-plugin)
+[![RIPS CodeRisk](https://coderisk.com/wp/plugin/five-star-ratings-shortcode/badge "RIPS CodeRisk")](https://coderisk.com/wp/plugin/five-star-ratings-shortcode)
 [![WP compatibility](https://plugintests.com/plugins/five-star-ratings-shortcode/wp-badge.svg)](https://plugintests.com/plugins/five-star-ratings-shortcode/latest)
 [![PHP compatibility](https://plugintests.com/plugins/five-star-ratings-shortcode/php-badge.svg)](https://plugintests.com/plugins/five-star-ratings-shortcode/latest)
 
@@ -122,6 +122,13 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.0.15 =
+* 2020-04-01
+* Tested up to WordPress 5.4
+* BUGFIX: Fix use of "this" keyword outside object context
+* BUGFIX (PRO ONLY): Replace borked color picker with native HTML color picker
+* Remove surrounding underscores from constant names per WordPress coding standards
+
 = 1.0.14 =
 * 2019-12-17
 * Use get_bloginfo( 'wpurl' ) instead of get_bloginfo( 'url' )
@@ -185,7 +192,7 @@ This plugin includes these third-party libraries in its package.
 
 = 1.0.1 =
 * 2019-12-08
-* BUGFIX: Fix incorrect _VERSION_ constant; should be _FSRS_VERSION_
+* BUGFIX: Fix incorrect _VERSION_ constant; should be FSRS_VERSION
 
 = 1.0.0 =
 * 2019-12-06
@@ -193,12 +200,14 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 1.0.14 =
-* 2019-12-17
-* Use get_bloginfo( 'wpurl' ) instead of get_bloginfo( 'url' )
+= 1.0.15 =
+* 2020-04-01
+* Tested up to WordPress 5.4
+* BUGFIX: Fix use of "this" keyword outside object context
+* BUGFIX (PRO ONLY): Replace borked color picker with native HTML color picker
+* Remove surrounding underscores from constant names per WordPress coding standards
 
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
 [//]: # (REMEMBER to update the Version Number in all files that contain it!)
-[](http://coderisk.com/wp/plugin/five-star-ratings-shortcode/RIPS-3Ojq4oqh-4)
 

@@ -635,7 +635,7 @@ class Five_Star_Ratings_Shortcode_Settings
                             $validation = $field['callback'];
                         }
                         // Register field
-                        $option_name = _FSRS_BASE_ . $field['id'];
+                        $option_name = FSRS_BASE . $field['id'];
                         register_setting( $this->parent->token . '_settings', $option_name, $validation );
                     }
                 }

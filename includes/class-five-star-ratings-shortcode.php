@@ -167,7 +167,7 @@
 		 * @return void
 		 */
 		public function admin_enqueue_styles( $hook = '' ) {
-			wp_register_style( $this->token . '-admin', esc_url( $this->assets_url ) . 'css/admin' . $this->script_suffix . '.css', array(), esc_html( _FSRS_VERSION_ ) );
+			wp_register_style( $this->token . '-admin', esc_url( $this->assets_url ) . 'css/admin' . $this->script_suffix . '.css', array(), esc_html( FSRS_VERSION ) );
 			wp_enqueue_style( $this->token . '-admin' );
 		} // End admin_enqueue_styles ()
 
@@ -208,7 +208,7 @@
 					$this->token . '-fa-solid',
 					esc_url( $this->assets_url ) . 'js/fsrs-fa-solid' . $this->script_suffix . '.js',
 					array(),
-					esc_html( _FSRS_VERSION_ ),
+					esc_html( FSRS_VERSION ),
 					true
 				);
 
@@ -233,7 +233,7 @@
 					$this->token . '-fa-main',
 					'//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/fontawesome' . $this->script_suffix . '.js',
 					array(),
-					esc_html( _FSRS_VERSION_ ),
+					esc_html( FSRS_VERSION ),
 					true
 				);
 
@@ -247,7 +247,7 @@
 					$this->token . '-fa-solid',
 					esc_url( $this->assets_url ) . 'js/fsrs-fa-solid' . $this->script_suffix . '.js',
 					array(),
-					esc_html( _FSRS_VERSION_ ),
+					esc_html( FSRS_VERSION ),
 					true
 				);
 
@@ -255,7 +255,7 @@
 					$this->token . '-fa-reg',
 					esc_url( $this->assets_url ) . 'js/fsrs-fa-regular' . $this->script_suffix . '.js',
 					array(),
-					esc_html( _FSRS_VERSION_ ),
+					esc_html( FSRS_VERSION ),
 					true
 				);
 
@@ -298,7 +298,7 @@
 					$this->token . '-fsrs-style',
 					esc_url( $this->assets_url ) . 'css/style' . $this->script_suffix . '.css',
 					array(),
-					esc_html( _FSRS_VERSION_ ),
+					esc_html( FSRS_VERSION ),
 					'all'
 				);
 
@@ -380,16 +380,16 @@
 			};
 
 			$arr = array();
-			if ( get_option(_FSRS_BASE_ . 'syntax' ) != NULL ) {
-				$syntax = get_option( _FSRS_BASE_ . 'syntax' );
+			if ( get_option(FSRS_BASE . 'syntax' ) != NULL ) {
+				$syntax = get_option( FSRS_BASE . 'syntax' );
 			} else $syntax   = 'i'; // Default syntax.
 
-			if ( get_option(_FSRS_BASE_ . 'starsmax' ) != NULL ) {
-				$starsmax = get_option( _FSRS_BASE_ . 'starsmax' );
+			if ( get_option(FSRS_BASE . 'starsmax' ) != NULL ) {
+				$starsmax = get_option( FSRS_BASE . 'starsmax' );
 			} else $starsmax   = '5'; // Default value; also the only value for the FREE plugin.
 
-			if ( get_option(_FSRS_BASE_ . 'size' ) != NULL ) {
-				$size = get_option( _FSRS_BASE_ . 'size' );
+			if ( get_option(FSRS_BASE . 'size' ) != NULL ) {
+				$size = get_option( FSRS_BASE . 'size' );
 			} else $size   = '';
 			// Get the value and if it's a float, trim it.
 
@@ -433,7 +433,7 @@
 		 * Ensures only one instance of Five_Star_Ratings_Shortcode is loaded or can be loaded.
 		 *
 		 * @param string $file File instance.
-		 * @param string _FSRS_VERSION_ Version parameter.
+		 * @param string FSRS_VERSION Version parameter.
 		 *
 		 * @return Object Five_Star_Ratings_Shortcode instance
 		 * @since 1.0.0
@@ -441,7 +441,7 @@
 		 */
 		public static function instance( $file = '' ) {
 			if ( is_null( self::$instance ) ) {
-				self::$instance = new self( $file, _FSRS_VERSION_ );
+				self::$instance = new self( $file, FSRS_VERSION );
 			}
 			return self::$instance;
 		} // End instance ()
@@ -452,7 +452,7 @@
 		 * @since 1.0.0
 		 */
 		public function __clone() {
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of Class_Five_Star_Ratings_Shortcode is forbidden.', 'fsrs' ), esc_html( _FSRS_VERSION_ ) );
+			_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of Class_Five_Star_Ratings_Shortcode is forbidden.', 'fsrs' ), esc_html( FSRS_VERSION ) );
 		} // End __clone ()
 
 		/**
@@ -461,7 +461,7 @@
 		 * @since 1.0.0
 		 */
 		public function __wakeup() {
-			_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of Class_Five_Star_Ratings_Shortcode is forbidden.', 'fsrs' ), esc_html( _FSRS_VERSION_ ) );
+			_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of Class_Five_Star_Ratings_Shortcode is forbidden.', 'fsrs' ), esc_html( FSRS_VERSION ) );
 		} // End __wakeup ()
 
 		/**
@@ -483,6 +483,6 @@
 		 * @return  void
 		 */
 		private function logversion_number() {
-			update_option( $this->token . 'version', esc_html( _FSRS_VERSION_ ) );
+			update_option( $this->token . 'version', esc_html( FSRS_VERSION ) );
 		} // End logversion_number ()
 	}
