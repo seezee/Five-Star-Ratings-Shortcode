@@ -64,7 +64,7 @@ class Five_Star_Ratings_Shortcode_Meta {
 				'<a href="' . esc_url( $twitterlink ). '"><span class="dashicons dashicons-twitter" ' . $iconstyle . 'title="' . __( 'Chris J. Zähller on Twitter', 'fsrs' ) . '" aria-label="' . __( 'Chris J. Zähller on Twitter', 'fsrs' ) . '"></span></a>',
 				'<a href="' . esc_url( $reviewlink ). '"><span class="dashicons dashicons-star-filled"' . $iconstyle . 'title="' . __( 'Give a 5-Star Review', 'fsrs' ) . '" aria-label="' . __( 'Give a 5-Star Review', 'fsrs' ) . '"></span></a>',
 				'<a href="' . esc_url( $donatelink ). '"><span class="dashicons dashicons-heart"' . $iconstyle . 'title="' . __( 'Donate', 'fsrs' ) . '" aria-label="' . __( 'Donate', 'fsrs' ) . '"></span></a>',
-				'<a href="' . esc_url( $coffeelink ). '"><span class="fas fa-coffee"' . $iconstyle . 'title="' . __('Buy the Developer a Coffee', 'fsrs' ) . '" aria-label="' . __('Buy the Developer a Coffee', 'fsrs' ) . '"></span></a>', ) );
+				'<a href="' . esc_url( $coffeelink ). '"><span class="fsrs-fas fas fa-coffee"' . $iconstyle . 'title="' . __('Buy the Developer a Coffee', 'fsrs' ) . '" aria-label="' . __('Buy the Developer a Coffee', 'fsrs' ) . '"></span></a>', ) );
 		}
 
 		return $links;
