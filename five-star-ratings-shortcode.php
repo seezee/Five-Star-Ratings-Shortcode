@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Five-Star Ratings Shortcode
- * Version: 1.0.18
+ * Version: 1.0.19
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
  * GitHub Plugin URI: seezee/five-star-ratings-shortcode  
@@ -80,7 +80,7 @@ if ( !defined( 'FSRS_BASE' ) ) {
 
 
 if ( !defined( 'FSRS_VERSION' ) ) {
-    define( 'FSRS_VERSION', '1.0.18' );
+    define( 'FSRS_VERSION', '1.0.19' );
 } else {
     echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' . __( 'Five-Star Ratings Shortcode ERROR! The <abbr>PHP</abbr> constant', 'fsrs' ) . ' &ldquo;FSRS_VERSION&rdquo; ' . __( 'has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'fsrs' ) . '</div>' ;
 }
@@ -135,7 +135,6 @@ function fsrs_check_version()
 
 }
 
-add_action( 'plugins_loaded', 'fsrs_check_version' );
 function fsrs_fs_uninstall_cleanup()
 {
     foreach ( wp_load_alloptions() as $option => $value ) {

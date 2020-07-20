@@ -7,7 +7,7 @@ Tags: wordpress, plugin, ratings, stars, icon, shortcode, accessible
 Requires at least: 3.9  
 Tested up to: 5.4.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.18  
+Stable tag: 1.0.19  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -126,6 +126,10 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.0.19 =
+* 2020-07-20
+* BUGFIX: Fix fatal error on upgrade: cannot redeclare fsrs_fs_uninstall_cleanup()
+
 = 1.0.18 =
 * 2020-06-25
 * BUGFIX: Fix coffee cup icon not rendering in plugin meta
@@ -217,6 +221,6 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 1.0.18 =
-* 2020-06-25
-* BUGFIX: Fix coffee cup icon not rendering in plugin meta
+= 1.0.19 =
+* 2020-07-20
+* BUGFIX: Fix fatal error on upgrade: cannot redeclare fsrs_fs_uninstall_cleanup()
