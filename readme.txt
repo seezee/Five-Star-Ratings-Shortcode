@@ -7,7 +7,7 @@ Tags: wordpress, plugin, ratings, stars, icon, shortcode, accessible
 Requires at least: 3.9  
 Tested up to: 5.4.2  
 Requires PHP: 7.0  
-Stable tag: 1.0.20  
+Stable tag: 1.0.21  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -126,6 +126,10 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.0.21 =
+* 2020-08-01
+* BUGFIX: Load admin scripts and styles correctly to fix critical conflict with other plugins
+
 = 1.0.20 =
 * 2020-07-23
 * Integrate auto-deactivation of FREE version when upgrading to PRO
@@ -225,6 +229,6 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 1.0.20 =
-* 2020-07-23
-* Integrate auto-deactivation of FREE version when upgrading to PRO
+= 1.0.21 =
+* 2020-08-01
+* BUGFIX: Load admin scripts and styles correctly to fix critical conflict with other plugins

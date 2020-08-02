@@ -188,11 +188,12 @@ class Five_Star_Ratings_Shortcode
      * @return  void
      * @since   1.0.0
      */
-    public function admin_enqueue_scripts( $hook = '' )
+    public function admin_enqueue_scripts( $hook )
     {
-        global  $pagenow ;
         
-        if ( ($pagenow = 'plugins.php') || ($pagenow = 'general-options.php') ) {
+        if ( 'plugins.php' != $hook || 'general-options.php' != $hook ) {
+            return;
+        } else {
             wp_enqueue_script( 'jquery' );
             wp_enqueue_script( 'jquery-form' );
             wp_register_script(
@@ -216,8 +217,6 @@ class Five_Star_Ratings_Shortcode
                 true
             );
             wp_enqueue_script( $this->token . '-fa-solid' );
-        } else {
-            return;
         }
     
     }
@@ -242,12 +241,12 @@ class Five_Star_Ratings_Shortcode
                 esc_html( FSRS_VERSION ),
                 true
             );
-            // We're using a specially optimized version of fa-solid.js to
-            // load only the necessary Fontawesome glyphs, i.e. fa-star,
-            // fa-half-star, & fa-font. In the event we ever need to add more
-            // glyphs, both scripts, i.e., fa-solid.js, fsrs-fa-regular, &
-            // fsrs-fa-solid.min.js,
-            // will need to be updated.
+            // We're using specially optimized versions of fa-solid.js and
+            // fa-regular.js to load only the necessary Fontawesome glyphs,
+            // i.e. fa-star (regular and solid) & fa-half-star. In the event
+            // we ever need to add more glyphs, both scripts, i.e., fsrs-
+            // solid.js, fsrs-fa-regular, fsrs-fa-solid.min.js, & fsrs-fa-
+            // regular.min.js will need to be updated.
             wp_register_script(
                 $this->token . '-fa-solid',
                 esc_url( $this->assets_url ) . 'js/fsrs-fa-solid' . $this->script_suffix . '.js',
