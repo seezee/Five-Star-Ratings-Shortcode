@@ -7,7 +7,7 @@ Tags: wordpress, plugin, ratings, stars, icon, shortcode, accessible
 Requires at least: 3.9  
 Tested up to: 5.5.1  
 Requires PHP: 7.0  
-Stable tag: 1.0.22  
+Stable tag: 1.1.1  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -29,6 +29,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 * Custom icon and text colors
 * Choice of HTML `<i>` or `<span>` elements in HTML output
 * Change the number of stars (from 3 – 10)
+* NEW in v1.1.1: Shortcode generator
 
 == Installation ==
 
@@ -74,21 +75,19 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 [rating stars="4.0"] (Displays 4 stars out of 5)  
 [rating stars="5.5"] (Incorrect usage but will display 5 stars out of 5)  
 
-In the 3rd example, the raw output will be like this before processing:
+In the 2nd example, the raw output will be like this before processing:
 
-```
-  <span class="fsrs">
-    <span class="fsrs-stars">
-      <i class="fsrs-fas fa-fw fa-star "></i>
-      <i class="fsrs-fas fa-fw fa-star "></i>
-      <i class="fsrs-fas fa-fw fa-star-half-alt "></i>
-      <i class="fsrs-far fa-fw fa-star "></i>
-      <i class="fsrs-far fa-fw fa-star "></i>
+    <span class="fsrs">
+      <span class="fsrs-stars">
+        <i class="fsrs-fas fa-fw fa-star"></i>
+        <i class="fsrs-fas fa-fw fa-star"></i>
+        <i class="fsrs-fas fa-fw fa-star-half-alt"></i>
+        <i class="fsrs-far fa-fw fa-star"></i>
+        <i class="fsrs-far fa-fw fa-star"></i>
+      </span>
+      <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">2.5 out of 5</span> 
+      <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">2.5</span>
     </span>
-    <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">2.5 out of 5</span> 
-    <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">2.5</span>
-  </span>
-```
 
 PRO users can change the minimum and maximum ratings on the settings page.
 
@@ -125,6 +124,15 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome): v5.11.2
 
 == Changelog ==
+
+= 1.1.1 =
+* 2020-09-13
+* Bugfix: fix version check
+* Bugfix: fix missing admin scripts
+* Bugfix: fix missing padding on details:summary
+* New PRO feature: shortcode generator
+* Updated UX & CSS
+* Updated usage examples
 
 = 1.0.22 =
 * 2020-09-04
@@ -233,6 +241,11 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 1.0.22 =
-* 2020-09-04
-* Tested up to WordPress 5.5.1
+= 1.1.1 =
+* 2020-09-13
+* Bugfix: fix version check
+* Bugfix: fix missing admin scripts
+* Bugfix: fix missing padding on details:summary
+* New PRO feature: shortcode generator
+* Updated UX & CSS
+* Updated usage examples

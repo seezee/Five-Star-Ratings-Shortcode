@@ -118,7 +118,7 @@ class Five_Star_Ratings_Shortcode_Settings
 					<dt>rating</dt>
 					<dd><em>(' . __( 'string', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'Initiates the shortcode.', 'fsrs' ) . '</dd>
 					<dt>stars</dt>
-					<dd><em>(' . __( 'integer', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'The quantity of whole stars to display. Must end in a single decimal place (.0 or .5).', 'fsrs' ) . '</dd>
+					<dd><em>(' . __( 'float', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'The star rating expressed as a numeral. Must end in a single decimal place,' ) . ' <abbr>e.g., (1.0, 3.3, 7.5, 2.7) </dd>
 				</dl>
 			</div>
 			<div class="col__nobreak">
@@ -190,7 +190,7 @@ class Five_Star_Ratings_Shortcode_Settings
                     $section,
                     $data['title'],
                     array( $this, 'settings_section' ),
-                    $this->parent->token . '_settings'
+                    $this->parent->token
                 );
             }
         }
@@ -208,72 +208,310 @@ class Five_Star_Ratings_Shortcode_Settings
      */
     public function settings_page()
     {
+        global  $pagenow ;
         // Build page HTML
         $html = '<div class="wrap" id="' . $this->parent->token . '_settings">' . "\n";
+        
+        if ( fsrs_fs()->is__premium_only() && fsrs_fs()->can_use_premium_code() ) {
+            $html .= '<h2><i class="fsrs-fas fa-fw fa-star wp-admin-lite-blue"></i> ' . __( 'Five-Star Ratings Shortcode Settings', 'fsrs' ) . ' <i class="fsrs-fas fa-fw fa-star wp-admin-lite-blue"></i></h2>' . "\n";
+            
+            if ( 'options-general.php' == $pagenow && 'generator' == $_GET['tab'] ) {
+                if ( get_option( FSRS_BASE . 'reviewRating' ) !== false ) {
+                    $stars = get_option( FSRS_BASE . 'reviewRating' );
+                }
+                if ( get_option( FSRS_BASE . 'reviewType' ) !== false ) {
+                    $type = get_option( FSRS_BASE . 'reviewType' );
+                }
+                if ( get_option( FSRS_BASE . 'reviewName' ) !== false ) {
+                    $name = get_option( FSRS_BASE . 'reviewName' );
+                }
+                if ( get_option( FSRS_BASE . 'reviewDesc' ) !== false ) {
+                    $desc = get_option( FSRS_BASE . 'reviewDesc' );
+                }
+                if ( get_option( FSRS_BASE . 'prodBrand' ) !== false ) {
+                    $brand = get_option( FSRS_BASE . 'prodBrand' );
+                }
+                if ( get_option( FSRS_BASE . 'prodMPN' ) !== false ) {
+                    $mpn = get_option( FSRS_BASE . 'prodMPN' );
+                }
+                if ( get_option( FSRS_BASE . 'prodPrice' ) !== false ) {
+                    $price = get_option( FSRS_BASE . 'prodPrice' );
+                }
+                if ( get_option( FSRS_BASE . 'prodCur' ) !== false ) {
+                    $cur = get_option( FSRS_BASE . 'prodCur' );
+                }
+                if ( get_option( FSRS_BASE . 'restRange' ) !== false ) {
+                    $range = get_option( FSRS_BASE . 'restRange' );
+                }
+                if ( get_option( FSRS_BASE . 'restAddr' ) !== false ) {
+                    $addr = get_option( FSRS_BASE . 'restAddr' );
+                }
+                if ( get_option( FSRS_BASE . 'restCity' ) !== false ) {
+                    $locale = get_option( FSRS_BASE . 'restCity' );
+                }
+                if ( get_option( FSRS_BASE . 'restState' ) !== false ) {
+                    $region = get_option( FSRS_BASE . 'restState' );
+                }
+                if ( get_option( FSRS_BASE . 'restPost' ) !== false ) {
+                    $postal = get_option( FSRS_BASE . 'restPost' );
+                }
+                if ( get_option( FSRS_BASE . 'restCountry' ) !== false ) {
+                    $country = get_option( FSRS_BASE . 'restCountry' );
+                }
+                if ( get_option( FSRS_BASE . 'restTel' ) !== false ) {
+                    $tel = get_option( FSRS_BASE . 'restTel' );
+                }
+                if ( get_option( FSRS_BASE . 'resrecCuisine' ) !== false ) {
+                    $cuisine = get_option( FSRS_BASE . 'resrecCuisine' );
+                }
+                if ( get_option( FSRS_BASE . 'recAuthor' ) !== false ) {
+                    $auth = get_option( FSRS_BASE . 'recAuthor' );
+                }
+                if ( get_option( FSRS_BASE . 'recKeywords' ) !== false ) {
+                    $keywd = get_option( FSRS_BASE . 'recKeywords' );
+                }
+                if ( get_option( FSRS_BASE . 'recPrep' ) !== false ) {
+                    $prep = get_option( FSRS_BASE . 'recPrep' );
+                }
+                if ( get_option( FSRS_BASE . 'recCook' ) !== false ) {
+                    $cook = get_option( FSRS_BASE . 'recCook' );
+                }
+                if ( get_option( FSRS_BASE . 'recYield' ) !== false ) {
+                    $yield = get_option( FSRS_BASE . 'recYield' );
+                }
+                if ( get_option( FSRS_BASE . 'recCat' ) !== false ) {
+                    $category = get_option( FSRS_BASE . 'recCat' );
+                }
+                if ( get_option( FSRS_BASE . 'recCal' ) !== false ) {
+                    $calories = get_option( FSRS_BASE . 'recCal' );
+                }
+                if ( get_option( FSRS_BASE . 'recIng' ) !== false ) {
+                    $ing = get_option( FSRS_BASE . 'recIng' );
+                }
+                if ( get_option( FSRS_BASE . 'recSteps' ) !== false ) {
+                    $steps = get_option( FSRS_BASE . 'recSteps' );
+                }
+                $array = array(
+                    $name,
+                    $desc,
+                    $brand,
+                    $mpn,
+                    $price,
+                    $range,
+                    $addr,
+                    $locale,
+                    $region,
+                    $postal,
+                    $tel,
+                    $cuisine,
+                    $auth,
+                    $keywd,
+                    $prep,
+                    $cook,
+                    $yield,
+                    $category,
+                    $calories,
+                    $ing,
+                    $steps
+                );
+                foreach ( $array as $key => &$value ) {
+                    if ( strpos( $value, '+' ) !== false ) {
+                        $value = str_replace( '+', '%2B', $value );
+                    }
+                    if ( strpos( $value, '"' ) !== false ) {
+                        $value = str_replace( '"', '\'', $value );
+                    }
+                }
+                $name = $array[0];
+                $desc = $array[1];
+                $brand = $array[2];
+                $mpn = $array[3];
+                $price = $array[4];
+                $range = $array[5];
+                $addr = $array[6];
+                $locale = $array[7];
+                $region = $array[8];
+                $postal = $array[9];
+                $tel = $array[10];
+                $cuisine = $array[11];
+                $auth = $array[12];
+                $keywd = $array[13];
+                $prep = $array[14];
+                $cook = $array[15];
+                $yield = $array[16];
+                $category = $array[17];
+                $calories = $array[18];
+                $ing = $array[19];
+                $steps = $array[20];
+                if ( $name === '' ) {
+                    $name = 'title';
+                }
+                if ( $desc === '' ) {
+                    $desc = 'excerpt';
+                }
+                $arr = array();
+                if ( get_option( FSRS_BASE . 'starsmax' ) !== false ) {
+                    $starsMax = get_option( FSRS_BASE . 'starsmax' );
+                }
+                
+                if ( $type == 'Product' ) {
+                    //wp_kses( $, $arr )
+                    $shortcode = '<div id="shortcode"><code id="product-shortcode">[rating stars="' . wp_kses( $stars, $arr ) . '" type="' . wp_kses( $type, $arr ) . '" name="' . wp_kses( $name, $arr ) . '" desc="' . wp_kses( $desc, $arr ) . '" brand="' . wp_kses( $brand, $arr ) . '" mpn="' . wp_kses( $mpn, $arr ) . '" price="' . wp_kses( $price, $arr ) . '" cur="' . wp_kses( $cur, $arr ) . '"]</code></div><button class="copyBtn button button-primary" data-clipboard-target="#product-shortcode">Copy Shortcode</button>';
+                } elseif ( $type == 'Restaurant' ) {
+                    $shortcode = '<div id="shortcode"><code id="restaurant-shortcode">[rating stars="' . wp_kses( $stars, $arr ) . '" type="' . wp_kses( $type, $arr ) . '" name="' . wp_kses( $name, $arr ) . '" desc="' . wp_kses( $desc, $arr ) . '" price="' . wp_kses( $range, $arr ) . '" addr="' . wp_kses( $addr, $arr ) . '" locale="' . wp_kses( $locale, $arr ) . '" region="' . wp_kses( $region, $arr ) . '" postal="' . wp_kses( $postal, $arr ) . '" country="' . wp_kses( $country, $arr ) . '" tel="' . wp_kses( $tel, $arr ) . '" cuisine="' . wp_kses( $cuisine, $arr ) . '"]</code></div><button class="copyBtn button button-primary" data-clipboard-target="#restaurant-shortcode">Copy Shortcode</button>';
+                } elseif ( $type == 'Recipe' ) {
+                    $shortcode = '<div id="shortcode"><h3>Please copy the following shortcode and paste it into your reviews post or page:</h3><code id="recipe-shortcode">[rating stars="' . wp_kses( $stars, $arr ) . '" type="' . wp_kses( $type, $arr ) . '" name="' . wp_kses( $name, $arr ) . '" desc="' . wp_kses( $desc, $arr ) . '" author="' . wp_kses( $auth, $arr ) . '" cuisine="' . wp_kses( $cuisine, $arr ) . '" keywords="' . wp_kses( $keywd, $arr ) . '" prep="' . wp_kses( $prep, $arr ) . '" cook="' . wp_kses( $cook, $arr ) . '" yield="' . wp_kses( $yield, $arr ) . '" cat="' . wp_kses( $category, $arr ) . '" cal="' . wp_kses( $calories, $arr ) . '" ing="' . wp_kses( $ing, $arr ) . '" steps="' . wp_kses( $steps, $arr ) . '"]</code></div><button class="copyBtn button button-primary" data-clipboard-target="#recipe-shortcode">Copy Shortcode</button>';
+                } else {
+                    $shortcode = $type;
+                }
+                
+                $html .= $shortcode;
+            }
+        
+        }
+        
         $html .= '<h2><i class="fsrs-fas fa-fw fa-star wp-admin-lite-blue"></i> ' . __( 'Five-Star Ratings Shortcode Documentation', 'fsrs' ) . ' <i class="fsrs-fas fa-fw fa-star wp-admin-lite-blue"></i></h2>' . "\n";
-        $html .= '<form method="post" action="options.php" name="fsrsSettings" id="fsrsSettings" enctype="multipart/form-data">' . "\n";
+        $html .= '
+		<form method="post" action="options.php" name="fsrs_settings" id="fsrs_settings" enctype="multipart/form-data">' . "\n";
         // Get settings fields
         ob_start();
-        settings_fields( $this->parent->token . '_settings' );
-        do_settings_sections( $this->parent->token . '_settings' );
+        settings_fields( $this->parent->token );
+        do_settings_sections( $this->parent->token );
         $html .= ob_get_clean();
         global  $pagenow ;
+        // Run certain logic ONLY if we are on the correct settings page.
+        
+        if ( fsrs_fs()->is__premium_only() && fsrs_fs()->can_use_premium_code() ) {
+            $html .= '<p class="submit">' . "\n";
+            $html .= '<input type="hidden" name="tab" value="' . esc_attr( $tab ) . '" />' . "\n";
+        }
+        
         echo  $html ;
+        // phpcs:ignore
+        
+        if ( fsrs_fs()->is__premium_only() && fsrs_fs()->can_use_premium_code() ) {
+            submit_button(
+                __( 'Save Settings', 'fsrs' ),
+                'primary',
+                'save_fsrs_options',
+                true
+            ) . '<span style="display:inline-block;width:1rem;"></span>';
+            $html2 = '</p>' . "\n";
+        }
+        
         $html2 = '';
         $html2 .= '</form>' . "\n";
-        $success1 = __( 'Yeehaw!', 'fsrs' );
-        $success2 = __( 'Good Job!', 'fsrs' );
-        $success3 = __( 'Hooray!', 'fsrs' );
-        $success4 = __( 'Yay!', 'fsrs' );
-        $success5 = __( 'Huzzah!', 'fsrs' );
-        $success6 = __( 'Bada bing bada boom!', 'fsrs' );
-        $message1 = array(
-            $success1,
-            $success2,
-            $success3,
-            $success4,
-            $success5,
-            $success6
-        );
-        $message1 = $message1[array_rand( $message1 )];
-        $error1 = __( 'Dangit!', 'fsrs' );
-        $error2 = __( 'Aw heck!', 'fsrs' );
-        $error3 = __( 'Egads!', 'fsrs' );
-        $error4 = __( 'D&rsquo;oh!', 'fsrs' );
-        $error5 = __( 'Drat!', 'fsrs' );
-        $error6 = __( 'Dagnabit!', 'fsrs' );
-        $message2 = array(
-            $error1,
-            $error2,
-            $error3,
-            $error4,
-            $error5,
-            $error6
-        );
-        $message2 = $message2[array_rand( $message2 )];
-        if ( 'plugins.php' === $pagenow && 'five-star-ratings-shortcode' === $_GET['page'] ) {
-            // Ajaxify the form. Timeout should be >= 5000 or you'll get errors.
-            $html2 .= '<div id="saveResult"></div>
-	<script type="text/javascript">
-	jQuery(document).ready(function() {
-	   jQuery("#fsrsSettings").submit(function() { 
-		  jQuery(this).ajaxSubmit({
-			 success: function(){
-				jQuery("#saveResult").html(`<div id="saveMessage" class="notice notice-success is-dismissible"></div>`);
-				jQuery("#saveMessage").append(`<p><span class="dashicons dashicons-yes-alt"></span> ' . $message1 . ' ' . __( 'Your settings were saved!', 'fsrs' ) . '</p>`).show();
-			 },
-			 error: function(){
-				jQuery("#saveResult").html(`<div id="saveMessage" class="notice notice-error is-dismissible"></div>`);
-				jQuery("#saveMessage").append(`<p><span class="dashicons dashicons-no"></span> ' . $message2 . ' ' . __( 'There was an error saving your settings. Please open a support ticket if the problem persists!', 'fsrs' ) . '</p>`).show();
-			 },
-			 timeout: 10000
-		  }); 
-		  setTimeout(`jQuery("#saveMessage").hide("slow");`, 7500);
-		  return false; 
-	   });
+        
+        if ( fsrs_fs()->is__premium_only() && fsrs_fs()->can_use_premium_code() ) {
+            
+            if ( 'options-general.php' === $pagenow && 'generator' === $_GET['tab'] ) {
+                $html2 .= '
+	<form id="fsrs-reset" name="fsrs-reset" method="post" action="options-general.php?page=' . $this->parent->token . '&tab=generator">
+	  <p class="submit"><input name="reset" class="button button-secondary" type="submit" value="Reset the Shortcode Generator" >
+		<input type="hidden" name="action" value="reset" />
+	  </p>
+	</form>';
+                
+                if ( isset( $_POST['reset'] ) ) {
+                    $array = [
+                        'fsrs_reviewType',
+                        'fsrs_reviewRating',
+                        'fsrs_reviewName',
+                        'fsrs_reviewDesc',
+                        'fsrs_prodBrand',
+                        'fsrs_prodMPN',
+                        'fsrs_prodPrice',
+                        'fsrs_prodCur',
+                        'fsrs_restRange',
+                        'fsrs_restAddr',
+                        'fsrs_restCity',
+                        'fsrs_restState',
+                        'fsrs_restPost',
+                        'fsrs_restCountry',
+                        'fsrs_restTel',
+                        'fsrs_resrecCuisine',
+                        'fsrs_recAuthor',
+                        'fsrs_recKeywords',
+                        'fsrs_recPrep',
+                        'fsrs_recCook',
+                        'fsrs_recYield',
+                        'fsrs_recCat',
+                        'fsrs_recCal',
+                        'fsrs_recIng',
+                        'fsrs_recSteps'
+                    ];
+                    foreach ( $array as &$item ) {
+                        update_option( $item, '' );
+                    }
+                    echo  "<meta http-equiv='refresh' content='0'>" ;
+                }
+            
+            }
+            
+            if ( 'options-general.php' === $pagenow && 'five-star-ratings-shortcode' === $_GET['page'] ) {
+                $html2 .= '<script>
+	jQuery(document).ready(function($) {
+
+	  $("#fsrs_settings").validate({
+		rules: {
+		  reviewType: {
+			required: true
+		  },
+		  reviewRating: {
+			required: true
+		  },
+		},
+		messages: {
+		  fsrs_reviewType: "' . __( "Please select a review type", "fsrs" ) . '",
+		  fsrs_reviewRating: {
+			required: "' . __( "Please enter a star rating", "fsrs" ) . '",
+			pattern: "' . __( "Rating must be a 1-decimal place float ranging from 0.0 to", "fsrs" ) . ' ' . wp_kses( $starsMax, $arr ) . '.0, e.g., &ldquo;3.5&rdquo;, &ldquo;1.0&rdquo; "
+			},
+		  fsrs_prodBrand: "' . __( "Please enter the brand", "fsrs" ) . '",
+		  fsrs_prodMPN: "' . __( "Please enter the product number", "fsrs" ) . '",
+		  fsrs_prodPrice: {
+			required: "' . __( "Please enter the price", "fsrs" ) . '",
+			pattern: "' . __( "Price should contain numerals, commas, and periods only; price must end with either zero or 2 decimal places", "fsrs" ) . '"
+			},
+		  fsrs_prodCUr: "' . __( "Please enter the currency", "fsrs" ) . '",
+		  fsrs_restRange: "' . __( "Please enter the price range", "fsrs" ) . '",
+		  fsrs_restAddr: "' . __( "Please enter the street address", "fsrs" ) . '",
+		  fsrs_restCity: "' . __( "Please enter the city", "fsrs" ) . '",
+		  fsrs_restState: "' . __( "Please enter the state or province", "fsrs" ) . '",
+		  fsrs_restPost: "' . __( "Please enter the postal code", "fsrs" ) . '",
+		  fsrs_restCountry: {
+			required: "' . __( "Please enter the country", "fsrs" ) . '",
+			pattern: "' . __( "Restaurant country must conform to ISO 3166-1 alpha-2 (2-letter) format, e.g., “US”, “UK”, “CN”", "fsrs" ) . '"
+			},
+		  fsrs_restTel: "' . __( "Please enter the telephone number", "fsrs" ) . '",
+		  fsrs_resrecCuisine: "' . __( "Please enter the cuisine", "fsrs" ) . '",
+		  fsrs_recAuthor: "' . __( "Please enter the author", "fsrs" ) . '",
+		  fsrs_recKeywords: "' . __( "Please enter at least 1 keyword", "fsrs" ) . '",
+		  fsrs_recPrep: "' . __( "Please enter the prep time", "fsrs" ) . '",
+		  fsrs_recCook: "' . __( "Please enter the cooking time", "fsrs" ) . '",
+		  fsrs_recYield: "' . __( "Please enter the yield", "fsrs" ) . '",
+		  fsrs_recCat: "' . __( "Please enter at least 1 category", "fsrs" ) . '",
+		  fsrs_recCal: "' . __( "Please enter the calories", "fsrs" ) . '",
+		  fsrs_recIng: "' . __( "Please enter at least 1 ingredient", "fsrs" ) . '",
+		  fsrs_recSteps: "' . __( "Please enter the recipe steps", "fsrs" ) . '"
+		},
+		errorElement: "div",
+		errorPlacement: function(label, element) {
+			label.addClass("validationError");
+			label.insertAfter(element);
+		},
+		wrapper: "span",
+		 submitHandler: function(form) {
+		   form.submit();
+		 }
+	  });
+
 	});
+
 	</script>';
+            }
         }
+        
         $html2 .= '</div>' . "\n";
         echo  $html2 ;
         // phpcs:ignore

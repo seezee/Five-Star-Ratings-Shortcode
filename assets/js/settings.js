@@ -18,6 +18,29 @@ jQuery(document).ready(function ($) {
         $(this).fadeOut();
     });
   });
+  
+  /***** Clipboard (copy shortcode button) *****/
+  var clipboard = new ClipboardJS(".copyBtn");
+
+  /***** Form Conditional Logic *****/
+  $("input[type=\'radio\'][name=\'fsrs_reviewType\']").change(function() {
+    if (this.value == "Product") {
+      $("input[name^=\'fsrs_prod\']").prop("required", true);
+      $("input[name^=\'fsrs_rest\']").prop("required", false);
+      $("input[name^=\'fsrs_rec\']").prop("required", false);
+    } else if(this.value == "Restaurant") {
+      $("input[name^=\'fsrs_rest\']").prop("required", true);
+      $("input[name^=\'fsrs_resrec\']").prop("required", true);
+      $("input[name^=\'fsrs_prod\']").prop("required", false);
+      $("input[name^=\'fsrs_rec\']").prop("required", false);
+    } else if(this.value == "Recipe") {
+      $("input[name^=\'fsrs_rec\']").prop("required", true);
+      $("input[name^=\'fsrs_resrec\']").prop("required", true);
+      $("input[name^=\'fsrs_prod\']").prop("required", false);
+      $("input[name^=\'fsrs_rest\']").prop("required", false);
+    }
+  });
+
 });
 
 // Range text output 1.
@@ -33,3 +56,4 @@ function updateTextInput2(val) {
   // as needed. Change the ID as needed.
   document.getElementById('starsmaxValue').value = val;
 }
+

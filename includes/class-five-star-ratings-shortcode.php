@@ -107,6 +107,12 @@ class Five_Star_Ratings_Shortcode
             1
         );
         add_action(
+            'admin_enqueue_scripts',
+            array( $this, 'enqueue_jquery' ),
+            10,
+            1
+        );
+        add_action(
             'wp_enqueue_scripts',
             array( $this, 'enqueue_fa_scripts' ),
             10,
@@ -188,37 +194,35 @@ class Five_Star_Ratings_Shortcode
      * @return  void
      * @since   1.0.0
      */
-    public function admin_enqueue_scripts( $hook )
+    public function admin_enqueue_scripts( $hook = '' )
     {
-        
-        if ( 'plugins.php' != $hook || 'general-options.php' != $hook ) {
+        global  $pagenow ;
+        if ( $pagenow != 'options-general.php' && $pagenow != 'plugins.php' || !current_user_can( 'install_plugins' ) ) {
             return;
-        } else {
-            wp_enqueue_script( 'jquery' );
-            wp_enqueue_script( 'jquery-form' );
-            wp_register_script(
-                $this->token . '-fa-main',
-                '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/fontawesome' . $this->script_suffix . '.js',
-                array(),
-                '',
-                true
-            );
-            wp_enqueue_script( $this->token . '-fa-main' );
-            // We're using a specially optimized version of fa-solid.js to
-            // load only the necessary Fontawesome glyphs, i.e. fa-coffee
-            // & fa-font. In the event we ever need to add more glyphs, both
-            // scripts, i.e., fa-solid.js & fa-solid.min.js, will need to be
-            // updated.
-            wp_register_script(
-                $this->token . '-fa-solid',
-                esc_url( $this->assets_url ) . 'js/fsrs-fa-solid' . $this->script_suffix . '.js',
-                array(),
-                esc_html( FSRS_VERSION ),
-                true
-            );
-            wp_enqueue_script( $this->token . '-fa-solid' );
         }
-    
+        wp_enqueue_script( 'jquery' );
+        wp_enqueue_script( 'jquery-form' );
+        wp_register_script(
+            $this->token . '-fa-main',
+            '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/fontawesome' . $this->script_suffix . '.js',
+            array(),
+            '',
+            true
+        );
+        wp_enqueue_script( $this->token . '-fa-main' );
+        // We're using a specially optimized version of fa-solid.js to
+        // load only the necessary Fontawesome glyphs, i.e. fa-coffee
+        // & fa-font. In the event we ever need to add more glyphs, both
+        // scripts, i.e., fa-solid.js & fa-solid.min.js, will need to be
+        // updated.
+        wp_register_script(
+            $this->token . '-fa-solid',
+            esc_url( $this->assets_url ) . 'js/fsrs-fa-solid' . $this->script_suffix . '.js',
+            array(),
+            esc_html( FSRS_VERSION ),
+            true
+        );
+        wp_enqueue_script( $this->token . '-fa-solid' );
     }
     
     // End admin_enqueue_scripts () */
@@ -270,6 +274,47 @@ class Five_Star_Ratings_Shortcode
     
     // End enqueue_fa_scripts ().
     /**
+     * Load jQuery validatioon.
+     *
+     * @access  public
+     *
+     * @return  void
+     * @since   1.0.0
+     */
+    public function enqueue_jquery()
+    {
+        
+        if ( is_admin() ) {
+            wp_register_script(
+                $this->token . '-validate',
+                '//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate' . $this->script_suffix . '.js',
+                array( 'jquery' ),
+                '1.19.2',
+                true
+            );
+            wp_register_script(
+                $this->token . '-methods',
+                '//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods' . $this->script_suffix . '.js',
+                array( 'jquery' ),
+                '1.19.2',
+                true
+            );
+            wp_register_script(
+                $this->token . '-clipboard',
+                '//cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard' . $this->script_suffix . '.js',
+                array( 'jquery' ),
+                '1.19.2',
+                true
+            );
+            wp_enqueue_script( $this->token . '-validate' );
+            wp_enqueue_script( $this->token . '-methods' );
+            wp_enqueue_script( $this->token . '-clipboard' );
+        }
+    
+    }
+    
+    // End enqueue_jquery().
+    /**
      * Hash external javascripts
      *
      * @param string $tag Script HTML tag.
@@ -284,6 +329,34 @@ class Five_Star_Ratings_Shortcode
                 return str_replace( ' src', ' integrity="sha256-CfCEIeLBlKY5VZMluECsaKs5O74E/lSeRag1WJe1Pzs=" crossorigin="anonymous" src', $tag );
             } else {
                 return str_replace( ' src', ' integrity="sha256-MoYcVrOTRHZb/bvF8DwaNkTJkqu9aCR21zOsGkkBo78=" crossorigin="anonymous" src', $tag );
+            }
+        
+        }
+        if ( $this->token . '-validate' === $handle ) {
+            
+            if ( SCRIPT_DEBUG ) {
+                return str_replace( ' src', ' integrity="sha512-C+jfaS6VNfZywmL6JY4LteCNiaxJpcM54oGjjnAFxqBMXcnMbXYQR/r+zHyB5jTmzyQ4tg3tZq1qVhk28AiIhQ==" crossorigin="anonymous" src', $tag );
+            } else {
+                return str_replace( ' src', ' integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg==" crossorigin="anonymous" src', $tag );
+            }
+        
+        }
+        if ( $this->token . '-methods' === $handle ) {
+            
+            if ( SCRIPT_DEBUG ) {
+                return str_replace( ' src', ' integrity="sha512-z1lquNEhC4s9l8MLVGCFb7HyHAw7MhgOXb05rugwZde3lyx7G0sQKE2FnLfmoBJZE8HxbKHBx8jq31UXS+zjRA==" crossorigin="anonymous" src', $tag );
+            } else {
+                return str_replace( ' src', ' integrity="sha512-6Uv+497AWTmj/6V14BsQioPrm3kgwmK9HYIyWP+vClykX52b0zrDGP7lajZoIY1nNlX4oQuh7zsGjmF7D0VZYA==" crossorigin="anonymous" src', $tag );
+            }
+        
+        }
+        if ( $this->token . '-clipboard' === $handle ) {
+            
+            if ( SCRIPT_DEBUG ) {
+                return str_replace( ' src', ' integrity="sha512-tjW2dLIvxBrQWtbL7npJzlMVxznKMrkEJtRX5ztkEP6RC5oJdVkmAfFNHTSNrqv7++hAza+dvV4Bijf8rHeC0Q==" crossorigin="anonymous" src', $tag );
+            } else {
+                return str_replace( ' src', ' integrity="sha512-hDWGyh+Iy4Mr9AHOzUP2+Y0iVPn/BwxxaoSleEjH/i1o4EVTF/sh0/A1Syii8PWOae+uPr+T/KHwynoebSuAhw==" crossorigin="anonymous" src', $tag );
+                //
             }
         
         }
@@ -314,7 +387,7 @@ class Five_Star_Ratings_Shortcode
     
     }
     
-    // End enqueue_fa_scripts ().
+    // End enqueue_fsrs_styles().
     /**
      * Load plugin localisation
      *
