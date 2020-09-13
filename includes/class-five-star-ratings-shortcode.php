@@ -194,10 +194,10 @@ class Five_Star_Ratings_Shortcode
      * @return  void
      * @since   1.0.0
      */
-    public function admin_enqueue_scripts( $hook = '' )
+    public function admin_enqueue_scripts( $hook )
     {
         global  $pagenow ;
-        if ( $pagenow != 'options-general.php' && $pagenow != 'plugins.php' || !current_user_can( 'install_plugins' ) ) {
+        if ( $hook != 'settings_page_five-star-ratings-shortcode' && $pagenow != 'plugins.php' || !current_user_can( 'install_plugins' ) ) {
             return;
         }
         wp_enqueue_script( 'jquery' );

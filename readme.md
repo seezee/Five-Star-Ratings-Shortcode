@@ -7,7 +7,7 @@ Tags:  wordpress, plugin, ratings, stars, icon, shortcode, accessible
 Requires at least: 3.9  
 Tested up to: 5.5.1  
 Requires PHP: 7.0  
-Stable tag: 1.1.1  
+Stable tag: 1.1.2  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -31,7 +31,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 * Custom icon and text colors
 * Choice of HTML `<i>` or `<span>` elements in HTML output
 * Change the number of stars (from 3 – 10)
-* NEW in v1.1.1: Shortcode generator
+* NEW in v1.1.2: Shortcode generator
 
 == Installation ==
 
@@ -123,7 +123,11 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
-= 1.1.1 =
+= 1.1.2 =
+* 2020-09-13
+* Bugfix: 1.1.2 reintroduced error of scripts loading outside plugin settings page, conflicting with other plugins; this update fixes that while ensuring scripts still load when needed
+
+= 1.1.2 =
 * 2020-09-13
 * Bugfix: fix version check
 * Bugfix: fix missing admin scripts
@@ -239,14 +243,9 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 1.1.1 =
+= 1.1.2 =
 * 2020-09-13
-* Bugfix: fix version check
-* Bugfix: fix missing admin scripts
-* Bugfix: fix missing padding on details:summary
-* New PRO feature: shortcode generator
-* Updated UX & CSS
-* Updated usage examples
+* Bugfix: 1.1.2 reintroduced error of scripts loading outside plugin settings page, conflicting with other plugins; this update fixes that while ensuring scripts still load when needed
 
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
