@@ -7,7 +7,7 @@ Tags:  wordpress, plugin, ratings, stars, icon, shortcode, accessible
 Requires at least: 3.9  
 Tested up to: 5.5.1  
 Requires PHP: 7.0  
-Stable tag: 1.1.2  
+Stable tag: 1.1.3  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -123,11 +123,19 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.1.3 =
+* 2020-09-14
+* Replace $pagenow global with $hook check wherever appropriate
+* Complete overhaul of i18n internationalization
+* Sanitize links in internationalized strings
+* Update .pot file
+* Update README
+
 = 1.1.2 =
 * 2020-09-13
 * Bugfix: 1.1.2 reintroduced error of scripts loading outside plugin settings page, conflicting with other plugins; this update fixes that while ensuring scripts still load when needed
 
-= 1.1.2 =
+= 1.1.1 =
 * 2020-09-13
 * Bugfix: fix version check
 * Bugfix: fix missing admin scripts
@@ -135,6 +143,9 @@ This plugin includes these third-party libraries in its package.
 * New PRO feature: shortcode generator
 * Updated UX & CSS
 * Updated usage examples
+
+= 1.1.0 =
+* There is no v1.1.0 :-(
 
 = 1.0.22 =
 * 2020-09-04
@@ -243,9 +254,13 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 1.1.2 =
-* 2020-09-13
-* Bugfix: 1.1.2 reintroduced error of scripts loading outside plugin settings page, conflicting with other plugins; this update fixes that while ensuring scripts still load when needed
+= 1.1.3 =
+* 2020-09-14
+* Replace $pagenow global with $hook check wherever appropriate
+* Complete overhaul of i18n internationalization
+* Sanitize links in internationalized strings
+* Update .pot file
+* Update README
 
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

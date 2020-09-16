@@ -156,7 +156,33 @@ class Five_Star_Ratings_Shortcode
             }
             $html = '<div id="activated" class="notice notice-info is-dismissible">';
             $html .= '<p>';
-            $html .= '<span class="dashicons dashicons-info"></span> ' . __( 'Thank you for installing Five-Star Ratings Shortcode. For custom icon and text color and size as well as syntax options, please upgrade to', 'fsrs' ) . ' <a href="' . esc_url( '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/licenses/1/' ) . '" rel="noopener noreferrer">Five-Star Ratings Shortcode PRO</a>. ' . __( 'Not sure if you need those features? We have a', 'fsrs' ) . ' <a href="' . esc_url( '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/?trial=free' ) . '" rel="noopener noreferrer">' . __( 'FREE 14-day trial.', 'fsrs' ) . '</a>';
+            $html .= '<span class="dashicons dashicons-info"></span>';
+            $rel = 'noopener noreferrer';
+            // Used in both links.
+            $url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/licenses/1/';
+            $html .= sprintf(
+                // Translation string with variables.
+                wp_kses(
+                    /* translators: ignore the placeholders in the URL */
+                    __( 'Thank you for installing Five-Star Ratings Shortcode. For custom icon and text color and size as well as syntax options, please upgrade to <a href="%1$s" rel="%2$s">Five-Star Ratings Shortcode PRO</a>.', 'fsrs' ),
+                    array(
+                        'a' => array(
+                        'href' => array(),
+                        'rel'  => array(),
+                    ),
+                    )
+                ),
+                esc_url( $url ),
+                $rel
+            );
+            $url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/?
+				trial=free';
+            $html .= ' ' . sprintf( wp_kses( __( 'Not sure if you need those features? We have a <a href="%1$s" rel="%2$s">FREE 14-day trial</a>.', 'fsrs' ), array(
+                'a' => array(
+                'href' => array(),
+                'rel'  => array(),
+            ),
+            ) ), esc_url( $url ), $rel );
             $html .= '</p>';
             $html .= '</div>';
             return $html;
@@ -172,8 +198,12 @@ class Five_Star_Ratings_Shortcode
      *
      * @return void
      */
-    public function admin_enqueue_styles( $hook = '' )
+    public function admin_enqueue_styles( $hook )
     {
+        global  $pagenow ;
+        if ( $hook != 'settings_page_five-star-ratings-shortcode' && $pagenow != 'plugins.php' || !current_user_can( 'install_plugins' ) ) {
+            return;
+        }
         wp_register_style(
             $this->token . '-admin',
             esc_url( $this->assets_url ) . 'css/admin' . $this->script_suffix . '.css',
@@ -481,13 +511,77 @@ class Five_Star_Ratings_Shortcode
         
         if ( $startrim == $star ) {
             // There is no half star. Don't use strict type checking because we're dealing with floats and integers.
-            return '<span class="fsrs"><span class="fsrs-stars">' . $stars . $empty . '</span><span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">' . $star . ' out of ' . wp_kses( $starsmax, $arr ) . '</span> <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">' . $star . '</span></span>';
+            $rating = sprintf(
+                wp_kses( __(
+                /* translators: translate only the phrase "%.1F out of %.1F", where "%.1F" is a placeholder for a numerical float. */
+                '<span class="fsrs">
+						  <span class="fsrs-stars">%s%s</span>
+						  <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%3$.1F out of %4$.1F</span>
+						  <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%.1F</span>
+						</span>',
+                'fsrs'
+            ), array(
+                'span' => array(
+                'class'       => array(),
+                'aria-hidden' => array(),
+            ),
+            ) ),
+                $stars,
+                $empty,
+                $star,
+                wp_kses( $starsmax, $arr ),
+                $star
+            );
+            return $rating;
         } elseif ( $star < wp_kses( $starsmax, $arr ) ) {
             // There is a half star.
-            return '<span class="fsrs"><span class="fsrs-stars">' . $stars . $halfstar . $emptyhalf . '</span><span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">' . $star . ' out of ' . wp_kses( $starsmax, $arr ) . '</span> <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">' . $star . '</span></span>';
+            $rating = sprintf(
+                wp_kses( __(
+                /* translators: translate only the phrase "%.1F out of %.1F", where "%.1F" is a placeholder for a numerical float. */
+                '<span class="fsrs">
+						  <span class="fsrs-stars">%s%s%s</span>
+						  <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%4$.1F out of %5$.1F</span>
+						  <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%.1F</span>
+						</span>',
+                'fsrs'
+            ), array(
+                'span' => array(
+                'class'       => array(),
+                'aria-hidden' => array(),
+            ),
+            ) ),
+                $stars,
+                $halfstar,
+                $emptyhalf,
+                $star,
+                wp_kses( $starsmax, $arr ),
+                $star
+            );
+            return $rating;
         } else {
             // There is a half star but the number of stars exceeds the maximum. Don't ouput a half star.
-            return '<span class="fsrs"><span class="fsrs-stars">' . $stars . $empty . '</span><span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">' . $startrim . '.0 out of ' . wp_kses( $starsmax, $arr ) . '</span> <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">' . $startrim . '.0</span></span>';
+            $rating = sprintf(
+                wp_kses( __(
+                /* translators: translate only the phrase "%.1F out of %.1F", where "%.1F" is a placeholder for a numerical float. */
+                '<span class="fsrs">
+						  <span class="fsrs-stars">%s%s</span>
+						  <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%3$.1F out of %4$.1F</span>
+						  <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%.1F</span>
+						</span>',
+                'fsrs'
+            ), array(
+                'span' => array(
+                'class'       => array(),
+                'aria-hidden' => array(),
+            ),
+            ) ),
+                $stars,
+                $empty,
+                $startrim,
+                wp_kses( $starsmax, $arr ),
+                $startrim
+            );
+            return $rating;
         }
     
     }

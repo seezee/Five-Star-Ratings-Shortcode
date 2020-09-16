@@ -116,19 +116,19 @@ class Five_Star_Ratings_Shortcode_Settings
 				<p>' . __( 'Shortcode syntax:', 'fsrs' ) . ' [rating stars=<em>int</em> half=<em>string|int|bool</em>]</p>
 				<dl>
 					<dt>rating</dt>
-					<dd><em>(' . __( 'string', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'Initiates the shortcode.', 'fsrs' ) . '</dd>
+					<dd><em>(string)</em> ' . __( '<em>(Required)</em> Initiates the shortcode.', 'fsrs' ) . '</dd>
 					<dt>stars</dt>
-					<dd><em>(' . __( 'float', 'fsrs' ) . ')</em> <em>(' . __( 'Required', 'fsrs' ) . ')</em> ' . __( 'The star rating expressed as a numeral. Must end in a single decimal place,' ) . ' <abbr>e.g., (1.0, 3.3, 7.5, 2.7) </dd>
+					<dd><em>(float)</em> ' . __( '<em>(Required)</em> The star rating expressed as a numeral. Must end in a single decimal place, <abbr>e.g.</abbr>, <code>1.0</code>, <code>3.3</code>, <code>4.5</code>, <code>2.7</code>.', 'fsrs' ) . '</dd>
 				</dl>
 			</div>
 			<div class="col__nobreak">
 				<p>' . __( 'The following shortcodes will ouput as shown:', 'fsrs' ) . '</p>
 				<ul>
-					<li><code>[rating stars="0.5"]</code> (' . __( 'Displays', 'fsrs' ) . ' &frac12 ' . __( 'star out of 5', 'fsrs' ) . ')</li>
+					<li><code>[rating stars="0.5"]</code> (' . __( 'Displays ½ star out of 5', 'fsrs' ) . ')</li>
 					<li><code>[rating stars="3.0"]</code> (' . __( 'Displays 3 stars out of 5', 'fsrs' ) . ')</li>
 					<li><code>[rating stars="4.0"]</code> (' . __( 'Displays 4 stars out of 5', 'fsrs' ) . ')</li>
-					<li><code>[rating stars="2.5"]</code> (' . __( 'Displays 2', 'fsrs' ) . '&frac12 ' . __( 'stars out of 5', 'fsrs' ) . ')</li>
-					<li><code>[rating stars="5.5"]</code> (' . __( 'Incorrect usage but will display 5 stars out of 5', 'fsrs' ) . ')</li>
+					<li><code>[rating stars="2.5"]</code> (' . __( 'Displays 2½ stars out of 5', 'fsrs' ) . ')</li>
+					<li><code>[rating stars="5.5"]</code> (' . __( 'Incorrect usage, but will display 5 stars out of 5', 'fsrs' ) . ')</li>
 				</ul>
 			</div>
 		<div>
@@ -152,8 +152,8 @@ class Five_Star_Ratings_Shortcode_Settings
 	</summary>
 		<p>' . __( 'You can access account details, contact us, get support, or learn about our affiliate program through these links.' ) . '</p>
 		<ul>
-			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-affiliation">' . __( 'Affiliation', 'fsrs' ) . '</a></li>
-			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-account">' . __( 'Account', 'fsrs' ) . '</a></li>
+			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-affiliation">' . __( 'Affiliate Program', 'fsrs' ) . '</a></li>
+			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-account">' . __( 'Account', 'noun', 'fsrs' ) . '</a></li>
 			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-contact">' . __( 'Contact Us', 'fsrs' ) . '</a></li>
 			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-wp-support-forum">' . __( 'Support Forum', 'fsrs' ) . '</a></li>
 			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-pricing">Upgrade</a></li>
@@ -164,12 +164,13 @@ class Five_Star_Ratings_Shortcode_Settings
 	</summary>
 		<ul>
 			<li>' . __( 'Google Rich Snippets for Products, Restaurants, and Recipes', 'fsrs' ) . '</li>
+			<li>' . __( 'Shortcode generator', 'fsrs' ) . '</li>
 			<li>' . __( 'Custom icon colors', 'fsrs' ) . '</li>
 			<li>' . __( 'Custom text colors', 'fsrs' ) . '</li>
 			<li>' . __( 'Custom icon and text sizes', 'fsrs' ) . '</li>
 			<li>' . __( 'Change minimum rating (0.0, 0.5, or 1)', 'fsrs' ) . '</li>
-			<li>' . __( 'Change maximum rating', 'fsrs' ) . ' (3 &ndash; 10)</li>
-			<li>' . __( 'Custom syntax', 'fsrs' ) . ' (<code>&lt;i&gt;</code> ' . __( 'or', 'fsrs' ) . ' <code>&lt;span&gt;</code>)</li>
+			<li>' . __( 'Change maximum rating (3 &ndash; 10)', 'fsrs' ) . '</li>
+			<li>' . __( 'Custom syntax (<code>&lt;i&gt;</code> or <code>&lt;span&gt;</code>)', 'fsrs' ) . '</li>
 		</ul>
 	</details>',
         );
@@ -206,7 +207,7 @@ class Five_Star_Ratings_Shortcode_Settings
      * Load settings page content
      * @return void
      */
-    public function settings_page()
+    public function settings_page( $hook_suffix )
     {
         global  $pagenow ;
         // Build page HTML
@@ -355,12 +356,11 @@ class Five_Star_Ratings_Shortcode_Settings
                 }
                 
                 if ( $type == 'Product' ) {
-                    //wp_kses( $, $arr )
-                    $shortcode = '<div id="shortcode"><code id="product-shortcode">[rating stars="' . wp_kses( $stars, $arr ) . '" type="' . wp_kses( $type, $arr ) . '" name="' . wp_kses( $name, $arr ) . '" desc="' . wp_kses( $desc, $arr ) . '" brand="' . wp_kses( $brand, $arr ) . '" mpn="' . wp_kses( $mpn, $arr ) . '" price="' . wp_kses( $price, $arr ) . '" cur="' . wp_kses( $cur, $arr ) . '"]</code></div><button class="copyBtn button button-primary" data-clipboard-target="#product-shortcode">Copy Shortcode</button>';
+                    $shortcode = '<div id="shortcode"><code id="product-shortcode">[rating stars="' . wp_kses( $stars, $arr ) . '" type="' . wp_kses( $type, $arr ) . '" name="' . wp_kses( $name, $arr ) . '" desc="' . wp_kses( $desc, $arr ) . '" brand="' . wp_kses( $brand, $arr ) . '" mpn="' . wp_kses( $mpn, $arr ) . '" price="' . wp_kses( $price, $arr ) . '" cur="' . wp_kses( $cur, $arr ) . '"]</code></div><button class="copyBtn button button-primary" data-clipboard-target="#product-shortcode">' . __( 'Copy Shortcode', 'fsrs' ) . '</button>';
                 } elseif ( $type == 'Restaurant' ) {
-                    $shortcode = '<div id="shortcode"><code id="restaurant-shortcode">[rating stars="' . wp_kses( $stars, $arr ) . '" type="' . wp_kses( $type, $arr ) . '" name="' . wp_kses( $name, $arr ) . '" desc="' . wp_kses( $desc, $arr ) . '" price="' . wp_kses( $range, $arr ) . '" addr="' . wp_kses( $addr, $arr ) . '" locale="' . wp_kses( $locale, $arr ) . '" region="' . wp_kses( $region, $arr ) . '" postal="' . wp_kses( $postal, $arr ) . '" country="' . wp_kses( $country, $arr ) . '" tel="' . wp_kses( $tel, $arr ) . '" cuisine="' . wp_kses( $cuisine, $arr ) . '"]</code></div><button class="copyBtn button button-primary" data-clipboard-target="#restaurant-shortcode">Copy Shortcode</button>';
+                    $shortcode = '<div id="shortcode"><code id="restaurant-shortcode">[rating stars="' . wp_kses( $stars, $arr ) . '" type="' . wp_kses( $type, $arr ) . '" name="' . wp_kses( $name, $arr ) . '" desc="' . wp_kses( $desc, $arr ) . '" price="' . wp_kses( $range, $arr ) . '" addr="' . wp_kses( $addr, $arr ) . '" locale="' . wp_kses( $locale, $arr ) . '" region="' . wp_kses( $region, $arr ) . '" postal="' . wp_kses( $postal, $arr ) . '" country="' . wp_kses( $country, $arr ) . '" tel="' . wp_kses( $tel, $arr ) . '" cuisine="' . wp_kses( $cuisine, $arr ) . '"]</code></div><button class="copyBtn button button-primary" data-clipboard-target="#restaurant-shortcode">' . __( 'Copy Shortcode', 'fsrs' ) . '</button>';
                 } elseif ( $type == 'Recipe' ) {
-                    $shortcode = '<div id="shortcode"><h3>Please copy the following shortcode and paste it into your reviews post or page:</h3><code id="recipe-shortcode">[rating stars="' . wp_kses( $stars, $arr ) . '" type="' . wp_kses( $type, $arr ) . '" name="' . wp_kses( $name, $arr ) . '" desc="' . wp_kses( $desc, $arr ) . '" author="' . wp_kses( $auth, $arr ) . '" cuisine="' . wp_kses( $cuisine, $arr ) . '" keywords="' . wp_kses( $keywd, $arr ) . '" prep="' . wp_kses( $prep, $arr ) . '" cook="' . wp_kses( $cook, $arr ) . '" yield="' . wp_kses( $yield, $arr ) . '" cat="' . wp_kses( $category, $arr ) . '" cal="' . wp_kses( $calories, $arr ) . '" ing="' . wp_kses( $ing, $arr ) . '" steps="' . wp_kses( $steps, $arr ) . '"]</code></div><button class="copyBtn button button-primary" data-clipboard-target="#recipe-shortcode">Copy Shortcode</button>';
+                    $shortcode = '<div id="shortcode"><h3>Please copy the following shortcode and paste it into your reviews post or page:</h3><code id="recipe-shortcode">[rating stars="' . wp_kses( $stars, $arr ) . '" type="' . wp_kses( $type, $arr ) . '" name="' . wp_kses( $name, $arr ) . '" desc="' . wp_kses( $desc, $arr ) . '" author="' . wp_kses( $auth, $arr ) . '" cuisine="' . wp_kses( $cuisine, $arr ) . '" keywords="' . wp_kses( $keywd, $arr ) . '" prep="' . wp_kses( $prep, $arr ) . '" cook="' . wp_kses( $cook, $arr ) . '" yield="' . wp_kses( $yield, $arr ) . '" cat="' . wp_kses( $category, $arr ) . '" cal="' . wp_kses( $calories, $arr ) . '" ing="' . wp_kses( $ing, $arr ) . '" steps="' . wp_kses( $steps, $arr ) . '"]</code></div><button class="copyBtn button button-primary" data-clipboard-target="#recipe-shortcode">' . __( 'Copy Shortcode', 'fsrs' ) . '</button>';
                 } else {
                     $shortcode = $type;
                 }
@@ -451,6 +451,7 @@ class Five_Star_Ratings_Shortcode_Settings
             if ( 'options-general.php' === $pagenow && 'five-star-ratings-shortcode' === $_GET['page'] ) {
                 $html2 .= '<script>
 	jQuery(document).ready(function($) {
+      "use strict"; // Prevent accidental global variables.
 
 	  $("#fsrs_settings").validate({
 		rules: {
@@ -465,18 +466,22 @@ class Five_Star_Ratings_Shortcode_Settings
 		  fsrs_reviewType: "' . __( "Please select a review type", "fsrs" ) . '",
 		  fsrs_reviewRating: {
 			required: "' . __( "Please enter a star rating", "fsrs" ) . '",
-			pattern: "' . __( "Rating must be a 1-decimal place float ranging from 0.0 to", "fsrs" ) . ' ' . wp_kses( $starsMax, $arr ) . '.0, e.g., &ldquo;3.5&rdquo;, &ldquo;1.0&rdquo; "
-			},
+			pattern: "' . sprintf( wp_kses(
+                    /* translators: the placeholder %d is an indeterminate integer. Example output: "Must be a 1-decimal place float ranging from 0.0 to 5.0," etc. */
+                    __( 'Rating must be a 1-decimal place float ranging from 0.0 to to %d.0, <abbr>e.g.</abbr>, “3.5”, “1.0”. ', 'fsrs' ),
+                    array( 'strong', 'em' )
+                ), $starsMax ) . '"
+		  },
 		  fsrs_prodBrand: "' . __( "Please enter the brand", "fsrs" ) . '",
 		  fsrs_prodMPN: "' . __( "Please enter the product number", "fsrs" ) . '",
 		  fsrs_prodPrice: {
 			required: "' . __( "Please enter the price", "fsrs" ) . '",
-			pattern: "' . __( "Price should contain numerals, commas, and periods only; price must end with either zero or 2 decimal places", "fsrs" ) . '"
+			pattern: "' . __( "Price should contain currency symbols, numerals, commas, and periods only; price must end with either zero or 2 decimal places", "fsrs" ) . '"
 			},
 		  fsrs_prodCUr: "' . __( "Please enter the currency", "fsrs" ) . '",
 		  fsrs_restRange: "' . __( "Please enter the price range", "fsrs" ) . '",
 		  fsrs_restAddr: "' . __( "Please enter the street address", "fsrs" ) . '",
-		  fsrs_restCity: "' . __( "Please enter the city", "fsrs" ) . '",
+		  fsrs_restCity: "' . __( "Please enter the hamlet, village, town, borough, prefecture, city, or metropolis", "fsrs" ) . '",
 		  fsrs_restState: "' . __( "Please enter the state or province", "fsrs" ) . '",
 		  fsrs_restPost: "' . __( "Please enter the postal code", "fsrs" ) . '",
 		  fsrs_restCountry: {
