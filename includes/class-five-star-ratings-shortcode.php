@@ -513,11 +513,11 @@ class Five_Star_Ratings_Shortcode
             // There is no half star. Don't use strict type checking because we're dealing with floats and integers.
             $rating = sprintf(
                 wp_kses( __(
-                /* translators: translate only the phrase "%.1F out of %.1F", where "%.1F" is a placeholder for a numerical float. */
+                /* translators: translate only the phrase "%3$.1F out of %4$.1F stars", where "%3$.1F" and "%4$.1F" are placeholders for numerical floats. */
                 '<span class="fsrs">
-						  <span class="fsrs-stars">%s%s</span>
-						  <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%3$.1F out of %4$.1F</span>
-						  <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%.1F</span>
+						  <span class="fsrs-stars">%1$s%2$s</span>
+						  <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%3$.1F out of %4$.1F stars</span>
+						  <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%3$.1F</span>
 						</span>',
                 'fsrs'
             ), array(
@@ -529,19 +529,18 @@ class Five_Star_Ratings_Shortcode
                 $stars,
                 $empty,
                 $star,
-                wp_kses( $starsmax, $arr ),
-                $star
+                wp_kses( $starsmax, $arr )
             );
             return $rating;
         } elseif ( $star < wp_kses( $starsmax, $arr ) ) {
             // There is a half star.
             $rating = sprintf(
                 wp_kses( __(
-                /* translators: translate only the phrase "%.1F out of %.1F", where "%.1F" is a placeholder for a numerical float. */
+                /* translators: translate only the phrase "%4$.1F out of %5$.1F stars", where "%4$.1F" and "%5$.1F" are placeholders for numerical floats. */
                 '<span class="fsrs">
-						  <span class="fsrs-stars">%s%s%s</span>
-						  <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%4$.1F out of %5$.1F</span>
-						  <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%.1F</span>
+						  <span class="fsrs-stars">%1$s%2$s%3$s</span>
+						  <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%4$.1F out of %5$.1F stars</span>
+						  <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%4$.1F</span>
 						</span>',
                 'fsrs'
             ), array(
@@ -554,19 +553,18 @@ class Five_Star_Ratings_Shortcode
                 $halfstar,
                 $emptyhalf,
                 $star,
-                wp_kses( $starsmax, $arr ),
-                $star
+                wp_kses( $starsmax, $arr )
             );
             return $rating;
         } else {
             // There is a half star but the number of stars exceeds the maximum. Don't ouput a half star.
             $rating = sprintf(
                 wp_kses( __(
-                /* translators: translate only the phrase "%.1F out of %.1F", where "%.1F" is a placeholder for a numerical float. */
+                /* translators: translate only the phrase "%3$.1F out of %4$.1F stars", where "%3$.1F" and "%4$.1F" are placeholders for numerical floats. */
                 '<span class="fsrs">
-						  <span class="fsrs-stars">%s%s</span>
-						  <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%3$.1F out of %4$.1F</span>
-						  <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%.1F</span>
+						  <span class="fsrs-stars">%1$s%2$s</span>
+						  <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%3$.1F out of %4$.1F stars</span>
+						  <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%3$.1F</span>
 						</span>',
                 'fsrs'
             ), array(
@@ -578,8 +576,7 @@ class Five_Star_Ratings_Shortcode
                 $stars,
                 $empty,
                 $startrim,
-                wp_kses( $starsmax, $arr ),
-                $startrim
+                wp_kses( $starsmax, $arr )
             );
             return $rating;
         }

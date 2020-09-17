@@ -7,7 +7,7 @@ Tags:  wordpress, plugin, ratings, stars, icon, shortcode, accessible
 Requires at least: 3.9  
 Tested up to: 5.5.1  
 Requires PHP: 7.0  
-Stable tag: 1.1.3  
+Stable tag: 1.1.4  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -122,6 +122,12 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome): v5.11.2
 
 == Changelog ==
+
+= 1.1.4 =
+* 2020-09-17
+* Fix incorrect translator notes
+* Improve ARIA text in output
+* Better currency regex (allow period (.) as 1000s separater & comma (,) as decimal separater)
 
 = 1.1.3 =
 * 2020-09-14
@@ -254,13 +260,11 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 1.1.3 =
-* 2020-09-14
-* Replace $pagenow global with $hook check wherever appropriate
-* Complete overhaul of i18n internationalization
-* Sanitize links in internationalized strings
-* Update .pot file
-* Update README
+= 1.1.4 =
+* 2020-09-17
+* Fix incorrect translator notes
+* Improve ARIA text in output
+* Better currency regex (allow period (.) as 1000s separater & comma (,) as decimal separater)
 
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
