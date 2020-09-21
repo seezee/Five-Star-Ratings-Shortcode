@@ -113,7 +113,7 @@ class Five_Star_Ratings_Shortcode_Settings
 	</summary>
 		<div class="col col-2">
 			<div class="col__nobreak">
-				<p>' . __( 'Shortcode syntax:', 'fsrs' ) . ' [rating stars=<em>int</em> half=<em>string|int|bool</em>]</p>
+				<p>' . __( 'Shortcode syntax:', 'fsrs' ) . ' [rating stars="<em>int</em> half="<em>string|int|bool</em>]</p>
 				<dl>
 					<dt>rating</dt>
 					<dd><em>(string)</em> ' . __( '<em>(Required)</em> Initiates the shortcode.', 'fsrs' ) . '</dd>
@@ -469,7 +469,7 @@ class Five_Star_Ratings_Shortcode_Settings
 			pattern: "' . sprintf( wp_kses(
                     /* translators: the placeholder %d is an indeterminate integer. Example output: "Must be a 1-decimal place float ranging from 0.0 to 5.0," etc. */
                     __( 'Rating must be a 1-decimal place float ranging from 0.0 to to %d.0, <abbr>e.g.</abbr>, “3.5”, “1.0”. ', 'fsrs' ),
-                    array( 'strong', 'em' )
+                    array( 'abbr' )
                 ), $starsMax ) . '"
 		  },
 		  fsrs_prodBrand: "' . __( "Please enter the brand", "fsrs" ) . '",
@@ -498,7 +498,10 @@ class Five_Star_Ratings_Shortcode_Settings
 		  fsrs_recCat: "' . __( "Please enter at least 1 category", "fsrs" ) . '",
 		  fsrs_recCal: "' . __( "Please enter the calories", "fsrs" ) . '",
 		  fsrs_recIng: "' . __( "Please enter at least 1 ingredient", "fsrs" ) . '",
-		  fsrs_recSteps: "' . __( "Please enter the recipe steps", "fsrs" ) . '"
+		  fsrs_recSteps: {
+			required: "' . __( "Please enter the recipe steps", "fsrs" ) . '",
+			pattern: "' . sprintf( wp_kses( __( 'Recipe steps must be in the form {$name} $text, repeating as needed, where $name is a <em>short</em> description of the step and $text is the detailed text of the step.', 'fsrs' ), array( 'em', 'abbr' ) ), $starsMax ) . '"
+			},
 		},
 		errorElement: "div",
 		errorPlacement: function(label, element) {
