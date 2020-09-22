@@ -355,6 +355,25 @@ class Five_Star_Ratings_Shortcode_Settings
                     $starsMax = get_option( FSRS_BASE . 'starsmax' );
                 }
                 
+                if ( get_option( FSRS_BASE . 'starsmin' ) !== false ) {
+                    $starsMin = get_option( FSRS_BASE . 'starsmin' );
+                    $starsmin = floatval( $starsMin );
+                    
+                    if ( $starsFloat === 0 ) {
+                        $starsMin == '0.0';
+                    } else {
+                        
+                        if ( $starsFloat === 1 ) {
+                            $starsMin == '1.0';
+                        } else {
+                            $starsMin == '0.5';
+                        }
+                    
+                    }
+                
+                }
+                
+                
                 if ( $type == 'Product' ) {
                     $shortcode = '<div id="shortcode"><code id="product-shortcode">[rating stars="' . wp_kses( $stars, $arr ) . '" type="' . wp_kses( $type, $arr ) . '" name="' . wp_kses( $name, $arr ) . '" desc="' . wp_kses( $desc, $arr ) . '" brand="' . wp_kses( $brand, $arr ) . '" mpn="' . wp_kses( $mpn, $arr ) . '" price="' . wp_kses( $price, $arr ) . '" cur="' . wp_kses( $cur, $arr ) . '"]</code></div><button class="copyBtn button button-primary" data-clipboard-target="#product-shortcode">' . __( 'Copy Shortcode', 'fsrs' ) . '</button>';
                 } elseif ( $type == 'Restaurant' ) {
@@ -467,10 +486,10 @@ class Five_Star_Ratings_Shortcode_Settings
 		  fsrs_reviewRating: {
 			required: "' . __( "Please enter a star rating", "fsrs" ) . '",
 			pattern: "' . sprintf( wp_kses(
-                    /* translators: the placeholder %d is an indeterminate integer. Example output: "Must be a 1-decimal place float ranging from 0.0 to 5.0," etc. */
-                    __( 'Rating must be a 1-decimal place float ranging from 0.0 to to %d.0, <abbr>e.g.</abbr>, “3.5”, “1.0”. ', 'fsrs' ),
+                    /* translators: /* translators: the placeholders %1$.1f and %2$d.0 are indeterminate numerals. Example output: "Must be a 1-decimal place float ranging from 0.0 to 5.0," etc. */
+                    __( 'Rating must be a 1-decimal place float ranging from %1$.1f to to %2$d.0, <abbr>e.g.</abbr>, “3.5”, “1.0”. ', 'fsrs' ),
                     array( 'abbr' )
-                ), $starsMax ) . '"
+                ), $starsMin . 'foo', $starsMax ) . '"
 		  },
 		  fsrs_prodBrand: "' . __( "Please enter the brand", "fsrs" ) . '",
 		  fsrs_prodMPN: "' . __( "Please enter the product number", "fsrs" ) . '",
