@@ -153,7 +153,7 @@ class Five_Star_Ratings_Shortcode_Settings
 		<p>' . __( 'You can access account details, contact us, get support, or learn about our affiliate program through these links.' ) . '</p>
 		<ul>
 			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-affiliation">' . __( 'Affiliate Program', 'fsrs' ) . '</a></li>
-			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-account">' . __( 'Account', 'noun', 'fsrs' ) . '</a></li>
+			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-account">' . _x( 'Account', 'noun', 'fsrs' ) . '</a></li>
 			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-contact">' . __( 'Contact Us', 'fsrs' ) . '</a></li>
 			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-wp-support-forum">' . __( 'Support Forum', 'fsrs' ) . '</a></li>
 			<li><a href="/wp-admin/options-general.php?page=five-star-ratings-shortcode-pricing">Upgrade</a></li>
@@ -375,11 +375,11 @@ class Five_Star_Ratings_Shortcode_Settings
                 
                 
                 if ( $type == 'Product' ) {
-                    $shortcode = '<div id="shortcode"><code id="product-shortcode">[rating stars="' . wp_kses( $stars, $arr ) . '" type="' . wp_kses( $type, $arr ) . '" name="' . wp_kses( $name, $arr ) . '" desc="' . wp_kses( $desc, $arr ) . '" brand="' . wp_kses( $brand, $arr ) . '" mpn="' . wp_kses( $mpn, $arr ) . '" price="' . wp_kses( $price, $arr ) . '" cur="' . wp_kses( $cur, $arr ) . '"]</code></div><button class="copyBtn button button-primary" data-clipboard-target="#product-shortcode">' . __( 'Copy Shortcode', 'fsrs' ) . '</button>';
+                    $shortcode = '<div id="shortcode"><code id="product-shortcode">[rating stars="' . wp_kses( $stars, $arr ) . '" type="' . wp_kses( $type, $arr ) . '" name="' . wp_kses( $name, $arr ) . '" desc="' . wp_kses( $desc, $arr ) . '" brand="' . wp_kses( $brand, $arr ) . '" mpn="' . wp_kses( $mpn, $arr ) . '" price="' . wp_kses( $price, $arr ) . '" cur="' . wp_kses( $cur, $arr ) . '"]</code></div><button class="copyBtn button button-primary" data-clipboard-target="#product-shortcode">' . _x( 'Copy Shortcode', 'imperative verb', 'fsrs' ) . '</button>';
                 } elseif ( $type == 'Restaurant' ) {
-                    $shortcode = '<div id="shortcode"><code id="restaurant-shortcode">[rating stars="' . wp_kses( $stars, $arr ) . '" type="' . wp_kses( $type, $arr ) . '" name="' . wp_kses( $name, $arr ) . '" desc="' . wp_kses( $desc, $arr ) . '" price="' . wp_kses( $range, $arr ) . '" addr="' . wp_kses( $addr, $arr ) . '" locale="' . wp_kses( $locale, $arr ) . '" region="' . wp_kses( $region, $arr ) . '" postal="' . wp_kses( $postal, $arr ) . '" country="' . wp_kses( $country, $arr ) . '" tel="' . wp_kses( $tel, $arr ) . '" cuisine="' . wp_kses( $cuisine, $arr ) . '"]</code></div><button class="copyBtn button button-primary" data-clipboard-target="#restaurant-shortcode">' . __( 'Copy Shortcode', 'fsrs' ) . '</button>';
+                    $shortcode = '<div id="shortcode"><code id="restaurant-shortcode">[rating stars="' . wp_kses( $stars, $arr ) . '" type="' . wp_kses( $type, $arr ) . '" name="' . wp_kses( $name, $arr ) . '" desc="' . wp_kses( $desc, $arr ) . '" price="' . wp_kses( $range, $arr ) . '" addr="' . wp_kses( $addr, $arr ) . '" locale="' . wp_kses( $locale, $arr ) . '" region="' . wp_kses( $region, $arr ) . '" postal="' . wp_kses( $postal, $arr ) . '" country="' . wp_kses( $country, $arr ) . '" tel="' . wp_kses( $tel, $arr ) . '" cuisine="' . wp_kses( $cuisine, $arr ) . '"]</code></div><button class="copyBtn button button-primary" data-clipboard-target="#restaurant-shortcode">' . _x( 'Copy Shortcode', 'imperative verb', 'fsrs' ) . '</button>';
                 } elseif ( $type == 'Recipe' ) {
-                    $shortcode = '<div id="shortcode"><h3>Please copy the following shortcode and paste it into your reviews post or page:</h3><code id="recipe-shortcode">[rating stars="' . wp_kses( $stars, $arr ) . '" type="' . wp_kses( $type, $arr ) . '" name="' . wp_kses( $name, $arr ) . '" desc="' . wp_kses( $desc, $arr ) . '" author="' . wp_kses( $auth, $arr ) . '" cuisine="' . wp_kses( $cuisine, $arr ) . '" keywords="' . wp_kses( $keywd, $arr ) . '" prep="' . wp_kses( $prep, $arr ) . '" cook="' . wp_kses( $cook, $arr ) . '" yield="' . wp_kses( $yield, $arr ) . '" cat="' . wp_kses( $category, $arr ) . '" cal="' . wp_kses( $calories, $arr ) . '" ing="' . wp_kses( $ing, $arr ) . '" steps="' . wp_kses( $steps, $arr ) . '"]</code></div><button class="copyBtn button button-primary" data-clipboard-target="#recipe-shortcode">' . __( 'Copy Shortcode', 'fsrs' ) . '</button>';
+                    $shortcode = '<div id="shortcode"><h3>Please copy the following shortcode and paste it into your reviews post or page:</h3><code id="recipe-shortcode">[rating stars="' . wp_kses( $stars, $arr ) . '" type="' . wp_kses( $type, $arr ) . '" name="' . wp_kses( $name, $arr ) . '" desc="' . wp_kses( $desc, $arr ) . '" author="' . wp_kses( $auth, $arr ) . '" cuisine="' . wp_kses( $cuisine, $arr ) . '" keywords="' . wp_kses( $keywd, $arr ) . '" prep="' . wp_kses( $prep, $arr ) . '" cook="' . wp_kses( $cook, $arr ) . '" yield="' . wp_kses( $yield, $arr ) . '" cat="' . wp_kses( $category, $arr ) . '" cal="' . wp_kses( $calories, $arr ) . '" ing="' . wp_kses( $ing, $arr ) . '" steps="' . wp_kses( $steps, $arr ) . '"]</code></div><button class="copyBtn button button-primary" data-clipboard-target="#recipe-shortcode">' . _x( 'Copy Shortcode', 'imperative verb', 'fsrs' ) . '</button>';
                 } else {
                     $shortcode = $type;
                 }
@@ -489,7 +489,7 @@ class Five_Star_Ratings_Shortcode_Settings
                     /* translators: /* translators: the placeholders %1$.1f and %2$d.0 are indeterminate numerals. Example output: "Must be a 1-decimal place float ranging from 0.0 to 5.0," etc. */
                     __( 'Rating must be a 1-decimal place float ranging from %1$.1f to to %2$d.0, <abbr>e.g.</abbr>, “3.5”, “1.0”. ', 'fsrs' ),
                     array( 'abbr' )
-                ), $starsMin . 'foo', $starsMax ) . '"
+                ), $starsMin, $starsMax ) . '"
 		  },
 		  fsrs_prodBrand: "' . __( "Please enter the brand", "fsrs" ) . '",
 		  fsrs_prodMPN: "' . __( "Please enter the product number", "fsrs" ) . '",
@@ -519,7 +519,11 @@ class Five_Star_Ratings_Shortcode_Settings
 		  fsrs_recIng: "' . __( "Please enter at least 1 ingredient", "fsrs" ) . '",
 		  fsrs_recSteps: {
 			required: "' . __( "Please enter the recipe steps", "fsrs" ) . '",
-			pattern: "' . sprintf( wp_kses( __( 'Recipe steps must be in the form {$name} $text, repeating as needed, where $name is a <em>short</em> description of the step and $text is the detailed text of the step.', 'fsrs' ), array( 'em', 'abbr' ) ), $starsMax ) . '"
+			pattern: "' . sprintf( wp_kses(
+                    /* translators: please translate the variables $name and $text into your own language. */
+                    __( 'Recipe steps must be in the form {$name} $text, repeating as needed, where $name is a <em>short</em> description of the step and $text is the detailed text of the step.', 'fsrs' ),
+                    array( 'em' )
+                ), $starsMax ) . '"
 			},
 		},
 		errorElement: "div",

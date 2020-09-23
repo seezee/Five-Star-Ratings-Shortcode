@@ -164,7 +164,7 @@ class Five_Star_Ratings_Shortcode
                 // Translation string with variables.
                 wp_kses(
                     /* translators: ignore the placeholders in the URL */
-                    __( 'Thank you for installing Five-Star Ratings Shortcode. For custom icon and text color and size as well as syntax options, please upgrade to <a href="%1$s" rel="%2$s">Five-Star Ratings Shortcode PRO</a>.', 'fsrs' ),
+                    __( 'Thank you for installing Five-Star Ratings Shortcode. For custom icon and text color and size, Google Rich Snippets, and other features, please upgrade to <a href="%1$s" rel="%2$s">Five-Star Ratings Shortcode PRO</a>.', 'fsrs' ),
                     array(
                         'a' => array(
                         'href' => array(),

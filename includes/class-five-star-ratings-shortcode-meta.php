@@ -60,7 +60,8 @@ class Five_Star_Ratings_Shortcode_Meta {
 			$iconstyle   = 'style="-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;"';
 
 			return array_merge( $links, array(
-				'<a href="' . esc_url( $supportlink ) . '"> <span class="dashicons dashicons-format-chat" ' . $iconstyle . 'title="' . __( 'Five-Star Ratings Shortcode Support', 'noun', 'fsrs' ) . '" aria-label="' . __( 'Five-Star Ratings Shortcode Support', 'fsrs' ) . '"></span></a>',
+				'<a href="' . esc_url( $supportlink ) . '"> <span class="dashicons dashicons-format-chat" ' . $iconstyle . 'title="' . _x( 'Five-Star Ratings Shortcode Support', 'noun', 'fsrs' ) . '" aria-label="' . __( 'Five-Star Ratings Shortcode Support', 'fsrs' ) . '"></span></a>',
+				/* translators: "Chris J. Zähller" is the plugin author. */
 				'<a href="' . esc_url( $twitterlink ). '"><span class="dashicons dashicons-twitter" ' . $iconstyle . 'title="' . __( 'Chris J. Zähller on Twitter', 'fsrs' ) . '" aria-label="' . __( 'Chris J. Zähller on Twitter', 'fsrs' ) . '"></span></a>',
 				'<a href="' . esc_url( $reviewlink ). '"><span class="dashicons dashicons-star-filled"' . $iconstyle . 'title="' . __( 'Give a 5-Star Review', 'fsrs' ) . '" aria-label="' . __( 'Give a 5-Star Review', 'fsrs' ) . '"></span></a>',
 				'<a href="' . esc_url( $donatelink ). '"><span class="dashicons dashicons-heart"' . $iconstyle . 'title="' . __( 'Donate', 'fsrs' ) . '" aria-label="' . __( 'Donate', 'fsrs' ) . '"></span></a>',
