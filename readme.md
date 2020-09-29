@@ -16,9 +16,8 @@ GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin
 
 Add accessible, attractive 5-star ratings anywhere on your site with a simple shortcode. The plugin uses Font Awesome icons via their SVG + JavaScript method.
 
-[![RIPS CodeRisk](https://coderisk.com/wp/plugin/five-star-ratings-shortcode/badge "RIPS CodeRisk")](https://coderisk.com/wp/plugin/five-star-ratings-shortcode)
-[![WP compatibility](https://plugintests.com/plugins/five-star-ratings-shortcode/wp-badge.svg)](https://plugintests.com/plugins/five-star-ratings-shortcode/latest)
-[![PHP compatibility](https://plugintests.com/plugins/five-star-ratings-shortcode/php-badge.svg)](https://plugintests.com/plugins/five-star-ratings-shortcode/latest)
+[![WP compatibility](https://plugintests.com/plugins/wporg/five-star-ratings-shortcode/wp-badge.svg)](https://plugintests.com/plugins/wporg/five-star-ratings-shortcode/latest)
+[![PHP compatibility](https://plugintests.com/plugins/wporg/five-star-ratings-shortcode/php-badge.svg)](https://plugintests.com/plugins/wporg/five-star-ratings-shortcode/latest)
 
 == Acknowledgement ==
 
@@ -122,6 +121,10 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome): v5.11.2
 
 == Changelog ==
+
+= 1.2.3 =
+* 2020-09-29
+* SECURITY FIX: escape or sanitize all translatable strings
 
 = 1.2.2 =
 * 2020-09-22
@@ -276,10 +279,9 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 1.2.2 =
-* 2020-09-22
-* Improved microcopy
-* Fix some i18n errors
+= 1.2.3 =
+* 2020-09-29
+* SECURITY FIX: escape or sanitize all translatable strings
 
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

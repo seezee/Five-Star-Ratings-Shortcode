@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Five-Star Ratings Shortcode
- * Version: 1.2.2
+ * Version: 1.2.3
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
  * GitHub Plugin URI: seezee/five-star-ratings-shortcode  
@@ -75,23 +75,26 @@ if ( function_exists( 'fsrs_fs' ) ) {
         do_action( 'fsrs_fs_loaded' );
     }
     
+    $arr = array(
+        'abbr' => array(),
+    );
     // Plugin constants.
+    $error_open = '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ';
+    $error_close = '</div>';
     
     if ( !defined( 'FSRS_BASE' ) ) {
         define( 'FSRS_BASE', 'fsrs_' );
     } else {
-        echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' ;
-        _e( 'Five-Star Ratings Shortcode ERROR! The <abbr>PHP</abbr> constant &ldquo;FSRS_BASE&rdquo; has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'fsrs' );
-        echo  '</div>' ;
+        $message = __( 'Five-Star Ratings Shortcode ERROR! The <abbr>PHP</abbr> constant “FSRS_BASE” has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'fsrs' );
+        echo  $error_open . wp_kses( $message, $arr ) . $error_close ;
     }
     
     
     if ( !defined( 'FSRS_VERSION' ) ) {
-        define( 'FSRS_VERSION', '1.2.2' );
+        define( 'FSRS_VERSION', '1.2.3' );
     } else {
-        echo  '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ' ;
-        _e( 'Five-Star Ratings Shortcode ERROR! The <abbr>PHP</abbr> constant has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'fsrs' );
-        echo  '</div>' ;
+        $message = __( 'Five-Star Ratings Shortcode ERROR! The <abbr>PHP</abbr> constant “FSRS_VERSION” has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'fsrs' );
+        echo  $error_open . wp_kses( $message, $arr ) . $error_close ;
     }
     
     // Load plugin class files.

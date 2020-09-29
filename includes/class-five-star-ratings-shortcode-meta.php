@@ -60,12 +60,12 @@ class Five_Star_Ratings_Shortcode_Meta {
 			$iconstyle   = 'style="-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;"';
 
 			return array_merge( $links, array(
-				'<a href="' . esc_url( $supportlink ) . '"> <span class="dashicons dashicons-format-chat" ' . $iconstyle . 'title="' . _x( 'Five-Star Ratings Shortcode Support', 'noun', 'fsrs' ) . '" aria-label="' . __( 'Five-Star Ratings Shortcode Support', 'fsrs' ) . '"></span></a>',
+				'<a href="' . esc_url( $supportlink ) . '"> <span class="dashicons dashicons-format-chat" ' . $iconstyle . 'title="' . esc_attr_x( 'Five-Star Ratings Shortcode Support', 'noun', 'fsrs' ) . '" aria-label="' . esc_attr_x( 'Five-Star Ratings Shortcode Support', 'noun', 'fsrs' ) . '"></span></a>',
 				/* translators: "Chris J. Zähller" is the plugin author. */
-				'<a href="' . esc_url( $twitterlink ). '"><span class="dashicons dashicons-twitter" ' . $iconstyle . 'title="' . __( 'Chris J. Zähller on Twitter', 'fsrs' ) . '" aria-label="' . __( 'Chris J. Zähller on Twitter', 'fsrs' ) . '"></span></a>',
-				'<a href="' . esc_url( $reviewlink ). '"><span class="dashicons dashicons-star-filled"' . $iconstyle . 'title="' . __( 'Give a 5-Star Review', 'fsrs' ) . '" aria-label="' . __( 'Give a 5-Star Review', 'fsrs' ) . '"></span></a>',
-				'<a href="' . esc_url( $donatelink ). '"><span class="dashicons dashicons-heart"' . $iconstyle . 'title="' . __( 'Donate', 'fsrs' ) . '" aria-label="' . __( 'Donate', 'fsrs' ) . '"></span></a>',
-				'<a href="' . esc_url( $coffeelink ). '"><span class="fsrs-fas fas fa-coffee"' . $iconstyle . 'title="' . __('Buy the Developer a Coffee', 'fsrs' ) . '" aria-label="' . __('Buy the Developer a Coffee', 'fsrs' ) . '"></span></a>', ) );
+				'<a href="' . esc_url( $twitterlink ). '"><span class="dashicons dashicons-twitter" ' . $iconstyle . 'title="' . esc_attr__( 'Chris J. Zähller on Twitter', 'fsrs' ) . '" aria-label="' . esc_attr__( 'Chris J. Zähller on Twitter', 'fsrs' ) . '"></span></a>',
+				'<a href="' . esc_url( $reviewlink ). '"><span class="dashicons dashicons-star-filled"' . $iconstyle . 'title="' . esc_attr__( 'Give a 5-Star Review', 'fsrs' ) . '" aria-label="' . esc_attr__( 'Give a 5-Star Review', 'fsrs' ) . '"></span></a>',
+				'<a href="' . esc_url( $donatelink ). '"><span class="dashicons dashicons-heart"' . $iconstyle . 'title="' . esc_attr__( 'Donate', 'fsrs' ) . '" aria-label="' . esc_attr__( 'Donate', 'fsrs' ) . '"></span></a>',
+				'<a href="' . esc_url( $coffeelink ). '"><span class="fsrs-fas fas fa-coffee"' . $iconstyle . 'title="' . esc_attr__('Buy the Developer a Coffee', 'fsrs' ) . '" aria-label="' . esc_attr__('Buy the Developer a Coffee', 'fsrs' ) . '"></span></a>', ) );
 		}
 
 		return $links;
@@ -95,7 +95,7 @@ class Five_Star_Ratings_Shortcode_Meta {
 	 * @since 1.0.0
 	 */
 	public function __clone() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of Five_Star_Ratings_Shortcode_Meta is forbidden.', 'fsrs' ), esc_attr( FSRS_VERSION ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of Class_Five_Star_Ratings_Shortcode_Meta is forbidden.', 'fsrs' ), esc_attr( FSRS_VERSION ) );
 	} // End __clone()
 
 	/**
@@ -104,7 +104,7 @@ class Five_Star_Ratings_Shortcode_Meta {
 	 * @since 1.0.0
 	 */
 	public function __wakeup() {
-		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of Five_Star_Ratings_Shortcode_Meta is forbidden.' ), esc_attr( FSRS_VERSION ) );
+		_doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of Class_Five_Star_Ratings_Shortcode_Meta is forbidden.', 'fsrs' ), esc_attr( FSRS_VERSION ) );
 	} // End __wakeup()
 
 }
