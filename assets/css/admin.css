@@ -1,4 +1,4 @@
-/* CSS document */
+/* SCSS document */
 .description code {
 	font-style: normal;
 }
@@ -101,7 +101,8 @@ summary {
 }
 
 details {
-	border: 1px 1px 0 1px solid #21759b;
+	border: 1px solid #21759b;
+	border-bottom: none;
 	padding: 1rem;
 }
 

@@ -7,7 +7,7 @@ Tags: wordpress, plugin, ratings, stars, icon, shortcode, accessible
 Requires at least: 3.9  
 Tested up to: 5.5.1  
 Requires PHP: 7.0  
-Stable tag: 1.2.3  
+Stable tag: 1.2.4  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -124,6 +124,10 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome): v5.11.2
 
 == Changelog ==
+
+= 1.2.4 =
+* 2020-09-29
+* BUGFIX fix missing borders on &lt;details&rt; element
 
 = 1.2.3 =
 * 2020-09-29
@@ -282,6 +286,6 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 1.2.3 =
+= 1.2.4 =
 * 2020-09-29
-* SECURITY FIX: escape or sanitize all translatable strings
+* BUGFIX fix missing borders on <&lt;details&rt; element
