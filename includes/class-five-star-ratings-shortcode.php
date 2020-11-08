@@ -241,8 +241,7 @@ class Five_Star_Ratings_Shortcode
         );
         wp_enqueue_script( $this->token . '-fa-main' );
         // We're using a specially optimized version of fa-solid.js to
-        // load only the necessary Fontawesome glyphs, i.e. fa-coffee
-        // & fa-font. In the event we ever need to add more glyphs, both
+        // load only the necessary Fontawesome glyphs, i.e. fa-star & fa-star-half-alt. In the event we ever need to add more glyphs, both
         // scripts, i.e., fa-solid.js & fa-solid.min.js, will need to be
         // updated.
         wp_register_script(

@@ -65,7 +65,7 @@ class Five_Star_Ratings_Shortcode_Meta {
 				'<a href="' . esc_url( $twitterlink ). '"><span class="dashicons dashicons-twitter" ' . $iconstyle . 'title="' . esc_attr__( 'Chris J. Zähller on Twitter', 'fsrs' ) . '" aria-label="' . esc_attr__( 'Chris J. Zähller on Twitter', 'fsrs' ) . '"></span></a>',
 				'<a href="' . esc_url( $reviewlink ). '"><span class="dashicons dashicons-star-filled"' . $iconstyle . 'title="' . esc_attr__( 'Give a 5-Star Review', 'fsrs' ) . '" aria-label="' . esc_attr__( 'Give a 5-Star Review', 'fsrs' ) . '"></span></a>',
 				'<a href="' . esc_url( $donatelink ). '"><span class="dashicons dashicons-heart"' . $iconstyle . 'title="' . esc_attr__( 'Donate', 'fsrs' ) . '" aria-label="' . esc_attr__( 'Donate', 'fsrs' ) . '"></span></a>',
-				'<a href="' . esc_url( $coffeelink ). '"><span class="fsrs-fas fas fa-coffee"' . $iconstyle . 'title="' . esc_attr__('Buy the Developer a Coffee', 'fsrs' ) . '" aria-label="' . esc_attr__('Buy the Developer a Coffee', 'fsrs' ) . '"></span></a>', ) );
+				'<a href="' . esc_url( $coffeelink ). '"><span class="dashicons dashicons-coffee"' . $iconstyle . 'title="' . esc_attr__('Buy the Developer a Coffee', 'fsrs' ) . '" aria-label="' . esc_attr__('Buy the Developer a Coffee', 'fsrs' ) . '"></span></a>', ) );
 		}
 
 		return $links;

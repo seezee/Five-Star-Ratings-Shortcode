@@ -4,10 +4,10 @@ Donate link: https://messengerwebdesign.com/donate
 Author URI: https://github.com/seezee  
 Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/  
 Tags: wordpress, plugin, ratings, stars, icon, shortcode, accessible  
-Requires at least: 3.9  
-Tested up to: 5.5.1  
+Requires at least: 4.6.0  
+Tested up to: 5.5.3  
 Requires PHP: 7.0  
-Stable tag: 1.2.4  
+Stable tag: 1.2.5  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -125,9 +125,14 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.2.5 =
+* 2020-10-08
+* Tested up to 5.5.3
+* Use Dashicons coffee glyph instead of FontAwesome coffee glyph in plugin meta
+
 = 1.2.4 =
 * 2020-09-29
-* BUGFIX fix missing borders on &lt;details&rt; element
+* BUGFIX fix missing borders on &lt;details&gt; element
 
 = 1.2.3 =
 * 2020-09-29
@@ -145,7 +150,7 @@ This plugin includes these third-party libraries in its package.
 = 1.2.0 =
 * 2020-09-20
 * (PRO only) BREAKING CHANGES: Recipe Rich Snippets require new syntax
-* (PRO only) Bugfix: fix missing curly brace in Recipe Rich Snippets output
+* (PRO only) BUGFIX: fix missing curly brace in Recipe Rich Snippets output
 * (PRO only) Improve Recipe Rich Snippets syntax
 * (PRO only) Now supports guided recipes
 
@@ -165,13 +170,13 @@ This plugin includes these third-party libraries in its package.
 
 = 1.1.2 =
 * 2020-09-13
-* Bugfix: 1.1.1 reintroduced error of scripts loading outside plugin settings page, conflicting with other plugins; this update fixes that while ensuring scripts still load when needed
+* BUGFIX: 1.1.1 reintroduced error of scripts loading outside plugin settings page, conflicting with other plugins; this update fixes that while ensuring scripts still load when needed
 
 = 1.1.1 =
 * 2020-09-13
-* Bugfix: fix version check
-* Bugfix: fix missing admin scripts
-* Bugfix: fix missing padding on details:summary
+* BUGFIX: fix version check
+* BUGFIX: fix missing admin scripts
+* BUGFIX: fix missing padding on details:summary
 * New PRO feature: shortcode generator
 * Updated UX & CSS
 * Updated usage examples
@@ -286,6 +291,7 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 1.2.4 =
-* 2020-09-29
-* BUGFIX fix missing borders on <&lt;details&rt; element
+= 1.2.5 =
+* 2020-10-08
+* Tested up to 5.5.3
+* Use Dashicons coffee glyph instead of FontAwesome coffee glyph in plugin meta

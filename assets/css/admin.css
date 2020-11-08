@@ -398,3 +398,8 @@ input.error {
 	font-size-adjust: larger;
 	background: yellow;
 }
+
+.dashicons-coffee {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
