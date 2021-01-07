@@ -616,7 +616,8 @@ class Five_Star_Ratings_Shortcode
         ), $atts );
         $arr = array();
         
-        if ( get_option( FSRS_BASE . 'syntax' ) !== null ) {
+        if ( get_option( FSRS_BASE . 'syntax' ) != null ) {
+            // Don't use strict comparison.
             $syntax = get_option( FSRS_BASE . 'syntax' );
         } else {
             $syntax = 'i';
@@ -624,7 +625,8 @@ class Five_Star_Ratings_Shortcode
         
         // Default syntax.
         
-        if ( get_option( FSRS_BASE . 'starsmax' ) !== null ) {
+        if ( get_option( FSRS_BASE . 'starsmax' ) != null ) {
+            // Don't use strict comparison.
             $starsmax = get_option( FSRS_BASE . 'starsmax' );
         } else {
             $starsmax = '5';
@@ -632,7 +634,8 @@ class Five_Star_Ratings_Shortcode
         
         // Default value; also the only value for the FREE plugin.
         
-        if ( get_option( FSRS_BASE . 'size' ) !== null ) {
+        if ( get_option( FSRS_BASE . 'size' ) != null ) {
+            // Don't use strict comparison.
             $size = get_option( FSRS_BASE . 'size' );
         } else {
             $size = '';
