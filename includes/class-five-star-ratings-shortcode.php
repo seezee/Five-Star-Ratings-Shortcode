@@ -238,7 +238,7 @@ class Five_Star_Ratings_Shortcode
         $url = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/fontawesome';
         $fallback = esc_url( $this->assets_url ) . 'js/fontawesome';
         $suffix = $this->script_suffix . '.js';
-        $link = $protocol . $link . $suffix;
+        $link = $protocol . $url . $suffix;
         /**
          * Check whether external files are available.
          *
@@ -306,7 +306,7 @@ class Five_Star_Ratings_Shortcode
         $url = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/fontawesome';
         $fallback = esc_url( $this->assets_url ) . 'js/fontawesome';
         $suffix = $this->script_suffix . '.js';
-        $link = $protocol . $link . $suffix;
+        $link = $protocol . $url . $suffix;
         /**
          * Check whether external files are available.
          *
