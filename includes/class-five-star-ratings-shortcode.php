@@ -134,7 +134,7 @@ class Five_Star_Ratings_Shortcode
         $this->load_plugin_textdomain();
         add_action( 'init', array( $this, 'load_localisation' ), 0 );
         if ( !fsrs_fs()->can_use_premium_code() ) {
-            // Display the admin notification
+            // Display the admin notification.
             add_action( 'admin_notices', array( $this, 'free_activation' ) );
         }
         add_shortcode( 'rating', array( $this, 'rating_func' ) );
@@ -151,7 +151,7 @@ class Five_Star_Ratings_Shortcode
             // $pagenow is a global variable referring to the filename of the
             // current page, such as ‘admin.php’, ‘post-new.php’.
             global  $pagenow ;
-            if ( $pagenow != 'plugins.php' || !current_user_can( 'install_plugins' ) ) {
+            if ( 'plugins.php' !== $pagenow || !current_user_can( 'install_plugins' ) ) {
                 return;
             }
             $html = '<div id="activated" class="notice notice-info is-dismissible">';
@@ -176,13 +176,17 @@ class Five_Star_Ratings_Shortcode
                 $rel
             );
             $url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/?
-				trial=free';
-            $html .= ' ' . sprintf( wp_kses( __( 'Not sure if you need those features? We have a <a href="%1$s" rel="%2$s">FREE 14-day trial</a>.', 'fsrs' ), array(
-                'a' => array(
-                'href' => array(),
-                'rel'  => array(),
-            ),
-            ) ), esc_url( $url ), $rel );
+			trial=free';
+            $html .= ' ' . sprintf( wp_kses(
+                // translators: placeholders do not need translation.
+                __( 'Not sure if you need those features? We have a <a href="%1$s" rel="%2$s">FREE 14-day trial</a>.', 'fsrs' ),
+                array(
+                    'a' => array(
+                    'href' => array(),
+                    'rel'  => array(),
+                ),
+                )
+            ), esc_url( $url ), $rel );
             $html .= '</p>';
             $html .= '</div>';
             return $html;
@@ -190,7 +194,7 @@ class Five_Star_Ratings_Shortcode
     
     }
     
-    // end plugin_activation
+    // End plugin_activation.
     /**
      * Admin enqueue style.
      *
@@ -201,7 +205,7 @@ class Five_Star_Ratings_Shortcode
     public function admin_enqueue_styles( $hook )
     {
         global  $pagenow ;
-        if ( $hook != 'settings_page_five-star-ratings-shortcode' && $pagenow != 'plugins.php' || !current_user_can( 'install_plugins' ) ) {
+        if ( 'settings_page_five-star-ratings-shortcode' !== $hook && 'plugins.php' !== $pagenow || !current_user_can( 'install_plugins' ) ) {
             return;
         }
         wp_register_style(
@@ -217,28 +221,62 @@ class Five_Star_Ratings_Shortcode
     /**
      * Load admin meta Javascript.
      *
-     * @access  public
+     * @access public
      *
-     * @param string $hook Hook parameter.
+     * @param  string $hook Hook parameter.
      *
-     * @return  void
-     * @since   1.0.0
+     * @return void
+     * @since  1.0.0
      */
     public function admin_enqueue_scripts( $hook )
     {
         global  $pagenow ;
-        if ( $hook != 'settings_page_five-star-ratings-shortcode' && $pagenow != 'plugins.php' || !current_user_can( 'install_plugins' ) ) {
+        if ( 'settings_page_five-star-ratings-shortcode' !== $hook && 'plugins.php' !== $pagenow || !current_user_can( 'install_plugins' ) ) {
             return;
         }
+        $protocol = 'https:';
+        $url = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/fontawesome';
+        $fallback = esc_url( $this->assets_url ) . 'js/fontawesome';
+        $suffix = $this->script_suffix . '.js';
+        $link = $protocol . $link . $suffix;
+        /**
+         * Check whether external files are available.
+         *
+         * @access public
+         *
+         * @param string $link Link parameter.
+         *
+         * @since   1.0.0
+         */
+        function checklink( $link )
+        {
+            return (bool) @fopen( $link, 'r' );
+            // phpcs:ignore
+        }
+        
         wp_enqueue_script( 'jquery' );
         wp_enqueue_script( 'jquery-form' );
-        wp_register_script(
-            $this->token . '-fa-main',
-            '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/fontawesome' . $this->script_suffix . '.js',
-            array(),
-            '',
-            true
-        );
+        // If boolean is TRUE.
+        
+        if ( checklink( $link ) ) {
+            wp_register_script(
+                $this->token . '-fa-main',
+                $link . $this->script_suffix . '.js',
+                array(),
+                esc_html( FSRS_VERSION ),
+                true
+            );
+            // Otherwise use local copy.
+        } else {
+            wp_register_script(
+                $this->token . '-fa-main',
+                $fallback . $this->script_suffix . '.js',
+                array(),
+                esc_html( FSRS_VERSION ),
+                true
+            );
+        }
+        
         wp_enqueue_script( $this->token . '-fa-main' );
         // We're using a specially optimized version of fa-solid.js to
         // load only the necessary Fontawesome glyphs, i.e. fa-star & fa-star-half-alt. In the event we ever need to add more glyphs, both
@@ -254,26 +292,59 @@ class Five_Star_Ratings_Shortcode
         wp_enqueue_script( $this->token . '-fa-solid' );
     }
     
-    // End admin_enqueue_scripts () */
+    // End admin_enqueue_scripts ().
     /**
      * Load plugin Javascript.
      *
-     * @access  public
+     * @access public
      *
-     * @return  void
-     * @since   1.0.0
+     * @since  1.0.0
      */
     public function enqueue_fa_scripts()
     {
+        $protocol = 'https:';
+        $url = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/fontawesome';
+        $fallback = esc_url( $this->assets_url ) . 'js/fontawesome';
+        $suffix = $this->script_suffix . '.js';
+        $link = $protocol . $link . $suffix;
+        /**
+         * Check whether external files are available.
+         *
+         * @access public
+         *
+         * @param string $link Link parameter.
+         *
+         * @since   1.0.0
+         */
+        function checklink( $link )
+        {
+            return (bool) @fopen( $link, 'r' );
+            // phpcs:ignore
+        }
+        
         
         if ( !is_admin() ) {
-            wp_register_script(
-                $this->token . '-fa-main',
-                '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/fontawesome' . $this->script_suffix . '.js',
-                array(),
-                esc_html( FSRS_VERSION ),
-                true
-            );
+            // If boolean is TRUE.
+            
+            if ( checklink( $link ) ) {
+                wp_register_script(
+                    $this->token . '-fa-main',
+                    $url . $this->script_suffix . '.js',
+                    array(),
+                    esc_html( FSRS_VERSION ),
+                    true
+                );
+                // Otherwise use local copy.
+            } else {
+                wp_register_script(
+                    $this->token . '-fa-main',
+                    $fallback . $this->script_suffix . '.js',
+                    array(),
+                    esc_html( FSRS_VERSION ),
+                    true
+                );
+            }
+            
             // We're using specially optimized versions of fa-solid.js and
             // fa-regular.js to load only the necessary Fontawesome glyphs,
             // i.e. fa-star (regular and solid) & fa-half-star. In the event
@@ -305,36 +376,121 @@ class Five_Star_Ratings_Shortcode
     /**
      * Load jQuery validatioon.
      *
-     * @access  public
+     * @access public
      *
-     * @return  void
-     * @since   1.0.0
+     * @since  1.0.0
      */
     public function enqueue_jquery()
     {
+        $protocol = 'https:';
+        $url = array( '//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate', '//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods', '//cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard' );
+        $fallback = array( esc_url( $this->assets_url ) . 'js/jquery-validate/jquery.validate', esc_url( $this->assets_url ) . 'js/jquery-validate/additional-methods', esc_url( $this->assets_url ) . 'js/clipboard' );
+        $suffix = $this->script_suffix . '.js';
+        $links = array( $protocol . $url[0] . $suffix, $protocol . $url[1] . $suffix, $protocol . $url[2] . $suffix );
+        /**
+         * Check whether external files are available.
+         *
+         * @access public
+         *
+         * @param string $links Link parameter.
+         *
+         * @since   1.0.0
+         */
+        function checklinks0( $links )
+        {
+            return (bool) @fopen( $links[0], 'r' );
+            // phpcs:ignore
+        }
+        
+        /**
+         * Check whether external files are available.
+         *
+         * @access public
+         *
+         * @param string $links Link parameter.
+         *
+         * @since   1.0.0
+         */
+        function checklinks1( $links )
+        {
+            return (bool) @fopen( $links[1], 'r' );
+            // phpcs:ignore
+        }
+        
+        /**
+         * Check whether external files are available.
+         *
+         * @access public
+         *
+         * @param string $links Link parameter.
+         *
+         * @since   1.0.0
+         */
+        function checklinks2( $links )
+        {
+            return (bool) @fopen( $links[2], 'r' );
+            // phpcs:ignore
+        }
+        
         
         if ( is_admin() ) {
-            wp_register_script(
-                $this->token . '-validate',
-                '//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate' . $this->script_suffix . '.js',
-                array( 'jquery' ),
-                '1.19.2',
-                true
-            );
-            wp_register_script(
-                $this->token . '-methods',
-                '//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods' . $this->script_suffix . '.js',
-                array( 'jquery' ),
-                '1.19.2',
-                true
-            );
-            wp_register_script(
-                $this->token . '-clipboard',
-                '//cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard' . $this->script_suffix . '.js',
-                array( 'jquery' ),
-                '1.19.2',
-                true
-            );
+            
+            if ( checklinks0( $links ) ) {
+                wp_register_script(
+                    $this->token . '-validate',
+                    $url[0] . $this->script_suffix . '.js',
+                    array( 'jquery' ),
+                    '1.19.2',
+                    true
+                );
+            } else {
+                wp_register_script(
+                    $this->token . '-validate',
+                    $fallback[0] . $this->script_suffix . '.js',
+                    array( 'jquery' ),
+                    '1.19.2',
+                    true
+                );
+            }
+            
+            
+            if ( checklinks1( $links ) ) {
+                wp_register_script(
+                    $this->token . '-methods',
+                    $url[1] . $this->script_suffix . '.js',
+                    array( 'jquery' ),
+                    '1.19.2',
+                    true
+                );
+            } else {
+                wp_register_script(
+                    $this->token . '-methods',
+                    $fallback[1] . $this->script_suffix . '.js',
+                    array( 'jquery' ),
+                    '1.19.2',
+                    true
+                );
+            }
+            
+            
+            if ( checklinks2( $links ) ) {
+                wp_register_script(
+                    $this->token . '-clipboard',
+                    $url[2] . $this->script_suffix . '.js',
+                    array( 'jquery' ),
+                    '1.19.2',
+                    true
+                );
+            } else {
+                wp_register_script(
+                    $this->token . '-clipboard',
+                    $fallback[2] . $this->script_suffix . '.js',
+                    array( 'jquery' ),
+                    '1.19.2',
+                    true
+                );
+            }
+            
             wp_enqueue_script( $this->token . '-validate' );
             wp_enqueue_script( $this->token . '-methods' );
             wp_enqueue_script( $this->token . '-clipboard' );
@@ -355,9 +511,9 @@ class Five_Star_Ratings_Shortcode
         if ( $this->token . '-fa-main' === $handle ) {
             
             if ( SCRIPT_DEBUG ) {
-                return str_replace( ' src', ' integrity="sha256-CfCEIeLBlKY5VZMluECsaKs5O74E/lSeRag1WJe1Pzs=" crossorigin="anonymous" src', $tag );
+                return str_replace( ' src', ' integrity="sha512-22SFrDaKrPdpHfQg/Clrw1mp4p4vInnirV/PQjMNTlaD+0wbwKcZNDsQDm63kME2HFnsIvMG7BU8cxS6aMxHsQ==" crossorigin="anonymous" src', $tag );
             } else {
-                return str_replace( ' src', ' integrity="sha256-MoYcVrOTRHZb/bvF8DwaNkTJkqu9aCR21zOsGkkBo78=" crossorigin="anonymous" src', $tag );
+                return str_replace( ' src', ' integrity="sha512-kI12xOdWTh/nL2vIx5Yf3z/kJSmY+nvdTXP2ARhepM/YGcmo/lmRGRttI3Da8FXLDw0Y9hRAyZ5JFO3NrCvvXA==" crossorigin="anonymous" src', $tag );
             }
         
         }
@@ -385,7 +541,6 @@ class Five_Star_Ratings_Shortcode
                 return str_replace( ' src', ' integrity="sha512-tjW2dLIvxBrQWtbL7npJzlMVxznKMrkEJtRX5ztkEP6RC5oJdVkmAfFNHTSNrqv7++hAza+dvV4Bijf8rHeC0Q==" crossorigin="anonymous" src', $tag );
             } else {
                 return str_replace( ' src', ' integrity="sha512-hDWGyh+Iy4Mr9AHOzUP2+Y0iVPn/BwxxaoSleEjH/i1o4EVTF/sh0/A1Syii8PWOae+uPr+T/KHwynoebSuAhw==" crossorigin="anonymous" src', $tag );
-                //
             }
         
         }
@@ -440,8 +595,8 @@ class Five_Star_Ratings_Shortcode
     public function load_plugin_textdomain()
     {
         $domain = 'fsrs';
-        $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
-        load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
+        $fallbacke = apply_filters( 'plugin_locale', get_locale(), $domain );
+        load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $fallbacke . '.mo' );
         load_plugin_textdomain( $domain, false, dirname( plugin_basename( $this->file ) ) . '/lang/' );
     }
     
@@ -450,8 +605,9 @@ class Five_Star_Ratings_Shortcode
      * Shortcode
      *
      * @access  public
+     *
+     * @param string $atts Shortcode attributes.
      * @since   1.0.0
-     * @return  void
      */
     public static function rating_func( $atts )
     {
@@ -460,7 +616,7 @@ class Five_Star_Ratings_Shortcode
         ), $atts );
         $arr = array();
         
-        if ( get_option( FSRS_BASE . 'syntax' ) != NULL ) {
+        if ( get_option( FSRS_BASE . 'syntax' ) !== null ) {
             $syntax = get_option( FSRS_BASE . 'syntax' );
         } else {
             $syntax = 'i';
@@ -468,7 +624,7 @@ class Five_Star_Ratings_Shortcode
         
         // Default syntax.
         
-        if ( get_option( FSRS_BASE . 'starsmax' ) != NULL ) {
+        if ( get_option( FSRS_BASE . 'starsmax' ) !== null ) {
             $starsmax = get_option( FSRS_BASE . 'starsmax' );
         } else {
             $starsmax = '5';
@@ -476,7 +632,7 @@ class Five_Star_Ratings_Shortcode
         
         // Default value; also the only value for the FREE plugin.
         
-        if ( get_option( FSRS_BASE . 'size' ) != NULL ) {
+        if ( get_option( FSRS_BASE . 'size' ) !== null ) {
             $size = get_option( FSRS_BASE . 'size' );
         } else {
             $size = '';
@@ -497,7 +653,7 @@ class Five_Star_Ratings_Shortcode
         $halfstar = '<' . $syntax . ' class="fsrs-fas fa-fw fa-star-half-alt ' . $size . '"></' . $syntax . '>';
         // Empty stars if there is no half star.
         $empty = str_repeat( '<' . $syntax . ' class="fsrs-far fa-fw fa-star ' . $size . '"></' . $syntax . '>', $dif );
-        //  How many leftover stars if there is a half star?
+        // How many leftover stars if there is a half star?
         
         if ( $dif >= 1 ) {
             $dif2 = $dif - 1;
@@ -514,9 +670,9 @@ class Five_Star_Ratings_Shortcode
                 wp_kses( __(
                 /* translators: translate only the phrase "%3$.1F out of %4$.1F stars", where "%3$.1F" and "%4$.1F" are placeholders for numerical floats. */
                 '<span class="fsrs">
-						  <span class="fsrs-stars">%1$s%2$s</span>
-						  <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%3$.1F out of %4$.1F stars</span>
-						  <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%3$.1F</span>
+							<span class="fsrs-stars">%1$s%2$s</span>
+							<span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%3$.1F out of %4$.1F stars</span>
+							<span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%3$.1F</span>
 						</span>',
                 'fsrs'
             ), array(
@@ -537,9 +693,9 @@ class Five_Star_Ratings_Shortcode
                 wp_kses( __(
                 /* translators: translate only the phrase "%4$.1F out of %5$.1F stars", where "%4$.1F" and "%5$.1F" are placeholders for numerical floats. */
                 '<span class="fsrs">
-						  <span class="fsrs-stars">%1$s%2$s%3$s</span>
-						  <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%4$.1F out of %5$.1F stars</span>
-						  <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%4$.1F</span>
+							<span class="fsrs-stars">%1$s%2$s%3$s</span>
+							<span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%4$.1F out of %5$.1F stars</span>
+							<span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%4$.1F</span>
 						</span>',
                 'fsrs'
             ), array(
@@ -561,9 +717,9 @@ class Five_Star_Ratings_Shortcode
                 wp_kses( __(
                 /* translators: translate only the phrase "%3$.1F out of %4$.1F stars", where "%3$.1F" and "%4$.1F" are placeholders for numerical floats. */
                 '<span class="fsrs">
-						  <span class="fsrs-stars">%1$s%2$s</span>
-						  <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%3$.1F out of %4$.1F stars</span>
-						  <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%3$.1F</span>
+							<span class="fsrs-stars">%1$s%2$s</span>
+							<span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%3$.1F out of %4$.1F stars</span>
+							<span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%3$.1F</span>
 						</span>',
                 'fsrs'
             ), array(
@@ -585,7 +741,8 @@ class Five_Star_Ratings_Shortcode
     /**
      * Main Five_Star_Ratings_Shortcode Instance
      *
-     * Ensures only one instance of Five_Star_Ratings_Shortcode is loaded or can be loaded.
+     * Ensures only one instance of Five_Star_Ratings_Shortcode is loaded or can
+     * be loaded.
      *
      * @param string $file File instance.
      * @param string FSRS_VERSION Version parameter.

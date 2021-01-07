@@ -2,11 +2,11 @@
 
 /**
  * Plugin Name: Five-Star Ratings Shortcode
- * Version: 1.2.5
+ * Version: 1.2.6
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
- * GitHub Plugin URI: seezee/five-star-ratings-shortcode  
- * Description: Simple lightweight shortcode to add 5-star ratings anywhere  
+ * GitHub Plugin URI: seezee/five-star-ratings-shortcode
+ * Description: Simple lightweight shortcode to add 5-star ratings anywhere
  * Author: Chris J. Zähller / Messenger Web Design
  * Author URI: https://messengerwebdesign.com/
  * Requires at least: 4.0
@@ -30,7 +30,11 @@ if ( function_exists( 'fsrs_fs' ) ) {
     // DO NOT REMOVE THIS `IF`: IT IS ESSENTIAL FOR THE `function_exists` CALL ABOVE TO PROPERLY WORK.
     
     if ( !function_exists( 'fsrs_fs' ) ) {
-        // Create a helper function for easy SDK access.
+        /**
+         * Create a helper function for easy SDK access.
+         *
+         * @since  1.0.0
+         */
         function fsrs_fs()
         {
             global  $fsrs_fs ;
@@ -87,14 +91,16 @@ if ( function_exists( 'fsrs_fs' ) ) {
     } else {
         $message = __( 'Five-Star Ratings Shortcode ERROR! The <abbr>PHP</abbr> constant “FSRS_BASE” has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'fsrs' );
         echo  $error_open . wp_kses( $message, $arr ) . $error_close ;
+        // phpcs:ignore
     }
     
     
     if ( !defined( 'FSRS_VERSION' ) ) {
-        define( 'FSRS_VERSION', '1.2.5' );
+        define( 'FSRS_VERSION', '1.2.6' );
     } else {
         $message = __( 'Five-Star Ratings Shortcode ERROR! The <abbr>PHP</abbr> constant “FSRS_VERSION” has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'fsrs' );
         echo  $error_open . wp_kses( $message, $arr ) . $error_close ;
+        // phpcs:ignore
     }
     
     // Load plugin class files.
@@ -127,9 +133,9 @@ if ( function_exists( 'fsrs_fs' ) ) {
     {
         global  $pagenow ;
         
-        if ( FSRS_VERSION !== get_option( FSRS_BASE . 'version' ) || get_option( FSRS_BASE . 'version' ) === FALSE ) {
+        if ( FSRS_VERSION !== get_option( FSRS_BASE . 'version' ) || get_option( FSRS_BASE . 'version' ) === false ) {
             // Runs if version mismatch or doesn't exist.
-            if ( $pagenow != 'options-general.php' || !current_user_can( 'install_plugins' ) ) {
+            if ( 'options-general.php' !== $pagenow || !current_user_can( 'install_plugins' ) ) {
                 // Show only on settings pages.
                 return;
             }
@@ -170,12 +176,18 @@ if ( function_exists( 'fsrs_fs' ) ) {
             $html .= '</p>';
             $html .= '</div>';
             echo  $html ;
+            // phpcs:ignore
             update_option( FSRS_BASE . 'version', FSRS_VERSION );
         }
     
     }
     
     add_action( 'plugins_loaded', 'fsrs_check_version' );
+    /**
+     * Deletes plugin options from the WordPress database. Free users only.
+     *
+     * Since 1.0.0
+     */
     function fsrs_fs_uninstall_cleanup()
     {
         foreach ( wp_load_alloptions() as $option => $value ) {

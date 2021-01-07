@@ -35,7 +35,7 @@ class Five_Star_Ratings_Shortcode_Meta {
 	/**
 	 * Constructor function.
 	 */
-	public function __links() {
+	public function filter_links() {
 
 		// Filter the plugin meta.
 		add_filter( 'plugin_row_meta', array( $this, 'meta_links' ), 10, 2 );
@@ -59,13 +59,17 @@ class Five_Star_Ratings_Shortcode_Meta {
 			$coffeelink  = 'https://www.buymeacoffee.com/chrisjzahller';
 			$iconstyle   = 'style="-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;"';
 
-			return array_merge( $links, array(
-				'<a href="' . esc_url( $supportlink ) . '"> <span class="dashicons dashicons-format-chat" ' . $iconstyle . 'title="' . esc_attr_x( 'Five-Star Ratings Shortcode Support', 'noun', 'fsrs' ) . '" aria-label="' . esc_attr_x( 'Five-Star Ratings Shortcode Support', 'noun', 'fsrs' ) . '"></span></a>',
-				/* translators: "Chris J. Zähller" is the plugin author. */
-				'<a href="' . esc_url( $twitterlink ). '"><span class="dashicons dashicons-twitter" ' . $iconstyle . 'title="' . esc_attr__( 'Chris J. Zähller on Twitter', 'fsrs' ) . '" aria-label="' . esc_attr__( 'Chris J. Zähller on Twitter', 'fsrs' ) . '"></span></a>',
-				'<a href="' . esc_url( $reviewlink ). '"><span class="dashicons dashicons-star-filled"' . $iconstyle . 'title="' . esc_attr__( 'Give a 5-Star Review', 'fsrs' ) . '" aria-label="' . esc_attr__( 'Give a 5-Star Review', 'fsrs' ) . '"></span></a>',
-				'<a href="' . esc_url( $donatelink ). '"><span class="dashicons dashicons-heart"' . $iconstyle . 'title="' . esc_attr__( 'Donate', 'fsrs' ) . '" aria-label="' . esc_attr__( 'Donate', 'fsrs' ) . '"></span></a>',
-				'<a href="' . esc_url( $coffeelink ). '"><span class="dashicons dashicons-coffee"' . $iconstyle . 'title="' . esc_attr__('Buy the Developer a Coffee', 'fsrs' ) . '" aria-label="' . esc_attr__('Buy the Developer a Coffee', 'fsrs' ) . '"></span></a>', ) );
+			return array_merge(
+				$links,
+				array(
+					'<a href="' . esc_url( $supportlink ) . '"> <span class="dashicons dashicons-format-chat" ' . $iconstyle . 'title="' . esc_attr_x( 'Five-Star Ratings Shortcode Support', 'noun', 'fsrs' ) . '" aria-label="' . esc_attr_x( 'Five-Star Ratings Shortcode Support', 'noun', 'fsrs' ) . '"></span></a>',
+					/* translators: "Chris J. Zähller" is the plugin author. */
+					'<a href="' . esc_url( $twitterlink ) . '"><span class="dashicons dashicons-twitter" ' . $iconstyle . 'title="' . esc_attr__( 'Chris J. Zähller on Twitter', 'fsrs' ) . '" aria-label="' . esc_attr__( 'Chris J. Zähller on Twitter', 'fsrs' ) . '"></span></a>',
+					'<a href="' . esc_url( $reviewlink ) . '"><span class="dashicons dashicons-star-filled"' . $iconstyle . 'title="' . esc_attr__( 'Give a 5-Star Review', 'fsrs' ) . '" aria-label="' . esc_attr__( 'Give a 5-Star Review', 'fsrs' ) . '"></span></a>',
+					'<a href="' . esc_url( $donatelink ) . '"><span class="dashicons dashicons-heart"' . $iconstyle . 'title="' . esc_attr__( 'Donate', 'fsrs' ) . '" aria-label="' . esc_attr__( 'Donate', 'fsrs' ) . '"></span></a>',
+					'<a href="' . esc_url( $coffeelink ) . '"><span class="dashicons dashicons-coffee"' . $iconstyle . 'title="' . esc_attr__( 'Buy the Developer a Coffee', 'fsrs' ) . '" aria-label="' . esc_attr__( 'Buy the Developer a Coffee', 'fsrs' ) . '"></span></a>',
+				)
+			);
 		}
 
 		return $links;
@@ -110,4 +114,4 @@ class Five_Star_Ratings_Shortcode_Meta {
 }
 
 $meta = new Five_Star_Ratings_Shortcode_Meta();
-$meta -> __links();
+$meta->filter_links();

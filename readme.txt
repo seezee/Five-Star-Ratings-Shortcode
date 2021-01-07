@@ -7,7 +7,7 @@ Tags: wordpress, plugin, ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0  
 Tested up to: 5.5.3  
 Requires PHP: 7.0  
-Stable tag: 1.2.5  
+Stable tag: 1.2.6  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -125,9 +125,18 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.2.6 =
+* 2021-01-07
+* Add local fallback for external scripts
+* Some code formatting cleanup to meet WordPress coding standard, but more is needed
+* Load Farbtastic script in footer
+* SECURITY: Sanitize $textsize & $textcolor on output
+* SECURITY: Add nonce to form reset for to prevent CSFR attacks
+
 = 1.2.5 =
 * 2020-10-08
 * Tested up to 5.5.3
+* Update FREEMIUS SDK to v.2.4.1
 * Use Dashicons coffee glyph instead of FontAwesome coffee glyph in plugin meta
 
 = 1.2.4 =
@@ -291,7 +300,10 @@ This plugin includes these third-party libraries in its package.
 
 == Upgrade Notice ==
 
-= 1.2.5 =
-* 2020-10-08
-* Tested up to 5.5.3
-* Use Dashicons coffee glyph instead of FontAwesome coffee glyph in plugin meta
+= 1.2.6 =
+* 2021-01-07
+* Add local fallback for external scripts
+* Some code formatting cleanup to meet WordPress coding standard, but more is needed
+* Load Farbtastic script in footer
+* SECURITY: Sanitize $textsize & $textcolor on output
+* SECURITY: Add nonce to form reset for to prevent CSFR attacks
