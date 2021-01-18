@@ -261,7 +261,7 @@ class Five_Star_Ratings_Shortcode
         if ( checklink( $link ) ) {
             wp_register_script(
                 $this->token . '-fa-main',
-                $link . $this->script_suffix . '.js',
+                $url . $this->script_suffix . '.js',
                 array(),
                 esc_html( FSRS_VERSION ),
                 true
