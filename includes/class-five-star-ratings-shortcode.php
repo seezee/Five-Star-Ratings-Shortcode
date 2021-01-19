@@ -235,7 +235,7 @@ class Five_Star_Ratings_Shortcode
             return;
         }
         $protocol = 'https:';
-        $url = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/fontawesome';
+        $url = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/fontawesome';
         $fallback = esc_url( $this->assets_url ) . 'js/fontawesome';
         $suffix = $this->script_suffix . '.js';
         $link = $protocol . $url . $suffix;
@@ -303,7 +303,7 @@ class Five_Star_Ratings_Shortcode
     public function enqueue_fa_scripts()
     {
         $protocol = 'https:';
-        $url = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/fontawesome';
+        $url = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/fontawesome';
         $fallback = esc_url( $this->assets_url ) . 'js/fontawesome';
         $suffix = $this->script_suffix . '.js';
         $link = $protocol . $url . $suffix;
@@ -511,9 +511,9 @@ class Five_Star_Ratings_Shortcode
         if ( $this->token . '-fa-main' === $handle ) {
             
             if ( SCRIPT_DEBUG ) {
-                return str_replace( ' src', ' integrity="sha512-22SFrDaKrPdpHfQg/Clrw1mp4p4vInnirV/PQjMNTlaD+0wbwKcZNDsQDm63kME2HFnsIvMG7BU8cxS6aMxHsQ==" crossorigin="anonymous" src', $tag );
+                return str_replace( ' src', ' integrity="sha512-5dPAL40pRRefHhHtDbDGbi6O0EfZof2fwSdjNvpyA1g5Ww3yI/GNVpK8Itc8+5cdKL/78nx6eHKnKmXbmd8ZMQ==" crossorigin="anonymous" src', $tag );
             } else {
-                return str_replace( ' src', ' integrity="sha512-kI12xOdWTh/nL2vIx5Yf3z/kJSmY+nvdTXP2ARhepM/YGcmo/lmRGRttI3Da8FXLDw0Y9hRAyZ5JFO3NrCvvXA==" crossorigin="anonymous" src', $tag );
+                return str_replace( ' src', ' integrity="sha512-pafh0hrrT9ZPZl/jx0cwyp7N2+ozgQf+YK94jSupHHLD2lcEYTLxEju4mW/2sbn4qFEfxJGZyIX/yJiQvgglpw==" crossorigin="anonymous" src', $tag );
             }
         
         }
