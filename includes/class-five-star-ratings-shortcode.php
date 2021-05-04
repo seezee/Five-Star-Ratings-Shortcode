@@ -654,7 +654,6 @@ class Five_Star_Ratings_Shortcode
         $dif = wp_kses( $starsmax, $arr ) - $startrim;
         // Output for the half star.
         $halfstar = '<' . $syntax . ' class="fsrs-fas fa-fw fa-star-half-alt ' . $size . '"></' . $syntax . '>';
-        echo  '<h1>' . $dif . '</h1>' ;
         // Empty stars if there is no half star.
         
         if ( $dif >= 0 ) {
