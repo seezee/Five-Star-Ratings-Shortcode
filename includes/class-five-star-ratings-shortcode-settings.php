@@ -252,11 +252,35 @@ class Five_Star_Ratings_Shortcode_Settings
     public function settings_page( $hook_suffix )
     {
         global  $pagenow ;
+        
+        if ( get_option( FSRS_BASE . 'starsmax' ) !== false ) {
+            $stars_max = get_option( FSRS_BASE . 'starsmax' );
+            $max_int = intval( $stars_max );
+            // Same as "$max_int = $max_int - 1".
+            $max_int--;
+        }
+        
+        
+        if ( get_option( FSRS_BASE . 'starsmin' ) !== false ) {
+            $stars_min = get_option( FSRS_BASE . 'starsmin' );
+            $min_int = floatval( $stars_min );
+            
+            if ( 1.0 === $min_int ) {
+                $min_int = '1.[0-9]|^([1-';
+            } elseif ( 0.0 === $min_int ) {
+                $min_int = '0.[0-9]|^([1-';
+            } else {
+                $min_int = '0.[5-9]|^([1-';
+            }
+        
+        }
+        
         // Build page HTML.
         $html = '<div class="wrap" id="' . $this->parent->token . '_settings">' . "\n";
         
         if ( fsrs_fs()->is__premium_only() && fsrs_fs()->can_use_premium_code() ) {
             $html .= '<h2><i class="fsrs-fas fa-fw fa-star wp-admin-lite-blue"></i> ' . esc_html__( 'Five-Star Ratings Shortcode Settings', 'fsrs' ) . ' <i class="fsrs-fas fa-fw fa-star wp-admin-lite-blue"></i></h2>' . "\n";
+            $tab = '';
             
             if ( 'options-general.php' == $pagenow && 'generator' == $_GET['tab'] ) {
                 // phpcs:ignore
@@ -399,11 +423,11 @@ class Five_Star_Ratings_Shortcode_Settings
                 
                 if ( get_option( FSRS_BASE . 'starsmin' ) !== false ) {
                     $stars_min = get_option( FSRS_BASE . 'starsmin' );
-                    $stars_min = floatval( $stars_min );
+                    $min_int = floatval( $stars_min );
                     
-                    if ( 0 === $stars_float ) {
+                    if ( 0 === $min_int ) {
                         $stars_min = 0.0;
-                    } elseif ( 1 === $stars_float ) {
+                    } elseif ( 1 === $min_int ) {
                         $stars_min = 1.0;
                     } else {
                         $stars_min = 0.5;
@@ -557,7 +581,7 @@ class Five_Star_Ratings_Shortcode_Settings
 		  fsrs_restPost: "' . esc_html__( 'Please enter the postal code', 'fsrs' ) . '",
 		  fsrs_restCountry: {
 				required: "' . esc_html__( 'Please enter the country', 'fsrs' ) . '",
-				pattern: "' . wp_kses( __( 'Restaurant country must conform to ISO 3166-1 alpha-2 (2-letter) format, e.g., “US”, “UK”, “CN”', 'fsrs' ), $arr ) . '"
+				pattern: "' . esc_html__( 'Restaurant country must conform to ISO 3166-1 alpha-2 (2-letter) format, e.g., “US”, “UK”, “CN”', 'fsrs' ) . '"
 			},
 		  fsrs_restTel: "' . esc_html__( 'Please enter the telephone number', 'fsrs' ) . '",
 		  fsrs_resrecCuisine: "' . esc_html__( 'Please enter the cuisine', 'fsrs' ) . '",

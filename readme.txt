@@ -7,7 +7,7 @@ Tags: wordpress, plugin, ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0  
 Tested up to: 5.7.1  
 Requires PHP: 7.0  
-Stable tag: 1.2.13  
+Stable tag: 1.2.14  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -124,6 +124,15 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 == Changelog ==
+
+= 1.2.14 =
+
+* 2021-05-04
+* MULTIPLE BUGFIXES for PRO plugin
+* Fixed undefined variables
+* Added check for non-existing featured image when using rich snippets
+* Added check for incorrect shortcode syntax when using maximum star rating feature in PRO plugin.
+* Updated Freemius SDK
 
 = 1.2.13 =
 
@@ -371,7 +380,11 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.13 =
+= 1.2.14 =
 
-* 2021-04-21
-* Tested up to WordPress 5.7.1
+* 2021-05-04
+* MULTIPLE BUGFIXES for PRO plugin
+* Fixed undefined variables
+* Added check for non-existing featured image when using rich snippets
+* Added check for incorrect shortcode syntax when using maximum star rating feature in PRO plugin.
+* Updated Freemius SDK

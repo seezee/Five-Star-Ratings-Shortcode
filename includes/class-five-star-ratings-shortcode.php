@@ -654,8 +654,16 @@ class Five_Star_Ratings_Shortcode
         $dif = wp_kses( $starsmax, $arr ) - $startrim;
         // Output for the half star.
         $halfstar = '<' . $syntax . ' class="fsrs-fas fa-fw fa-star-half-alt ' . $size . '"></' . $syntax . '>';
+        echo  '<h1>' . $dif . '</h1>' ;
         // Empty stars if there is no half star.
-        $empty = str_repeat( '<' . $syntax . ' class="fsrs-far fa-fw fa-star ' . $size . '"></' . $syntax . '>', $dif );
+        
+        if ( $dif >= 0 ) {
+            $empty = str_repeat( '<' . $syntax . ' class="fsrs-far fa-fw fa-star ' . $size . '"></' . $syntax . '>', $dif );
+        } else {
+            $empty = '';
+            echo  "<script type=text/javascript>alert(\"" . wp_kses( __( 'Shortcode error. Please ensure you did not enter a number greater than the maximum star rating.', 'fsrs' ), $arr ) . "\")</script>" ;
+        }
+        
         // How many leftover stars if there is a half star?
         
         if ( $dif >= 1 ) {

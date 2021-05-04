@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Five-Star Ratings Shortcode DEV plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Five-Star Ratings Shortcode DEV 1.2.13\n"
+"Project-Id-Version: Five-Star Ratings Shortcode DEV 1.2.14\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/five-star-ratings-shortcode-dev\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-01-07T19:43:21+00:00\n"
+"POT-Creation-Date: 2021-05-04T17:29:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: fsrs\n"
@@ -34,12 +34,446 @@ msgstr ""
 msgid "https://github.com/seezee"
 msgstr ""
 
+#: .admin/five-star-ratings-shortcode/five-star-ratings-shortcode.php:92
 #: five-star-ratings-shortcode.php:99
 msgid "Five-Star Ratings Shortcode ERROR! The <abbr>PHP</abbr> constant “FSRS_BASE” has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug."
 msgstr ""
 
+#: .admin/five-star-ratings-shortcode/five-star-ratings-shortcode.php:101
 #: five-star-ratings-shortcode.php:105
 msgid "Five-Star Ratings Shortcode ERROR! The <abbr>PHP</abbr> constant “FSRS_VERSION” has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug."
+msgstr ""
+
+#. translators: ignore the placeholders in the URL
+#: .admin/five-star-ratings-shortcode/five-star-ratings-shortcode.php:153
+#: five-star-ratings-shortcode.php:200
+msgid "Five-Star Ratings Shortcode updated successfully. For Google Rich Snippets support, custom colors and sizes, or to change the minimum and maximum ratings, please upgrade to <a href=\"%1$s\" rel=\"%2$s\">Five-Star Ratings Shortcode PRO</a>."
+msgstr ""
+
+#. translators: ignore the placeholders in the URL
+#. translators: placeholders do not need translation.
+#: .admin/five-star-ratings-shortcode/five-star-ratings-shortcode.php:168
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:182
+#: five-star-ratings-shortcode.php:217
+#: includes/class-five-star-ratings-shortcode.php:180
+msgid "Not sure if you need those features? We have a <a href=\"%1$s\" rel=\"%2$s\">FREE 14-day trial</a>."
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-meta.php:65
+#: includes/class-five-star-ratings-shortcode-meta.php:65
+msgctxt "noun"
+msgid "Five-Star Ratings Shortcode Support"
+msgstr ""
+
+#. translators: "Chris J. Zähller" is the plugin author.
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-meta.php:67
+#: includes/class-five-star-ratings-shortcode-meta.php:67
+msgid "Chris J. Zähller on Twitter"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-meta.php:68
+#: includes/class-five-star-ratings-shortcode-meta.php:68
+msgid "Give a 5-Star Review"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-meta.php:69
+#: includes/class-five-star-ratings-shortcode-meta.php:69
+msgid "Donate"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-meta.php:70
+#: includes/class-five-star-ratings-shortcode-meta.php:70
+msgid "Buy the Developer a Coffee"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-meta.php:102
+#: includes/class-five-star-ratings-shortcode-meta.php:102
+msgid "Cloning of Class_Five_Star_Ratings_Shortcode_Meta is forbidden."
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-meta.php:111
+#: includes/class-five-star-ratings-shortcode-meta.php:111
+msgid "Unserializing instances of Class_Five_Star_Ratings_Shortcode_Meta is forbidden."
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:79
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:80
+#: includes/class-five-star-ratings-shortcode-settings.php:90
+msgid "Five Star Ratings Shortcode Documentation"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:113
+#: includes/class-five-star-ratings-shortcode-settings.php:126
+msgid "Settings"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:142
+#: includes/class-five-star-ratings-shortcode-settings.php:905
+msgid "Documentation"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:143
+#: includes/class-five-star-ratings-shortcode-settings.php:906
+msgid "The FREE version of this plugin has no settings. For usage examples, see below."
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:145
+#: includes/class-five-star-ratings-shortcode-settings.php:908
+msgid "Shortcode Examples"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:149
+#: includes/class-five-star-ratings-shortcode-settings.php:912
+msgid "Shortcode syntax:"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:152
+#: includes/class-five-star-ratings-shortcode-settings.php:248
+#: includes/class-five-star-ratings-shortcode-settings.php:290
+#: includes/class-five-star-ratings-shortcode-settings.php:370
+#: includes/class-five-star-ratings-shortcode-settings.php:463
+#: includes/class-five-star-ratings-shortcode-settings.php:915
+msgid "<em>(Required)</em> Initiates the shortcode."
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:154
+#: includes/class-five-star-ratings-shortcode-settings.php:917
+msgid "<em>(Required)</em> The star rating expressed as a numeric float. Must end in a single decimal place, <abbr>e.g.</abbr>, <code>1.0</code>, <code>3.3</code>, <code>4.5</code>, <code>2.7</code>."
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:158
+#: includes/class-five-star-ratings-shortcode-settings.php:921
+msgid "The following shortcodes will ouput as shown:"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:160
+#: includes/class-five-star-ratings-shortcode-settings.php:256
+#: includes/class-five-star-ratings-shortcode-settings.php:924
+msgid "Displays ½ star out of 5"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:161
+#: includes/class-five-star-ratings-shortcode-settings.php:257
+#: includes/class-five-star-ratings-shortcode-settings.php:925
+msgid "Displays 3 stars out of 5"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:162
+#: includes/class-five-star-ratings-shortcode-settings.php:258
+#: includes/class-five-star-ratings-shortcode-settings.php:926
+msgid "Displays 4 stars out of 5"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:163
+#: includes/class-five-star-ratings-shortcode-settings.php:259
+#: includes/class-five-star-ratings-shortcode-settings.php:927
+msgid "Displays 2½ stars out of 5"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:164
+#: includes/class-five-star-ratings-shortcode-settings.php:260
+#: includes/class-five-star-ratings-shortcode-settings.php:928
+msgid "Incorrect usage, but will display 5 stars out of 5"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:168
+#: includes/class-five-star-ratings-shortcode-settings.php:932
+msgid "In the 4<sup>th</sup> example, the raw output will be like this before processing:"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:184
+#: includes/class-five-star-ratings-shortcode-settings.php:948
+msgid "Account Info &amp; Support"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:188
+#: includes/class-five-star-ratings-shortcode-settings.php:952
+msgid "Affiliate Program"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:189
+#: includes/class-five-star-ratings-shortcode-settings.php:953
+msgctxt "noun"
+msgid "Account"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:190
+#: includes/class-five-star-ratings-shortcode-settings.php:954
+msgid "Contact Us"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:191
+#: includes/class-five-star-ratings-shortcode-settings.php:955
+msgctxt "adjectival noun"
+msgid "Support Forum"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:192
+#: includes/class-five-star-ratings-shortcode-settings.php:956
+msgctxt "imperative verb"
+msgid "Upgrade"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:196
+#: includes/class-five-star-ratings-shortcode-settings.php:960
+msgid "PRO Only Features"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:199
+#: includes/class-five-star-ratings-shortcode-settings.php:963
+msgid "Google Rich Snippets for Products, Restaurants, and Recipes"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:200
+#: includes/class-five-star-ratings-shortcode-settings.php:964
+msgid "Shortcode generator"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:201
+#: includes/class-five-star-ratings-shortcode-settings.php:965
+msgid "Custom icon colors"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:202
+#: includes/class-five-star-ratings-shortcode-settings.php:966
+msgid "Custom text colors"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:203
+#: includes/class-five-star-ratings-shortcode-settings.php:967
+msgid "Custom icon and text sizes"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:204
+#: includes/class-five-star-ratings-shortcode-settings.php:968
+msgid "Change minimum rating (0.0, 0.5, or 1)"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:205
+#: includes/class-five-star-ratings-shortcode-settings.php:969
+msgid "Change maximum rating (3 &ndash; 10)"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:206
+#: includes/class-five-star-ratings-shortcode-settings.php:970
+msgid "Custom syntax (<code>&lt;i&gt;</code> or <code>&lt;span&gt;</code>)"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:259
+#: includes/class-five-star-ratings-shortcode-settings.php:1104
+msgid "Five-Star Ratings Shortcode Settings"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:414
+#: includes/class-five-star-ratings-shortcode-settings.php:1289
+msgid "Please copy the following shortcode and paste it into your reviews post or page:"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:417
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:419
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:421
+#: includes/class-five-star-ratings-shortcode-settings.php:1292
+#: includes/class-five-star-ratings-shortcode-settings.php:1294
+#: includes/class-five-star-ratings-shortcode-settings.php:1296
+msgctxt "imperative verb"
+msgid "Copy Shortcode"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:431
+#: includes/class-five-star-ratings-shortcode-settings.php:1306
+msgid "Five-Star Ratings Shortcode Documentation"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:452
+#: includes/class-five-star-ratings-shortcode-settings.php:1373
+msgid "Save Settings"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:475
+#: includes/class-five-star-ratings-shortcode-settings.php:1389
+msgid "Reset the Shortcode Generator"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:482
+#: includes/class-five-star-ratings-shortcode-settings.php:1396
+msgid "Invalid nonce. Form submission blocked!"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:537
+#: includes/class-five-star-ratings-shortcode-settings.php:1448
+msgid "Please select a review type"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:539
+#: includes/class-five-star-ratings-shortcode-settings.php:1450
+msgid "Please enter a star rating"
+msgstr ""
+
+#. translators: /* translators: the placeholders %1$.1f and %2$d.0 are indeterminate numerals. Example output: "Rating must be a 1-decimal place float ranging from 0.0 to 5.0," etc.
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:542
+#: includes/class-five-star-ratings-shortcode-settings.php:1453
+msgid "Rating must be a 1-decimal place float ranging from %1$.1f to to %2$d.0, <abbr>e.g.</abbr>, “3.5”, “1.0”. "
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:546
+#: includes/class-five-star-ratings-shortcode-settings.php:1462
+msgid "Please enter the brand"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:547
+#: includes/class-five-star-ratings-shortcode-settings.php:1463
+msgid "Please enter the product number"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:549
+#: includes/class-five-star-ratings-shortcode-settings.php:1465
+msgid "Please enter the price"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:550
+#: includes/class-five-star-ratings-shortcode-settings.php:1466
+msgid "Price should contain currency symbols, numerals, commas, and periods only; price must end with either zero or 2 decimal places"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:552
+#: includes/class-five-star-ratings-shortcode-settings.php:1468
+msgid "Please enter the currency"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:553
+#: includes/class-five-star-ratings-shortcode-settings.php:1469
+msgid "Please enter the price range"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:554
+#: includes/class-five-star-ratings-shortcode-settings.php:1470
+msgid "Please enter the street address"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:555
+#: includes/class-five-star-ratings-shortcode-settings.php:1471
+msgid "Please enter the hamlet, village, town, borough, prefecture, city, or metropolis"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:556
+#: includes/class-five-star-ratings-shortcode-settings.php:1472
+msgid "Please enter the state or province"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:557
+#: includes/class-five-star-ratings-shortcode-settings.php:1473
+msgid "Please enter the postal code"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:559
+#: includes/class-five-star-ratings-shortcode-settings.php:1475
+msgid "Please enter the country"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:560
+#: includes/class-five-star-ratings-shortcode-settings.php:1476
+msgid "Restaurant country must conform to ISO 3166-1 alpha-2 (2-letter) format, e.g., “US”, “UK”, “CN”"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:562
+#: includes/class-five-star-ratings-shortcode-settings.php:1478
+msgid "Please enter the telephone number"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:563
+#: includes/class-five-star-ratings-shortcode-settings.php:1479
+msgid "Please enter the cuisine"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:564
+#: includes/class-five-star-ratings-shortcode-settings.php:1480
+msgid "Please enter the author name"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:565
+#: includes/class-five-star-ratings-shortcode-settings.php:1481
+msgid "Please enter at least 1 keyword"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:566
+#: includes/class-five-star-ratings-shortcode-settings.php:1482
+msgid "Please enter the preparation time"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:567
+#: includes/class-five-star-ratings-shortcode-settings.php:1483
+msgid "Please enter the cooking time"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:568
+#: includes/class-five-star-ratings-shortcode-settings.php:1484
+msgid "Please enter the recipe yield"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:569
+#: includes/class-five-star-ratings-shortcode-settings.php:1485
+msgid "Please enter at least 1 category"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:570
+#: includes/class-five-star-ratings-shortcode-settings.php:1486
+msgid "Please enter the calories"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:571
+#: includes/class-five-star-ratings-shortcode-settings.php:1487
+msgid "Please enter at least 1 ingredient"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:573
+#: includes/class-five-star-ratings-shortcode-settings.php:1489
+msgid "Please enter the recipe steps"
+msgstr ""
+
+#. translators: please translate the variables $name and $text into your own language.
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:576
+#: includes/class-five-star-ratings-shortcode-settings.php:1492
+msgid "Recipe steps must be in the form {$name} $text, repeating as needed, where $name is a <em>short</em> description of the step and $text is the detailed text of the step."
+msgstr ""
+
+#. translators: ignore the placeholders in the URL
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:167
+#: includes/class-five-star-ratings-shortcode.php:163
+msgid "Thank you for installing Five-Star Ratings Shortcode. For custom icon and text color and size, Google Rich Snippets, and other features, please upgrade to <a href=\"%1$s\" rel=\"%2$s\">Five-Star Ratings Shortcode PRO</a>."
+msgstr ""
+
+#. translators: translate only the phrase "%3$.1F out of %4$.1F stars", where "%3$.1F" and "%4$.1F" are placeholders for numerical floats.
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:673
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:720
+#: includes/class-five-star-ratings-shortcode.php:699
+#: includes/class-five-star-ratings-shortcode.php:754
+msgid ""
+"<span class=\"fsrs\">\n"
+"\t\t\t\t\t\t\t<span class=\"fsrs-stars\">%1$s%2$s</span>\n"
+"\t\t\t\t\t\t\t<span class=\"hide fsrs-text fsrs-text__hidden\" aria-hidden=\"false\">%3$.1F out of %4$.1F stars</span>\n"
+"\t\t\t\t\t\t\t<span class=\"lining fsrs-text fsrs-text__visible\" aria-hidden=\"true\">%3$.1F</span>\n"
+"\t\t\t\t\t\t</span>"
+msgstr ""
+
+#. translators: translate only the phrase "%4$.1F out of %5$.1F stars", where "%4$.1F" and "%5$.1F" are placeholders for numerical floats.
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:696
+#: includes/class-five-star-ratings-shortcode.php:726
+msgid ""
+"<span class=\"fsrs\">\n"
+"\t\t\t\t\t\t\t<span class=\"fsrs-stars\">%1$s%2$s%3$s</span>\n"
+"\t\t\t\t\t\t\t<span class=\"hide fsrs-text fsrs-text__hidden\" aria-hidden=\"false\">%4$.1F out of %5$.1F stars</span>\n"
+"\t\t\t\t\t\t\t<span class=\"lining fsrs-text fsrs-text__visible\" aria-hidden=\"true\">%4$.1F</span>\n"
+"\t\t\t\t\t\t</span>"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:773
+#: includes/class-five-star-ratings-shortcode.php:804
+msgid "Cloning of Class_Five_Star_Ratings_Shortcode is forbidden."
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:784
+#: includes/class-five-star-ratings-shortcode.php:813
+msgid "Unserializing instances of Class_Five_Star_Ratings_Shortcode is forbidden."
 msgstr ""
 
 #: five-star-ratings-shortcode.php:159
@@ -51,65 +485,16 @@ msgstr ""
 msgid "Five-Star Ratings Shortcode PRO updated successfully! <a href=\"%1$s%2$s\">Please activate your license</a> to enable PRO features."
 msgstr ""
 
-#. translators: ignore the placeholders in the URL
-#: five-star-ratings-shortcode.php:200
-msgid "Five-Star Ratings Shortcode updated successfully. For Google Rich Snippets support, custom colors and sizes, or to change the minimum and maximum ratings, please upgrade to <a href=\"%1$s\" rel=\"%2$s\">Five-Star Ratings Shortcode PRO</a>."
-msgstr ""
-
-#. translators: ignore the placeholders in the URL
-#: five-star-ratings-shortcode.php:217
-#: includes/class-five-star-ratings-shortcode.php:180
-msgid "Not sure if you need those features? We have a <a href=\"%1$s\" rel=\"%2$s\">FREE 14-day trial</a>."
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-head.php:772
+#: includes/class-five-star-ratings-shortcode-head.php:782
 msgid "Cloning of Class_Five_Star_Ratings_Shortcode_Head is forbidden."
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-head.php:781
+#: includes/class-five-star-ratings-shortcode-head.php:791
 msgid "Unserializing instances of Class_Five_Star_Ratings_Shortcode_Head is forbidden."
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-meta.php:65
-msgctxt "noun"
-msgid "Five-Star Ratings Shortcode Support"
-msgstr ""
-
-#. translators: "Chris J. Zähller" is the plugin author.
-#: includes/class-five-star-ratings-shortcode-meta.php:67
-msgid "Chris J. Zähller on Twitter"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-meta.php:68
-msgid "Give a 5-Star Review"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-meta.php:69
-msgid "Donate"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-meta.php:70
-msgid "Buy the Developer a Coffee"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-meta.php:102
-msgid "Cloning of Class_Five_Star_Ratings_Shortcode_Meta is forbidden."
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-meta.php:111
-msgid "Unserializing instances of Class_Five_Star_Ratings_Shortcode_Meta is forbidden."
 msgstr ""
 
 #: includes/class-five-star-ratings-shortcode-settings.php:85
 msgid "Five Star Ratings Shortcode Settings"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:90
-msgid "Five Star Ratings Shortcode Documentation"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:126
-msgid "Settings"
 msgstr ""
 
 #. translators: ignore the placeholders in the URL
@@ -171,14 +556,6 @@ msgstr ""
 msgid "Syntax:"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:248
-#: includes/class-five-star-ratings-shortcode-settings.php:290
-#: includes/class-five-star-ratings-shortcode-settings.php:370
-#: includes/class-five-star-ratings-shortcode-settings.php:463
-#: includes/class-five-star-ratings-shortcode-settings.php:915
-msgid "<em>(Required)</em> Initiates the shortcode."
-msgstr ""
-
 #: includes/class-five-star-ratings-shortcode-settings.php:250
 #: includes/class-five-star-ratings-shortcode-settings.php:292
 #: includes/class-five-star-ratings-shortcode-settings.php:372
@@ -188,31 +565,6 @@ msgstr ""
 
 #: includes/class-five-star-ratings-shortcode-settings.php:254
 msgid "Assuming the default setting with “Number of Stars” set to 5, the following shortcodes will ouput as shown:"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:256
-#: includes/class-five-star-ratings-shortcode-settings.php:924
-msgid "Displays ½ star out of 5"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:257
-#: includes/class-five-star-ratings-shortcode-settings.php:925
-msgid "Displays 3 stars out of 5"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:258
-#: includes/class-five-star-ratings-shortcode-settings.php:926
-msgid "Displays 4 stars out of 5"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:259
-#: includes/class-five-star-ratings-shortcode-settings.php:927
-msgid "Displays 2½ stars out of 5"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:260
-#: includes/class-five-star-ratings-shortcode-settings.php:928
-msgid "Incorrect usage, but will display 5 stars out of 5"
 msgstr ""
 
 #: includes/class-five-star-ratings-shortcode-settings.php:264
@@ -652,268 +1004,6 @@ msgstr ""
 msgid "Recipe steps in the form {$name} $text, where $name is a <em>short</em> description of the step and $text is the detailed text of the step. Enter as many steps as necessary, <abbr>e.g.</abbr>, <code>{Purée the fruit} Purée the sliced apples and papayas in a blender until smooth. {Garnish and serve} Pour into a tall glass and garnish with the spearmint sprig.</code>"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:905
-msgid "Documentation"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:906
-msgid "The FREE version of this plugin has no settings. For usage examples, see below."
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:908
-msgid "Shortcode Examples"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:912
-msgid "Shortcode syntax:"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:917
-msgid "<em>(Required)</em> The star rating expressed as a numeric float. Must end in a single decimal place, <abbr>e.g.</abbr>, <code>1.0</code>, <code>3.3</code>, <code>4.5</code>, <code>2.7</code>."
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:921
-msgid "The following shortcodes will ouput as shown:"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:932
-msgid "In the 4<sup>th</sup> example, the raw output will be like this before processing:"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:948
-msgid "Account Info &amp; Support"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:952
-msgid "Affiliate Program"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:953
-msgctxt "noun"
-msgid "Account"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:954
-msgid "Contact Us"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:955
-msgctxt "adjectival noun"
-msgid "Support Forum"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:956
-msgctxt "imperative verb"
-msgid "Upgrade"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:960
-msgid "PRO Only Features"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:963
-msgid "Google Rich Snippets for Products, Restaurants, and Recipes"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:964
-msgid "Shortcode generator"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:965
-msgid "Custom icon colors"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:966
-msgid "Custom text colors"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:967
-msgid "Custom icon and text sizes"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:968
-msgid "Change minimum rating (0.0, 0.5, or 1)"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:969
-msgid "Change maximum rating (3 &ndash; 10)"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:970
-msgid "Custom syntax (<code>&lt;i&gt;</code> or <code>&lt;span&gt;</code>)"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1085
-msgid "Five-Star Ratings Shortcode Settings"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1268
-msgid "Please copy the following shortcode and paste it into your reviews post or page:"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1271
-#: includes/class-five-star-ratings-shortcode-settings.php:1273
-#: includes/class-five-star-ratings-shortcode-settings.php:1275
-msgctxt "imperative verb"
-msgid "Copy Shortcode"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1285
-msgid "Five-Star Ratings Shortcode Documentation"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1352
-msgid "Save Settings"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1368
-msgid "Reset the Shortcode Generator"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1375
-msgid "Invalid nonce. Form submission blocked!"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1427
-msgid "Please select a review type"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1429
-msgid "Please enter a star rating"
-msgstr ""
-
-#. translators: /* translators: the placeholders %1$.1f and %2$d.0 are indeterminate numerals. Example output: "Rating must be a 1-decimal place float ranging from 0.0 to 5.0," etc.
-#: includes/class-five-star-ratings-shortcode-settings.php:1432
-msgid "Rating must be a 1-decimal place float ranging from %1$.1f to to %2$d.0, <abbr>e.g.</abbr>, “3.5”, “1.0”. "
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1441
-msgid "Please enter the brand"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1442
-msgid "Please enter the product number"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1444
-msgid "Please enter the price"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1445
-msgid "Price should contain currency symbols, numerals, commas, and periods only; price must end with either zero or 2 decimal places"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1447
-msgid "Please enter the currency"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1448
-msgid "Please enter the price range"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1449
-msgid "Please enter the street address"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1450
-msgid "Please enter the hamlet, village, town, borough, prefecture, city, or metropolis"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1451
-msgid "Please enter the state or province"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1452
-msgid "Please enter the postal code"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1454
-msgid "Please enter the country"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1455
-msgid "Restaurant country must conform to ISO 3166-1 alpha-2 (2-letter) format, e.g., “US”, “UK”, “CN”"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1457
-msgid "Please enter the telephone number"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1458
-msgid "Please enter the cuisine"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1459
-msgid "Please enter the author name"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1460
-msgid "Please enter at least 1 keyword"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1461
-msgid "Please enter the preparation time"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1462
-msgid "Please enter the cooking time"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1463
-msgid "Please enter the recipe yield"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1464
-msgid "Please enter at least 1 category"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1465
-msgid "Please enter the calories"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1466
-msgid "Please enter at least 1 ingredient"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1468
-msgid "Please enter the recipe steps"
-msgstr ""
-
-#. translators: please translate the variables $name and $text into your own language.
-#: includes/class-five-star-ratings-shortcode-settings.php:1471
-msgid "Recipe steps must be in the form {$name} $text, repeating as needed, where $name is a <em>short</em> description of the step and $text is the detailed text of the step."
-msgstr ""
-
-#. translators: ignore the placeholders in the URL
-#: includes/class-five-star-ratings-shortcode.php:163
-msgid "Thank you for installing Five-Star Ratings Shortcode. For custom icon and text color and size, Google Rich Snippets, and other features, please upgrade to <a href=\"%1$s\" rel=\"%2$s\">Five-Star Ratings Shortcode PRO</a>."
-msgstr ""
-
-#. translators: translate only the phrase "%3$.1F out of %4$.1F stars", where "%3$.1F" and "%4$.1F" are placeholders for numerical floats.
-#: includes/class-five-star-ratings-shortcode.php:693
-#: includes/class-five-star-ratings-shortcode.php:748
-msgid ""
-"<span class=\"fsrs\">\n"
-"\t\t\t\t\t\t\t<span class=\"fsrs-stars\">%1$s%2$s</span>\n"
-"\t\t\t\t\t\t\t<span class=\"hide fsrs-text fsrs-text__hidden\" aria-hidden=\"false\">%3$.1F out of %4$.1F stars</span>\n"
-"\t\t\t\t\t\t\t<span class=\"lining fsrs-text fsrs-text__visible\" aria-hidden=\"true\">%3$.1F</span>\n"
-"\t\t\t\t\t\t</span>"
-msgstr ""
-
-#. translators: translate only the phrase "%4$.1F out of %5$.1F stars", where "%4$.1F" and "%5$.1F" are placeholders for numerical floats.
-#: includes/class-five-star-ratings-shortcode.php:720
-msgid ""
-"<span class=\"fsrs\">\n"
-"\t\t\t\t\t\t\t<span class=\"fsrs-stars\">%1$s%2$s%3$s</span>\n"
-"\t\t\t\t\t\t\t<span class=\"hide fsrs-text fsrs-text__hidden\" aria-hidden=\"false\">%4$.1F out of %5$.1F stars</span>\n"
-"\t\t\t\t\t\t\t<span class=\"lining fsrs-text fsrs-text__visible\" aria-hidden=\"true\">%4$.1F</span>\n"
-"\t\t\t\t\t\t</span>"
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode.php:798
-msgid "Cloning of Class_Five_Star_Ratings_Shortcode is forbidden."
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode.php:807
-msgid "Unserializing instances of Class_Five_Star_Ratings_Shortcode is forbidden."
+#: includes/class-five-star-ratings-shortcode.php:682
+msgid "Shortcode error. Please ensure you did not enter a number greater than the maximum star rating."
 msgstr ""
