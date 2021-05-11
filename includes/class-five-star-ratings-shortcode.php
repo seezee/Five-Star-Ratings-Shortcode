@@ -107,12 +107,6 @@ class Five_Star_Ratings_Shortcode
             1
         );
         add_action(
-            'admin_enqueue_scripts',
-            array( $this, 'enqueue_jquery' ),
-            10,
-            1
-        );
-        add_action(
             'wp_enqueue_scripts',
             array( $this, 'enqueue_fa_scripts' ),
             10,
@@ -176,7 +170,7 @@ class Five_Star_Ratings_Shortcode
                 $rel
             );
             $url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/?
-			trial=free';
+				trial=free';
             $html .= ' ' . sprintf( wp_kses(
                 // translators: placeholders do not need translation.
                 __( 'Not sure if you need those features? We have a <a href="%1$s" rel="%2$s">FREE 14-day trial</a>.', 'fsrs' ),
@@ -372,133 +366,6 @@ class Five_Star_Ratings_Shortcode
     
     }
     
-    // End enqueue_fa_scripts ().
-    /**
-     * Load jQuery validatioon.
-     *
-     * @access public
-     *
-     * @since  1.0.0
-     */
-    public function enqueue_jquery()
-    {
-        $protocol = 'https:';
-        $url = array( '//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate', '//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods', '//cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard' );
-        $fallback = array( esc_url( $this->assets_url ) . 'js/jquery-validate/jquery.validate', esc_url( $this->assets_url ) . 'js/jquery-validate/additional-methods', esc_url( $this->assets_url ) . 'js/clipboard' );
-        $suffix = $this->script_suffix . '.js';
-        $links = array( $protocol . $url[0] . $suffix, $protocol . $url[1] . $suffix, $protocol . $url[2] . $suffix );
-        /**
-         * Check whether external files are available.
-         *
-         * @access public
-         *
-         * @param string $links Link parameter.
-         *
-         * @since   1.0.0
-         */
-        function checklinks0( $links )
-        {
-            return (bool) @fopen( $links[0], 'r' );
-            // phpcs:ignore
-        }
-        
-        /**
-         * Check whether external files are available.
-         *
-         * @access public
-         *
-         * @param string $links Link parameter.
-         *
-         * @since   1.0.0
-         */
-        function checklinks1( $links )
-        {
-            return (bool) @fopen( $links[1], 'r' );
-            // phpcs:ignore
-        }
-        
-        /**
-         * Check whether external files are available.
-         *
-         * @access public
-         *
-         * @param string $links Link parameter.
-         *
-         * @since   1.0.0
-         */
-        function checklinks2( $links )
-        {
-            return (bool) @fopen( $links[2], 'r' );
-            // phpcs:ignore
-        }
-        
-        
-        if ( is_admin() ) {
-            
-            if ( checklinks0( $links ) ) {
-                wp_register_script(
-                    $this->token . '-validate',
-                    $url[0] . $this->script_suffix . '.js',
-                    array( 'jquery' ),
-                    '1.19.2',
-                    true
-                );
-            } else {
-                wp_register_script(
-                    $this->token . '-validate',
-                    $fallback[0] . $this->script_suffix . '.js',
-                    array( 'jquery' ),
-                    '1.19.2',
-                    true
-                );
-            }
-            
-            
-            if ( checklinks1( $links ) ) {
-                wp_register_script(
-                    $this->token . '-methods',
-                    $url[1] . $this->script_suffix . '.js',
-                    array( 'jquery' ),
-                    '1.19.2',
-                    true
-                );
-            } else {
-                wp_register_script(
-                    $this->token . '-methods',
-                    $fallback[1] . $this->script_suffix . '.js',
-                    array( 'jquery' ),
-                    '1.19.2',
-                    true
-                );
-            }
-            
-            
-            if ( checklinks2( $links ) ) {
-                wp_register_script(
-                    $this->token . '-clipboard',
-                    $url[2] . $this->script_suffix . '.js',
-                    array( 'jquery' ),
-                    '1.19.2',
-                    true
-                );
-            } else {
-                wp_register_script(
-                    $this->token . '-clipboard',
-                    $fallback[2] . $this->script_suffix . '.js',
-                    array( 'jquery' ),
-                    '1.19.2',
-                    true
-                );
-            }
-            
-            wp_enqueue_script( $this->token . '-validate' );
-            wp_enqueue_script( $this->token . '-methods' );
-            wp_enqueue_script( $this->token . '-clipboard' );
-        }
-    
-    }
-    
-    // End enqueue_jquery().
     /**
      * Hash external javascripts
      *
@@ -660,7 +527,7 @@ class Five_Star_Ratings_Shortcode
             $empty = str_repeat( '<' . $syntax . ' class="fsrs-far fa-fw fa-star ' . $size . '"></' . $syntax . '>', $dif );
         } else {
             $empty = '';
-            echo  "<script type=text/javascript>alert(\"" . wp_kses( __( 'Shortcode error. Please ensure you did not enter a number greater than the maximum star rating.', 'fsrs' ), $arr ) . "\")</script>" ;
+            echo  '<script type=text/javascript>alert("' . wp_kses( __( 'Shortcode error. Please ensure you did not enter a number greater than the maximum star rating.', 'fsrs' ), $arr ) . '")</script>' ;
         }
         
         // How many leftover stars if there is a half star?
@@ -754,7 +621,7 @@ class Five_Star_Ratings_Shortcode
      * Ensures only one instance of Five_Star_Ratings_Shortcode is loaded or can
      * be loaded.
      *
-     * @param string $file File instance.
+     * @param string                                $file File instance.
      * @param string FSRS_VERSION Version parameter.
      *
      * @return Object Five_Star_Ratings_Shortcode instance
