@@ -21,7 +21,11 @@ jQuery(document).ready(function ($) {
   });
   
   /***** Clipboard (copy shortcode button) *****/
-  var clipboard = new ClipboardJS(".copyBtn");
+  // Check for existence of ClipboardJS before assigning so we don't get an
+  // an error in the FREE plugin.
+  if (typeof ClipboardJS !== 'undefined') {
+    var clipboard = new ClipboardJS(".copyBtn");
+  }
 
   /***** Form Conditional Logic *****/
   $("input[type=\'radio\'][name=\'fsrs_reviewType\']").change(function() {
