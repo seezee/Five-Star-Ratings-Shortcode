@@ -7,7 +7,7 @@ Tags: wordpress, plugin, ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0  
 Tested up to: 5.7.1  
 Requires PHP: 7.0  
-Stable tag: 1.2.18  
+Stable tag: 1.2.17  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -124,11 +124,6 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 == Changelog ==
-
-= 1.2.18 =
-
-* 2021-05-13
-* BUGFIX: Updated assets/settings.js to check whether ClipboardJS has been defined so we don't get an error in the FREE plugin version
 
 = 1.2.17 =
 
@@ -401,7 +396,7 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.18 =
+= 1.2.17 =
 
 * 2021-05-13
-* BUGFIX: Updated assets/settings.js to check whether ClipboardJS has been defined so we don't get an error in the FREE plugin version
+* Tested up to WordPress 5.7.2
