@@ -7,7 +7,7 @@ Tags:  wordpress, plugin, ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0  
 Tested up to: 5.7.1  
 Requires PHP: 7.0  
-Stable tag: 1.2.16  
+Stable tag: 1.2.17  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -122,9 +122,14 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.2.17 =
+
+* 2021-05-13
+* Tested up to WordPress 5.7.2
+
 = 1.2.16 =
 
-* 2021-05-011
+* 2021-05-11
 * BUGFIX: fix "previously declared function" error
 * Refactored code to ensure premium code is not rendered in free version
 
@@ -388,11 +393,10 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.16 =
+= 1.2.17 =
 
-* 2021-05-011
-* BUGFIX: fix "previously declared function" error
-* Refactored code to ensure premium code is not rendered in free version
+* 2021-05-13
+* Tested up to WordPress 5.7.2
 
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
