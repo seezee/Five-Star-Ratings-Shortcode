@@ -1,6 +1,6 @@
 {
     "name": "five-star-ratings-shortcode",
-    "version": "1.2.18",
+    "version": "1.2.19",
     "description": "This plugin adds accessible, attractive 5-star ratings anywhere on your site with a simple shortcode. The plugin uses Font Awesome icons via their SVG + JavaScript method.",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
