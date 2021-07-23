@@ -142,7 +142,7 @@ class Five_Star_Ratings_Shortcode_Settings
             'title'       => esc_html__( 'Documentation', 'fsrs' ),
             'description' => esc_html__( 'The FREE version of this plugin has no settings. For usage examples, see below.', 'fsrs' ) . '
 	<details>
-	<summary class="wp-admin-lite-blue">' . esc_html__( 'Shortcode Examples', 'fsrs' ) . '
+	<summary>' . esc_html__( 'Shortcode Examples', 'fsrs' ) . '
 	</summary>
 		<div class="col col-2">
 			<div class="col__nobreak">
@@ -181,7 +181,7 @@ class Five_Star_Ratings_Shortcode_Settings
 	</div>
 	</details>
 	<details>
-	<summary class="wp-admin-lite-blue">' . esc_html__( 'Account Info &amp; Support', 'fsrs' ) . '
+	<summary>' . esc_html__( 'Account Info &amp; Support', 'fsrs' ) . '
 	</summary>
 		<p>' . esc_html__( 'You can access account details, contact us, get support, or learn about our affiliate program through these links.' ) . '</p>
 		<ul>
@@ -193,7 +193,7 @@ class Five_Star_Ratings_Shortcode_Settings
 		</ul>
 	</details>
 	<details>
-	<summary class="wp-admin-lite-blue">' . esc_html__( 'PRO Only Features', 'fsrs' ) . '
+	<summary>' . esc_html__( 'PRO Only Features', 'fsrs' ) . '
 	</summary>
 		<ul>
 			<li>' . esc_html__( 'Google Rich Snippets for Products, Restaurants, and Recipes', 'fsrs' ) . '</li>
