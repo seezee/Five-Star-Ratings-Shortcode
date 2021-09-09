@@ -31,7 +31,8 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 * Custom icon sizes
 * Custom icon and text colors
 * Choice of HTML `<i>` or `<span>` elements in HTML output
-* Change the number of stars (from 3 – 10)
+* Change maximum rating (from 3 – 10)
+* Change minimum rating (0.0, 0.5, or 1.0)
 * NEW in v1.1.2: Shortcode generator
 
 == Installation ==
