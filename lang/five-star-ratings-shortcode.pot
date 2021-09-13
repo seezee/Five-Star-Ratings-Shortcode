@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Five-Star Ratings Shortcode DEV plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Five-Star Ratings Shortcode DEV 1.2.22\n"
+"Project-Id-Version: Five-Star Ratings Shortcode DEV 1.2.23\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/five-star-ratings-shortcode-dev\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-09-13T18:26:22+00:00\n"
+"POT-Creation-Date: 2021-09-13T21:35:04+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: fsrs\n"
@@ -270,39 +270,28 @@ msgstr ""
 msgid "Thank you for installing Five-Star Ratings Shortcode. For custom icon and text color and size, Google Rich Snippets, and other features, please upgrade to <a href=\"%1$s\" rel=\"%2$s\">Five-Star Ratings Shortcode PRO</a>."
 msgstr ""
 
-#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:530
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:540
 #: includes/class-five-star-ratings-shortcode.php:698
 msgid "Shortcode error. Please ensure you did not enter a number greater than the maximum star rating."
 msgstr ""
 
-#. translators: translate only the phrase "%3$.1F out of %4$.1F stars", where "%3$.1F" and "%4$.1F" are placeholders for numerical floats.
-#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:547
-#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:594
-msgid ""
-"<span class=\"fsrs\">\n"
-"\t\t\t\t\t\t\t<span class=\"fsrs-stars\">%1$s%2$s</span>\n"
-"\t\t\t\t\t\t\t<span class=\"hide fsrs-text fsrs-text__hidden\" aria-hidden=\"false\">%3$.1F out of %4$.1F stars</span>\n"
-"\t\t\t\t\t\t\t<span class=\"lining fsrs-text fsrs-text__visible\" aria-hidden=\"true\">%3$.1F</span>\n"
-"\t\t\t\t\t\t</span>"
+#. translators: translate only the phrase "%1$.1F out of %2$.1F stars", where "%1$.1F" and "%2$.1F" are placeholders for numerical floats, e.g., "3 out of 5 stars".
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:571
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:608
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:643
+#: includes/class-five-star-ratings-shortcode.php:728
+#: includes/class-five-star-ratings-shortcode.php:765
+#: includes/class-five-star-ratings-shortcode.php:800
+msgid "<span class=\"hide fsrs-text fsrs-text__hidden\" aria-hidden=\"false\">%1$.1F out of %2$.1F stars</span>"
 msgstr ""
 
-#. translators: translate only the phrase "%4$.1F out of %5$.1F stars", where "%4$.1F" and "%5$.1F" are placeholders for numerical floats.
-#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:570
-msgid ""
-"<span class=\"fsrs\">\n"
-"\t\t\t\t\t\t\t<span class=\"fsrs-stars\">%1$s%2$s%3$s</span>\n"
-"\t\t\t\t\t\t\t<span class=\"hide fsrs-text fsrs-text__hidden\" aria-hidden=\"false\">%4$.1F out of %5$.1F stars</span>\n"
-"\t\t\t\t\t\t\t<span class=\"lining fsrs-text fsrs-text__visible\" aria-hidden=\"true\">%4$.1F</span>\n"
-"\t\t\t\t\t\t</span>"
-msgstr ""
-
-#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:647
-#: includes/class-five-star-ratings-shortcode.php:858
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:698
+#: includes/class-five-star-ratings-shortcode.php:857
 msgid "Cloning of Class_Five_Star_Ratings_Shortcode is forbidden."
 msgstr ""
 
-#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:658
-#: includes/class-five-star-ratings-shortcode.php:867
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode.php:709
+#: includes/class-five-star-ratings-shortcode.php:866
 msgid "Unserializing instances of Class_Five_Star_Ratings_Shortcode is forbidden."
 msgstr ""
 
@@ -664,7 +653,7 @@ msgstr ""
 msgid "Rating"
 msgstr ""
 
-#. translators: the placeholders %1$.1f and %2$d.0 are indeterminate numerals. Example output: "Rating must be a 1-decimal place float ranging from 0.0 to 5.0," etc.
+#. translators: the placeholders %1$.1f and %2$d.0 are indeterminate numerals. Example output: "Must be a 1-decimal place float ranging from 0.0 to 5.0," etc.
 #: includes/class-five-star-ratings-shortcode-settings.php:698
 msgid "<strong>Required.</strong> The star rating expressed as a numeral. Must be a 1-decimal place float ranging from %1$.1f to %2$d.0, <abbr>e.g.</abbr>, “2.5”, “1.0”. "
 msgstr ""
@@ -866,6 +855,7 @@ msgid "Reset the Shortcode Generator"
 msgstr ""
 
 #: includes/class-five-star-ratings-shortcode-settings.php:1414
+#: includes/class-five-star-ratings-shortcode-settings.php:1550
 msgid "Invalid nonce. Form submission blocked!"
 msgstr ""
 
@@ -979,9 +969,6 @@ msgstr ""
 msgid "Recipe steps must be in the form {$name} $text, repeating as needed, where $name is a <em>short</em> description of the step and $text is the detailed text of the step."
 msgstr ""
 
-#. translators: translate only the phrase "%1$.1F out of %2$.1F stars", where "%1$.1F" and "%2$.1F" are placeholders for numerical floats, e.g., "3 out of 5 stars".
-#: includes/class-five-star-ratings-shortcode.php:728
-#: includes/class-five-star-ratings-shortcode.php:765
-#: includes/class-five-star-ratings-shortcode.php:800
-msgid "<span class=\"hide fsrs-text fsrs-text__hidden\" aria-hidden=\"false\">%1$.1F out of %2$.1F stars</span>"
+#: includes/class-five-star-ratings-shortcode-settings.php:1543
+msgid "Reset Defaults"
 msgstr ""

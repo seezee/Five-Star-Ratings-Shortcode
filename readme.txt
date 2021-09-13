@@ -7,7 +7,7 @@ Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0  
 Tested up to: 5.8.1  
 Requires PHP: 7.0  
-Stable tag: 1.2.22  
+Stable tag: 1.2.23  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -29,12 +29,8 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 * Choice of HTML `<i>` or `<span>` elements in HTML output
 * Change maximum rating (from 3 – 10)
 * Change minimum rating (0.0, 0.5, or 1.0)
-<<<<<<< HEAD
 * Shortcode generator
 * NEW in v1.2.22: show/hide numeric text
-=======
-* NEW in v1.1.1: Shortcode generator
->>>>>>> a0dc38e7b44a58eeb0cac18813bcbfdfa39f6113
 
 == Installation ==
 
@@ -129,6 +125,11 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 == Changelog ==
+
+= 1.2.23 =
+
+* 2021-09-14
+* (PRO ONLY) Add options reset button to options tab
 
 = 1.2.22 =
 
@@ -430,8 +431,7 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.22 =
+= 1.2.23 =
 
-* 2021-09-13
-* (PRO ONLY) Added show/hide option for numerical text
-* (PRO ONLY) Fixed missing translator comment for gettext call
+* 2021-09-14
+* (PRO ONLY) Add options reset button to options tab

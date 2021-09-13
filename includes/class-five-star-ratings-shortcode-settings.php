@@ -291,6 +291,47 @@ class Five_Star_Ratings_Shortcode_Settings
         echo  $html ;
         $html2 = '';
         $html2 .= '</form>' . "\n";
+        
+        if ( fsrs_fs()->can_use_premium_code() ) {
+            
+            if ( 'options-general.php' === $pagenow && isset( $_GET['tab'] ) && 'options' === $_GET['tab'] ) {
+                $html2 .= '
+<form id="fsrs-reset-options" name="fsrs-reset-options" method="post" action="options-general.php?page=' . $this->parent->token . '&tab=options">';
+                $html2 .= wp_nonce_field(
+                    plugin_basename( __FILE__ ),
+                    'fsrs_reset_default_nonce',
+                    true,
+                    false
+                );
+                $html2 .= '
+	<p class="submit"><input name="reset" class="button button-secondary" type="submit" value="' . esc_html__( 'Reset Defaults', 'fsrs' ) . '" >
+	<input type="hidden" name="action" value="reset" />
+	</p>
+</form>';
+                if ( isset( $_POST['reset'] ) ) {
+                    
+                    if ( !isset( $_POST['fsrs_reset_default_nonce'] ) || !wp_verify_nonce( sanitize_key( $_POST['fsrs_reset_default_nonce'] ), plugin_basename( __FILE__ ) ) ) {
+                        die( esc_html__( 'Invalid nonce. Form submission blocked!', 'fsrs' ) );
+                        // Get out of here, the nonce is rotten!
+                    } else {
+                        update_option( 'fsrs_syntax', 'i' );
+                        update_option( 'fsrs_starsmin', '0.5' );
+                        update_option( 'fsrs_starsmax', '5' );
+                        update_option( 'fsrs_numericText', 'show' );
+                        $array = [ 'fsrs_starsize', 'fsrs_starcolor', 'fsrs_textcolor' ];
+                        foreach ( $array as &$item ) {
+                            update_option( $item, '' );
+                        }
+                        echo  "<meta http-equiv='refresh' content='0'>" ;
+                    }
+                
+                }
+            }
+            
+            if ( 'options-general.php' === $pagenow && 'five-star-ratings-shortcode' === $_GET['page'] ) {
+            }
+        }
+        
         $html2 .= '</div>' . "\n";
         echo  $html2 ;
         // phpcs:ignore
