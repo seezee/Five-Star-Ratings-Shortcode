@@ -482,9 +482,10 @@ class Five_Star_Ratings_Shortcode
             'stars' => '',
         ), $atts );
         $arr = array();
+        // Don't use strict comparison when checking the options!
         
         if ( get_option( FSRS_BASE . 'syntax' ) != null ) {
-            // Don't use strict comparison.
+            // phpcs:ignore
             $syntax = get_option( FSRS_BASE . 'syntax' );
         } else {
             $syntax = 'i';
@@ -493,7 +494,7 @@ class Five_Star_Ratings_Shortcode
         // Default syntax.
         
         if ( get_option( FSRS_BASE . 'starsmax' ) != null ) {
-            // Don't use strict comparison.
+            // phpcs:ignore
             $starsmax = get_option( FSRS_BASE . 'starsmax' );
         } else {
             $starsmax = '5';
@@ -502,12 +503,21 @@ class Five_Star_Ratings_Shortcode
         // Default value; also the only value for the FREE plugin.
         
         if ( get_option( FSRS_BASE . 'size' ) != null ) {
-            // Don't use strict comparison.
+            // phpcs:ignore
             $size = get_option( FSRS_BASE . 'size' );
         } else {
             $size = '';
         }
         
+        
+        if ( get_option( FSRS_BASE . 'numericText' ) != null ) {
+            // phpcs:ignore
+            $numtext = get_option( FSRS_BASE . 'numericText' );
+        } else {
+            $numtext = 'show';
+        }
+        
+        // Show the numeric text.
         // Get the value and if it's a float, trim it.
         $star = esc_attr( $atts['stars'] );
         $parts = explode( '.', $star );
@@ -542,74 +552,116 @@ class Five_Star_Ratings_Shortcode
         $emptyhalf = str_repeat( '<' . $syntax . ' class="fsrs-far fa-fw fa-star ' . $size . '"></' . $syntax . '>', $dif2 );
         
         if ( $startrim == $star ) {
+            // phpcs:ignore
             // There is no half star. Don't use strict type checking because we're dealing with floats and integers.
-            $rating = sprintf(
-                wp_kses( __(
-                /* translators: translate only the phrase "%3$.1F out of %4$.1F stars", where "%3$.1F" and "%4$.1F" are placeholders for numerical floats. */
-                '<span class="fsrs">
-							<span class="fsrs-stars">%1$s%2$s</span>
-							<span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%3$.1F out of %4$.1F stars</span>
-							<span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%3$.1F</span>
-						</span>',
-                'fsrs'
-            ), array(
-                'span' => array(
-                'class'       => array(),
-                'aria-hidden' => array(),
-            ),
-            ) ),
+            $rating = '<span class="fsrs">';
+            // Container span.
+            $rating .= sprintf(
+                // Star icons.
+                wp_kses( '<span class="fsrs-stars">%1$s%2$s</span>', array(
+                    'span' => array(
+                    'class' => array(),
+                ),
+                ) ),
                 $stars,
-                $empty,
-                $star,
-                wp_kses( $starsmax, $arr )
+                $empty
             );
+            $rating .= sprintf( wp_kses(
+                // translators: translate only the phrase "%1$.1F out of %2$.1F stars", where "%1$.1F" and "%2$.1F" are placeholders for numerical floats, e.g., "3 out of 5 stars".
+                __(
+                    // Screen reader text.
+                    '<span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%1$.1F out of %2$.1F stars</span>',
+                    'fsrs'
+                ),
+                array(
+                    'span' => array(
+                    'class'       => array(),
+                    'aria-hidden' => array(),
+                ),
+                )
+            ), $star, wp_kses( $starsmax, $arr ) );
+            if ( 'hide' !== $numtext ) {
+                // Numerical text. Show or hide based on user preference.
+                $rating .= '<span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">' . $star . '</span>';
+            }
+            $rating .= '</span>';
+            // Close the wrapper.
             return $rating;
-        } elseif ( $star < wp_kses( $starsmax, $arr ) ) {
-            // There is a half star.
-            $rating = sprintf(
-                wp_kses( __(
-                /* translators: translate only the phrase "%4$.1F out of %5$.1F stars", where "%4$.1F" and "%5$.1F" are placeholders for numerical floats. */
-                '<span class="fsrs">
-							<span class="fsrs-stars">%1$s%2$s%3$s</span>
-							<span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%4$.1F out of %5$.1F stars</span>
-							<span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%4$.1F</span>
-						</span>',
-                'fsrs'
-            ), array(
-                'span' => array(
-                'class'       => array(),
-                'aria-hidden' => array(),
-            ),
-            ) ),
+        } elseif ( $star < $starsmax ) {
+            // phpcs:ignore
+            // There is a half star. Don't use strict type checking because we're dealing with floats and integers.
+            $rating = '<span class="fsrs">';
+            // Container span.
+            $rating .= sprintf(
+                // Star icons.
+                wp_kses( '<span class="fsrs-stars">%1$s%2$s%3$s</span>', array(
+                    'span' => array(
+                    'class' => array(),
+                ),
+                ) ),
                 $stars,
                 $halfstar,
-                $emptyhalf,
-                $star,
-                wp_kses( $starsmax, $arr )
+                $emptyhalf
             );
+            $rating .= sprintf( wp_kses(
+                // translators: translate only the phrase "%1$.1F out of %2$.1F stars", where "%1$.1F" and "%2$.1F" are placeholders for numerical floats, e.g., "3 out of 5 stars".
+                __(
+                    // Screen reader text.
+                    '<span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%1$.1F out of %2$.1F stars</span>',
+                    'fsrs'
+                ),
+                array(
+                    'span' => array(
+                    'class'       => array(),
+                    'aria-hidden' => array(),
+                ),
+                )
+            ), $star, wp_kses( $starsmax, $arr ) );
+            if ( 'hide' !== $numtext ) {
+                // Numerical text. Show or hide based on user preference.
+                $rating .= '<span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">' . $star . '</span>';
+            }
+            $rating .= '</span>';
+            // Close the wrapper.
             return $rating;
         } else {
             // There is a half star but the number of stars exceeds the maximum. Don't ouput a half star.
-            $rating = sprintf(
-                wp_kses( __(
-                /* translators: translate only the phrase "%3$.1F out of %4$.1F stars", where "%3$.1F" and "%4$.1F" are placeholders for numerical floats. */
-                '<span class="fsrs">
-							<span class="fsrs-stars">%1$s%2$s</span>
-							<span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%3$.1F out of %4$.1F stars</span>
-							<span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%3$.1F</span>
-						</span>',
-                'fsrs'
-            ), array(
-                'span' => array(
-                'class'       => array(),
-                'aria-hidden' => array(),
-            ),
-            ) ),
+            $rating = '<span class="fsrs">';
+            // Container span.
+            $rating .= sprintf(
+                // Star icons.
+                wp_kses( '<span class="fsrs-stars">%1$s%2$s</span>', array(
+                    'span' => array(
+                    'class' => array(),
+                ),
+                ) ),
                 $stars,
-                $empty,
-                $startrim,
-                wp_kses( $starsmax, $arr )
+                $empty
             );
+            $rating .= sprintf( wp_kses(
+                // translators: translate only the phrase "%1$.1F out of %2$.1F stars", where "%1$.1F" and "%2$.1F" are placeholders for numerical floats, e.g., "3 out of 5 stars".
+                __(
+                    // Screen reader text.
+                    '<span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%1$.1F out of %2$.1F stars</span>',
+                    'fsrs'
+                ),
+                array(
+                    'span' => array(
+                    'class'       => array(),
+                    'aria-hidden' => array(),
+                ),
+                )
+            ), $startrim, wp_kses( $starsmax, $arr ) );
+            if ( 'hide' !== $numtext ) {
+                // Numerical text. Show or hide based on user preference.
+                $rating .= sprintf( wp_kses( '<span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%1$.1F</span>', array(
+                    'span' => array(
+                    'class' => array(),
+                ),
+                ) ), $startrim );
+            }
+            $rating .= '</span>';
+            // Close the wrapper.
             return $rating;
         }
     
@@ -621,8 +673,7 @@ class Five_Star_Ratings_Shortcode
      * Ensures only one instance of Five_Star_Ratings_Shortcode is loaded or can
      * be loaded.
      *
-     * @param string                                $file File instance.
-     * @param string FSRS_VERSION Version parameter.
+     * @param string $file File instance.
      *
      * @return Object Five_Star_Ratings_Shortcode instance
      * @since 1.0.0

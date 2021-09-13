@@ -1,15 +1,16 @@
-=== Five-Star Ratings Shortcode ===  
+# Five-Star Ratings Shortcode  
+
 Contributors: seezee  
-Donate link: https://messengerwebdesign.com/donate  
-Author URI: https://github.com/seezee  
-Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/  
+Donate link: [https://messengerwebdesign.com/donate](https://messengerwebdesign.com/donate)  
+Author URI: [https://github.com/seezee](https://github.com/seezee)  
+Plugin URI: [https://wordpress.org/plugins/five-star-ratings-shortcode/](https://wordpress.org/plugins/five-star-ratings-shortcode/)  
 Tags: ratings, stars, icon, shortcode, accessible  
 Requires at least: 4.6.0  
 Tested up to: 5.8.1  
 Requires PHP: 7.0  
-Stable tag: 1.2.21  
+Stable tag: 1.2.22  
 License: GNUv3 or later  
-License URI: https://www.gnu.org/licenses/gpl-3.0.html  
+License URI: [https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html)  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
 
 Simple lightweight shortcode to add 5-star ratings anywhere.
@@ -31,19 +32,23 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 * Custom icon sizes
 * Custom icon and text colors
 * Choice of HTML `<i>` or `<span>` elements in HTML output
-* Change the number of stars (from 3 – 10)
-* NEW in v1.1.2: Shortcode generator
+* Change maximum rating (from 3 – 10)
+* Change minimum rating (0.0, 0.5, or 1.0)
+* Shortcode generator
+* NEW in v1.2.22: show/hide numeric text
 
 == Installation ==
 
-### USING THE WORDPRESS DASHBOARD
+## USING THE WORDPRESS DASHBOARD
+
 1. Navigate to “Add New” in the plugins dashboard
 2. Search for “Five-Star Ratings Shortcode”
 3. Click “Install Now”
 4. Activate the plugin on the Plugin dashboard
 5. The FREE plugin has no settings. PRO users: Go to Settings -> Five-Star Ratings Shortcode if you want to customize the shortcode output.
 
-### UPLOADING IN WORDPRESS DASHBOARD
+## UPLOADING IN WORDPRESS DASHBOARD
+
 1. Click the download button on this and save “five-star-ratings-plugin.zip” to your computer
 2. Navigate to “Add New” in the plugins dashboard
 3. Navigate to the “Upload” area
@@ -52,19 +57,22 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 6. Activate the plugin in the Plugin dashboard
 7. The FREE plugin has no settings. PRO users: Go to Settings -> Five-Star Ratings Shortcode if you want to customize the shortcode output.
 
-### USING FTP
+## USING FTP
+
 1. Download the Five-Star Ratings Shortcode ZIP file
 2. Extract the Five-Star Ratings Shortcode ZIP file to your computer
 3. Upload the “five-star-ratings-plugin” directory to the `/wp-content/plugins/` directory
 4. Activate the plugin in the Plugin dashboard
 5. The FREE plugin has no settings. PRO users: Go to Settings -> Five-Star Ratings Shortcode if you want to customize the shortcode output.
 
-### UPGRADING TO FIVE-STAR RATINGS SHORTCODE PRO
+## UPGRADING TO FIVE-STAR RATINGS SHORTCODE PRO
+
 1. Go to Settings -> Five-Star Ratings Shortcode -> Upgrade
 2. Fill out the payment form and submit
 3. Your license key will automatically be entered
 
-### DOWNLOAD FROM GITHUB
+## DOWNLOAD FROM GITHUB
+
 1. Download the plugin via [https://github.com/seezee/Five-Star-Ratings-Shortcode](https://github.com/seezee/Five-Star-Ratings-Shortcode)
 2. Follow the directions for using FTP
 
@@ -76,7 +84,8 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 [rating stars="4.0"] (Displays 4 stars out of 5)  
 [rating stars="5.5"] (Incorrect usage but will display 5 stars out of 5)  
 
-In the 2nd example, the raw output will be like this before processing:  
+In the 2nd example, the raw output will be like this before processing:
+
 ```html
 <span class="fsrs">
   <span class="fsrs-stars">
@@ -90,23 +99,24 @@ In the 2nd example, the raw output will be like this before processing:
   <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">2.5</span>
 </span>
 ```  
+
 PRO users can change the minimum and maximum ratings on the settings page.
 
 == Frequently Asked Questions ==
 
-### What is the plugin for?
+## What is the plugin for?
 
 This plugin adds accessible, attractive 5-star ratings anywhere on your site with a simple shortcode. The plugin uses Font Awesome icons via their SVG + JavaScript method.
 
-### How may I help improve this plugin?
+## How may I help improve this plugin?
 
 I’d love to hear your feedback. In particular, tell me about your experience configuring the plugin. Are the instructions clear? Do I need to reword them? Did I leave out something crucial? You get the drift.
 
-### I’d like to do more
+## I’d like to do more
 
 I’m looking for collaborators to improve the code. If you are an experienced Wordpress programmer, hit me up!
 
-### I’d like to do even more
+## I’d like to do even more
 
 Feel free to send a donation to my [Paypal account](https://paypal.me/messengerwebdesign?locale.x=en_US). Or buy me a beer if you’re in town.
 
@@ -123,6 +133,12 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 == Changelog ==
+
+= 1.2.22 =
+
+* 2021-09-13
+* (PRO ONLY) Added show/hide option for numerical text
+* (PRO ONLY) Fixed missing translator comment for gettext call
 
 = 1.2.21 =
 
@@ -418,11 +434,11 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.21 =
+= 1.2.22 =
 
-* 2021-09-09
-* Tested up to WordPress 5.8.1
-* BUGFIX: added additional check before printing JSON to avoid undefined variable error
+* 2021-09-13
+* (PRO ONLY) Added show/hide option for numerical text
+* (PRO ONLY) Fixed missing translator comment for gettext call
 
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
