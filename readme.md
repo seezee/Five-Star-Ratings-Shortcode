@@ -34,8 +34,12 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 * Choice of HTML `<i>` or `<span>` elements in HTML output
 * Change maximum rating (from 3 – 10)
 * Change minimum rating (0.0, 0.5, or 1.0)
+<<<<<<< HEAD
 * Shortcode generator
 * NEW in v1.2.22: show/hide numeric text
+=======
+* NEW in v1.1.2: Shortcode generator
+>>>>>>> a0dc38e7b44a58eeb0cac18813bcbfdfa39f6113
 
 == Installation ==
 
