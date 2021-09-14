@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Five-Star Ratings Shortcode DEV plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Five-Star Ratings Shortcode DEV 1.2.23\n"
+"Project-Id-Version: Five-Star Ratings Shortcode DEV 1.2.24\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/five-star-ratings-shortcode-dev\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-09-13T21:35:04+00:00\n"
+"POT-Creation-Date: 2021-09-14T16:02:19+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: fsrs\n"
@@ -262,6 +262,17 @@ msgstr ""
 #: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:282
 #: includes/class-five-star-ratings-shortcode-settings.php:1319
 msgid "Five-Star Ratings Shortcode Documentation"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:307
+#: includes/class-five-star-ratings-shortcode-settings.php:1544
+msgid "Reset Defaults"
+msgstr ""
+
+#: .admin/five-star-ratings-shortcode/includes/class-five-star-ratings-shortcode-settings.php:314
+#: includes/class-five-star-ratings-shortcode-settings.php:1414
+#: includes/class-five-star-ratings-shortcode-settings.php:1551
+msgid "Invalid nonce. Form submission blocked!"
 msgstr ""
 
 #. translators: ignore the placeholders in the URL
@@ -854,11 +865,6 @@ msgstr ""
 msgid "Reset the Shortcode Generator"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1414
-#: includes/class-five-star-ratings-shortcode-settings.php:1550
-msgid "Invalid nonce. Form submission blocked!"
-msgstr ""
-
 #: includes/class-five-star-ratings-shortcode-settings.php:1466
 msgid "Please select a review type"
 msgstr ""
@@ -967,8 +973,4 @@ msgstr ""
 #. translators: please translate the variables $name and $text into your own language.
 #: includes/class-five-star-ratings-shortcode-settings.php:1510
 msgid "Recipe steps must be in the form {$name} $text, repeating as needed, where $name is a <em>short</em> description of the step and $text is the detailed text of the step."
-msgstr ""
-
-#: includes/class-five-star-ratings-shortcode-settings.php:1543
-msgid "Reset Defaults"
 msgstr ""
