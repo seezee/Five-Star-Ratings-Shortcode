@@ -7,7 +7,7 @@ Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0  
 Tested up to: 5.8.1  
 Requires PHP: 7.0  
-Stable tag: 1.2.26  
+Stable tag: 1.2.27  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -127,6 +127,11 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 == Changelog ==
+
+= 1.2.27 =
+
+* 2021-10-07
+* BUGFIX: Options reset now returns decimal separator to default
 
 = 1.2.26 =
 
@@ -449,7 +454,7 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.26 =
+= 1.2.27 =
 
-* 2021-10-04
-* NEW FEATURE (PRO ONLY): Option to output numeric text using alternate decimal separator (comma)
+* 2021-10-07
+* BUGFIX: Options reset now returns decimal separator to default
