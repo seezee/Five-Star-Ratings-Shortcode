@@ -172,7 +172,7 @@ class Five_Star_Ratings_Shortcode
             $url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/?
 				trial=free';
             $html .= ' ' . sprintf( wp_kses(
-                // translators: placeholders do not need translation.
+                /* translators: ignore the placeholders in the URL */
                 __( 'Not sure if you need those features? We have a <a href="%1$s" rel="%2$s">FREE 14-day trial</a>.', 'fsrs' ),
                 array(
                     'a' => array(
@@ -518,6 +518,15 @@ class Five_Star_Ratings_Shortcode
         }
         
         // Show the numeric text.
+        
+        if ( get_option( FSRS_BASE . 'decimalMark' ) != null ) {
+            // phpcs:ignore
+            $radix = get_option( FSRS_BASE . 'decimalMark' );
+        } else {
+            $radix = 'point';
+        }
+        
+        // Use the default decimal point.
         // Get the value and if it's a float, trim it.
         $star = esc_attr( $atts['stars'] );
         $parts = explode( '.', $star );
@@ -550,6 +559,14 @@ class Five_Star_Ratings_Shortcode
         
         // Empty stars if there is a half star.
         $emptyhalf = str_repeat( '<' . $syntax . ' class="fsrs-far fa-fw fa-star ' . $size . '"></' . $syntax . '>', $dif2 );
+        if ( 'comma' === $radix ) {
+            $star = number_format(
+                $star,
+                1,
+                ',',
+                null
+            );
+        }
         
         if ( $startrim == $star ) {
             // phpcs:ignore
@@ -571,6 +588,7 @@ class Five_Star_Ratings_Shortcode
                 __(
                     // Screen reader text.
                     '<span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%1$.1F out of %2$.1F stars</span>',
+                    // phpcs:ignore
                     'fsrs'
                 ),
                 array(
@@ -608,6 +626,7 @@ class Five_Star_Ratings_Shortcode
                 __(
                     // Screen reader text.
                     '<span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%1$.1F out of %2$.1F stars</span>',
+                    // phpcs:ignore
                     'fsrs'
                 ),
                 array(
@@ -643,6 +662,7 @@ class Five_Star_Ratings_Shortcode
                 __(
                     // Screen reader text.
                     '<span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%1$.1F out of %2$.1F stars</span>',
+                    // phpcs:ignore
                     'fsrs'
                 ),
                 array(

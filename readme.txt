@@ -7,7 +7,7 @@ Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0  
 Tested up to: 5.8.1  
 Requires PHP: 7.0  
-Stable tag: 1.2.25  
+Stable tag: 1.2.26  
 License: GNUv3 or later  
 License URI: https://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -31,7 +31,8 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 * Change minimum rating (0.0, 0.5, or 1.0)
 * Shortcode generator
 * Show/hide numeric text
-* NEW in v1.2.23: options reset button
+* Options reset button
+* NEW in v1.2.26: Option to output numeric text using alternate decimal separator (comma)
 
 == Installation ==
 
@@ -126,6 +127,11 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 == Changelog ==
+
+= 1.2.26 =
+
+* 2021-10-04
+* NEW FEATURE (PRO ONLY): Option to output numeric text using alternate decimal separator (comma)
 
 = 1.2.25 =
 
@@ -443,7 +449,7 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.25 =
+= 1.2.26 =
 
-* 2021-09-16
-* BUGFIX: Fixed reset button not rendering on options tab in some instances
+* 2021-10-04
+* NEW FEATURE (PRO ONLY): Option to output numeric text using alternate decimal separator (comma)
