@@ -8,7 +8,7 @@ Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0  
 Tested up to: 5.8.1  
 Requires PHP: 7.0  
-Stable tag: 1.2.27  
+Stable tag: 1.2.28  
 License: GNUv3 or later  
 License URI: [https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html)  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -36,8 +36,8 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 * Change minimum rating (0.0, 0.5, or 1.0)
 * Shortcode generator
 * Show/hide numeric text
+* Option to output numeric text using alternate decimal separator (comma)
 * Options reset button
-* NEW in v1.2.26: Option to output numeric text using alternate decimal separator (comma)
 
 == Installation ==
 
@@ -136,14 +136,20 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.2.28 =
+
+* 2021-11-11
+* Tested up to WordPress 5.8.2
+* Update PRO plugin description in README & upgrade notice
+
 = 1.2.27 =
 
-* 2021-10-07
+* 2021-11-07
 * BUGFIX: Options reset now returns decimal separator to default
 
 = 1.2.26 =
 
-* 2021-10-04
+* 2021-11-04
 * NEW FEATURE (PRO ONLY): Option to output numeric text using alternate decimal separator (comma)
 
 = 1.2.25 =
@@ -462,10 +468,11 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.27 =
+= 1.2.28 =
 
-* 2021-10-07
-* BUGFIX: Options reset now returns decimal separator to default
+* 2021-11-11
+* Tested up to WordPress 5.8.2
+* Update PRO plugin description in README & upgrade notice
 
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

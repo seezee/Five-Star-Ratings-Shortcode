@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Five-Star Ratings Shortcode
- * Version: 1.2.27
+ * Version: 1.2.28
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
  * GitHub Plugin URI: seezee/five-star-ratings-shortcode
@@ -96,7 +96,7 @@ if ( function_exists( 'fsrs_fs' ) ) {
     
     
     if ( !defined( 'FSRS_VERSION' ) ) {
-        define( 'FSRS_VERSION', '1.2.27' );
+        define( 'FSRS_VERSION', '1.2.28' );
     } else {
         $message = __( 'Five-Star Ratings Shortcode ERROR! The <abbr>PHP</abbr> constant “FSRS_VERSION” has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'fsrs' );
         echo  $error_open . wp_kses( $message, $arr ) . $error_close ;
@@ -150,7 +150,7 @@ if ( function_exists( 'fsrs_fs' ) ) {
                 // Translation string with variables.
                 wp_kses(
                     /* translators: ignore the placeholders in the URL */
-                    __( 'Five-Star Ratings Shortcode updated successfully. For Google Rich Snippets support, custom colors and sizes, or to change the minimum and maximum ratings, please upgrade to <a href="%1$s" rel="%2$s">Five-Star Ratings Shortcode PRO</a>.', 'fsrs' ),
+                    __( 'Five-Star Ratings Shortcode updated successfully. For Google Rich Snippets support, customized colors and sizes, variable minimum and maximum ratings, and additional customized output please upgrade to <a href="%1$s" rel="%2$s">Five-Star Ratings Shortcode PRO</a>.', 'fsrs' ),
                     array(
                         'a' => array(
                         'href' => array(),

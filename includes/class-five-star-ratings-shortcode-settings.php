@@ -204,6 +204,9 @@ class Five_Star_Ratings_Shortcode_Settings
 			<li>' . esc_html__( 'Change minimum rating (0.0, 0.5, or 1)', 'fsrs' ) . '</li>
 			<li>' . esc_html__( 'Change maximum rating (3 &ndash; 10)', 'fsrs' ) . '</li>
 			<li>' . wp_kses( __( 'Custom syntax (<code>&lt;i&gt;</code> or <code>&lt;span&gt;</code>)', 'fsrs' ), $arr ) . '</li>
+			<li>' . esc_html__( 'Show or hide numeric text', 'fsrs' ) . '</li>
+			<li>' . esc_html__( 'Option to output numeric text using alternate decimal separator (comma)', 'fsrs' ) . '</li>
+			<li>' . esc_html__( 'Options reset button', 'fsrs' ) . '</li>
 		</ul>
 	</details>',
         );
