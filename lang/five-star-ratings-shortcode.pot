@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Five-Star Ratings Shortcode DEV plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Five-Star Ratings Shortcode DEV 1.2.28\n"
+"Project-Id-Version: Five-Star Ratings Shortcode DEV 1.2.29\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/five-star-ratings-shortcode-dev\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-11-11T15:59:35+00:00\n"
+"POT-Creation-Date: 2021-11-22T20:13:32+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: fsrs\n"
@@ -62,11 +62,11 @@ msgstr ""
 msgid "Not sure if you need those features? We have a <a href=\"%1$s\" rel=\"%2$s\">FREE 14-day trial</a>."
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-head.php:783
+#: includes/class-five-star-ratings-shortcode-head.php:791
 msgid "Cloning of Class_Five_Star_Ratings_Shortcode_Head is forbidden."
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-head.php:792
+#: includes/class-five-star-ratings-shortcode-head.php:800
 msgid "Unserializing instances of Class_Five_Star_Ratings_Shortcode_Head is forbidden."
 msgstr ""
 
