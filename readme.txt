@@ -1,15 +1,15 @@
-=== Five-Star Ratings Shortcode ===  
-Contributors: seezee  , freemius
-Donate link: https://messengerwebdesign.com/donate  
-Author URI: https://github.com/seezee  
-Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/  
-Tags: ratings, stars, icon, shortcode, accessible  
-Requires at least: 4.6.0  
-Tested up to: 5.8.2  
-Requires PHP: 7.0  
-Stable tag: 1.2.28  
-License: GNUv3 or later  
-License URI: https://www.gnu.org/licenses/gpl-3.0.html  
+=== Five-Star Ratings Shortcode ===
+Contributors: seezee
+Donate link: https://messengerwebdesign.com/donate
+Author URI: https://github.com/seezee
+Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
+Tags: ratings, stars, icon, shortcode, accessible
+Requires at least: 4.6.0
+Tested up to: 5.8.2
+Requires PHP: 7.0
+Stable tag: 1.2.29
+License: GNUv3 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Simple lightweight shortcode to add 5-star ratings anywhere.
 
@@ -41,8 +41,12 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 2. Search for “Five-Star Ratings Shortcode”
 3. Click “Install Now”
 4. Activate the plugin on the Plugin dashboard
+[//]: # fs_free_only_begin
 5. The plugin has no settings.
-
+[//]: # fs_free_only_end
+[//]: # fs_premium_only_begin
+5. Go to Settings -> Five-Star Ratings Shortcode if you want to customize the shortcode output.
+[//]: # fs_premium_only_end
 
 ### UPLOADING IN WORDPRESS DASHBOARD
 1. Click the download button on this and save “five-star-ratings-plugin.zip” to your computer
@@ -51,21 +55,31 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 4. Select “five-star-ratings-plugin.zip” from your computer
 5. Click “Install Now”
 6. Activate the plugin in the Plugin dashboard
+[//]: # fs_free_only_begin
 7. The plugin has no settings.
-
+[//]: # fs_free_only_end
+[//]: # fs_premium_only_begin
+7. Go to Settings -> Five-Star Ratings Shortcode if you want to customize the shortcode output.
+[//]: # fs_premium_only_end
 
 ### USING FTP
 1. Download the Five-Star Ratings Shortcode ZIP file
 2. Extract the Five-Star Ratings Shortcode ZIP file to your computer
 3. Upload the “five-star-ratings-plugin” directory to the `/wp-content/plugins/` directory
 4. Activate the plugin in the Plugin dashboard
+[//]: # fs_free_only_begin
 5. The plugin has no settings.
+[//]: # fs_free_only_end
+[//]: # fs_premium_only_begin
+5. Go to Settings -> Five-Star Ratings Shortcode if you want to customize the shortcode output.
+[//]: # fs_premium_only_end
 
-
+[//]: # fs_free_only_begin
 ### UPGRADING TO FIVE-STAR RATINGS SHORTCODE PRO
 1. Go to Settings -> Five-Star Ratings Shortcode -> Upgrade
 2. Fill out the payment form and submit
 3. Your license key will automatically be entered
+[//]: # fs_free_only_end
 
 ### DOWNLOAD FROM GITHUB
 1. Download the plugin via [https://github.com/seezee/Five-Star-Ratings-Shortcode](https://github.com/seezee/Five-Star-Ratings-Shortcode)
@@ -73,10 +87,10 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 
 == Usage Examples ==
 
-[rating stars=&quot;3.0&quot;] (Displays 3 stars out of 5)  
-[rating stars=&quot;2.5&quot;] (Displays 2½ stars out of 5)  
-[rating stars=&quot;4.0&quot;] (Displays 4 stars out of 5)  
-[rating stars=&quot;5.5&quot;] (Incorrect usage but will display 5 stars out of 5)  
+[rating stars=&quot;3.0&quot;] (Displays 3 stars out of 5)
+[rating stars=&quot;2.5&quot;] (Displays 2½ stars out of 5)
+[rating stars=&quot;4.0&quot;] (Displays 4 stars out of 5)
+[rating stars=&quot;5.5&quot;] (Incorrect usage but will display 5 stars out of 5)
 
 In the 2nd example, the raw output will be like this before processing:
 
@@ -88,13 +102,17 @@ In the 2nd example, the raw output will be like this before processing:
         <i class="fsrs-far fa-fw fa-star"></i>
         <i class="fsrs-far fa-fw fa-star"></i>
       </span>
-      <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">2.5 out of 5</span> 
+      <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">2.5 out of 5</span>
       <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">2.5</span>
     </span>
 
 PRO users can change the minimum and maximum ratings on the settings page.
 
+[//]: # fs_premium_only_begin
+== Screenshots ==
 
+1. Settings Screen
+[//]: # fs_premium_only_end
 
 == Frequently Asked Questions ==
 
@@ -127,6 +145,11 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 == Changelog ==
+
+= 1.2.29 =
+
+* 2021-11-22
+* BUGFIX: (PRO only) Check whether $post->post_content and $post->post_author are set before assigning variables
 
 = 1.2.28 =
 
@@ -460,8 +483,7 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.28 =
+= 1.2.29 =
 
-* 2021-11-11
-* Tested up to WordPress 5.8.2
-* Update PRO plugin description in README & upgrade notice
+* 2021-11-22
+* BUGFIX: (PRO only) Check whether $post->post_content and $post->post_author are set before assigning variables
