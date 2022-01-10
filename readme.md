@@ -6,9 +6,9 @@ Author URI: [https://github.com/seezee](https://github.com/seezee)
 Plugin URI: [https://wordpress.org/plugins/five-star-ratings-shortcode/](https://wordpress.org/plugins/five-star-ratings-shortcode/)  
 Tags: ratings, stars, icon, shortcode, accessible  
 Requires at least: 4.6.0  
-Tested up to: 5.8.2  
+Tested up to: 5.8.3  
 Requires PHP: 7.0  
-Stable tag: 1.2.29  
+Stable tag: 1.2.30  
 License: GNUv3 or later  
 License URI: [https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html)  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -102,8 +102,6 @@ In the 2nd example, the raw output will be like this before processing:
 </span>
 ```  
 
-PRO users can change the minimum and maximum ratings on the settings page.
-
 == Frequently Asked Questions ==
 
 ## What is the plugin for?
@@ -136,10 +134,16 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.2.30 =
+
+* 2022-01-10
+* Tested up to WordPress 5.8.3
+* Check for FREE vs. PRO and serve appropriate support URL
+
 = 1.2.29 =
 
 * 2021-11-22
-* BUGFIX: Check whether $post->post_content and $post->post_author are set before assigning variables
+* BUGFIX: (PRO only) Check whether $post->post_content and $post->post_author are set before assigning variables
 
 = 1.2.28 =
 
@@ -473,10 +477,11 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.29 =
+= 1.2.30 =
 
-* 2021-11-22
-* BUGFIX: Check whether $post->post_content and $post->post_author are set before assigning variables
+* 2022-01-10
+* Tested up to WordPress 5.8.3
+* Check for FREE vs. PRO and serve appropriate support URL
 
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
