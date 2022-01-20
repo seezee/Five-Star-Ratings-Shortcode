@@ -7,7 +7,7 @@ Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0
 Tested up to: 5.8.3
 Requires PHP: 7.0
-Stable tag: 1.2.30
+Stable tag: 1.2.31
 License: GNUv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -94,29 +94,29 @@ In the 2nd example, the raw output will be like this before processing:
 
 
 
-== Frequently Asked Questions ==
-
-### What is the plugin for?
-
-This plugin adds accessible, attractive 5-star ratings anywhere on your site with a simple shortcode. The plugin uses Font Awesome icons via their SVG + JavaScript method.
-
-### How may I help improve this plugin?
-
-I’d love to hear your feedback. In particular, tell me about your experience configuring the plugin. Are the instructions clear? Do I need to reword them? Did I leave out something crucial? You get the drift.
-
-### I’d like to do more
-
-I’m looking for collaborators to improve the code. If you are an experienced Wordpress programmer, hit me up!
-
-### I’d like to do even more
-
-Feel free to send a donation to my [Paypal account](https://paypal.me/messengerwebdesign?locale.x=en_US). Or buy me a beer if you’re in town.
-
 == Translations ==
 
 * English: Default language, always included
 
 Would you like to help translate Five-Star Ratings Shortcode into your own language? [You can do that here!](https://translate.wordpress.org/projects/wp-plugins/five-star-ratings-shortcode)
+
+== Frequently Asked Questions ==
+
+= What is the plugin for? =
+
+This plugin adds accessible, attractive 5-star ratings anywhere on your site with a simple shortcode. The plugin uses Font Awesome icons via their SVG + JavaScript method.
+
+= How may I help improve this plugin? =
+
+I’d love to hear your feedback. In particular, tell me about your experience configuring the plugin. Are the instructions clear? Do I need to reword them? Did I leave out something crucial? You get the drift.
+
+= I’d like to do more =
+
+I’m looking for collaborators to improve the code. If you are an experienced Wordpress programmer, hit me up!
+
+= I’d like to do even more =
+
+Feel free to send a donation to my [Paypal account](https://paypal.me/messengerwebdesign?locale.x=en_US). Or buy me a beer if you’re in town.
 
 == Dependencies ==
 
@@ -125,6 +125,12 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 == Changelog ==
+
+= 1.2.31 =
+
+* 2022-01-20
+* Update contact & support URL on plugins page for PRO users
+* Add index.php to project root
 
 = 1.2.30 =
 
@@ -469,8 +475,8 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.30 =
+= 1.2.31 =
 
-* 2022-01-10
-* Tested up to WordPress 5.8.3
-* Check for FREE vs. PRO and serve appropriate support URL
+* 2022-01-20
+* Update contact & support URL on plugins page for PRO users
+* Add index.php to project root
