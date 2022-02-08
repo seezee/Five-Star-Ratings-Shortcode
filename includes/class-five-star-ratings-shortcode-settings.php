@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Color picker & semantics for PRO version.
+ * Styles, semantics, presentation, & rich snippets for PRO version.
  *
  * @package Five Star Ratings Shortcode/Includes
  */
@@ -96,7 +96,7 @@ class Five_Star_Ratings_Shortcode_Settings
             $this->parent->token . '-settings-js',
             $this->parent->assets_url . 'js/settings' . $this->parent->script_suffix . '.js',
             array( 'farbtastic', 'jquery' ),
-            '1.0.0',
+            esc_html( FSRS_VERSION ),
             true
         );
         wp_enqueue_script( $this->parent->token . '-settings-js' );
@@ -174,7 +174,7 @@ class Five_Star_Ratings_Shortcode_Settings
     &lt;i class="fsrs-far fa-fw fa-star "&gt;&lt;/i&gt;
     &lt;i class="fsrs-far fa-fw fa-star "&gt;&lt;/i&gt;
   &lt;/span&gt;
-  &lt;span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false"&gt;2.5 out of 5&lt;/span&gt; 
+  &lt;span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false"&gt;2.5 out of 5&lt;/span&gt;
   &lt;span class="lining fsrs-text fsrs-text__visible" aria-hidden="true"&gt;2.5&lt;/span&gt;
 &lt;/span&gt;</code></pre>
 		</div>

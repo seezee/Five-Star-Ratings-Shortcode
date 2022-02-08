@@ -134,6 +134,14 @@ This plugin includes these third-party libraries in its package.
 
 ## Changelog
 
+## 1.2.33
+
+* 2022-02-08
+* Reorganized assets directory
+* Removed 4 unnecessary translation calls
+* ACCESSIBILITY IMPROVEMENT: Changed starsminValue & starsmaxValue ratings fields to &lt;output&gt;
+* Updated description in class-five-star-ratings-shortcode-admin-api.php file comment
+
 ## 1.2.32
 
 * 2022-01-26
@@ -488,10 +496,13 @@ BUGFIX: fix undefined variable
 
 ## Upgrade Notice
 
-## 1.2.32
+## 1.2.33
 
-* 2022-01-26
-* Tested up to WordPress 5.9
+* 2022-02-08
+* Reorganized assets directory
+* Removed 4 unnecessary translation calls
+* ACCESSIBILITY IMPROVEMENT: Changed starsminValue & starsmaxValue ratings fields to &lt;output&gt;
+* Updated description in class-five-star-ratings-shortcode-admin-api.php file comment
 
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

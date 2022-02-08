@@ -88,8 +88,8 @@ class Five_Star_Ratings_Shortcode
         // Load plugin environment variables.
         $this->file = $file;
         $this->dir = dirname( $this->file );
-        $this->assets_dir = trailingslashit( $this->dir ) . 'assets';
-        $this->assets_url = esc_url( trailingslashit( plugins_url( '/assets/', $this->file ) ) );
+        $this->assets_dir = trailingslashit( $this->dir ) . 'assets/dist';
+        $this->assets_url = esc_url( trailingslashit( plugins_url( '/assets/dist/', $this->file ) ) );
         $this->script_suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min' );
         // Use minified script.
         register_activation_hook( $this->file, array( $this, 'install' ) );
