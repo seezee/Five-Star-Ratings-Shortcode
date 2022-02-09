@@ -8,7 +8,7 @@ Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0  
 Tested up to: 5.9  
 Requires PHP: 7.0  
-Stable tag: 1.2.32  
+Stable tag: 1.2.34  
 License: GNUv3 or later  
 License URI: [https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html)  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -133,6 +133,11 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 ## Changelog
+
+## 1.2.34
+
+* 2022-02-09
+* Remove unused JavaScript and dev tools from plugin FREE version
 
 ## 1.2.33
 
@@ -496,13 +501,10 @@ BUGFIX: fix undefined variable
 
 ## Upgrade Notice
 
-## 1.2.33
+## 1.2.34
 
-* 2022-02-08
-* Reorganized assets directory
-* Removed 4 unnecessary translation calls
-* ACCESSIBILITY IMPROVEMENT: Changed starsminValue & starsmaxValue ratings fields to &lt;output&gt;
-* Updated description in class-five-star-ratings-shortcode-admin-api.php file comment
+* 2022-02-09
+* Remove unused JavaScript and dev tools from plugin FREE version
 
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
