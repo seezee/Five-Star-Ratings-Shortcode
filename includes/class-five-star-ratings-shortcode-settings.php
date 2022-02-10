@@ -170,7 +170,7 @@ class Five_Star_Ratings_Shortcode_Settings
   &lt;span class="fsrs-stars"&gt;
     &lt;i class="fsrs-fas fa-fw fa-star "&gt;&lt;/i&gt;
     &lt;i class="fsrs-fas fa-fw fa-star "&gt;&lt;/i&gt;
-    &lt;i class="fsrs-fas fa-fw fa-star-half-alt "&gt;&lt;/i&gt;
+    &lt;i class="fsrs-fas fa-fw fa-star-half-stroke "&gt;&lt;/i&gt;
     &lt;i class="fsrs-far fa-fw fa-star "&gt;&lt;/i&gt;
     &lt;i class="fsrs-far fa-fw fa-star "&gt;&lt;/i&gt;
   &lt;/span&gt;

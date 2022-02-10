@@ -229,7 +229,7 @@ class Five_Star_Ratings_Shortcode
             return;
         }
         $protocol = 'https:';
-        $url = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/fontawesome';
+        $url = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/fontawesome';
         $fallback = esc_url( $this->assets_url ) . 'js/fontawesome';
         $suffix = $this->script_suffix . '.js';
         $link = $protocol . $url . $suffix;
@@ -273,7 +273,7 @@ class Five_Star_Ratings_Shortcode
         
         wp_enqueue_script( $this->token . '-fa-main' );
         // We're using a specially optimized version of fa-solid.js to
-        // load only the necessary Fontawesome glyphs, i.e. fa-star & fa-star-half-alt. In the event we ever need to add more glyphs, both
+        // load only the necessary Fontawesome glyphs, i.e. fa-star & fa-star-half-stroke. In the event we ever need to add more glyphs, both
         // scripts, i.e., fa-solid.js & fa-solid.min.js, will need to be
         // updated.
         wp_register_script(
@@ -297,7 +297,7 @@ class Five_Star_Ratings_Shortcode
     public function enqueue_fa_scripts()
     {
         $protocol = 'https:';
-        $url = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/js/fontawesome';
+        $url = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/fontawesome';
         $fallback = esc_url( $this->assets_url ) . 'js/fontawesome';
         $suffix = $this->script_suffix . '.js';
         $link = $protocol . $url . $suffix;
@@ -374,42 +374,74 @@ class Five_Star_Ratings_Shortcode
      */
     public function hash_js( $tag, $handle )
     {
+        $protocol = 'https:';
+        $url = array(
+            '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/fontawesome',
+            '//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate',
+            '//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods',
+            '//cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard'
+        );
+        $fallback = array( esc_url( $this->assets_url ) . 'js/jquery-validate/jquery.validate', esc_url( $this->assets_url ) . 'js/jquery-validate/additional-methods', esc_url( $this->assets_url ) . 'js/clipboard' );
+        $suffix = $this->script_suffix . '.js';
+        $headers = array(
+            @get_headers( $url[0] ),
+            @get_headers( $url[1] ),
+            @get_headers( $url[2] ),
+            @get_headers( $url[3] )
+        );
+        $links = array(
+            $protocol . $url[0] . $suffix,
+            // fa-main
+            $protocol . $url[1] . $suffix,
+            // validate
+            $protocol . $url[2] . $suffix,
+            // methods
+            $protocol . $url[3] . $suffix,
+        );
         // add script handles to the array below.
-        if ( $this->token . '-fa-main' === $handle ) {
+        if ( $headers && strpos( $headers[0], '200' ) ) {
+            if ( $this->token . '-fa-main' === $handle ) {
+                
+                if ( SCRIPT_DEBUG ) {
+                    return str_replace( ' src', ' integrity="sha512-QTB14R2JdqeamILPFRrAgHOWmjlOGmwMg9WB9hrw6IoaX8OdY8J1kiuIAlAFswHCzgeY18PwTqp4g4utWdy6HA==" crossorigin="anonymous" src', $tag );
+                } else {
+                    return str_replace( ' src', ' integrity="sha512-PoFg70xtc+rAkD9xsjaZwIMkhkgbl1TkoaRrgucfsct7SVy9KvTj5LtECit+ZjQ3ts+7xWzgfHOGzdolfWEgrw==" crossorigin="anonymous" src', $tag );
+                }
             
-            if ( SCRIPT_DEBUG ) {
-                return str_replace( ' src', ' integrity="sha512-5dPAL40pRRefHhHtDbDGbi6O0EfZof2fwSdjNvpyA1g5Ww3yI/GNVpK8Itc8+5cdKL/78nx6eHKnKmXbmd8ZMQ==" crossorigin="anonymous" src', $tag );
-            } else {
-                return str_replace( ' src', ' integrity="sha512-pafh0hrrT9ZPZl/jx0cwyp7N2+ozgQf+YK94jSupHHLD2lcEYTLxEju4mW/2sbn4qFEfxJGZyIX/yJiQvgglpw==" crossorigin="anonymous" src', $tag );
             }
-        
         }
-        if ( $this->token . '-validate' === $handle ) {
+        if ( $headers && strpos( $headers[1], '200' ) ) {
+            if ( $this->token . '-validate' === $handle ) {
+                
+                if ( SCRIPT_DEBUG ) {
+                    return str_replace( ' src', ' integrity="sha512-C+jfaS6VNfZywmL6JY4LteCNiaxJpcM54oGjjnAFxqBMXcnMbXYQR/r+zHyB5jTmzyQ4tg3tZq1qVhk28AiIhQ==" crossorigin="anonymous" src', $tag );
+                } else {
+                    return str_replace( ' src', ' integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg==" crossorigin="anonymous" src', $tag );
+                }
             
-            if ( SCRIPT_DEBUG ) {
-                return str_replace( ' src', ' integrity="sha512-C+jfaS6VNfZywmL6JY4LteCNiaxJpcM54oGjjnAFxqBMXcnMbXYQR/r+zHyB5jTmzyQ4tg3tZq1qVhk28AiIhQ==" crossorigin="anonymous" src', $tag );
-            } else {
-                return str_replace( ' src', ' integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg==" crossorigin="anonymous" src', $tag );
             }
-        
         }
-        if ( $this->token . '-methods' === $handle ) {
+        if ( $headers && strpos( $headers[2], '200' ) ) {
+            if ( $this->token . '-methods' === $handle ) {
+                
+                if ( SCRIPT_DEBUG ) {
+                    return str_replace( ' src', ' integrity="sha512-z1lquNEhC4s9l8MLVGCFb7HyHAw7MhgOXb05rugwZde3lyx7G0sQKE2FnLfmoBJZE8HxbKHBx8jq31UXS+zjRA==" crossorigin="anonymous" src', $tag );
+                } else {
+                    return str_replace( ' src', ' integrity="sha512-6Uv+497AWTmj/6V14BsQioPrm3kgwmK9HYIyWP+vClykX52b0zrDGP7lajZoIY1nNlX4oQuh7zsGjmF7D0VZYA==" crossorigin="anonymous" src', $tag );
+                }
             
-            if ( SCRIPT_DEBUG ) {
-                return str_replace( ' src', ' integrity="sha512-z1lquNEhC4s9l8MLVGCFb7HyHAw7MhgOXb05rugwZde3lyx7G0sQKE2FnLfmoBJZE8HxbKHBx8jq31UXS+zjRA==" crossorigin="anonymous" src', $tag );
-            } else {
-                return str_replace( ' src', ' integrity="sha512-6Uv+497AWTmj/6V14BsQioPrm3kgwmK9HYIyWP+vClykX52b0zrDGP7lajZoIY1nNlX4oQuh7zsGjmF7D0VZYA==" crossorigin="anonymous" src', $tag );
             }
-        
         }
-        if ( $this->token . '-clipboard' === $handle ) {
+        if ( $headers && strpos( $headers[3], '200' ) ) {
+            if ( $this->token . '-clipboard' === $handle ) {
+                
+                if ( SCRIPT_DEBUG ) {
+                    return str_replace( ' src', ' integrity="sha512-tjW2dLIvxBrQWtbL7npJzlMVxznKMrkEJtRX5ztkEP6RC5oJdVkmAfFNHTSNrqv7++hAza+dvV4Bijf8rHeC0Q==" crossorigin="anonymous" src', $tag );
+                } else {
+                    return str_replace( ' src', ' integrity="sha512-hDWGyh+Iy4Mr9AHOzUP2+Y0iVPn/BwxxaoSleEjH/i1o4EVTF/sh0/A1Syii8PWOae+uPr+T/KHwynoebSuAhw==" crossorigin="anonymous" src', $tag );
+                }
             
-            if ( SCRIPT_DEBUG ) {
-                return str_replace( ' src', ' integrity="sha512-tjW2dLIvxBrQWtbL7npJzlMVxznKMrkEJtRX5ztkEP6RC5oJdVkmAfFNHTSNrqv7++hAza+dvV4Bijf8rHeC0Q==" crossorigin="anonymous" src', $tag );
-            } else {
-                return str_replace( ' src', ' integrity="sha512-hDWGyh+Iy4Mr9AHOzUP2+Y0iVPn/BwxxaoSleEjH/i1o4EVTF/sh0/A1Syii8PWOae+uPr+T/KHwynoebSuAhw==" crossorigin="anonymous" src', $tag );
             }
-        
         }
         return $tag;
     }
@@ -539,7 +571,7 @@ class Five_Star_Ratings_Shortcode
         // How many leftover stars if there is no half star?
         $dif = wp_kses( $starsmax, $arr ) - $startrim;
         // Output for the half star.
-        $halfstar = '<' . $syntax . ' class="fsrs-fas fa-fw fa-star-half-alt ' . $size . '"></' . $syntax . '>';
+        $halfstar = '<' . $syntax . ' class="fsrs-fas fa-fw fa-star-half-stroke ' . $size . '"></' . $syntax . '>';
         // Empty stars if there is no half star.
         
         if ( $dif >= 0 ) {
