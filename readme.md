@@ -8,7 +8,7 @@ Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0  
 Tested up to: 5.9  
 Requires PHP: 7.0  
-Stable tag: 1.2.35  
+Stable tag: 1.2.36  
 License: GNUv3 or later  
 License URI: [https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html)  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -133,6 +133,13 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 ## Changelog
+
+## 1.2.36
+
+* 2022-02-11
+* Reverted SRI hash check and ensured local scripts pass the check
+* Updated jquery-validate.js to v1.19.3
+* Updated clipboard.js to v2.0.10
 
 ## 1.2.35
 
@@ -507,11 +514,12 @@ BUGFIX: fix undefined variable
 
 ## Upgrade Notice
 
-## 1.2.35
+## 1.2.36
 
-* 2022-02-10
-* Updated to Fontawesome 6.0.0
-* Don’t add SRI hash to fallback scripts if external scripts don’t load
+* 2022-02-11
+* Reverted SRI hash check and ensured local scripts pass the check
+* Updated jquery-validate.js to v1.19.3
+* Updated clipboard.js to v2.0.10
 
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

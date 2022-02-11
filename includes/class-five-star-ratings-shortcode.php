@@ -374,74 +374,42 @@ class Five_Star_Ratings_Shortcode
      */
     public function hash_js( $tag, $handle )
     {
-        $protocol = 'https:';
-        $url = array(
-            '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/fontawesome',
-            '//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate',
-            '//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/additional-methods',
-            '//cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard'
-        );
-        $fallback = array( esc_url( $this->assets_url ) . 'js/jquery-validate/jquery.validate', esc_url( $this->assets_url ) . 'js/jquery-validate/additional-methods', esc_url( $this->assets_url ) . 'js/clipboard' );
-        $suffix = $this->script_suffix . '.js';
-        $headers = array(
-            @get_headers( $url[0] ),
-            @get_headers( $url[1] ),
-            @get_headers( $url[2] ),
-            @get_headers( $url[3] )
-        );
-        $links = array(
-            $protocol . $url[0] . $suffix,
-            // fa-main
-            $protocol . $url[1] . $suffix,
-            // validate
-            $protocol . $url[2] . $suffix,
-            // methods
-            $protocol . $url[3] . $suffix,
-        );
         // add script handles to the array below.
-        if ( $headers && strpos( $headers[0], '200' ) ) {
-            if ( $this->token . '-fa-main' === $handle ) {
-                
-                if ( SCRIPT_DEBUG ) {
-                    return str_replace( ' src', ' integrity="sha512-QTB14R2JdqeamILPFRrAgHOWmjlOGmwMg9WB9hrw6IoaX8OdY8J1kiuIAlAFswHCzgeY18PwTqp4g4utWdy6HA==" crossorigin="anonymous" src', $tag );
-                } else {
-                    return str_replace( ' src', ' integrity="sha512-PoFg70xtc+rAkD9xsjaZwIMkhkgbl1TkoaRrgucfsct7SVy9KvTj5LtECit+ZjQ3ts+7xWzgfHOGzdolfWEgrw==" crossorigin="anonymous" src', $tag );
-                }
+        if ( $this->token . '-fa-main' === $handle ) {
             
+            if ( SCRIPT_DEBUG ) {
+                return str_replace( ' src', ' integrity="sha512-QTB14R2JdqeamILPFRrAgHOWmjlOGmwMg9WB9hrw6IoaX8OdY8J1kiuIAlAFswHCzgeY18PwTqp4g4utWdy6HA==" crossorigin="anonymous" src', $tag );
+            } else {
+                return str_replace( ' src', ' integrity="sha512-PoFg70xtc+rAkD9xsjaZwIMkhkgbl1TkoaRrgucfsct7SVy9KvTj5LtECit+ZjQ3ts+7xWzgfHOGzdolfWEgrw==" crossorigin="anonymous" src', $tag );
             }
+        
         }
-        if ( $headers && strpos( $headers[1], '200' ) ) {
-            if ( $this->token . '-validate' === $handle ) {
-                
-                if ( SCRIPT_DEBUG ) {
-                    return str_replace( ' src', ' integrity="sha512-C+jfaS6VNfZywmL6JY4LteCNiaxJpcM54oGjjnAFxqBMXcnMbXYQR/r+zHyB5jTmzyQ4tg3tZq1qVhk28AiIhQ==" crossorigin="anonymous" src', $tag );
-                } else {
-                    return str_replace( ' src', ' integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg==" crossorigin="anonymous" src', $tag );
-                }
+        if ( $this->token . '-validate' === $handle ) {
             
+            if ( SCRIPT_DEBUG ) {
+                return str_replace( ' src', ' integrity="sha512-jIgckTOSEC6cW2syg/cJIueoB9V4DIWvipqMP5v+820ZHNPwYm7Qyxw4h7rMe58DL2ARxLb9FXji8Ur9pmIdzA==" crossorigin="anonymous" src', $tag );
+            } else {
+                return str_replace( ' src', ' integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" src', $tag );
             }
+        
         }
-        if ( $headers && strpos( $headers[2], '200' ) ) {
-            if ( $this->token . '-methods' === $handle ) {
-                
-                if ( SCRIPT_DEBUG ) {
-                    return str_replace( ' src', ' integrity="sha512-z1lquNEhC4s9l8MLVGCFb7HyHAw7MhgOXb05rugwZde3lyx7G0sQKE2FnLfmoBJZE8HxbKHBx8jq31UXS+zjRA==" crossorigin="anonymous" src', $tag );
-                } else {
-                    return str_replace( ' src', ' integrity="sha512-6Uv+497AWTmj/6V14BsQioPrm3kgwmK9HYIyWP+vClykX52b0zrDGP7lajZoIY1nNlX4oQuh7zsGjmF7D0VZYA==" crossorigin="anonymous" src', $tag );
-                }
+        if ( $this->token . '-methods' === $handle ) {
             
+            if ( SCRIPT_DEBUG ) {
+                return str_replace( ' src', ' integrity="sha512-r0Its6Edg1F2aFb+yIzYMhDFWWMLNqZKFoZx+DQWKM4XJn4qv/+YY27idraCGvVIvmX78XYdxvvNkUKIBoMU8w==" crossorigin="anonymous" src', $tag );
+            } else {
+                return str_replace( ' src', ' integrity="sha512-XZEy8UQ9rngkxQVugAdOuBRDmJ5N4vCuNXCh8KlniZgDKTvf7zl75QBtaVG1lEhMFe2a2DuA22nZYY+qsI2/xA==" crossorigin="anonymous" src', $tag );
             }
+        
         }
-        if ( $headers && strpos( $headers[3], '200' ) ) {
-            if ( $this->token . '-clipboard' === $handle ) {
-                
-                if ( SCRIPT_DEBUG ) {
-                    return str_replace( ' src', ' integrity="sha512-tjW2dLIvxBrQWtbL7npJzlMVxznKMrkEJtRX5ztkEP6RC5oJdVkmAfFNHTSNrqv7++hAza+dvV4Bijf8rHeC0Q==" crossorigin="anonymous" src', $tag );
-                } else {
-                    return str_replace( ' src', ' integrity="sha512-hDWGyh+Iy4Mr9AHOzUP2+Y0iVPn/BwxxaoSleEjH/i1o4EVTF/sh0/A1Syii8PWOae+uPr+T/KHwynoebSuAhw==" crossorigin="anonymous" src', $tag );
-                }
+        if ( $this->token . '-clipboard' === $handle ) {
             
+            if ( SCRIPT_DEBUG ) {
+                return str_replace( ' src', ' integrity="sha512-v3qYCLsFJBtmWyHCfG1+2c3N1MV3KCZlqwLZNNYXxBM5Uf82hMPxyDEgWXwEuUZHYIWXI1GYi0v3SMV1ihILtA==" crossorigin="anonymous" src', $tag );
+            } else {
+                return str_replace( ' src', ' integrity="sha512-PIisRT8mFfdxx99gMs7WAY5Gp+CtjYYxKvF93w8yWAvX548UBNADHu7Qkavgr6yRG+asocqfuk5crjNd5z9s6Q==" crossorigin="anonymous" src', $tag );
             }
+        
         }
         return $tag;
     }
