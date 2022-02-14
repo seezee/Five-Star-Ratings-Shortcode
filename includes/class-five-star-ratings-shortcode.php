@@ -78,6 +78,62 @@ class Five_Star_Ratings_Shortcode
      */
     public  $settings = null ;
     /**
+     * External scripts protocol.
+     *
+     * @var     string
+     * @access  public
+     * @since   1.2.37
+     */
+    public  $protocol ;
+    /**
+     * External scripts versions.
+     *
+     * @var     array
+     * @access  public
+     * @since   1.2.37
+     */
+    public  $script_versions ;
+    /**
+     * External scripts urls.
+     *
+     * @var     array
+     * @access  public
+     * @since   1.2.37
+     */
+    public  $script_urls ;
+    /**
+     * External scripts local fallbacks.
+     *
+     * @var     array
+     * @access  public
+     * @since   1.2.37
+     */
+    public  $script_fallbacks ;
+    /**
+     * External scripts suffix.
+     *
+     * @var     string
+     * @access  public
+     * @since   1.2.37
+     */
+    public  $suffix ;
+    /**
+     * External scripts links.
+     *
+     * @var     array
+     * @access  public
+     * @since   1.2.37
+     */
+    public  $script_links ;
+    /**
+     * External plugin files status.
+     *
+     * @var     array
+     * @access  public
+     * @since   1.2.37
+     */
+    public  $script_available ;
+    /**
      * Constructor function.
      *
      * @param string $file File constructor.
@@ -92,6 +148,42 @@ class Five_Star_Ratings_Shortcode
         $this->assets_url = esc_url( trailingslashit( plugins_url( '/assets/dist/', $this->file ) ) );
         $this->script_suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min' );
         // Use minified script.
+        $this->protocol = 'https:';
+        $this->script_versions = array(
+            '6.0.0',
+            // fontawesome.js.
+            '1.19.3',
+            // validate.js + additional-methods.js.
+            '2.0.10',
+        );
+        $this->script_urls = array(
+            '//cdnjs.cloudflare.com/ajax/libs/font-awesome/' . $this->script_versions[0] . '/js/fontawesome',
+            '//cdnjs.cloudflare.com/ajax/libs/jquery-validate/' . $this->script_versions[1] . '/jquery.validate',
+            '//cdnjs.cloudflare.com/ajax/libs/jquery-validate/' . $this->script_versions[1] . '/additional-methods',
+            '//cdnjs.cloudflare.com/ajax/libs/clipboard.js/' . $this->script_versions[2] . '/clipboard'
+        );
+        $this->script_fallbacks = array(
+            esc_url( $this->assets_url ) . 'js/fontawesome',
+            esc_url( $this->assets_url ) . 'js/jquery-validate/jquery.validate',
+            esc_url( $this->assets_url ) . 'js/jquery-validate/additional-methods',
+            esc_url( $this->assets_url ) . 'js/clipboard'
+        );
+        $this->suffix = $this->script_suffix . '.js';
+        $this->script_links = array(
+            $this->protocol . $this->script_urls[0] . $this->suffix,
+            $this->protocol . $this->script_urls[1] . $this->suffix,
+            $this->protocol . $this->script_urls[2] . $this->suffix,
+            $this->protocol . $this->script_urls[3] . $this->suffix
+        );
+        $this->script_available = array(
+            @fopen( $this->script_links[0], 'r' ),
+            // phpcs:ignore
+            @fopen( $this->script_links[1], 'r' ),
+            // phpcs:ignore
+            @fopen( $this->script_links[2], 'r' ),
+            // phpcs:ignore
+            @fopen( $this->script_links[3], 'r' ),
+        );
         register_activation_hook( $this->file, array( $this, 'install' ) );
         // Load admin JS & CSS.
         add_action(
@@ -153,7 +245,7 @@ class Five_Star_Ratings_Shortcode
             $html .= '<span class="dashicons dashicons-info"></span>';
             $rel = 'noopener noreferrer';
             // Used in both links.
-            $url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/licenses/1/';
+            $upgrade_url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/licenses/1/';
             $html .= sprintf(
                 // Translation string with variables.
                 wp_kses(
@@ -166,10 +258,10 @@ class Five_Star_Ratings_Shortcode
                     ),
                     )
                 ),
-                esc_url( $url ),
+                esc_url( $upgrade_url ),
                 $rel
             );
-            $url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/?
+            $upgrade_url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/?
 				trial=free';
             $html .= ' ' . sprintf( wp_kses(
                 /* translators: ignore the placeholders in the URL */
@@ -180,7 +272,7 @@ class Five_Star_Ratings_Shortcode
                     'rel'  => array(),
                 ),
                 )
-            ), esc_url( $url ), $rel );
+            ), esc_url( $upgrade_url ), $rel );
             $html .= '</p>';
             $html .= '</div>';
             return $html;
@@ -228,45 +320,24 @@ class Five_Star_Ratings_Shortcode
         if ( 'settings_page_five-star-ratings-shortcode' !== $hook && 'plugins.php' !== $pagenow || !current_user_can( 'install_plugins' ) ) {
             return;
         }
-        $protocol = 'https:';
-        $url = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/fontawesome';
-        $fallback = esc_url( $this->assets_url ) . 'js/fontawesome';
-        $suffix = $this->script_suffix . '.js';
-        $link = $protocol . $url . $suffix;
-        /**
-         * Check whether external files are available.
-         *
-         * @access public
-         *
-         * @param string $link Link parameter.
-         *
-         * @since   1.0.0
-         */
-        function checklink( $link )
-        {
-            return (bool) @fopen( $link, 'r' );
-            // phpcs:ignore
-        }
-        
         wp_enqueue_script( 'jquery' );
         wp_enqueue_script( 'jquery-form' );
-        // If boolean is TRUE.
         
-        if ( checklink( $link ) ) {
+        if ( false !== $this->script_available[0] ) {
             wp_register_script(
                 $this->token . '-fa-main',
-                $url . $this->script_suffix . '.js',
+                $this->script_urls[0] . $this->script_suffix . '.js',
                 array(),
-                esc_html( FSRS_VERSION ),
+                esc_html( $this->script_versions[0] ),
                 true
             );
             // Otherwise use local copy.
         } else {
             wp_register_script(
                 $this->token . '-fa-main',
-                $fallback . $this->script_suffix . '.js',
+                $this->script_fallbacks[0] . $this->script_suffix . '.js',
                 array(),
-                esc_html( FSRS_VERSION ),
+                esc_html( $this->script_versions[0] ),
                 true
             );
         }
@@ -296,45 +367,25 @@ class Five_Star_Ratings_Shortcode
      */
     public function enqueue_fa_scripts()
     {
-        $protocol = 'https:';
-        $url = '//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/fontawesome';
-        $fallback = esc_url( $this->assets_url ) . 'js/fontawesome';
-        $suffix = $this->script_suffix . '.js';
-        $link = $protocol . $url . $suffix;
-        /**
-         * Check whether external files are available.
-         *
-         * @access public
-         *
-         * @param string $link Link parameter.
-         *
-         * @since   1.0.0
-         */
-        function checklink( $link )
-        {
-            return (bool) @fopen( $link, 'r' );
-            // phpcs:ignore
-        }
-        
         
         if ( !is_admin() ) {
             // If boolean is TRUE.
             
-            if ( checklink( $link ) ) {
+            if ( false !== $this->script_available[0] ) {
                 wp_register_script(
                     $this->token . '-fa-main',
-                    $url . $this->script_suffix . '.js',
+                    $this->script_urls[0] . $this->script_suffix . '.js',
                     array(),
-                    esc_html( FSRS_VERSION ),
+                    esc_html( $this->script_versions[0] ),
                     true
                 );
                 // Otherwise use local copy.
             } else {
                 wp_register_script(
                     $this->token . '-fa-main',
-                    $fallback . $this->script_suffix . '.js',
+                    $this->script_fallbacks[0] . $this->script_suffix . '.js',
                     array(),
-                    esc_html( FSRS_VERSION ),
+                    esc_html( $this->script_versions[0] ),
                     true
                 );
             }
@@ -359,9 +410,15 @@ class Five_Star_Ratings_Shortcode
                 esc_html( FSRS_VERSION ),
                 true
             );
-            wp_enqueue_script( $this->token . '-fa-main' );
-            wp_enqueue_script( $this->token . '-fa-solid' );
-            wp_enqueue_script( $this->token . '-fa-reg' );
+            global  $post ;
+            // Load the scripts only if the shortcode is in use in the post.
+            
+            if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'rating' ) ) {
+                wp_enqueue_script( $this->token . '-fa-main' );
+                wp_enqueue_script( $this->token . '-fa-reg' );
+                wp_enqueue_script( $this->token . '-fa-solid' );
+            }
+        
         }
     
     }
@@ -415,7 +472,7 @@ class Five_Star_Ratings_Shortcode
     }
     
     /**
-     * Load plugin styles.
+     * Load plugin styles on frontend.
      *
      * @access  public
      *
@@ -424,6 +481,7 @@ class Five_Star_Ratings_Shortcode
      */
     public function enqueue_fsrs_styles()
     {
+        global  $post ;
         
         if ( !is_admin() ) {
             wp_register_style(
@@ -433,7 +491,9 @@ class Five_Star_Ratings_Shortcode
                 esc_html( FSRS_VERSION ),
                 'all'
             );
-            wp_enqueue_style( $this->token . '-fsrs-style' );
+            if ( has_shortcode( $post->post_content, 'rating' ) ) {
+                wp_enqueue_style( $this->token . '-fsrs-style' );
+            }
         }
     
     }
@@ -462,8 +522,8 @@ class Five_Star_Ratings_Shortcode
     public function load_plugin_textdomain()
     {
         $domain = 'fsrs';
-        $fallbacke = apply_filters( 'plugin_locale', get_locale(), $domain );
-        load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $fallbacke . '.mo' );
+        $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+        load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
         load_plugin_textdomain( $domain, false, dirname( plugin_basename( $this->file ) ) . '/lang/' );
     }
     
