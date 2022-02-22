@@ -1,6 +1,6 @@
 {
     "name": "five-star-ratings-shortcode",
-    "version": "1.2.37",
+    "version": "1.2.38",
     "description": "This plugin adds accessible, attractive 5-star ratings anywhere on your site with a simple shortcode. The plugin uses Font Awesome icons via their SVG + JavaScript method.",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -31,7 +31,7 @@
     },
     "homepage": "https://github.com/seezee/Five-Star-Ratings-Plugin#readme",
     "dependencies": {
-        "@fortawesome/fontawesome-free": "^5.14.0"
+        "@fortawesome/fontawesome-free": "^6.0.0"
     },
     "devDependencies": {
         "autoprefixer": "^10.4.2",

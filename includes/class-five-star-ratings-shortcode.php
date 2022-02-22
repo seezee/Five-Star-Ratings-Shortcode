@@ -82,7 +82,7 @@ class Five_Star_Ratings_Shortcode
      *
      * @var     string
      * @access  public
-     * @since   1.2.37
+     * @since   1.2.38
      */
     public  $protocol ;
     /**
@@ -90,7 +90,7 @@ class Five_Star_Ratings_Shortcode
      *
      * @var     array
      * @access  public
-     * @since   1.2.37
+     * @since   1.2.38
      */
     public  $script_versions ;
     /**
@@ -98,7 +98,7 @@ class Five_Star_Ratings_Shortcode
      *
      * @var     array
      * @access  public
-     * @since   1.2.37
+     * @since   1.2.38
      */
     public  $script_urls ;
     /**
@@ -106,7 +106,7 @@ class Five_Star_Ratings_Shortcode
      *
      * @var     array
      * @access  public
-     * @since   1.2.37
+     * @since   1.2.38
      */
     public  $script_fallbacks ;
     /**
@@ -114,7 +114,7 @@ class Five_Star_Ratings_Shortcode
      *
      * @var     string
      * @access  public
-     * @since   1.2.37
+     * @since   1.2.38
      */
     public  $suffix ;
     /**
@@ -122,7 +122,7 @@ class Five_Star_Ratings_Shortcode
      *
      * @var     array
      * @access  public
-     * @since   1.2.37
+     * @since   1.2.38
      */
     public  $script_links ;
     /**
@@ -130,7 +130,7 @@ class Five_Star_Ratings_Shortcode
      *
      * @var     array
      * @access  public
-     * @since   1.2.37
+     * @since   1.2.38
      */
     public  $script_available ;
     /**
