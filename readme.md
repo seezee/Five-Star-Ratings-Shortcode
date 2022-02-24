@@ -8,7 +8,7 @@ Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0  
 Tested up to: 5.9  
 Requires PHP: 7.0  
-Stable tag: 1.2.38  
+Stable tag: 1.2.39  
 License: GNUv3 or later  
 License URI: [https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html)  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -133,6 +133,11 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 ## Changelog
+
+## 1.2.39
+
+* 2022-02-24
+* Security fix
 
 ## 1.2.38
 
@@ -526,10 +531,10 @@ BUGFIX: fix undefined variable
 
 ## Upgrade Notice
 
-## 1.2.38
+## 1.2.39
 
-* 2022-02-22
-* Tested up to WordPress 5.9.1
+* 2022-02-24
+* Security fix
 
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

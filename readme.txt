@@ -7,7 +7,7 @@ Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0
 Tested up to: 5.9
 Requires PHP: 7.0
-Stable tag: 1.2.38
+Stable tag: 1.2.39
 License: GNUv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -125,6 +125,11 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 == Changelog ==
+
+= 1.2.39 =
+
+* 2022-02-24
+* Security fix
 
 = 1.2.38 =
 
@@ -518,13 +523,7 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.35 =
+= 1.2.39 =
 
-* 2022-02-10
-* Updated to Fontawesome 6.0.0
-* Don’t add SRI hash to fallback scripts if external scripts don’t load
-
-= 1.2.38 =
-
-* 2022-02-22
-* Tested up to WordPress 5.9.1
+* 2022-02-24
+* Security fix
