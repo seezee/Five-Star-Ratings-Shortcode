@@ -6,9 +6,9 @@ Author URI: [https://github.com/seezee](https://github.com/seezee)
 Plugin URI: [https://wordpress.org/plugins/five-star-ratings-shortcode/](https://wordpress.org/plugins/five-star-ratings-shortcode/)  
 Tags: ratings, stars, icon, shortcode, accessible  
 Requires at least: 4.6.0  
-Tested up to: 6.0.0  
+Tested up to: 6.0.1  
 Requires PHP: 7.0  
-Stable tag: 1.2.42  
+Stable tag: 1.2.43  
 License: GNUv3 or later  
 License URI: [https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html)  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -17,14 +17,18 @@ Simple lightweight shortcode to add 5-star ratings anywhere.
 
 ## Description
 
-Add accessible, attractive 5-star ratings anywhere on your site with a simple shortcode. The plugin uses Font Awesome icons via their SVG + JavaScript method.
+Add accessible, attractive 5-star ratings anywhere on your site with a simple
+shortcode. The plugin uses Font Awesome icons via their SVG + JavaScript
+method.
 
 [![WP compatibility](https://plugintests.com/plugins/wporg/five-star-ratings-shortcode/wp-badge.svg)](https://plugintests.com/plugins/wporg/five-star-ratings-shortcode/latest)
 [![PHP compatibility](https://plugintests.com/plugins/wporg/five-star-ratings-shortcode/php-badge.svg)](https://plugintests.com/plugins/wporg/five-star-ratings-shortcode/latest)
 
 ## Acknowledgement
 
-This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/hlashbrooke/WordPress-Plugin-Template), a robust and GPL-licensed code template for creating a standards-compliant WordPress plugin.
+This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/hlashbrooke/WordPress-Plugin-Template),
+a robust and GPL-licensed code template for creating a standards-compliant
+WordPress plugin.
 
 ## PRO only features
 
@@ -47,25 +51,30 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 2. Search for “Five-Star Ratings Shortcode”
 3. Click “Install Now”
 4. Activate the plugin on the Plugin dashboard
-5. The FREE plugin has no settings. PRO users: Go to Settings -> Five-Star Ratings Shortcode if you want to customize the shortcode output.
+5. The FREE plugin has no settings. PRO users: Go to Settings -> Five-Star
+Ratings Shortcode if you want to customize the shortcode output.
 
 ### UPLOADING IN WORDPRESS DASHBOARD
 
-1. Click the download button on this and save “five-star-ratings-plugin.zip” to your computer
+1. Click the download button on this and save “five-star-ratings-plugin.zip”
+to your computer
 2. Navigate to “Add New” in the plugins dashboard
 3. Navigate to the “Upload” area
 4. Select “five-star-ratings-plugin.zip” from your computer
 5. Click “Install Now”
 6. Activate the plugin in the Plugin dashboard
-7. The FREE plugin has no settings. PRO users: Go to Settings -> Five-Star Ratings Shortcode if you want to customize the shortcode output.
+7. The FREE plugin has no settings. PRO users: Go to Settings -> Five-Star
+Ratings Shortcode if you want to customize the shortcode output.
 
 ### USING FTP
 
 1. Download the Five-Star Ratings Shortcode ZIP file
 2. Extract the Five-Star Ratings Shortcode ZIP file to your computer
-3. Upload the “five-star-ratings-plugin” directory to the `/wp-content/plugins/` directory
+3. Upload the “five-star-ratings-plugin” directory to the
+`/wp-content/plugins/` directory
 4. Activate the plugin in the Plugin dashboard
-5. The FREE plugin has no settings. PRO users: Go to Settings -> Five-Star Ratings Shortcode if you want to customize the shortcode output.
+5. The FREE plugin has no settings. PRO users: Go to Settings -> Five-Star
+Ratings Shortcode if you want to customize the shortcode output.
 
 ### UPGRADING TO FIVE-STAR RATINGS SHORTCODE PRO
 
@@ -106,25 +115,32 @@ In the 2nd example, the raw output will be like this before processing:
 
 * English: Default language, always included
 
-Would you like to help translate Five-Star Ratings Shortcode into your own language? [You can do that here!](https://translate.wordpress.org/projects/wp-plugins/five-star-ratings-shortcode)
+Would you like to help translate Five-Star Ratings Shortcode into your own
+language? [You can do that here!](https://translate.wordpress.org/projects/wp-plugins/five-star-ratings-shortcode)
 
 ## Frequently Asked Questions
 
 ### What is the plugin for?
 
-This plugin adds accessible, attractive 5-star ratings anywhere on your site with a simple shortcode. The plugin uses Font Awesome icons via their SVG + JavaScript method.
+This plugin adds accessible, attractive 5-star ratings anywhere on your site
+with a simple shortcode. The plugin uses Font Awesome icons via their SVG +
+JavaScript method.
 
 ### How may I help improve this plugin?
 
-I’d love to hear your feedback. In particular, tell me about your experience configuring the plugin. Are the instructions clear? Do I need to reword them? Did I leave out something crucial? You get the drift.
+I’d love to hear your feedback. In particular, tell me about your experience
+configuring the plugin. Are the instructions clear? Do I need to reword them?
+Did I leave out something crucial? You get the drift.
 
 ### I’d like to do more
 
-I’m looking for collaborators to improve the code. If you are an experienced Wordpress programmer, hit me up!
+I’m looking for collaborators to improve the code. If you are an experienced
+Wordpress programmer, hit me up!
 
 ### I’d like to do even more
 
-Feel free to send a donation to my [Paypal account](https://paypal.me/messengerwebdesign?locale.x=en_US). Or buy me a beer if you’re in town.
+Feel free to send a donation to my [Paypal account](https://paypal.me/messengerwebdesign?locale.x=en_US).
+Or buy me a beer if you’re in town.
 
 ## Dependencies
 
@@ -133,6 +149,13 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 ## Changelog
+
+## 1.2.43
+
+* 2022-07-24
+* Tested up to WordPress 6.0.1
+* BUGFIX: Added `( is_a( $post, 'WP_Post' )` check to `enqueue_fa_scripts()`
+to prevent non-object error
 
 ## 1.2.42
 
@@ -162,7 +185,8 @@ This plugin includes these third-party libraries in its package.
 ## 1.2.37
 
 * 2022-02-14
-* DRY refactored class-five-star-ratings-shortcode.php: moved variables into the constructor function
+* DRY refactored class-five-star-ratings-shortcode.php: moved variables into
+the constructor function
 * Replaced wp_kses with esc_html__ where possible
 * Revised and improved some comments
 
@@ -189,8 +213,10 @@ This plugin includes these third-party libraries in its package.
 * 2022-02-08
 * Reorganized assets directory
 * Removed 4 unnecessary translation calls
-* ACCESSIBILITY IMPROVEMENT: Changed starsminValue & starsmaxValue ratings fields to &lt;output&gt;
-* Updated description in class-five-star-ratings-shortcode-admin-api.php file comment
+* ACCESSIBILITY IMPROVEMENT: Changed starsminValue & starsmaxValue ratings
+fields to &lt;output&gt;
+* Updated description in class-five-star-ratings-shortcode-admin-api.php file
+comment
 
 ## 1.2.32
 
@@ -212,7 +238,8 @@ This plugin includes these third-party libraries in its package.
 ## 1.2.29
 
 * 2021-11-22
-* BUGFIX: (PRO only) Check whether $post->post_content and $post->post_author are set before assigning variables
+* BUGFIX: (PRO only) Check whether $post->post_content and $post->post_author
+are set before assigning variables
 
 ## 1.2.28
 
@@ -228,7 +255,8 @@ This plugin includes these third-party libraries in its package.
 ## 1.2.26
 
 * 2021-11-04
-* NEW FEATURE (PRO ONLY): Option to output numeric text using alternate decimal separator (comma)
+* NEW FEATURE (PRO ONLY): Option to output numeric text using alternate
+decimal separator (comma)
 
 ## 1.2.25
 
@@ -256,7 +284,8 @@ This plugin includes these third-party libraries in its package.
 
 * 2021-09-09
 * Tested up to WordPress 5.8.1
-* BUGFIX: added additional check before printing JSON to avoid undefined variable error
+* BUGFIX: added additional check before printing JSON to avoid undefined
+variable error
 
 ## 1.2.20
 
@@ -273,7 +302,8 @@ This plugin includes these third-party libraries in its package.
 ## 1.2.18
 
 * 2021-05-13
-* BUGFIX: Updated assets/settings.js to check whether ClipboardJS has been defined so we don't get an error in the FREE plugin version
+* BUGFIX: Updated assets/settings.js to check whether ClipboardJS has been
+defined so we don't get an error in the FREE plugin version
 
 ## 1.2.17
 
@@ -297,7 +327,8 @@ This plugin includes these third-party libraries in its package.
 * MULTIPLE BUGFIXES for PRO plugin
 * Fixed undefined variables
 * Added check for non-existing featured image when using rich snippets
-* Added check for incorrect shortcode syntax when using maximum star rating feature in PRO plugin.
+* Added check for incorrect shortcode syntax when using maximum star rating
+feature in PRO plugin.
 * Updated Freemius SDK
 
 ## 1.2.13
@@ -371,7 +402,8 @@ BUGFIX: fix undefined variable
 ## 1.2.1
 
 * 2020-09-21
-* (PRO only) Improved label and validation message for ratings field in shortcode generator
+* (PRO only) Improved label and validation message for ratings field in
+shortcode generator
 
 ## 1.2.0
 
@@ -386,7 +418,8 @@ BUGFIX: fix undefined variable
 * 2020-09-17
 * Fix incorrect translator notes
 * Improve ARIA text in output
-* (PRO only) Better currency regex (allow period (.) as 1000s separater & comma (,) as decimal separater)
+* (PRO only) Better currency regex (allow period (.) as 1000s separater &
+comma (,) as decimal separater)
 
 ## 1.1.3
 
@@ -400,7 +433,9 @@ BUGFIX: fix undefined variable
 ## 1.1.2
 
 * 2020-09-13
-* BUGFIX: 1.1.2 reintroduced error of scripts loading outside plugin settings page, conflicting with other plugins; this update fixes that while ensuring scripts still load when needed
+* BUGFIX: 1.1.2 reintroduced error of scripts loading outside plugin settings
+page, conflicting with other plugins; this update fixes that while ensuring
+scripts still load when needed
 
 ## 1.1.1
 
@@ -424,7 +459,8 @@ BUGFIX: fix undefined variable
 ## 1.0.21
 
 * 2020-08-01
-* BUGFIX: Load admin scripts and styles correctly to fix critical conflict with other plugins
+* BUGFIX: Load admin scripts and styles correctly to fix critical conflict
+with other plugins
 
 ## 1.0.20
 
@@ -491,7 +527,8 @@ BUGFIX: fix undefined variable
 ## 1.0.9
 
 * 2019-12-09
-* BUGFIX: Fix incorrect text output if user enters x.5 where x is the maximum number of stars
+* BUGFIX: Fix incorrect text output if user enters x.5 where x is the maximum
+number of stars
 
 ## 1.0.8
 
@@ -546,10 +583,12 @@ BUGFIX: fix undefined variable
 
 ## Upgrade Notice
 
-## 1.2.42
+## 1.2.43
 
-* 2022-05-27
-* Tested up to WordPress 6.0.0
+* 2022-07-24
+* Tested up to WordPress 6.0.1
+* BUGFIX: Added `( is_a( $post, 'WP_Post' )` check to `enqueue_fa_scripts()`
+to prevent non-object error
 
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

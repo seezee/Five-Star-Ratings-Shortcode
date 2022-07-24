@@ -491,7 +491,7 @@ class Five_Star_Ratings_Shortcode
                 esc_html( FSRS_VERSION ),
                 'all'
             );
-            if ( has_shortcode( $post->post_content, 'rating' ) ) {
+            if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'rating' ) ) {
                 wp_enqueue_style( $this->token . '-fsrs-style' );
             }
         }

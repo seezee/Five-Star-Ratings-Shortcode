@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Five-Star Ratings Shortcode DEV plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Five-Star Ratings Shortcode DEV 1.2.42\n"
+"Project-Id-Version: Five-Star Ratings Shortcode DEV 1.2.43\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/five-star-ratings-shortcode-dev\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-02-14T21:33:07+00:00\n"
+"POT-Creation-Date: 2022-07-24T15:21:39+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.4.0\n"
 "X-Domain: fsrs\n"
@@ -804,7 +804,7 @@ msgid "Reset the Shortcode Generator"
 msgstr ""
 
 #: includes/class-five-star-ratings-shortcode-settings.php:1428
-#: includes/class-five-star-ratings-shortcode-settings.php:1565
+#: includes/class-five-star-ratings-shortcode-settings.php:1567
 msgid "Invalid nonce. Form submission blocked!"
 msgstr ""
 
@@ -821,104 +821,104 @@ msgstr ""
 msgid "Rating must be a 1-decimal place float ranging from %1$.1f to to %2$d.0, <abbr>e.g.</abbr>, “3.5”, “1.0”. "
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1494
+#: includes/class-five-star-ratings-shortcode-settings.php:1495
 msgid "Please enter the brand"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1495
+#: includes/class-five-star-ratings-shortcode-settings.php:1496
 msgid "Please enter the product number"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1497
+#: includes/class-five-star-ratings-shortcode-settings.php:1498
 msgid "Please enter the price"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1498
+#: includes/class-five-star-ratings-shortcode-settings.php:1499
 msgid "Price should contain currency symbols, numerals, commas, and periods only; price must end with either zero or 2 decimal places"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1500
+#: includes/class-five-star-ratings-shortcode-settings.php:1501
 msgid "Please enter the currency"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1501
+#: includes/class-five-star-ratings-shortcode-settings.php:1502
 msgid "Please enter the price range"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1502
+#: includes/class-five-star-ratings-shortcode-settings.php:1503
 msgid "Please enter the street address"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1503
+#: includes/class-five-star-ratings-shortcode-settings.php:1504
 msgid "Please enter the hamlet, village, town, borough, prefecture, city, or metropolis"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1504
+#: includes/class-five-star-ratings-shortcode-settings.php:1505
 msgid "Please enter the state or province"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1505
+#: includes/class-five-star-ratings-shortcode-settings.php:1506
 msgid "Please enter the postal code"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1507
+#: includes/class-five-star-ratings-shortcode-settings.php:1508
 msgid "Please enter the country"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1508
+#: includes/class-five-star-ratings-shortcode-settings.php:1509
 msgid "Restaurant country must conform to ISO 3166-1 alpha-2 (2-letter) format, e.g., “US”, “UK”, “CN”"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1510
+#: includes/class-five-star-ratings-shortcode-settings.php:1511
 msgid "Please enter the telephone number"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1511
+#: includes/class-five-star-ratings-shortcode-settings.php:1512
 msgid "Please enter the cuisine"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1512
+#: includes/class-five-star-ratings-shortcode-settings.php:1513
 msgid "Please enter the author name"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1513
+#: includes/class-five-star-ratings-shortcode-settings.php:1514
 msgid "Please enter at least 1 keyword"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1514
+#: includes/class-five-star-ratings-shortcode-settings.php:1515
 msgid "Please enter the preparation time"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1515
+#: includes/class-five-star-ratings-shortcode-settings.php:1516
 msgid "Please enter the cooking time"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1516
+#: includes/class-five-star-ratings-shortcode-settings.php:1517
 msgid "Please enter the recipe yield"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1517
+#: includes/class-five-star-ratings-shortcode-settings.php:1518
 msgid "Please enter at least 1 category"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1518
+#: includes/class-five-star-ratings-shortcode-settings.php:1519
 msgid "Please enter the calories"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1519
+#: includes/class-five-star-ratings-shortcode-settings.php:1520
 msgid "Please enter at least 1 ingredient"
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1521
+#: includes/class-five-star-ratings-shortcode-settings.php:1522
 msgid "Please enter the recipe steps"
 msgstr ""
 
 #. translators: please translate the variables $name and $text into your own language.
-#: includes/class-five-star-ratings-shortcode-settings.php:1524
+#: includes/class-five-star-ratings-shortcode-settings.php:1525
 msgid "Recipe steps must be in the form {$name} $text, repeating as needed, where $name is a <em>short</em> description of the step and $text is the detailed text of the step."
 msgstr ""
 
-#: includes/class-five-star-ratings-shortcode-settings.php:1558
+#: includes/class-five-star-ratings-shortcode-settings.php:1560
 msgid "Reset Defaults"
 msgstr ""
 
