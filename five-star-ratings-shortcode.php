@@ -10,7 +10,7 @@
  * Author: Chris J. Zähller / Messenger Web Design
  * Author URI: https://messengerwebdesign.com/
  * Requires at least: 4.6.0
- * Tested up to: 6.0.0
+ * Tested up to: 6.0.1
  * PHP Version 7.0
  * Text Domain: fsrs
  * Domain Path: /lang/
@@ -28,7 +28,7 @@ if ( function_exists( 'fsrs_fs' ) ) {
     fsrs_fs()->set_basename( false, __FILE__ );
 } else {
     // DO NOT REMOVE THIS `IF`: IT IS ESSENTIAL FOR THE `function_exists` CALL ABOVE TO PROPERLY WORK.
-    
+
     if ( !function_exists( 'fsrs_fs' ) ) {
         /**
          * Create a helper function for easy SDK access.
@@ -38,7 +38,7 @@ if ( function_exists( 'fsrs_fs' ) ) {
         function fsrs_fs()
         {
             global  $fsrs_fs ;
-            
+
             if ( !isset( $fsrs_fs ) ) {
                 // Include Freemius SDK.
                 require_once dirname( __FILE__ ) . '/freemius/start.php';
@@ -69,23 +69,23 @@ if ( function_exists( 'fsrs_fs' ) ) {
                     'is_live'         => true,
                 ) );
             }
-            
+
             return $fsrs_fs;
         }
-        
+
         // Init Freemius.
         fsrs_fs();
         // Signal that SDK was initiated.
         do_action( 'fsrs_fs_loaded' );
     }
-    
+
     $arr = array(
         'abbr' => array(),
     );
     // Plugin constants.
     $error_open = '<div id="updated" class="notice notice-error is-dismissible"><span class="dashicons dashicons-no"></span> ';
     $error_close = '</div>';
-    
+
     if ( !defined( 'FSRS_BASE' ) ) {
         define( 'FSRS_BASE', 'fsrs_' );
     } else {
@@ -93,8 +93,8 @@ if ( function_exists( 'fsrs_fs' ) ) {
         echo  $error_open . wp_kses( $message, $arr ) . $error_close ;
         // phpcs:ignore
     }
-    
-    
+
+
     if ( !defined( 'FSRS_VERSION' ) ) {
         define( 'FSRS_VERSION', '1.2.43' );
     } else {
@@ -102,7 +102,7 @@ if ( function_exists( 'fsrs_fs' ) ) {
         echo  $error_open . wp_kses( $message, $arr ) . $error_close ;
         // phpcs:ignore
     }
-    
+
     // Load plugin class files.
     require_once 'includes/class-five-star-ratings-shortcode.php';
     require_once 'includes/class-five-star-ratings-shortcode-meta.php';
@@ -122,7 +122,7 @@ if ( function_exists( 'fsrs_fs' ) ) {
         }
         return $instance;
     }
-    
+
     five_star_ratings_shortcode();
     /**
      * Checks the version number in the DB. If they don't match we just upgraded, * so show a notice and update the DB.
@@ -132,7 +132,7 @@ if ( function_exists( 'fsrs_fs' ) ) {
     function fsrs_check_version()
     {
         global  $pagenow ;
-        
+
         if ( FSRS_VERSION !== get_option( FSRS_BASE . 'version' ) || get_option( FSRS_BASE . 'version' ) === false ) {
             // Runs if version mismatch or doesn't exist.
             if ( 'options-general.php' !== $pagenow || !current_user_can( 'install_plugins' ) ) {
@@ -179,9 +179,9 @@ if ( function_exists( 'fsrs_fs' ) ) {
             // phpcs:ignore
             update_option( FSRS_BASE . 'version', FSRS_VERSION );
         }
-    
+
     }
-    
+
     add_action( 'plugins_loaded', 'fsrs_check_version' );
     /**
      * Deletes plugin options from the WordPress database. Free users only.
@@ -196,7 +196,7 @@ if ( function_exists( 'fsrs_fs' ) ) {
             }
         }
     }
-    
+
     // Uninstall hook.
     fsrs_fs()->add_action( 'after_uninstall', 'fsrs_fs_uninstall_cleanup' );
 }
