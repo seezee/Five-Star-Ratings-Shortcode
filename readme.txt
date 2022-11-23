@@ -5,9 +5,9 @@ Author URI: https://github.com/seezee
 Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
 Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0
-Tested up to: 6.0.1
+Tested up to: 6.1.1
 Requires PHP: 7.0
-Stable tag: 1.2.43
+Stable tag: 1.2.45
 License: GNUv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -31,7 +31,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 * Change minimum rating (0.0, 0.5, or 1.0)
 * Shortcode generator
 * Show/hide numeric text
-* Option to output numeric text using alternate decimal separator (comma)
+* Locale aware decimal separator
 * Options reset button
 
 == Installation ==
@@ -125,6 +125,19 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 == Changelog ==
+
+= 1.2.45 =
+
+* 2022-11-22
+* Tested up to WordPress 6.1.1
+* BUGFIX: fixed error in conditional code that prevented necessary code from loading for users of PRO version who haven't activated their license
+* Removed decimal separator option in favor of localized numeric output
+
+= 1.2.44 =
+
+* 2022-08-18
+* BUGFIX: refactored `function add_menu_item()` to avoid undefined variable `$page`
+* BUGFIX: Refactored tabs logic in `function register_settings()` since incorrect nesting means output can never happen
 
 = 1.2.43 =
 
@@ -544,8 +557,7 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.43 =
-
-* 2022-07-24
-* Tested up to WordPress 6.0.1
-* BUGFIX: Added `( is_a( $post, 'WP_Post' )` check to `enqueue_fa_scripts()` to prevent non-object error
+* 2022-11-22
+* Tested up to WordPress 6.1.1
+* BUGFIX: fixed error in conditional code that prevented necessary code from loading for users of PRO version who haven't activated their license
+* Removed decimal separator option in favor of localized numeric output

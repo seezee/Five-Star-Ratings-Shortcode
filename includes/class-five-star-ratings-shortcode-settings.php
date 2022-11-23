@@ -75,13 +75,15 @@ class Five_Star_Ratings_Shortcode_Settings
      */
     public function add_menu_item()
     {
-        $page = add_options_page(
-            esc_html__( 'Five Star Ratings Shortcode Documentation', 'fsrs' ),
-            esc_html__( 'Five Star Ratings Shortcode Documentation', 'fsrs' ),
-            'manage_options',
-            $this->parent->token,
-            array( $this, 'settings_page' )
-        );
+        if ( !fsrs_fs()->is__premium_only() || fsrs_fs()->is__premium_only() && !fsrs_fs()->can_use_premium_code() ) {
+            $page = add_options_page(
+                esc_html__( 'Five Star Ratings Shortcode Documentation', 'fsrs' ),
+                esc_html__( 'Five Star Ratings Shortcode Documentation', 'fsrs' ),
+                'manage_options',
+                $this->parent->token,
+                array( $this, 'settings_page' )
+            );
+        }
         add_action( 'admin_print_styles-' . $page, array( $this, 'settings_assets' ) );
     }
     
@@ -138,9 +140,11 @@ class Five_Star_Ratings_Shortcode_Settings
             'pre'    => array(),
             'sup'    => array(),
         );
-        $settings['documentation'] = array(
-            'title'       => esc_html__( 'Documentation', 'fsrs' ),
-            'description' => esc_html__( 'The FREE version of this plugin has no settings. For usage examples, see below.', 'fsrs' ) . '
+        
+        if ( !fsrs_fs()->is__premium_only() || fsrs_fs()->is__premium_only() && !fsrs_fs()->can_use_premium_code() ) {
+            $settings['documentation'] = array(
+                'title'       => esc_html__( 'Documentation', 'fsrs' ),
+                'description' => esc_html__( 'The FREE version of this plugin has no settings. For usage examples, see below.', 'fsrs' ) . '
 	<details>
 	<summary>' . esc_html__( 'Shortcode Examples', 'fsrs' ) . '
 	</summary>
@@ -205,13 +209,15 @@ class Five_Star_Ratings_Shortcode_Settings
 			<li>' . esc_html__( 'Change maximum rating (3 &ndash; 10)', 'fsrs' ) . '</li>
 			<li>' . wp_kses( __( 'Custom syntax (<code>&lt;i&gt;</code> or <code>&lt;span&gt;</code>)', 'fsrs' ), $arr ) . '</li>
 			<li>' . esc_html__( 'Show or hide numeric text', 'fsrs' ) . '</li>
-			<li>' . esc_html__( 'Option to output numeric text using alternate decimal separator (comma)', 'fsrs' ) . '</li>
+			<li>' . esc_html__( 'Locale aware decimal separator', 'fsrs' ) . '</li>
 			<li>' . esc_html__( 'Options reset button', 'fsrs' ) . '</li>
 		</ul>
 	</details>',
-        );
-        $settings = apply_filters( $this->parent->token . '_settings_fields', $settings );
-        return $settings;
+            );
+            $settings = apply_filters( $this->parent->token . '_settings_fields', $settings );
+            return $settings;
+        }
+    
     }
     
     /**
@@ -221,7 +227,19 @@ class Five_Star_Ratings_Shortcode_Settings
      */
     public function register_settings()
     {
+        
         if ( is_array( $this->settings ) ) {
+            // Check posted/selected tab.
+            $current_section = '';
+            if ( !fsrs_fs()->is__premium_only() || fsrs_fs()->is__premium_only() && !fsrs_fs()->can_use_premium_code() ) {
+                
+                if ( isset( $_GET['tab'] ) && $_GET['tab'] ) {
+                    // phpcs:ignore
+                    $current_section = sanitize_text_field( wp_unslash( $_GET['tab'] ) );
+                    // phpcs:ignore
+                }
+            
+            }
             foreach ( $this->settings as $section => $data ) {
                 // Add section to page.
                 add_settings_section(
@@ -232,6 +250,7 @@ class Five_Star_Ratings_Shortcode_Settings
                 );
             }
         }
+    
     }
     
     /**
@@ -282,7 +301,9 @@ class Five_Star_Ratings_Shortcode_Settings
         
         // Build page HTML.
         $html = '<div class="wrap" id="' . $this->parent->token . '_settings">' . "\n";
-        $html .= '<h2><i class="fsrs-fas fa-fw fa-star wp-admin-lite-blue"></i> ' . esc_html__( 'Five-Star Ratings Shortcode Documentation', 'fsrs' ) . ' <i class="fsrs-fas fa-fw fa-star wp-admin-lite-blue"></i></h2>' . "\n";
+        if ( !fsrs_fs()->is__premium_only() || fsrs_fs()->is__premium_only() && !fsrs_fs()->can_use_premium_code() ) {
+            $html .= '<h2><i class="fsrs-fas fa-fw fa-star wp-admin-lite-blue"></i> ' . esc_html__( 'Five-Star Ratings Shortcode Documentation', 'fsrs' ) . ' <i class="fsrs-fas fa-fw fa-star wp-admin-lite-blue"></i></h2>' . "\n";
+        }
         $html .= '
 		<form method="post" action="options.php" name="fsrs_settings" id="fsrs_settings" enctype="multipart/form-data">' . "\n";
         // Get settings fields.
@@ -292,6 +313,7 @@ class Five_Star_Ratings_Shortcode_Settings
         $html .= ob_get_clean();
         global  $pagenow ;
         echo  $html ;
+        // phpcs:ignore
         $html2 = '';
         $html2 .= '</form>' . "\n";
         $html2 .= '</div>' . "\n";
