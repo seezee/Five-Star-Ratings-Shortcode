@@ -19,3 +19,7 @@
     font-variant-numeric: lining-nums;
   }
 }
+
+.fsrs-stars i {
+  font-style: normal;
+}
