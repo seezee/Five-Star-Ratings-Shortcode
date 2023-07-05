@@ -7,7 +7,7 @@ Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0
 Tested up to: 6.2
 Requires PHP: 7.0
-Stable tag: 1.2.47
+Stable tag: 1.2.48
 License: GNUv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -94,12 +94,6 @@ In the 2nd example, the raw output will be like this before processing:
 
 
 
-== Translations ==
-
-* English: Default language, always included
-
-Would you like to help translate Five-Star Ratings Shortcode into your own language? [You can do that here!](https://translate.wordpress.org/projects/wp-plugins/five-star-ratings-shortcode)
-
 == Frequently Asked Questions ==
 
 = What is the plugin for? =
@@ -118,6 +112,12 @@ I’m looking for collaborators to improve the code. If you are an experienced W
 
 Feel free to send a donation to my [Paypal account](https://paypal.me/messengerwebdesign?locale.x=en_US). Or buy me a beer if you’re in town.
 
+== Translations ==
+
+* English: Default language, always included
+
+Would you like to help translate Five-Star Ratings Shortcode into your own language? [You can do that here!](https://translate.wordpress.org/projects/wp-plugins/five-star-ratings-shortcode)
+
 == Dependencies ==
 
 This plugin includes these third-party libraries in its package.
@@ -126,7 +126,12 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
-## 1.2.47
+= 1.2.48 =
+
+* 2023-07-05
+* Freemius SDK update to 2.5.10
+
+= 1.2.47 =
 
 * 2023-04-21
 * Tested up to WordPress 6.2
@@ -567,7 +572,7 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-## 1.2.47
+= 1.2.48 =
 
-* 2023-04-21
-* Tested up to WordPress 6.2
+* 2023-07-05
+* Freemius SDK update to 2.5.10
