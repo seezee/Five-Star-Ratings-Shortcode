@@ -5,9 +5,9 @@ Author URI: https://github.com/seezee
 Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
 Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0
-Tested up to: 6.2
+Tested up to: 6.3
 Requires PHP: 7.0
-Stable tag: 1.2.48
+Stable tag: 1.2.49
 License: GNUv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -125,6 +125,11 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 == Changelog ==
+
+= 1.2.49 =
+
+* 2023-08-28
+* Freemius SDK update to 2.5.11
 
 = 1.2.48 =
 
@@ -572,7 +577,7 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.48 =
+= 1.2.49 =
 
-* 2023-07-05
-* Freemius SDK update to 2.5.10
+* 2023-08-28
+* Freemius SDK update to 2.5.11

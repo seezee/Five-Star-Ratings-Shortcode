@@ -8,7 +8,7 @@ Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0  
 Tested up to: 6.2  
 Requires PHP: 7.0  
-Stable tag: 1.2.48  
+Stable tag: 1.2.49  
 License: GNUv3 or later  
 License URI: [https://www.gnu.org/licenses/gpl-3.0.html](https://www.gnu.org/licenses/gpl-3.0.html)  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -149,6 +149,11 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 ## Changelog
+
+## 1.2.49
+
+* 2023-08-28
+* Freemius SDK update to 2.5.11
 
 ## 1.2.48
 
@@ -612,10 +617,10 @@ number of stars
 
 ## Upgrade Notice
 
-## 1.2.48
+## 1.2.49
 
-* 2023-07-05
-* Freemius SDK update to 2.5.10
+* 2023-08-28
+* Freemius SDK update to 2.5.11
 
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)
