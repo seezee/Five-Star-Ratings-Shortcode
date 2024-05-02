@@ -10,7 +10,7 @@
  * Author: Chris J. Zähller / Messenger Web Design
  * Author URI: https://messengerwebdesign.com/
  * Requires at least: 4.6.1
- * Tested up to: 6.4.2
+ * Tested up to: 6.5.2
  * PHP Version 7.0
  * Text Domain: fsrs
  * Domain Path: /lang/
@@ -125,9 +125,9 @@ function fsrs_check_version() {
         $rel = 'noopener noreferrer';
         // Used in both links.
         $url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/licenses/1/';
-        $html .= sprintf( 
+        $html .= sprintf(
             // Translation string with variables.
-            wp_kses( 
+            wp_kses(
                 /* translators: ignore the placeholders in the URL */
                 __( 'Five-Star Ratings Shortcode updated successfully. For Google Rich Snippets support, customized colors and sizes, variable minimum and maximum ratings, and additional customized output please upgrade to <a href="%1$s" rel="%2$s">Five-Star Ratings Shortcode PRO</a>.', 'fsrs' ),
                 array(
@@ -142,7 +142,7 @@ function fsrs_check_version() {
          );
         $url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/?
 					trial=free';
-        $html .= ' ' . sprintf( wp_kses( 
+        $html .= ' ' . sprintf( wp_kses(
             /* translators: ignore the placeholders in the URL */
             __( 'Not sure if you need those features? We have a <a href="%1$s" rel="%2$s">FREE 14-day trial</a>.', 'fsrs' ),
             array(
