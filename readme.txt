@@ -5,9 +5,9 @@ Author URI: https://github.com/seezee
 Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
 Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0
-Tested up to: 6.4.2
+Tested up to: 6.5.2
 Requires PHP: 7.0
-Stable tag: 1.2.51
+Stable tag: 1.2.52
 License: GNUv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -43,7 +43,6 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 4. Activate the plugin on the Plugin dashboard
 5. The plugin has no settings.
 
-
 ### UPLOADING IN WORDPRESS DASHBOARD
 1. Click the download button on this and save “five-star-ratings-plugin.zip” to your computer
 2. Navigate to “Add New” in the plugins dashboard
@@ -53,14 +52,12 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 6. Activate the plugin in the Plugin dashboard
 7. The plugin has no settings.
 
-
 ### USING FTP
 1. Download the Five-Star Ratings Shortcode ZIP file
 2. Extract the Five-Star Ratings Shortcode ZIP file to your computer
 3. Upload the “five-star-ratings-plugin” directory to the `/wp-content/plugins/` directory
 4. Activate the plugin in the Plugin dashboard
 5. The plugin has no settings.
-
 
 ### UPGRADING TO FIVE-STAR RATINGS SHORTCODE PRO
 1. Go to Settings -> Five-Star Ratings Shortcode -> Upgrade
@@ -91,7 +88,6 @@ In the 2nd example, the raw output will be like this before processing:
       <span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">2.5 out of 5</span>
       <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">2.5</span>
     </span>
-
 
 
 == Frequently Asked Questions ==
@@ -125,6 +121,13 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 == Changelog ==
+
+= 1.2.52 =
+
+* 2024-01-03
+* Tested up to WordPress 6.5.2
+* BUGFIX: Fix `creation of dynamic property is deprecated error`
+* Update Freemius SDK
 
 = 1.2.51 =
 
@@ -587,7 +590,9 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.51 =
+= 1.2.52 =
 
-* 2023-12-21
-* Tested up to WordPress 6.4.2
+* 2024-01-03
+* Tested up to WordPress 6.5.2
+* BUGFIX: Fix `creation of dynamic property is deprecated error`
+* Update Freemius SDK

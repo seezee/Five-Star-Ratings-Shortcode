@@ -11,8 +11,7 @@ if ( !defined( 'ABSPATH' ) ) {
 /**
  * Settings class.
  */
-class Five_Star_Ratings_Shortcode_Settings
-{
+class Five_Star_Ratings_Shortcode_Settings {
     /**
      * The single instance of Five_Star_Ratings_Shortcode_Settings.
      *
@@ -20,7 +19,8 @@ class Five_Star_Ratings_Shortcode_Settings
      * @access  private
      * @since   1.0.0
      */
-    private static  $instance = null ;
+    private static $instance = null;
+
     /**
      * The main plugin object.
      *
@@ -28,7 +28,8 @@ class Five_Star_Ratings_Shortcode_Settings
      * @access  public
      * @since   1.0.0
      */
-    public  $parent = null ;
+    public $parent = null;
+
     /**
      * Available settings for plugin.
      *
@@ -36,7 +37,8 @@ class Five_Star_Ratings_Shortcode_Settings
      * @access  public
      * @since   1.0.0
      */
-    public  $settings = array() ;
+    public $settings = array();
+
     /**
      * Constructor function.
      *
@@ -45,102 +47,95 @@ class Five_Star_Ratings_Shortcode_Settings
      *
      * @param string $parent Parent.
      */
-    public function __construct( $parent )
-    {
+    public function __construct( $parent ) {
         $this->parent = $parent;
         // Initialise settings.
-        add_action( 'init', array( $this, 'init_settings' ), 11 );
+        add_action( 'init', array($this, 'init_settings'), 11 );
         // Register plugin settings.
-        add_action( 'admin_init', array( $this, 'register_settings' ) );
+        add_action( 'admin_init', array($this, 'register_settings') );
         // Add settings page to menu.
-        add_action( 'admin_menu', array( $this, 'add_menu_item' ) );
+        add_action( 'admin_menu', array($this, 'add_menu_item') );
         // Add settings link to plugins page.
-        add_filter( 'plugin_action_links_' . plugin_basename( $this->parent->file ), array( $this, 'add_settings_link' ) );
+        add_filter( 'plugin_action_links_' . plugin_basename( $this->parent->file ), array($this, 'add_settings_link') );
     }
-    
+
     /**
      * Initialise settings
      *
      * @return void
      */
-    public function init_settings()
-    {
+    public function init_settings() {
         $this->settings = $this->settings_fields();
     }
-    
+
     /**
      * Add settings page to admin menu
      *
      * @return void
      */
-    public function add_menu_item()
-    {
+    public function add_menu_item() {
         if ( !fsrs_fs()->is__premium_only() || fsrs_fs()->is__premium_only() && !fsrs_fs()->can_use_premium_code() ) {
             $page = add_options_page(
                 esc_html__( 'Five Star Ratings Shortcode Documentation', 'fsrs' ),
                 esc_html__( 'Five Star Ratings Shortcode Documentation', 'fsrs' ),
                 'manage_options',
                 $this->parent->token,
-                array( $this, 'settings_page' )
+                array($this, 'settings_page')
             );
         }
-        add_action( 'admin_print_styles-' . $page, array( $this, 'settings_assets' ) );
+        add_action( 'admin_print_styles-' . $page, array($this, 'settings_assets') );
     }
-    
+
     /**
      * Load settings JS & CSS
      *
      * @return void
      */
-    public function settings_assets()
-    {
+    public function settings_assets() {
         wp_register_script(
             $this->parent->token . '-settings-js',
             $this->parent->assets_url . 'js/settings' . $this->parent->script_suffix . '.js',
-            array( 'farbtastic', 'jquery' ),
+            array('farbtastic', 'jquery'),
             esc_html( FSRS_VERSION ),
             true
         );
         wp_enqueue_script( $this->parent->token . '-settings-js' );
     }
-    
+
     /**
      * Add settings link to plugin list table
      *
      * @param  array $links Existing links.
      * @return array Modified links
      */
-    public function add_settings_link( $links )
-    {
+    public function add_settings_link( $links ) {
         $settings_link = '<a href="options-general.php?page=' . $this->parent->token . '">' . esc_html__( 'Settings', 'fsrs' ) . '</a>';
         array_push( $links, $settings_link );
         return $links;
     }
-    
+
     /**
      * Build settings fields
      *
      * @return array Fields to be displayed on settings page
      */
-    private function settings_fields()
-    {
+    private function settings_fields() {
         $arr = array(
             'p'      => array(),
             'a'      => array(
-            'href'   => array(),
-            'rel'    => array(),
-            'target' => array(),
-        ),
+                'href'   => array(),
+                'rel'    => array(),
+                'target' => array(),
+            ),
             'em'     => array(),
             'strong' => array(),
             'abbr'   => array(
-            'title' => array(),
-        ),
+                'title' => array(),
+            ),
             'code'   => array(),
             'pre'    => array(),
             'sup'    => array(),
         );
-        
         if ( !fsrs_fs()->is__premium_only() || fsrs_fs()->is__premium_only() && !fsrs_fs()->can_use_premium_code() ) {
             $settings['documentation'] = array(
                 'title'       => esc_html__( 'Documentation', 'fsrs' ),
@@ -217,78 +212,66 @@ class Five_Star_Ratings_Shortcode_Settings
             $settings = apply_filters( $this->parent->token . '_settings_fields', $settings );
             return $settings;
         }
-    
     }
-    
+
     /**
      * Register plugin settings
      *
      * @return void
      */
-    public function register_settings()
-    {
-        
+    public function register_settings() {
         if ( is_array( $this->settings ) ) {
             // Check posted/selected tab.
             $current_section = '';
             if ( !fsrs_fs()->is__premium_only() || fsrs_fs()->is__premium_only() && !fsrs_fs()->can_use_premium_code() ) {
-                
                 if ( isset( $_GET['tab'] ) && $_GET['tab'] ) {
                     // phpcs:ignore
                     $current_section = sanitize_text_field( wp_unslash( $_GET['tab'] ) );
                     // phpcs:ignore
                 }
-            
             }
             foreach ( $this->settings as $section => $data ) {
                 // Add section to page.
                 add_settings_section(
                     $section,
                     $data['title'],
-                    array( $this, 'settings_section' ),
+                    array($this, 'settings_section'),
                     $this->parent->token
                 );
             }
         }
-    
     }
-    
+
     /**
      * Output the settings
      *
      * @param string $section The individual settings sections.
      */
-    public function settings_section( $section )
-    {
+    public function settings_section( $section ) {
         $html = '<p> ' . $this->settings[$section['id']]['description'] . '</p>' . "\n";
-        echo  $html ;
+        echo $html;
         // phpcs:ignore
     }
-    
+
     /**
      * Load settings page content
      *
      * @return void
      * @param string $hook_suffix Fires in head section for a specific admin page.
      */
-    public function settings_page( $hook_suffix )
-    {
-        global  $pagenow ;
+    public function settings_page( $hook_suffix ) {
+        global $pagenow;
         $arr = array();
         // For wp_kses.
-        
         if ( get_option( FSRS_BASE . 'starsmax' ) !== false ) {
             $stars_max = get_option( FSRS_BASE . 'starsmax' );
             $max_int = intval( $stars_max );
             // Same as "$max_int = $max_int - 1".
             $max_int--;
         }
-        
-        
         if ( get_option( FSRS_BASE . 'starsmin' ) !== false ) {
             $stars_min = get_option( FSRS_BASE . 'starsmin' );
             $min_int = floatval( $stars_min );
-            
             if ( 1.0 === $min_int ) {
                 $min_int = '1.[0-9]|^([1-';
             } elseif ( 0.0 === $min_int ) {
@@ -296,9 +279,7 @@ class Five_Star_Ratings_Shortcode_Settings
             } else {
                 $min_int = '0.[5-9]|^([1-';
             }
-        
         }
-        
         // Build page HTML.
         $html = '<div class="wrap" id="' . $this->parent->token . '_settings">' . "\n";
         if ( !fsrs_fs()->is__premium_only() || fsrs_fs()->is__premium_only() && !fsrs_fs()->can_use_premium_code() ) {
@@ -311,16 +292,16 @@ class Five_Star_Ratings_Shortcode_Settings
         settings_fields( $this->parent->token );
         do_settings_sections( $this->parent->token );
         $html .= ob_get_clean();
-        global  $pagenow ;
-        echo  $html ;
+        global $pagenow;
+        echo $html;
         // phpcs:ignore
         $html2 = '';
         $html2 .= '</form>' . "\n";
         $html2 .= '</div>' . "\n";
-        echo  $html2 ;
+        echo $html2;
         // phpcs:ignore
     }
-    
+
     /**
      * Main Five_Star_Ratings_Shortcode_Settings Instance
      *
@@ -333,36 +314,34 @@ class Five_Star_Ratings_Shortcode_Settings
      * @see Five_Star_Ratings_Shortcode()
      * @return Main Five_Star_Ratings_Shortcode_Settings instance
      */
-    public static function instance( $parent )
-    {
+    public static function instance( $parent ) {
         if ( is_null( self::$instance ) ) {
-            self::$instance = new self( $parent );
+            self::$instance = new self($parent);
         }
         return self::$instance;
     }
-    
+
     // End instance()
     /**
      * Cloning is forbidden.
      *
      * @since 1.0.0
      */
-    public function __clone()
-    {
+    public function __clone() {
         _doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of Class_Five_Star_Ratings_Shortcode_Settings is forbidden.' ), $this->parent->_version );
         // phpcs:ignore
     }
-    
+
     // End __clone()
     /**
      * Unserializing instances of this class is forbidden.
      *
      * @since 1.0.0
      */
-    public function __wakeup()
-    {
+    public function __wakeup() {
         _doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of Class_Five_Star_Ratings_Shortcode_Settings is forbidden.' ), $this->parent->_version );
         // phpcs:ignore
     }
 
+    // End __wakeup()
 }

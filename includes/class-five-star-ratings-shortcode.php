@@ -11,8 +11,7 @@ if ( !defined( 'ABSPATH' ) ) {
 /**
  * Main plugin class.
  */
-class Five_Star_Ratings_Shortcode
-{
+class Five_Star_Ratings_Shortcode {
     /**
      * The single instance of Five_Star_Ratings_Shortcode.
      *
@@ -20,7 +19,8 @@ class Five_Star_Ratings_Shortcode
      * @access  private
      * @since   1.0.0
      */
-    private static  $instance = null ;
+    private static $instance = null;
+
     /**
      * The token.
      *
@@ -28,7 +28,8 @@ class Five_Star_Ratings_Shortcode
      * @access  public
      * @since   1.0.0
      */
-    public  $token ;
+    public $token;
+
     /**
      * The main plugin file.
      *
@@ -36,7 +37,8 @@ class Five_Star_Ratings_Shortcode
      * @access  public
      * @since   1.0.0
      */
-    public  $file ;
+    public $file;
+
     /**
      * The main plugin directory.
      *
@@ -44,7 +46,8 @@ class Five_Star_Ratings_Shortcode
      * @access  public
      * @since   1.0.0
      */
-    public  $dir ;
+    public $dir;
+
     /**
      * The plugin assets directory.
      *
@@ -52,7 +55,8 @@ class Five_Star_Ratings_Shortcode
      * @access  public
      * @since   1.0.0
      */
-    public  $assets_dir ;
+    public $assets_dir;
+
     /**
      * The plugin assets URL.
      *
@@ -60,7 +64,8 @@ class Five_Star_Ratings_Shortcode
      * @access  public
      * @since   1.0.0
      */
-    public  $assets_url ;
+    public $assets_url;
+
     /**
      * Suffix for Javascripts.
      *
@@ -68,7 +73,8 @@ class Five_Star_Ratings_Shortcode
      * @access  public
      * @since   1.0.0
      */
-    public  $script_suffix ;
+    public $script_suffix;
+
     /**
      * Settings class object
      *
@@ -76,7 +82,8 @@ class Five_Star_Ratings_Shortcode
      * @access  public
      * @since   1.0.0
      */
-    public  $settings = null ;
+    public $settings = null;
+
     /**
      * External scripts protocol.
      *
@@ -84,7 +91,8 @@ class Five_Star_Ratings_Shortcode
      * @access  public
      * @since   1.2.38
      */
-    public  $protocol ;
+    public $protocol;
+
     /**
      * External scripts versions.
      *
@@ -92,7 +100,8 @@ class Five_Star_Ratings_Shortcode
      * @access  public
      * @since   1.2.38
      */
-    public  $script_versions ;
+    public $script_versions;
+
     /**
      * External scripts urls.
      *
@@ -100,7 +109,8 @@ class Five_Star_Ratings_Shortcode
      * @access  public
      * @since   1.2.38
      */
-    public  $script_urls ;
+    public $script_urls;
+
     /**
      * External scripts local fallbacks.
      *
@@ -108,7 +118,8 @@ class Five_Star_Ratings_Shortcode
      * @access  public
      * @since   1.2.38
      */
-    public  $script_fallbacks ;
+    public $script_fallbacks;
+
     /**
      * External scripts suffix.
      *
@@ -116,7 +127,8 @@ class Five_Star_Ratings_Shortcode
      * @access  public
      * @since   1.2.38
      */
-    public  $suffix ;
+    public $suffix;
+
     /**
      * External scripts links.
      *
@@ -124,7 +136,8 @@ class Five_Star_Ratings_Shortcode
      * @access  public
      * @since   1.2.38
      */
-    public  $script_links ;
+    public $script_links;
+
     /**
      * External plugin files status.
      *
@@ -132,14 +145,23 @@ class Five_Star_Ratings_Shortcode
      * @access  public
      * @since   1.2.38
      */
-    public  $script_available ;
+    public $script_available;
+
+    /**
+     * Admin API.
+     *
+     * @var     array
+     * @access  public
+     * @since   1.2.52
+     */
+    public $admin;
+
     /**
      * Constructor function.
      *
      * @param string $file File constructor.
      */
-    public function __construct( $file = '' )
-    {
+    public function __construct( $file = '' ) {
         $this->token = 'five-star-ratings-shortcode';
         // Load plugin environment variables.
         $this->file = $file;
@@ -184,59 +206,57 @@ class Five_Star_Ratings_Shortcode
             // phpcs:ignore
             @fopen( $this->script_links[3], 'r' ),
         );
-        register_activation_hook( $this->file, array( $this, 'install' ) );
+        register_activation_hook( $this->file, array($this, 'install') );
         // Load admin JS & CSS.
         add_action(
             'admin_enqueue_scripts',
-            array( $this, 'admin_enqueue_styles' ),
+            array($this, 'admin_enqueue_styles'),
             10,
             1
         );
         add_action(
             'admin_enqueue_scripts',
-            array( $this, 'admin_enqueue_scripts' ),
+            array($this, 'admin_enqueue_scripts'),
             10,
             1
         );
         add_action(
             'wp_enqueue_scripts',
-            array( $this, 'enqueue_fa_scripts' ),
+            array($this, 'enqueue_fa_scripts'),
             10,
             1
         );
         add_action(
             'wp_enqueue_scripts',
-            array( $this, 'enqueue_fsrs_styles' ),
+            array($this, 'enqueue_fsrs_styles'),
             10,
             1
         );
         add_filter(
             'script_loader_tag',
-            array( $this, 'hash_js' ),
+            array($this, 'hash_js'),
             9,
             2
         );
         // Handle localisation.
         $this->load_plugin_textdomain();
-        add_action( 'init', array( $this, 'load_localisation' ), 0 );
+        add_action( 'init', array($this, 'load_localisation'), 0 );
         if ( !fsrs_fs()->can_use_premium_code() ) {
             // Display the admin notification.
-            add_action( 'admin_notices', array( $this, 'free_activation' ) );
+            add_action( 'admin_notices', array($this, 'free_activation') );
         }
-        add_shortcode( 'rating', array( $this, 'rating_func' ) );
+        add_shortcode( 'rating', array($this, 'rating_func') );
     }
-    
+
     // End __construct ()
     /**
      * Displays an activation notice.
      */
-    public function free_activation()
-    {
-        
+    public function free_activation() {
         if ( !fsrs_fs()->can_use_premium_code() ) {
             // $pagenow is a global variable referring to the filename of the
             // current page, such as ‘admin.php’, ‘post-new.php’.
-            global  $pagenow ;
+            global $pagenow;
             if ( 'plugins.php' !== $pagenow || !current_user_can( 'install_plugins' ) ) {
                 return;
             }
@@ -246,40 +266,39 @@ class Five_Star_Ratings_Shortcode
             $rel = 'noopener noreferrer';
             // Used in both links.
             $upgrade_url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/licenses/1/';
-            $html .= sprintf(
+            $html .= sprintf( 
                 // Translation string with variables.
-                wp_kses(
+                wp_kses( 
                     /* translators: ignore the placeholders in the URL */
                     __( 'Thank you for installing Five-Star Ratings Shortcode. For custom icon and text color and size, Google Rich Snippets, and other features, please upgrade to <a href="%1$s" rel="%2$s">Five-Star Ratings Shortcode PRO</a>.', 'fsrs' ),
                     array(
                         'a' => array(
-                        'href' => array(),
-                        'rel'  => array(),
-                    ),
+                            'href' => array(),
+                            'rel'  => array(),
+                        ),
                     )
-                ),
+                 ),
                 esc_url( $upgrade_url ),
                 $rel
-            );
+             );
             $upgrade_url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/?
 				trial=free';
-            $html .= ' ' . sprintf( wp_kses(
+            $html .= ' ' . sprintf( wp_kses( 
                 /* translators: ignore the placeholders in the URL */
                 __( 'Not sure if you need those features? We have a <a href="%1$s" rel="%2$s">FREE 14-day trial</a>.', 'fsrs' ),
                 array(
                     'a' => array(
-                    'href' => array(),
-                    'rel'  => array(),
-                ),
+                        'href' => array(),
+                        'rel'  => array(),
+                    ),
                 )
-            ), esc_url( $upgrade_url ), $rel );
+             ), esc_url( $upgrade_url ), $rel );
             $html .= '</p>';
             $html .= '</div>';
             return $html;
         }
-    
     }
-    
+
     // End plugin_activation.
     /**
      * Admin enqueue style.
@@ -288,9 +307,8 @@ class Five_Star_Ratings_Shortcode
      *
      * @return void
      */
-    public function admin_enqueue_styles( $hook )
-    {
-        global  $pagenow ;
+    public function admin_enqueue_styles( $hook ) {
+        global $pagenow;
         if ( 'settings_page_five-star-ratings-shortcode' !== $hook && 'plugins.php' !== $pagenow || !current_user_can( 'install_plugins' ) ) {
             return;
         }
@@ -302,7 +320,7 @@ class Five_Star_Ratings_Shortcode
         );
         wp_enqueue_style( $this->token . '-admin' );
     }
-    
+
     // End admin_enqueue_styles ()
     /**
      * Load admin meta Javascript.
@@ -314,15 +332,13 @@ class Five_Star_Ratings_Shortcode
      * @return void
      * @since  1.0.0
      */
-    public function admin_enqueue_scripts( $hook )
-    {
-        global  $pagenow ;
+    public function admin_enqueue_scripts( $hook ) {
+        global $pagenow;
         if ( 'settings_page_five-star-ratings-shortcode' !== $hook && 'plugins.php' !== $pagenow || !current_user_can( 'install_plugins' ) ) {
             return;
         }
         wp_enqueue_script( 'jquery' );
         wp_enqueue_script( 'jquery-form' );
-        
         if ( false !== $this->script_available[0] ) {
             wp_register_script(
                 $this->token . '-fa-main',
@@ -341,7 +357,6 @@ class Five_Star_Ratings_Shortcode
                 true
             );
         }
-        
         wp_enqueue_script( $this->token . '-fa-main' );
         // We're using a specially optimized version of fa-solid.js to
         // load only the necessary Fontawesome glyphs, i.e. fa-star & fa-star-half-stroke. In the event we ever need to add more glyphs, both
@@ -356,7 +371,7 @@ class Five_Star_Ratings_Shortcode
         );
         wp_enqueue_script( $this->token . '-fa-solid' );
     }
-    
+
     // End admin_enqueue_scripts ().
     /**
      * Load plugin Javascript.
@@ -365,12 +380,9 @@ class Five_Star_Ratings_Shortcode
      *
      * @since  1.0.0
      */
-    public function enqueue_fa_scripts()
-    {
-        
+    public function enqueue_fa_scripts() {
         if ( !is_admin() ) {
             // If boolean is TRUE.
-            
             if ( false !== $this->script_available[0] ) {
                 wp_register_script(
                     $this->token . '-fa-main',
@@ -389,7 +401,6 @@ class Five_Star_Ratings_Shortcode
                     true
                 );
             }
-            
             // We're using specially optimized versions of fa-solid.js and
             // fa-regular.js to load only the necessary Fontawesome glyphs,
             // i.e. fa-star (regular and solid) & fa-half-star. In the event
@@ -410,67 +421,55 @@ class Five_Star_Ratings_Shortcode
                 esc_html( FSRS_VERSION ),
                 true
             );
-            global  $post ;
+            global $post;
             // Load the scripts only if the shortcode is in use in the post.
-            
             if ( is_a( $post, 'WP_Post' ) && has_shortcode( $post->post_content, 'rating' ) ) {
                 wp_enqueue_script( $this->token . '-fa-main' );
                 wp_enqueue_script( $this->token . '-fa-reg' );
                 wp_enqueue_script( $this->token . '-fa-solid' );
             }
-        
         }
-    
     }
-    
+
     /**
      * Hash external javascripts
      *
      * @param string $tag Script HTML tag.
      * @param string $handle WordPress script handle.
      */
-    public function hash_js( $tag, $handle )
-    {
+    public function hash_js( $tag, $handle ) {
         // add script handles to the array below.
         if ( $this->token . '-fa-main' === $handle ) {
-            
             if ( SCRIPT_DEBUG ) {
                 return str_replace( ' src', ' integrity="sha512-QTB14R2JdqeamILPFRrAgHOWmjlOGmwMg9WB9hrw6IoaX8OdY8J1kiuIAlAFswHCzgeY18PwTqp4g4utWdy6HA==" crossorigin="anonymous" src', $tag );
             } else {
                 return str_replace( ' src', ' integrity="sha512-PoFg70xtc+rAkD9xsjaZwIMkhkgbl1TkoaRrgucfsct7SVy9KvTj5LtECit+ZjQ3ts+7xWzgfHOGzdolfWEgrw==" crossorigin="anonymous" src', $tag );
             }
-        
         }
         if ( $this->token . '-validate' === $handle ) {
-            
             if ( SCRIPT_DEBUG ) {
                 return str_replace( ' src', ' integrity="sha512-jIgckTOSEC6cW2syg/cJIueoB9V4DIWvipqMP5v+820ZHNPwYm7Qyxw4h7rMe58DL2ARxLb9FXji8Ur9pmIdzA==" crossorigin="anonymous" src', $tag );
             } else {
                 return str_replace( ' src', ' integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" src', $tag );
             }
-        
         }
         if ( $this->token . '-methods' === $handle ) {
-            
             if ( SCRIPT_DEBUG ) {
                 return str_replace( ' src', ' integrity="sha512-r0Its6Edg1F2aFb+yIzYMhDFWWMLNqZKFoZx+DQWKM4XJn4qv/+YY27idraCGvVIvmX78XYdxvvNkUKIBoMU8w==" crossorigin="anonymous" src', $tag );
             } else {
                 return str_replace( ' src', ' integrity="sha512-XZEy8UQ9rngkxQVugAdOuBRDmJ5N4vCuNXCh8KlniZgDKTvf7zl75QBtaVG1lEhMFe2a2DuA22nZYY+qsI2/xA==" crossorigin="anonymous" src', $tag );
             }
-        
         }
         if ( $this->token . '-clipboard' === $handle ) {
-            
             if ( SCRIPT_DEBUG ) {
                 return str_replace( ' src', ' integrity="sha512-v3qYCLsFJBtmWyHCfG1+2c3N1MV3KCZlqwLZNNYXxBM5Uf82hMPxyDEgWXwEuUZHYIWXI1GYi0v3SMV1ihILtA==" crossorigin="anonymous" src', $tag );
             } else {
                 return str_replace( ' src', ' integrity="sha512-PIisRT8mFfdxx99gMs7WAY5Gp+CtjYYxKvF93w8yWAvX548UBNADHu7Qkavgr6yRG+asocqfuk5crjNd5z9s6Q==" crossorigin="anonymous" src', $tag );
             }
-        
         }
         return $tag;
     }
-    
+
     /**
      * Load plugin styles on frontend.
      *
@@ -479,10 +478,8 @@ class Five_Star_Ratings_Shortcode
      * @return  void
      * @since   1.0.0
      */
-    public function enqueue_fsrs_styles()
-    {
-        global  $post ;
-        
+    public function enqueue_fsrs_styles() {
+        global $post;
         if ( !is_admin() ) {
             wp_register_style(
                 $this->token . '-fsrs-style',
@@ -495,9 +492,8 @@ class Five_Star_Ratings_Shortcode
                 wp_enqueue_style( $this->token . '-fsrs-style' );
             }
         }
-    
     }
-    
+
     // End enqueue_fsrs_styles().
     /**
      * Load plugin localisation
@@ -506,11 +502,10 @@ class Five_Star_Ratings_Shortcode
      * @since   1.0.0
      * @return  void
      */
-    public function load_localisation()
-    {
+    public function load_localisation() {
         load_plugin_textdomain( 'fsrs', false, dirname( plugin_basename( $this->file ) ) . '/lang/' );
     }
-    
+
     // End load_localisation ()
     /**
      * Load plugin textdomain
@@ -519,14 +514,13 @@ class Five_Star_Ratings_Shortcode
      * @since   1.0.0
      * @return  void
      */
-    public function load_plugin_textdomain()
-    {
+    public function load_plugin_textdomain() {
         $domain = 'fsrs';
         $locale = apply_filters( 'plugin_locale', get_locale(), $domain );
         load_textdomain( $domain, WP_LANG_DIR . '/' . $domain . '/' . $domain . '-' . $locale . '.mo' );
         load_plugin_textdomain( $domain, false, dirname( plugin_basename( $this->file ) ) . '/lang/' );
     }
-    
+
     // End load_plugin_textdomain ()
     /**
      * Shortcode
@@ -536,8 +530,7 @@ class Five_Star_Ratings_Shortcode
      * @param string $atts Shortcode attributes.
      * @since   1.0.0
      */
-    public static function rating_func( $atts )
-    {
+    public static function rating_func( $atts ) {
         if ( !fsrs_fs()->is__premium_only() || fsrs_fs()->is__premium_only() && !fsrs_fs()->can_use_premium_code() ) {
             $atts = shortcode_atts( array(
                 'stars' => '',
@@ -545,40 +538,32 @@ class Five_Star_Ratings_Shortcode
         }
         $arr = array();
         // Don't use strict comparison when checking the options!
-        
         if ( get_option( FSRS_BASE . 'syntax' ) != null ) {
             // phpcs:ignore
             $syntax = get_option( FSRS_BASE . 'syntax' );
         } else {
             $syntax = 'i';
         }
-        
         // Default syntax.
-        
         if ( get_option( FSRS_BASE . 'starsmax' ) != null ) {
             // phpcs:ignore
             $starsmax = get_option( FSRS_BASE . 'starsmax' );
         } else {
             $starsmax = '5';
         }
-        
         // Default value; also the only value for the FREE plugin.
-        
         if ( get_option( FSRS_BASE . 'size' ) != null ) {
             // phpcs:ignore
             $size = get_option( FSRS_BASE . 'size' );
         } else {
             $size = '';
         }
-        
-        
         if ( get_option( FSRS_BASE . 'numericText' ) != null ) {
             // phpcs:ignore
             $numtext = get_option( FSRS_BASE . 'numericText' );
         } else {
             $numtext = 'show';
         }
-        
         // Show the numeric text.
         // Get the value and if it's a float, trim it.
         $star = esc_attr( $atts['stars'] );
@@ -586,7 +571,7 @@ class Five_Star_Ratings_Shortcode
         array_pop( $parts );
         $startrim = implode( '.', $parts );
         // Recast string to integer.
-        $startrim = (double) $startrim;
+        $startrim = (float) $startrim;
         // How many whole stars?
         $stars = str_repeat( '<' . $syntax . ' class="fsrs-fas fa-fw fa-star ' . $size . '"></' . $syntax . '>', $startrim );
         // How many leftover stars if there is no half star?
@@ -594,55 +579,50 @@ class Five_Star_Ratings_Shortcode
         // Output for the half star.
         $halfstar = '<' . $syntax . ' class="fsrs-fas fa-fw fa-star-half-stroke ' . $size . '"></' . $syntax . '>';
         // Empty stars if there is no half star.
-        
         if ( $dif >= 0 ) {
             $empty = str_repeat( '<' . $syntax . ' class="fsrs-far fa-fw fa-star ' . $size . '"></' . $syntax . '>', $dif );
         } else {
             $empty = '';
-            echo  '<script type=text/javascript>alert("' . wp_kses( __( 'Shortcode error. Please ensure you did not enter a number greater than the maximum star rating.', 'fsrs' ), $arr ) . '")</script>' ;
+            echo '<script type=text/javascript>alert("' . wp_kses( __( 'Shortcode error. Please ensure you did not enter a number greater than the maximum star rating.', 'fsrs' ), $arr ) . '")</script>';
         }
-        
         // How many leftover stars if there is a half star?
-        
         if ( $dif >= 1 ) {
             $dif2 = $dif - 1;
         } else {
             $dif2 = 0;
         }
-        
         // Empty stars if there is a half star.
         $emptyhalf = str_repeat( '<' . $syntax . ' class="fsrs-far fa-fw fa-star ' . $size . '"></' . $syntax . '>', $dif2 );
-        
         if ( $startrim == $star ) {
             // phpcs:ignore
             // There is no half star. Don't use strict type checking because we're dealing with floats and integers.
             $rating = '<span class="fsrs">';
             // Container span.
-            $rating .= sprintf(
+            $rating .= sprintf( 
                 // Star icons.
                 wp_kses( '<span class="fsrs-stars">%1$s%2$s</span>', array(
                     'span' => array(
-                    'class' => array(),
-                ),
+                        'class' => array(),
+                    ),
                 ) ),
                 $stars,
                 $empty
-            );
-            $rating .= sprintf( wp_kses(
+             );
+            $rating .= sprintf( wp_kses( 
                 // translators: translate only the phrase "%1$.1f out of %2$.1f stars", where "%1$.1f" and "%2$.1f" are placeholders for numerical floats, e.g., "3 out of 5 stars".
-                __(
+                __( 
                     // Screen reader text.
                     '<span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%1$.1f out of %2$.1f stars</span>',
                     // phpcs:ignore
                     'fsrs'
-                ),
+                 ),
                 array(
                     'span' => array(
-                    'class'       => array(),
-                    'aria-hidden' => array(),
-                ),
+                        'class'       => array(),
+                        'aria-hidden' => array(),
+                    ),
                 )
-            ), $star, wp_kses( $starsmax, $arr ) );
+             ), $star, wp_kses( $starsmax, $arr ) );
             if ( 'hide' !== $numtext ) {
                 // Numerical text. Show or hide based on user preference.
                 $rating .= '<span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">' . sprintf( wp_kses( '%1$.1f', array() ), $star ) . '</span>';
@@ -659,28 +639,28 @@ class Five_Star_Ratings_Shortcode
                 // Star icons.
                 wp_kses( '<span class="fsrs-stars">%1$s%2$s%3$s</span>', array(
                     'span' => array(
-                    'class' => array(),
-                ),
+                        'class' => array(),
+                    ),
                 ) ),
                 $stars,
                 $halfstar,
                 $emptyhalf
             );
-            $rating .= sprintf( wp_kses(
+            $rating .= sprintf( wp_kses( 
                 // translators: translate only the phrase "%1$.1f out of %2$.1f stars", where "%1$.1f" and "%2$.1f" are placeholders for numerical floats, e.g., "3 out of 5 stars".
-                __(
+                __( 
                     // Screen reader text.
                     '<span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%1$.1f out of %2$.1f stars</span>',
                     // phpcs:ignore
                     'fsrs'
-                ),
+                 ),
                 array(
                     'span' => array(
-                    'class'       => array(),
-                    'aria-hidden' => array(),
-                ),
+                        'class'       => array(),
+                        'aria-hidden' => array(),
+                    ),
                 )
-            ), $star, wp_kses( $starsmax, $arr ) );
+             ), $star, wp_kses( $starsmax, $arr ) );
             if ( 'hide' !== $numtext ) {
                 // Numerical text. Show or hide based on user preference.
                 $rating .= '<span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">' . sprintf( wp_kses( '%1$.1f', array() ), $star ) . '</span>';
@@ -692,46 +672,45 @@ class Five_Star_Ratings_Shortcode
             // There is a half star but the number of stars exceeds the maximum. Don't output a half star.
             $rating = '<span class="fsrs">';
             // Container span.
-            $rating .= sprintf(
+            $rating .= sprintf( 
                 // Star icons.
                 wp_kses( '<span class="fsrs-stars">%1$s%2$s</span>', array(
                     'span' => array(
-                    'class' => array(),
-                ),
+                        'class' => array(),
+                    ),
                 ) ),
                 $stars,
                 $empty
-            );
-            $rating .= sprintf( wp_kses(
+             );
+            $rating .= sprintf( wp_kses( 
                 // translators: translate only the phrase "%1$.1f out of %2$.1f stars", where "%1$.1f" and "%2$.1f" are placeholders for numerical floats, e.g., "3 out of 5 stars".
-                __(
+                __( 
                     // Screen reader text.
                     '<span class="hide fsrs-text fsrs-text__hidden" aria-hidden="false">%1$.1f out of %2$.1f stars</span>',
                     // phpcs:ignore
                     'fsrs'
-                ),
+                 ),
                 array(
                     'span' => array(
-                    'class'       => array(),
-                    'aria-hidden' => array(),
-                ),
+                        'class'       => array(),
+                        'aria-hidden' => array(),
+                    ),
                 )
-            ), $startrim, wp_kses( $starsmax, $arr ) );
+             ), $startrim, wp_kses( $starsmax, $arr ) );
             if ( 'hide' !== $numtext ) {
                 // Numerical text. Show or hide based on user preference.
                 $rating .= sprintf( wp_kses( '<span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">%1$.1f</span>', array(
                     'span' => array(
-                    'class' => array(),
-                ),
+                        'class' => array(),
+                    ),
                 ) ), $startrim );
             }
             $rating .= '</span>';
             // Close the wrapper.
             return $rating;
         }
-    
     }
-    
+
     /**
      * Main Five_Star_Ratings_Shortcode Instance
      *
@@ -744,36 +723,33 @@ class Five_Star_Ratings_Shortcode
      * @since 1.0.0
      * @static
      */
-    public static function instance( $file = '' )
-    {
+    public static function instance( $file = '' ) {
         if ( is_null( self::$instance ) ) {
-            self::$instance = new self( $file, FSRS_VERSION );
+            self::$instance = new self($file, FSRS_VERSION);
         }
         return self::$instance;
     }
-    
+
     // End instance ()
     /**
      * Cloning is forbidden.
      *
      * @since 1.0.0
      */
-    public function __clone()
-    {
+    public function __clone() {
         _doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of Class_Five_Star_Ratings_Shortcode is forbidden.', 'fsrs' ), esc_html( FSRS_VERSION ) );
     }
-    
+
     // End __clone ()
     /**
      * Unserializing instances of this class is forbidden.
      *
      * @since 1.0.0
      */
-    public function __wakeup()
-    {
+    public function __wakeup() {
         _doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of Class_Five_Star_Ratings_Shortcode is forbidden.', 'fsrs' ), esc_html( FSRS_VERSION ) );
     }
-    
+
     // End __wakeup ()
     /**
      * Installation. Runs on activation.
@@ -782,11 +758,10 @@ class Five_Star_Ratings_Shortcode
      * @since   1.0.0
      * @return  void
      */
-    public function install()
-    {
+    public function install() {
         $this->logversion_number();
     }
-    
+
     // End install ()
     /**
      * Log the plugin version number.
@@ -795,9 +770,9 @@ class Five_Star_Ratings_Shortcode
      * @since   1.0.0
      * @return  void
      */
-    private function logversion_number()
-    {
+    private function logversion_number() {
         update_option( $this->token . 'version', esc_html( FSRS_VERSION ) );
     }
 
+    // End logversion_number ()
 }

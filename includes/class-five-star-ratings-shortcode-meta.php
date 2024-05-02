@@ -11,8 +11,7 @@ if ( !defined( 'ABSPATH' ) ) {
 /**
  * Add links to plugin meta
  */
-class Five_Star_Ratings_Shortcode_Meta
-{
+class Five_Star_Ratings_Shortcode_Meta {
     /**
      * The single instance of Five_Star_Ratings_Shortcode_Meta.
      *
@@ -20,7 +19,8 @@ class Five_Star_Ratings_Shortcode_Meta
      * @access  private
      * @since   1.0.0
      */
-    private static  $instance = null ;
+    private static $instance = null;
+
     /**
      * The main plugin object.
      *
@@ -28,32 +28,30 @@ class Five_Star_Ratings_Shortcode_Meta
      * @access  public
      * @since   1.0.0
      */
-    public  $parent = null ;
+    public $parent = null;
+
     /**
      * Constructor function.
      */
-    public function filter_links()
-    {
+    public function filter_links() {
         // Filter the plugin meta.
         add_filter(
             'plugin_row_meta',
-            array( $this, 'meta_links' ),
+            array($this, 'meta_links'),
             10,
             2
         );
     }
-    
+
     /**
      * Custom links.
      *
      * @param string $links Custom links.
      * @param string $file Path to main plugin file.
      */
-    public function meta_links( $links, $file )
-    {
+    public function meta_links( $links, $file ) {
         $plugin = 'five-star-ratings-shortcode.php';
         // Only for this plugin.
-        
         if ( strpos( $file, $plugin ) !== false ) {
             $supportlink = 'https://wordpress.org/support/plugin/five-star-ratings-shortcode/';
             $support_label = esc_attr_x( 'Five-Star Ratings Shortcode Support', 'noun', 'fsrs' );
@@ -71,10 +69,9 @@ class Five_Star_Ratings_Shortcode_Meta
                 '<a href="' . esc_url( $coffeelink ) . '"><span class="dashicons dashicons-coffee"' . $iconstyle . 'title="' . esc_attr__( 'Buy the Developer a Coffee', 'fsrs' ) . '" aria-label="' . esc_attr__( 'Buy the Developer a Coffee', 'fsrs' ) . '"></span></a>',
             ) );
         }
-        
         return $links;
     }
-    
+
     /**
      * Main Five_Star_Ratings_Shortcode_Meta Instance
      *
@@ -86,36 +83,35 @@ class Five_Star_Ratings_Shortcode_Meta
      * @param object $parent Object instance.
      * @return Main Five_Star_Ratings_Shortcode_Meta instance
      */
-    public static function instance( $parent )
-    {
+    public static function instance( $parent ) {
         if ( is_null( self::$instance ) ) {
-            self::$instance = new self( $parent );
+            self::$instance = new self($parent);
         }
         return self::$instance;
     }
-    
+
     // End instance()
     /**
      * Cloning is forbidden.
      *
      * @since 1.0.0
      */
-    public function __clone()
-    {
+    public function __clone() {
         _doing_it_wrong( __FUNCTION__, esc_html__( 'Cloning of Class_Five_Star_Ratings_Shortcode_Meta is forbidden.', 'fsrs' ), esc_attr( FSRS_VERSION ) );
     }
-    
+
     // End __clone()
     /**
      * Unserializing instances of this class is forbidden.
      *
      * @since 1.0.0
      */
-    public function __wakeup()
-    {
+    public function __wakeup() {
         _doing_it_wrong( __FUNCTION__, esc_html__( 'Unserializing instances of Class_Five_Star_Ratings_Shortcode_Meta is forbidden.', 'fsrs' ), esc_attr( FSRS_VERSION ) );
     }
 
+    // End __wakeup()
 }
+
 $meta = new Five_Star_Ratings_Shortcode_Meta();
 $meta->filter_links();
