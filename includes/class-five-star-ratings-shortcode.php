@@ -152,7 +152,7 @@ class Five_Star_Ratings_Shortcode {
      *
      * @var     array
      * @access  public
-     * @since   1.2.52
+     * @since   1.2.53
      */
     public $admin;
 

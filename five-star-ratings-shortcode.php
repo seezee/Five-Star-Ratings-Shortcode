@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Five-Star Ratings Shortcode
- * Version: 1.2.52
+ * Version: 1.2.53
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
  * GitHub Plugin URI: seezee/five-star-ratings-shortcode
@@ -10,7 +10,7 @@
  * Author: Chris J. Zähller / Messenger Web Design
  * Author URI: https://messengerwebdesign.com/
  * Requires at least: 4.6.1
- * Tested up to: 6.5.2
+ * Tested up to: 6.5.3
  * PHP Version 7.0
  * Text Domain: fsrs
  * Domain Path: /lang/
@@ -79,7 +79,7 @@ if ( !defined( 'FSRS_BASE' ) ) {
     // phpcs:ignore
 }
 if ( !defined( 'FSRS_VERSION' ) ) {
-    define( 'FSRS_VERSION', '1.2.51' );
+    define( 'FSRS_VERSION', '1.2.53' );
 } else {
     $message = __( 'Five-Star Ratings Shortcode ERROR! The <abbr>PHP</abbr> constant “FSRS_VERSION” has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'fsrs' );
     echo $error_open . wp_kses( $message, $arr ) . $error_close;
@@ -125,9 +125,9 @@ function fsrs_check_version() {
         $rel = 'noopener noreferrer';
         // Used in both links.
         $url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/licenses/1/';
-        $html .= sprintf(
+        $html .= sprintf( 
             // Translation string with variables.
-            wp_kses(
+            wp_kses( 
                 /* translators: ignore the placeholders in the URL */
                 __( 'Five-Star Ratings Shortcode updated successfully. For Google Rich Snippets support, customized colors and sizes, variable minimum and maximum ratings, and additional customized output please upgrade to <a href="%1$s" rel="%2$s">Five-Star Ratings Shortcode PRO</a>.', 'fsrs' ),
                 array(
@@ -142,7 +142,7 @@ function fsrs_check_version() {
          );
         $url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/?
 					trial=free';
-        $html .= ' ' . sprintf( wp_kses(
+        $html .= ' ' . sprintf( wp_kses( 
             /* translators: ignore the placeholders in the URL */
             __( 'Not sure if you need those features? We have a <a href="%1$s" rel="%2$s">FREE 14-day trial</a>.', 'fsrs' ),
             array(

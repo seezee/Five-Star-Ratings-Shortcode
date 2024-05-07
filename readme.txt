@@ -5,9 +5,9 @@ Author URI: https://github.com/seezee
 Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
 Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0
-Tested up to: 6.5.2
+Tested up to: 6.5.3
 Requires PHP: 7.0
-Stable tag: 1.2.52
+Stable tag: 1.2.53
 License: GNUv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -122,9 +122,14 @@ This plugin includes these third-party libraries in its package.
 
 == Changelog ==
 
+= 1.2.53 =
+
+* 2024-05-07
+* Tested up to WordPress 6.5.3
+
 = 1.2.52 =
 
-* 2024-01-03
+* 2024-05-02
 * Tested up to WordPress 6.5.2
 * BUGFIX: Fix `creation of dynamic property is deprecated error`
 * Update Freemius SDK
@@ -590,9 +595,7 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.52 =
+= 1.2.53 =
 
-* 2024-01-03
-* Tested up to WordPress 6.5.2
-* BUGFIX: Fix `creation of dynamic property is deprecated error`
-* Update Freemius SDK
+* 2024-05-07
+* Tested up to WordPress 6.5.3
