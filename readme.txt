@@ -5,7 +5,7 @@ Author URI: https://github.com/seezee
 Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
 Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0
-Tested up to: 6.5.3
+Tested up to: 6.6.1
 Requires PHP: 7.0
 Stable tag: 1.2.54
 License: GPLv2 or later

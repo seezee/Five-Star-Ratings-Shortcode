@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: Five-Star Ratings Shortcode
+ * Plugin Name: Five-Star Ratings Shortcode DEV
  * Version: 1.2.54
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
@@ -10,7 +10,7 @@
  * Author: Chris J. Zähller / Messenger Web Design
  * Author URI: https://messengerwebdesign.com/
  * Requires at least: 4.6.1
- * Tested up to: 6.5.3
+ * Tested up to: 6.6.1
  * PHP Version 7.0
  * Text Domain: fsrs
  * Domain Path: /lang/
