@@ -8,7 +8,7 @@ Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0  
 Tested up to: 6.7.1  
 Requires PHP: 7.0  
-Stable tag: 1.2.56  
+Stable tag: 1.2.58  
 License: GPLv2 or later  
 License URI: <https://www.gnu.org/licenses/gpl-2.0.html>  
 GitHub Plugin URI: seezee/Five-Star-Ratings-Plugin  
@@ -151,6 +151,11 @@ This plugin includes these third-party libraries in its package.
 ## Changelog
 
 ## 1.2.57
+
+* 2024-01-27
+* Update Freemius SDK
+
+## 1.2.56
 
 * 2024-12-13
 * Tested up to WordPress 6.7.1
@@ -660,10 +665,7 @@ number of stars
 
 ## 1.2.57
 
-* 2024-12-13
-* Tested up to WordPress 6.7.1
-* Fix missing recipe author in rich snippets
-* Restructure rich snippets JSON for review author
+* 2024-01-27
 * Update Freemius SDK
 
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
