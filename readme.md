@@ -150,6 +150,11 @@ This plugin includes these third-party libraries in its package.
 
 ## Changelog
 
+## 1.2.58
+
+* 2024-01-31
+* Fix SVN tag mismatch
+
 ## 1.2.57
 
 * 2024-01-27
@@ -663,10 +668,10 @@ number of stars
 
 ## Upgrade Notice
 
-## 1.2.57
+## 1.2.58
 
-* 2024-01-27
-* Update Freemius SDK
+* 2024-01-31
+* Fix SVN tag mismatch
 
 [//]: # (*********************************************************************            ***Do not copy/paste to readme.txt! You'll mess up the formatting!***            *********************************************************************)
 [//]: # (REMEMBER to update the Stable tag and copy all changes to readme.txt!)

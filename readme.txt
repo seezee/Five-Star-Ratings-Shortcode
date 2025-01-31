@@ -7,7 +7,7 @@ Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0
 Tested up to: 6.7.1
 Requires PHP: 7.0
-Stable tag: 1.2.57
+Stable tag: 1.2.58
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -121,6 +121,11 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 == Changelog ==
+
+= 1.2.58 =
+
+* 2024-01-31
+* Fix SVN tag mismatch
 
 = 1.2.57 =
 
@@ -619,7 +624,7 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.57 =
+= 1.2.58 =
 
-* 2024-01-27
-* Update Freemius SDK
+* 2024-01-31
+* Fix SVN tag mismatch
