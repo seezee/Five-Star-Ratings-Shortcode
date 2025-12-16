@@ -41,7 +41,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 2. Search for “Five-Star Ratings Shortcode”
 3. Click “Install Now”
 4. Activate the plugin on the Plugin dashboard
-5. Go to Settings -> Five-Star Ratings Shortcode if you want to customize the shortcode output.
+5. The plugin has no settings.
 
 ### UPLOADING IN WORDPRESS DASHBOARD
 1. Click the download button on this and save “five-star-ratings-plugin.zip” to your computer
@@ -50,15 +50,19 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 4. Select “five-star-ratings-plugin.zip” from your computer
 5. Click “Install Now”
 6. Activate the plugin in the Plugin dashboard
-7. Go to Settings -> Five-Star Ratings Shortcode if you want to customize the shortcode output.
+7. The plugin has no settings.
 
 ### USING FTP
 1. Download the Five-Star Ratings Shortcode ZIP file
 2. Extract the Five-Star Ratings Shortcode ZIP file to your computer
 3. Upload the “five-star-ratings-plugin” directory to the `/wp-content/plugins/` directory
 4. Activate the plugin in the Plugin dashboard
-5. Go to Settings -> Five-Star Ratings Shortcode if you want to customize the shortcode output.
+5. The plugin has no settings.
 
+### UPGRADING TO FIVE-STAR RATINGS SHORTCODE PRO
+1. Go to Settings -> Five-Star Ratings Shortcode -> Upgrade
+2. Fill out the payment form and submit
+3. Your license key will automatically be entered
 
 ### DOWNLOAD FROM GITHUB
 1. Download the plugin via [https://github.com/seezee/Five-Star-Ratings-Shortcode](https://github.com/seezee/Five-Star-Ratings-Shortcode)
@@ -85,9 +89,6 @@ In the 2nd example, the raw output will be like this before processing:
       <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">2.5</span>
     </span>
 
-== Screenshots ==
-
-1. Settings Screen
 
 == Frequently Asked Questions ==
 
