@@ -5,9 +5,9 @@ Author URI: https://github.com/seezee
 Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
 Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0
-Tested up to: 6.7.1
+Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 1.2.58
+Stable tag: 1.2.59
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,7 +41,7 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 2. Search for “Five-Star Ratings Shortcode”
 3. Click “Install Now”
 4. Activate the plugin on the Plugin dashboard
-5. The plugin has no settings.
+5. Go to Settings -> Five-Star Ratings Shortcode if you want to customize the shortcode output.
 
 ### UPLOADING IN WORDPRESS DASHBOARD
 1. Click the download button on this and save “five-star-ratings-plugin.zip” to your computer
@@ -50,19 +50,15 @@ This plugin is based on [Hugh Lashbrooke’s Starter Plugin](https://github.com/
 4. Select “five-star-ratings-plugin.zip” from your computer
 5. Click “Install Now”
 6. Activate the plugin in the Plugin dashboard
-7. The plugin has no settings.
+7. Go to Settings -> Five-Star Ratings Shortcode if you want to customize the shortcode output.
 
 ### USING FTP
 1. Download the Five-Star Ratings Shortcode ZIP file
 2. Extract the Five-Star Ratings Shortcode ZIP file to your computer
 3. Upload the “five-star-ratings-plugin” directory to the `/wp-content/plugins/` directory
 4. Activate the plugin in the Plugin dashboard
-5. The plugin has no settings.
+5. Go to Settings -> Five-Star Ratings Shortcode if you want to customize the shortcode output.
 
-### UPGRADING TO FIVE-STAR RATINGS SHORTCODE PRO
-1. Go to Settings -> Five-Star Ratings Shortcode -> Upgrade
-2. Fill out the payment form and submit
-3. Your license key will automatically be entered
 
 ### DOWNLOAD FROM GITHUB
 1. Download the plugin via [https://github.com/seezee/Five-Star-Ratings-Shortcode](https://github.com/seezee/Five-Star-Ratings-Shortcode)
@@ -89,6 +85,9 @@ In the 2nd example, the raw output will be like this before processing:
       <span class="lining fsrs-text fsrs-text__visible" aria-hidden="true">2.5</span>
     </span>
 
+== Screenshots ==
+
+1. Settings Screen
 
 == Frequently Asked Questions ==
 
@@ -121,6 +120,12 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 == Changelog ==
+
+= 1.2.59 =
+
+* 2025-12-16
+* Tested up to WordPress 6.9
+* Update Freemius SDK
 
 = 1.2.58 =
 
@@ -624,7 +629,8 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.58 =
+= 1.2.59 =
 
-* 2024-01-31
-* Fix SVN tag mismatch
+* 2025-12-16
+* Tested up to WordPress 6.9
+* Update Freemius SDK

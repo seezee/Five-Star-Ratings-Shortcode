@@ -1,8 +1,9 @@
 <?php
 
 /**
- * Plugin Name: Five-Star Ratings Shortcode
- * Version: 1.2.58
+ * Plugin Name: Five-Star Ratings Shortcode PRO
+ * Version: 1.2.59
+ * Update URI: https://api.freemius.com
  * Author URI: https://github.com/seezee
  * Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
  * GitHub Plugin URI: seezee/five-star-ratings-shortcode
@@ -10,11 +11,12 @@
  * Author: Chris J. Zähller / Messenger Web Design
  * Author URI: https://messengerwebdesign.com/
  * Requires at least: 4.6.1
- * Tested up to: 6.7.1
+ * Tested up to: 6.9
  * PHP Version 7.0
  * Text Domain: fsrs
  * Domain Path: /lang/
  *
+ * @fs_premium_only /includes/class-five-star-ratings-shortcode-head.php /assets/dist/js/jquery-validate/ /assets/dist/js/clipboard.js /assets/dist/js/clipboard.min.js
  *
  * @package WordPress
  * @author  Chris J. Zähller <chris@messengerwebdesign.com>
@@ -36,7 +38,7 @@ if ( !function_exists( 'fsrs_fs' ) ) {
                 'premium_slug'    => 'five-star-ratings-shortcode-pro',
                 'type'            => 'plugin',
                 'public_key'      => 'pk_9847875a95be002fa7fedc9eb5bc9',
-                'is_premium'      => false,
+                'is_premium'      => true,
                 'premium_suffix'  => 'PRO',
                 'has_addons'      => false,
                 'has_paid_plans'  => true,
@@ -79,7 +81,7 @@ if ( !defined( 'FSRS_BASE' ) ) {
     // phpcs:ignore
 }
 if ( !defined( 'FSRS_VERSION' ) ) {
-    define( 'FSRS_VERSION', '1.2.58' );
+    define( 'FSRS_VERSION', '1.2.59' );
 } else {
     $message = __( 'Five-Star Ratings Shortcode ERROR! The <abbr>PHP</abbr> constant “FSRS_VERSION” has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'fsrs' );
     echo $error_open . wp_kses( $message, $arr ) . $error_close;
@@ -89,6 +91,15 @@ if ( !defined( 'FSRS_VERSION' ) ) {
 require_once 'includes/class-five-star-ratings-shortcode.php';
 require_once 'includes/class-five-star-ratings-shortcode-meta.php';
 require_once 'includes/class-five-star-ratings-shortcode-settings.php';
+if ( fsrs_fs()->is__premium_only() ) {
+    // This IF block will be auto removed from the Free version.
+    if ( fsrs_fs()->can_use_premium_code() ) {
+        // This IF block will be executed only if the user is in a trial mode or has a valid license.
+        require_once 'includes/class-five-star-ratings-shortcode-head.php';
+        // Load plugin library.
+        require_once 'includes/lib/class-five-star-ratings-shortcode-admin-api.php';
+    }
+}
 /**
  * Returns the main instance of five_star_ratings_shortcode Settings to
  * prevent the need to use globals.
@@ -118,44 +129,80 @@ function fsrs_check_version() {
             // Show only on settings pages.
             return;
         }
-        // Notice for FREE users.
-        $html = '<div id="updated" class="notice notice-success is-dismissible">';
-        $html .= '<p>';
-        $html .= '<span class="dashicons dashicons-yes-alt"></span> ';
-        $rel = 'noopener noreferrer';
-        // Used in both links.
-        $url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/licenses/1/';
-        $html .= sprintf( 
-            // Translation string with variables.
-            wp_kses( 
+        if ( fsrs_fs()->is__premium_only() ) {
+            if ( fsrs_fs()->can_use_premium_code() ) {
+                // Notice for PRO users.
+                $html = '<div id="updated" class="notice notice-success is-dismissible">';
+                $html .= '<p>';
+                $html .= '<span class="dashicons dashicons-yes-alt"></span> ';
+                $html .= esc_html__( 'Five-Star Ratings Shortcode PRO updated successfully!', 'fsrs' );
+                $html .= '</p>';
+                $html .= '</div>';
+                echo $html;
+                // phpcs:ignore
+            } elseif ( !fsrs_fs()->can_use_premium_code() ) {
+                // Notice for PRO users who have not activated their licenses.
+                $html = '<div id="updated" class="notice notice-success is-dismissible">';
+                $html .= '<p>';
+                $html .= '<span class="dashicons dashicons-yes-alt"></span> ';
+                $url = 'options-general.php?page=';
+                $slug = 'five-star-ratings-shortcode-account';
+                $link = sprintf( wp_kses( 
+                    /* translators: ignore the placeholders in the URL */
+                    __( 'Five-Star Ratings Shortcode PRO updated successfully! <a href="%1$s%2$s">Please activate your license</a> to enable PRO features.', 'fsrs' ),
+                    array(
+                        'a' => array(
+                            'href' => array(),
+                        ),
+                    )
+                 ), esc_url( $url ), $slug );
+                $html .= $link;
+                $html .= '</p>';
+                $html .= '</div>';
+                echo $html;
+                // phpcs:ignore
+            }
+        }
+        if ( !fsrs_fs()->is__premium_only() ) {
+            // Notice for FREE users.
+            $html = '<div id="updated" class="notice notice-success is-dismissible">';
+            $html .= '<p>';
+            $html .= '<span class="dashicons dashicons-yes-alt"></span> ';
+            $rel = 'noopener noreferrer';
+            // Used in both links.
+            $url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/licenses/1/';
+            $html .= sprintf( 
+                // Translation string with variables.
+                wp_kses( 
+                    /* translators: ignore the placeholders in the URL */
+                    __( 'Five-Star Ratings Shortcode updated successfully. For Google Rich Snippets support, customized colors and sizes, variable minimum and maximum ratings, and additional customized output please upgrade to <a href="%1$s" rel="%2$s">Five-Star Ratings Shortcode PRO</a>.', 'fsrs' ),
+                    array(
+                        'a' => array(
+                            'href' => array(),
+                            'rel'  => array(),
+                        ),
+                    )
+                 ),
+                esc_url( $url ),
+                $rel
+             );
+            $url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/?
+					trial=free';
+            $html .= ' ' . sprintf( wp_kses( 
                 /* translators: ignore the placeholders in the URL */
-                __( 'Five-Star Ratings Shortcode updated successfully. For Google Rich Snippets support, customized colors and sizes, variable minimum and maximum ratings, and additional customized output please upgrade to <a href="%1$s" rel="%2$s">Five-Star Ratings Shortcode PRO</a>.', 'fsrs' ),
+                __( 'Not sure if you need those features? We have a <a href="%1$s" rel="%2$s">FREE 14-day trial</a>.', 'fsrs' ),
                 array(
                     'a' => array(
                         'href' => array(),
                         'rel'  => array(),
                     ),
                 )
-             ),
-            esc_url( $url ),
-            $rel
-         );
-        $url = '//checkout.freemius.com/mode/dialog/plugin/5125/plan/8260/?
-					trial=free';
-        $html .= ' ' . sprintf( wp_kses( 
-            /* translators: ignore the placeholders in the URL */
-            __( 'Not sure if you need those features? We have a <a href="%1$s" rel="%2$s">FREE 14-day trial</a>.', 'fsrs' ),
-            array(
-                'a' => array(
-                    'href' => array(),
-                    'rel'  => array(),
-                ),
-            )
-         ), esc_url( $url ), $rel );
-        $html .= '</p>';
-        $html .= '</div>';
-        echo $html;
-        // phpcs:ignore
+             ), esc_url( $url ), $rel );
+            $html .= '</p>';
+            $html .= '</div>';
+            echo $html;
+            // phpcs:ignore
+        }
         update_option( FSRS_BASE . 'version', FSRS_VERSION );
     }
 }
