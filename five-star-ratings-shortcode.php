@@ -2,9 +2,9 @@
 
 /**
  * Plugin Name: Five-Star Ratings Shortcode
- * Version: 1.2.60
+ * Version: 1.2.61
  * Author URI: https://github.com/seezee
- * Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
+ * Plugin URI: https://messengerwebdesign.com/plugins/
  * GitHub Plugin URI: seezee/five-star-ratings-shortcode
  * Description: Simple lightweight shortcode to add 5-star ratings anywhere
  * Author: Chris J. Zähller / Messenger Web Design
@@ -79,7 +79,7 @@ if ( !defined( 'FSRS_BASE' ) ) {
     // phpcs:ignore
 }
 if ( !defined( 'FSRS_VERSION' ) ) {
-    define( 'FSRS_VERSION', '1.2.60' );
+    define( 'FSRS_VERSION', '1.2.61' );
 } else {
     $message = __( 'Five-Star Ratings Shortcode ERROR! The <abbr>PHP</abbr> constant “FSRS_VERSION” has already been defined. This could be due to a conflict with another plugin or theme. Please check your logs to debug.', 'fsrs' );
     echo $error_open . wp_kses( $message, $arr ) . $error_close;

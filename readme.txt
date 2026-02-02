@@ -2,12 +2,12 @@
 Contributors: seezee, freemius
 Donate link: https://messengerwebdesign.com/donate
 Author URI: https://github.com/seezee
-Plugin URI: https://wordpress.org/plugins/five-star-ratings-shortcode/
+Plugin URI: https://messengerwebdesign.com/plugins/
 Tags: ratings, stars, icon, shortcode, accessible
 Requires at least: 4.6.0
 Tested up to: 6.9
 Requires PHP: 7.0
-Stable tag: 1.2.60
+Stable tag: 1.2.61
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -121,6 +121,11 @@ This plugin includes these third-party libraries in its package.
 * [Font Awesome 5](https://github.com/FortAwesome/Font-Awesome)
 
 == Changelog ==
+
+= 1.2.61 =
+
+* 2026-02-02
+* Update plugin URI
 
 = 1.2.60 =
 
@@ -635,7 +640,7 @@ BUGFIX: fix undefined variable
 
 == Upgrade Notice ==
 
-= 1.2.60 =
+= 1.2.61 =
 
-* 2025-12-16
-* Force SVN refresh
+* 2026-02-02
+* Update plugin URI
